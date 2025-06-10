@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
@@ -14,25 +13,99 @@ export const HeroSection = () => {
         }}
       />
       
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-5xl md:text-7xl font-thin text-white mb-6 animate-fade-in">
-          Your Water.
-          <br />
-          <span className="font-light">Your Freedom.</span>
+      {/* Desktop Content - Side by Side Layout */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+          {/* Left Side - Text Content */}
+          <div className="text-left">
+            {/* Product Name */}
+            <h1 className="text-[32px] font-semibold text-[#1d1d1f] mb-6">
+              Ximpul Flow
+            </h1>
+            
+            {/* Main Headline - Single Line */}
+            <h2 className="text-[56px] font-semibold leading-tight tracking-tight apple-gradient-text mb-8">
+              Your Water. Your Freedom.
+            </h2>
+            
+            {/* Tagline */}
+            <p className="text-xl lg:text-2xl mb-8 text-white/90">
+              Will you keep paying for what falls from the sky?
+            </p>
+            
+            {/* CTA Section */}
+            <div>
+              <Button 
+                size="lg" 
+                className="bg-white text-slate-900 hover:bg-white/90 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 mb-4"
+                onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Buy Now
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+              
+              {/* Pricing */}
+              <p className="text-lg text-white/80">
+                From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+              </p>
+            </div>
+          </div>
+
+          {/* Right Side - Product Image */}
+          <div className="flex justify-center lg:justify-end">
+            <img 
+              src="/lovable-uploads/ac604d15-e2d6-44f4-8750-0fced0ad0285.png" 
+              alt="Ximpul Flow Water Bottle" 
+              className="max-w-sm lg:max-w-md xl:max-w-lg w-full h-auto object-contain" 
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Content - Keep Existing Layout */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
+        {/* Product Name */}
+        <h1 className="text-2xl font-normal text-white mb-4">
+          Ximpul Flow
         </h1>
         
-        <h2 className="text-xl md:text-2xl font-light text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Will you keep paying for what falls from the sky?
+        {/* Main Headline */}
+        <h2 className="text-4xl sm:text-5xl font-semibold mb-8 leading-tight tracking-tight text-white">
+          Your Water.
+          <br />
+          Your Freedom.
         </h2>
         
-        <Button 
-          size="lg" 
-          className="bg-white text-slate-900 hover:bg-white/90 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105"
-        >
-          Buy Now
-          <ChevronRight className="ml-2 h-5 w-5" />
-        </Button>
+        {/* Product Image */}
+        <div className="mb-8 flex justify-center">
+          <img 
+            src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" 
+            alt="Ximpul Flow Water Bottle" 
+            className="max-w-xs w-full h-auto object-contain" 
+          />
+        </div>
+        
+        {/* Tagline */}
+        <p className="text-lg mb-6 text-white/90">
+          Will you keep paying for what falls from the sky?
+        </p>
+        
+        {/* CTA Section */}
+        <div>
+          <Button 
+            size="lg" 
+            className="bg-white text-slate-900 hover:bg-white/90 px-8 py-3 text-lg font-medium rounded-full mb-4"
+            onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Buy Now
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Button>
+          
+          {/* Pricing */}
+          <p className="text-base text-white/80">
+            From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+          </p>
+        </div>
       </div>
       
       {/* Scroll Indicator */}
