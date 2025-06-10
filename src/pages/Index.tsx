@@ -7,6 +7,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap, Recycle, Award } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
+import { AnimatedBackground } from '@/components/ui/animated-background';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -230,9 +231,12 @@ const Index = () => {
       
       {/* Hero Section - Apple MacBook Air Style */}
       <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden">
+        {/* Animated Background */}
+        <AnimatedBackground />
+        
         {/* Background Gradient */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 z-[1]"
           style={{
             background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
             transition: 'opacity 1.83s ease-out'
