@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -69,17 +70,21 @@ const Index = () => {
         }
       );
 
-      // Background parallax effect
-      gsap.to('.hero-bg', {
-        yPercent: -50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: '.hero-section',
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
+      gsap.fromTo('.hero-image', 
+        { 
+          opacity: 0, 
+          y: 50,
+          scale: 0.8 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 1.8,
+          ease: "power3.out",
+          delay: 0.8
         }
-      });
+      );
 
       // Fade in animations for sections
       gsap.utils.toArray('.fade-on-scroll').forEach((element: any) => {
@@ -212,48 +217,60 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Apple MacBook Air Style */}
-      <section className="hero-section min-h-screen bg-gradient-to-b from-blue-50 via-gray-50 to-white pt-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
-          {/* Product Name */}
-          <h1 className="hero-title text-4xl md:text-5xl font-normal text-black mb-4 tracking-tight">
-            Ximpul Flow
-          </h1>
-          
-          {/* Main Headline */}
-          <h2 className="text-5xl md:text-7xl font-semibold text-gray-800 mb-16 leading-tight tracking-tight">
-            Your Water.
-            <br />
-            Your Freedom.
-          </h2>
-          
-          {/* Product Image */}
-          <div className="mb-16 flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
-              alt="Ximpul Flow"
-              className="max-w-2xl w-full h-auto object-contain"
-            />
+      {/* Hero Section - Full Screen Height */}
+      <section className="hero-section h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Background Gradient */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
+          }}
+        />
+        
+        {/* Content Container */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center h-full pt-16">
+          {/* Left Content */}
+          <div className="text-left lg:text-left">
+            {/* Product Name */}
+            <h1 className="hero-title text-3xl md:text-4xl font-normal text-black mb-4 tracking-tight">
+              Ximpul Flow
+            </h1>
+            
+            {/* Main Headline */}
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-gray-800 mb-8 leading-tight tracking-tight">
+              Your Water.
+              <br />
+              Your Freedom.
+            </h2>
+            
+            {/* Tagline */}
+            <p className="hero-subtitle text-xl md:text-2xl font-medium mb-8 text-gray-600">
+              Built for <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Water Freedom</span>.
+            </p>
+            
+            {/* CTA Button */}
+            <Button 
+              size="lg" 
+              className="hero-button bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-6"
+              onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Buy
+            </Button>
+            
+            {/* Pricing */}
+            <p className="text-lg text-gray-600">
+              From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+            </p>
           </div>
           
-          {/* Tagline with Gradient Text */}
-          <p className="text-2xl md:text-3xl font-medium mb-8">
-            Built for <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Water Freedom</span>.
-          </p>
-          
-          {/* CTA Button */}
-          <Button 
-            size="lg" 
-            className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-8"
-            onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Buy
-          </Button>
-          
-          {/* Pricing */}
-          <p className="text-lg text-gray-600">
-            From 1,090 BDT or 91 BDT/mo. for 12 mo.*
-          </p>
+          {/* Right Content - Product Image */}
+          <div className="flex justify-center lg:justify-end">
+            <img
+              src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png"
+              alt="Ximpul Flow Water Bottle"
+              className="hero-image max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 
