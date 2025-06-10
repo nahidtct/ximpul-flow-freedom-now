@@ -207,12 +207,12 @@ const Index = () => {
               {/* Left Column - Text Content */}
               <div className="flex flex-col justify-center space-y-8">
                 {/* Product Name */}
-                <h1 className="hero-product-name text-3xl lg:text-4xl xl:text-5xl font-normal text-black">
+                <h1 className="hero-product-name lg:text-4xl xl:text-5xl text-black text-4xl font-semibold">
                   Ximpul Flow
                 </h1>
                 
                 {/* Main Headline */}
-                <h2 className="hero-main-heading text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text">
+                <h2 className="hero-main-heading lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text text-7xl">
                   Your Water. Your Freedom.
                 </h2>
                 
