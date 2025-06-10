@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -238,7 +237,7 @@ const Index = () => {
         <div 
           className="absolute inset-0 z-[1]"
           style={{
-            background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
+            background: 'linear-gradient(180deg, rgba(212, 234, 246, 0.8), rgba(249, 249, 249, 0.9) 75%, rgba(255, 255, 255, 0.95))',
             transition: 'opacity 1.83s ease-out'
           }}
         />
