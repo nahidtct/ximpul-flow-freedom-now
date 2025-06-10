@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -199,15 +200,25 @@ const Index = () => {
         <div className="relative z-10 w-full h-full hidden md:flex">
           <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 py-0">
             {/* Product Name */}
-            <h1 className="hero-product-name lg:text-4xl xl:text-5xl text-black mb-8 text-5xl font-normal py-[2px] mx-0 my-0">
+            <h1 className="hero-product-name text-black mb-8 font-semibold" style={{
+              fontSize: '32px',
+              lineHeight: '1.125',
+              fontWeight: '600',
+              letterSpacing: '.004em',
+              fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
+            }}>
               Ximpul Flow
             </h1>
             
             {/* Main Headline */}
-            <h2 className="hero-main-heading text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text mb-12">
-              Your Water.
-              <br />
-              Your Freedom.
+            <h2 className="hero-main-heading text-black mb-12 font-semibold tracking-tight" style={{
+              fontSize: '56px',
+              lineHeight: '1.0714285714',
+              fontWeight: '600',
+              letterSpacing: '0em',
+              fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
+            }}>
+              Your Water. Your Freedom.
             </h2>
             
             {/* Product Image - Centered and Large */}
@@ -217,7 +228,7 @@ const Index = () => {
             
             {/* Tagline */}
             <p className="hero-tagline text-xl lg:text-2xl mb-8">
-              Built for <span className="text-primary font-medium">Water Freedom</span>.
+              Will you keep paying for what falls from the sky?
             </p>
             
             {/* CTA Section */}
@@ -257,7 +268,7 @@ const Index = () => {
           
           {/* Tagline */}
           <p className="hero-tagline text-lg mb-6">
-            Built for <span className="text-primary font-medium">Water Freedom</span>.
+            Will you keep paying for what falls from the sky?
           </p>
           
           {/* CTA Section */}
