@@ -1,39 +1,36 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
-
 export const HeroSection = () => {
-  return (
-    <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden py-0 mx-0 my-[65px]">
+  return <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden py-0 mx-0 my-[65px]">
       {/* Background Gradient */}
       <div className="absolute inset-0" style={{
-        background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
-        transition: 'opacity 1.83s ease-out'
-      }} />
+      background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
+      transition: 'opacity 1.83s ease-out'
+    }} />
       
       {/* Content Container - Desktop Layout */}
       <div className="relative z-10 w-full h-full hidden md:flex">
-        <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 py-0">
+        <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 py-0 my-[28px]">
           {/* Product Name */}
           <h1 className="hero-product-name text-black mb-8 font-semibold" style={{
-            fontSize: '32px',
-            lineHeight: '1.125',
-            fontWeight: '600',
-            letterSpacing: '.004em',
-            fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
-          }}>
+          fontSize: '32px',
+          lineHeight: '1.125',
+          fontWeight: '600',
+          letterSpacing: '.004em',
+          fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
+        }}>
             Ximpul Flow
           </h1>
           
           {/* Main Headline */}
           <h2 className="hero-main-heading text-black mb-12 font-semibold tracking-tight" style={{
-            fontSize: '56px',
-            lineHeight: '1.0714285714',
-            fontWeight: '600',
-            letterSpacing: '0em',
-            fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
-          }}>
+          fontSize: '56px',
+          lineHeight: '1.0714285714',
+          fontWeight: '600',
+          letterSpacing: '0em',
+          fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
+        }}>
             Your Water. Your Freedom.
           </h2>
           
@@ -50,8 +47,8 @@ export const HeroSection = () => {
           {/* CTA Section */}
           <div className="hero-cta">
             <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4" onClick={() => document.getElementById('buy')?.scrollIntoView({
-              behavior: 'smooth'
-            })}>
+            behavior: 'smooth'
+          })}>
               Buy
             </Button>
             
@@ -90,8 +87,8 @@ export const HeroSection = () => {
         {/* CTA Section */}
         <div className="hero-cta">
           <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4" onClick={() => document.getElementById('buy')?.scrollIntoView({
-            behavior: 'smooth'
-          })}>
+          behavior: 'smooth'
+        })}>
             Buy
           </Button>
           
@@ -101,6 +98,5 @@ export const HeroSection = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
