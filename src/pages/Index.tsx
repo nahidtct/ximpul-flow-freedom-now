@@ -253,12 +253,12 @@ const Index = () => {
                 
                 {/* Main Headline */}
                 <h2 className="hero-main-heading text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text">
-                  Your<br />Freedom.
+                  Your Water. Your Freedom.
                 </h2>
                 
                 {/* Tagline */}
                 <p className="hero-tagline text-xl lg:text-2xl">
-                  Built for <span className="text-primary font-medium">Water Freedom</span>.
+                  Will you keep paying for what falls from the sky?
                 </p>
                 
                 {/* CTA Section */}
@@ -273,7 +273,7 @@ const Index = () => {
                   
                   {/* Pricing */}
                   <p className="text-lg text-gray-600">
-                    From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+                    From 1,090 BDT
                   </p>
                 </div>
               </div>
@@ -281,7 +281,7 @@ const Index = () => {
               {/* Right Column - Product Image */}
               <div className="hero-product-image flex justify-center items-center">
                 <img
-                  src="/lovable-uploads/0e4e7115-fe82-42ef-9bad-980c3f100417.png"
+                  src="/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png"
                   alt="Ximpul Flow Water Bottle"
                   className="max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain"
                 />
@@ -315,7 +315,7 @@ const Index = () => {
           
           {/* Tagline */}
           <p className="hero-tagline text-lg mb-6">
-            Built for <span className="text-primary font-medium">Water Freedom</span>.
+            Will you keep paying for what falls from the sky?
           </p>
           
           {/* CTA Section */}
@@ -330,7 +330,7 @@ const Index = () => {
             
             {/* Pricing */}
             <p className="text-base text-gray-600">
-              From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+              From 1,090 BDT
             </p>
           </div>
         </div>
