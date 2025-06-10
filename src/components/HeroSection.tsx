@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
@@ -14,8 +15,8 @@ export const HeroSection = () => {
       />
       
       {/* Desktop Content - Side by Side Layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block py-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
           {/* Left Side - Text Content */}
           <div className="text-left">
             {/* Product Name */}
@@ -24,7 +25,7 @@ export const HeroSection = () => {
             </h1>
             
             {/* Main Headline - Single Line */}
-            <h2 className="text-[56px] font-semibold leading-tight tracking-tight apple-gradient-text mb-8">
+            <h2 className="text-[56px] font-semibold leading-none tracking-tight apple-gradient-text mb-8 whitespace-nowrap">
               Your Water. Your Freedom.
             </h2>
             
