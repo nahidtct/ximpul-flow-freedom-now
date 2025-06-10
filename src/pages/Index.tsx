@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -213,55 +212,48 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Apple Style with Gradient Background */}
-      <section className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden" style={{
-        background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
-        transition: 'opacity 1.83s ease-out'
-      }}>
-        {/* Background Image */}
-        <div 
-          className="hero-bg absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=2000&q=80')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
-        
-        {/* Content */}
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="hero-title mb-6 leading-tight" style={{
-            backgroundRepeat: 'no-repeat',
-            backgroundImage: `url('/lovable-uploads/9c100997-6295-435f-82b4-dbb189b560d0.png')`,
-            display: 'inline-block',
-            backgroundSize: 'cover',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontSize: 'clamp(32px, 8vw, 80px)',
-            lineHeight: '1.125',
-            fontWeight: '600',
-            letterSpacing: '.004em',
-            fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
-          }}>
+      {/* Hero Section - Apple MacBook Air Style */}
+      <section className="hero-section min-h-screen bg-gradient-to-b from-blue-50 via-gray-50 to-white pt-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+          {/* Product Name */}
+          <h1 className="hero-title text-4xl md:text-5xl font-normal text-black mb-4 tracking-tight">
+            Ximpul Flow
+          </h1>
+          
+          {/* Main Headline */}
+          <h2 className="text-5xl md:text-7xl font-semibold text-gray-800 mb-16 leading-tight tracking-tight">
             Your Water.
             <br />
             Your Freedom.
-          </h1>
+          </h2>
           
-          <p className="hero-subtitle text-xl md:text-2xl font-light text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Will you keep paying for what falls from the sky?
+          {/* Product Image */}
+          <div className="mb-16 flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
+              alt="Ximpul Flow"
+              className="max-w-2xl w-full h-auto object-contain"
+            />
+          </div>
+          
+          {/* Tagline with Gradient Text */}
+          <p className="text-2xl md:text-3xl font-medium mb-8">
+            Built for <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Water Freedom</span>.
           </p>
           
+          {/* CTA Button */}
           <Button 
             size="lg" 
-            className="hero-button bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-8"
             onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Buy Now
-            <ChevronRight className="ml-2 h-5 w-5" />
+            Buy
           </Button>
+          
+          {/* Pricing */}
+          <p className="text-lg text-gray-600">
+            From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+          </p>
         </div>
       </section>
 
