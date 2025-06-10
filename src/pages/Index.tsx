@@ -247,7 +247,7 @@ const Index = () => {
         {/* Content Container - Mobile Layout */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
           {/* Product Name */}
-          <h1 className="hero-product-name text-2xl font-normal text-black mb-4">
+          <h1 className="hero-product-name text-2xl text-black mb-4 font-semibold">
             Ximpul Flow
           </h1>
           
