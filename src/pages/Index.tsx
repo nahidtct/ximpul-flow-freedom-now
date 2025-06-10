@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,7 +7,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap, Recycle, Award } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
-import { AnimatedBackground } from '@/components/ui/animated-background';
+import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -230,14 +231,14 @@ const Index = () => {
       
       {/* Hero Section - Apple MacBook Air Style */}
       <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden">
-        {/* Animated Background */}
-        <AnimatedBackground />
+        {/* Animated Background Paths */}
+        <BackgroundPathsOnly />
         
         {/* Background Gradient */}
         <div 
           className="absolute inset-0 z-[1]"
           style={{
-            background: 'linear-gradient(180deg, rgba(212, 234, 246, 0.8), rgba(249, 249, 249, 0.9) 75%, rgba(255, 255, 255, 0.95))',
+            background: 'linear-gradient(180deg, rgba(212, 234, 246, 0.3), rgba(249, 249, 249, 0.6) 75%, rgba(255, 255, 255, 0.8))',
             transition: 'opacity 1.83s ease-out'
           }}
         />

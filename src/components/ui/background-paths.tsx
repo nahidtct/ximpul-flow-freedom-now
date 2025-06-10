@@ -131,3 +131,13 @@ export function BackgroundPaths({
         </div>
     );
 }
+
+// Simplified version for background only
+export function BackgroundPathsOnly() {
+    return (
+        <div className="absolute inset-0 overflow-hidden z-0">
+            <FloatingPaths position={1} />
+            <FloatingPaths position={-1} />
+        </div>
+    );
+}
