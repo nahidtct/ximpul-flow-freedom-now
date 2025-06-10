@@ -197,12 +197,14 @@ const Index = () => {
         
         {/* Content Container - Desktop Layout */}
         <div className="relative z-10 w-full h-full hidden md:flex">
-          <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 py-0 lg:px-0 mx-0 my-[51px]">
+          <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 py-0">
             {/* Product Name */}
-            <h1 className="hero-product-name lg:text-4xl xl:text-5xl mb-8 mx-0 my-[2px] px-0 py-0 text-[#1d1d1f] font-semibold text-3xl">Ximpul Flow</h1>
+            <h1 className="hero-product-name lg:text-4xl xl:text-5xl text-black mb-8 text-5xl font-normal py-[2px] mx-0 my-0">
+              Ximpul Flow
+            </h1>
             
             {/* Main Headline */}
-            <h2 className="hero-main-heading lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text mb-12 text-5xl">
+            <h2 className="hero-main-heading text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text mb-12">
               Your Water.
               <br />
               Your Freedom.
