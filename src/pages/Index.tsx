@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap, Recycle, Award } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
 
 const Index = () => {
@@ -59,23 +59,33 @@ const Index = () => {
   const features = [
     {
       icon: <Thermometer className="w-8 h-8 text-primary" />,
-      title: "Temperature Control",
-      description: "Keeps drinks hot for 12 hours, cold for 24 hours with double-wall insulation"
+      title: "Advanced Temperature Control",
+      description: "Keeps drinks hot for 12 hours, cold for 24 hours with premium double-wall vacuum insulation technology"
     },
     {
       icon: <Shield className="w-8 h-8 text-primary" />,
       title: "Food-Grade Safety",
-      description: "Made with premium 304 stainless steel, completely BPA-free and safe"
+      description: "Made with premium 304 stainless steel, completely BPA-free and safe for all beverages"
     },
     {
       icon: <Droplets className="w-8 h-8 text-primary" />,
-      title: "Leak-Proof Design",
-      description: "Advanced seal technology ensures zero spills in any position"
+      title: "100% Leak-Proof Design",
+      description: "Advanced seal technology with triple-lock mechanism ensures zero spills in any position"
     },
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
-      title: "Easy Clean",
-      description: "Wide mouth design and smooth interior for effortless cleaning"
+      title: "Easy Clean Technology",
+      description: "Wide mouth design and smooth interior coating for effortless cleaning and maintenance"
+    },
+    {
+      icon: <Recycle className="w-8 h-8 text-primary" />,
+      title: "Eco-Friendly Impact",
+      description: "Replace 1,000+ plastic bottles per year. Sustainable choice for conscious consumers"
+    },
+    {
+      icon: <Award className="w-8 h-8 text-primary" />,
+      title: "Premium Craftsmanship",
+      description: "Precision-engineered with attention to every detail. Built to last a lifetime"
     }
   ];
 
@@ -89,7 +99,7 @@ const Index = () => {
     {
       quote: "Amazing build quality — feels like a global brand.",
       author: "Fatima Khan",
-      location: "Chittagong",
+      location: "Chittagong", 
       rating: 5
     },
     {
@@ -97,6 +107,33 @@ const Index = () => {
       author: "Sakib Rahman",
       location: "Sylhet",
       rating: 5
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: "How long does Ximpul Flow keep drinks hot or cold?",
+      answer: "Ximpul Flow keeps drinks hot for up to 12 hours and cold for up to 24 hours thanks to our advanced double-wall vacuum insulation technology."
+    },
+    {
+      question: "Is Ximpul Flow safe for all types of beverages?",
+      answer: "Yes, Ximpul Flow is made from premium 304 stainless steel and is completely BPA-free, making it safe for water, coffee, tea, juices, and other beverages."
+    },
+    {
+      question: "Can I personalize my bottle with engraving?",
+      answer: "Absolutely! We offer professional engraving services to add your name or custom text to your bottle for an additional 300 BDT."
+    },
+    {
+      question: "How do I clean my Ximpul Flow bottle?",
+      answer: "The wide mouth design makes cleaning easy. Simply use warm soapy water and our included cleaning brush. The smooth interior coating prevents odor and stain buildup."
+    },
+    {
+      question: "What's included with my purchase?",
+      answer: "Each Ximpul Flow comes with the bottle, standard cap, and cleaning brush. Additional accessories can be purchased separately."
+    },
+    {
+      question: "Do you offer international shipping?",
+      answer: "Currently, we ship within Bangladesh. We're working on expanding our shipping options to serve customers internationally."
     }
   ];
 
@@ -123,6 +160,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Buy Now
                 <ChevronRight className="ml-2 h-5 w-5" />
@@ -142,7 +180,7 @@ const Index = () => {
       </section>
 
       {/* Brand Story Section - Apple Style with Side-by-Side */}
-      <section className="apple-spacing bg-background">
+      <section id="story" className="apple-spacing bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
           {/* Story Block 1 */}
           <div className="grid lg:grid-cols-2 gap-16 items-center fade-on-scroll">
@@ -203,23 +241,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Product Features Section - Apple Style */}
-      <section className="apple-spacing bg-muted/30 fade-on-scroll">
+      {/* Product Features Section - Enhanced Apple Style */}
+      <section id="features" className="apple-spacing bg-muted/30 fade-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
               Engineered for Life
             </h2>
-            <p className="text-xl text-muted-foreground font-light">
-              Every detail crafted with purpose
+            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
+              Every detail crafted with purpose. Premium materials meet innovative design.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {features.map((feature, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
                 <div className="mb-6 flex justify-center">
-                  {feature.icon}
+                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    {feature.icon}
+                  </div>
                 </div>
                 <h3 className="text-xl font-medium text-foreground mb-4">{feature.title}</h3>
                 <p className="text-muted-foreground font-light leading-relaxed">
@@ -391,10 +431,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              Join the Movement
+              What Our Community Says
             </h2>
             <p className="text-xl text-muted-foreground font-light">
-              See what our community has to say
+              Real stories from real customers
             </p>
           </div>
 
@@ -421,6 +461,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="apple-spacing bg-muted/30 fade-on-scroll">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-muted-foreground font-light">
+              Everything you need to know about Ximpul Flow
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqItems.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-2xl px-6 bg-background">
+                <AccordionTrigger className="text-left text-lg font-medium hover:no-underline">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -437,6 +504,7 @@ const Index = () => {
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-2xl"
+            onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Buy Now
             <ChevronRight className="ml-2 h-6 w-6" />
@@ -444,68 +512,45 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground text-background py-16">
+      {/* Simple Footer */}
+      <footer className="bg-background border-t py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Brand Quote */}
-          <div className="text-center mb-12">
-            <p className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground">
               "Every refill tells a story — of change, of freedom, of a better way to live."
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* Newsletter */}
-            <div>
-              <h4 className="text-lg font-medium mb-4">Join the Movement</h4>
-              <p className="text-background/80 mb-4 font-light">Stay updated with our latest news and offers.</p>
-              <div className="flex gap-2">
-                <Input 
-                  placeholder="Enter your email" 
-                  className="bg-background/10 border-background/20 text-background placeholder:text-background/60"
-                />
-                <Button className="bg-background text-foreground hover:bg-background/90">
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             {/* Links */}
-            <div>
-              <h4 className="text-lg font-medium mb-4">Legal</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-background/80 hover:text-background transition-colors">
-                  Privacy Policy
-                </a>
-                <a href="#" className="block text-background/80 hover:text-background transition-colors">
-                  Terms of Service
-                </a>
-                <a href="#" className="block text-background/80 hover:text-background transition-colors">
-                  Refund Policy
-                </a>
-              </div>
+            <div className="flex space-x-6">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                Refund Policy
+              </a>
             </div>
 
-            {/* Social */}
-            <div>
-              <h4 className="text-lg font-medium mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="text-background/80 hover:text-background transition-colors">
-                  <Facebook className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-background/80 hover:text-background transition-colors">
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-background/80 hover:text-background transition-colors">
-                  <Youtube className="w-6 h-6" />
-                </a>
-              </div>
+            {/* Social Icons */}
+            <div className="flex space-x-4">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Youtube className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
-          {/* Bottom */}
-          <div className="border-t border-background/20 mt-12 pt-8 text-center">
-            <p className="text-background/60 font-light">
+          <div className="text-center mt-8 pt-8 border-t">
+            <p className="text-muted-foreground font-light">
               © 2024 Ximpul Flow. Made with love in Bangladesh.
             </p>
           </div>

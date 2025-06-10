@@ -28,6 +28,7 @@ export const Navigation = () => {
     { name: 'Home', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
     { name: 'Story', action: () => scrollToSection('story') },
     { name: 'Features', action: () => scrollToSection('features') },
+    { name: 'FAQ', action: () => scrollToSection('faq') },
     { name: 'Buy', action: () => scrollToSection('buy') }
   ];
 
