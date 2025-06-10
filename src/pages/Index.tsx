@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -19,64 +20,103 @@ const Index = () => {
   useEffect(() => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
-
+    
     // GSAP Animations
     const ctx = gsap.context(() => {
       // Hero animations with staggered timeline
       const tl = gsap.timeline();
-
+      
       // Animate product name first
-      tl.fromTo('.hero-product-name', {
-        opacity: 0,
-        y: 30
-      }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      })
+      tl.fromTo('.hero-product-name', 
+        { 
+          opacity: 0, 
+          y: 30 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        }
+      )
       // Then animate main heading
-      .fromTo('.hero-main-heading', {
-        opacity: 0,
-        y: 50,
-        scale: 0.95
-      }, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1.2,
-        ease: "power3.out"
-      }, "-=0.4")
+      .fromTo('.hero-main-heading', 
+        { 
+          opacity: 0, 
+          y: 50,
+          scale: 0.95
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out"
+        }, "-=0.4"
+      )
       // Then animate product image
-      .fromTo('.hero-product-image', {
-        opacity: 0,
-        y: 80,
-        scale: 0.9
-      }, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1.5,
-        ease: "power3.out"
-      }, "-=0.8");
+      .fromTo('.hero-product-image', 
+        { 
+          opacity: 0, 
+          y: 80,
+          scale: 0.9
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 1.5,
+          ease: "power3.out"
+        }, "-=0.8"
+      )
+      // Finally animate tagline and CTA
+      .fromTo('.hero-tagline', 
+        { 
+          opacity: 0, 
+          y: 30 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.6"
+      )
+      .fromTo('.hero-cta', 
+        { 
+          opacity: 0, 
+          y: 30,
+          scale: 0.9 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.4"
+      );
 
       // Fade in animations for sections
       gsap.utils.toArray('.fade-on-scroll').forEach((element: any) => {
-        gsap.fromTo(element, {
-          opacity: 0,
-          y: 50
-        }, {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
+        gsap.fromTo(element, 
+          { 
+            opacity: 0, 
+            y: 50 
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse"
+            }
           }
-        });
+        );
       });
     });
 
@@ -86,41 +126,21 @@ const Index = () => {
   const handleAccessoryToggle = (accessory: string) => {
     setSelectedAccessories(prev => 
       prev.includes(accessory) 
-        ? prev.filter(a => a !== accessory) 
+        ? prev.filter(a => a !== accessory)
         : [...prev, accessory]
     );
   };
 
   const colors = [
-    {
-      name: 'Obsidian Black',
-      value: 'obsidian',
-      color: '#1a1a1a'
-    },
-    {
-      name: 'Graphite Gray',
-      value: 'graphite',
-      color: '#6b7280'
-    }
+    { name: 'Obsidian Black', value: 'obsidian', color: '#1a1a1a' },
+    { name: 'Graphite Gray', value: 'graphite', color: '#6b7280' }
   ];
 
   const accessories = [
-    {
-      name: 'Silicone Sleeve',
-      price: 300
-    },
-    {
-      name: 'Straw Cap',
-      price: 250
-    },
-    {
-      name: 'Handle Rope',
-      price: 200
-    },
-    {
-      name: 'Cleaning Brush',
-      price: 150
-    }
+    { name: 'Silicone Sleeve', price: 300 },
+    { name: 'Straw Cap', price: 250 },
+    { name: 'Handle Rope', price: 200 },
+    { name: 'Cleaning Brush', price: 150 }
   ];
 
   const features = [
@@ -166,7 +186,7 @@ const Index = () => {
     {
       quote: "Amazing build quality — feels like a global brand.",
       author: "Fatima Khan",
-      location: "Chittagong",
+      location: "Chittagong", 
       rating: 5
     },
     {
@@ -208,31 +228,69 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Clean Apple Style */}
-      <section className="relative min-h-screen flex items-center justify-center bg-white">
-        {/* Desktop Content */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block text-center">
-          {/* Product Name */}
-          <h1 className="hero-product-name text-6xl lg:text-7xl font-normal text-[#1d1d1f] mb-8 tracking-tight">
-            Ximpul Flow
-          </h1>
-          
-          {/* Main Headline - Massive and Bold */}
-          <h2 className="hero-main-heading text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-none tracking-tight text-[#1d1d1f] mb-16">
-            Your Water. Your Freedom.
-          </h2>
-          
-          {/* Product Image - Large and Centered */}
-          <div className="hero-product-image mb-8 flex justify-center">
-            <img 
-              src="/lovable-uploads/ac604d15-e2d6-44f4-8750-0fced0ad0285.png" 
-              alt="Ximpul Flow Water Bottle" 
-              className="max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain" 
-            />
+      {/* Hero Section - Apple MacBook Air Style */}
+      <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden">
+        {/* Background Gradient */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
+            transition: 'opacity 1.83s ease-out'
+          }}
+        />
+        
+        {/* Content Container - Desktop Layout */}
+        <div className="relative z-10 w-full h-full hidden md:block">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            {/* Desktop Grid Layout */}
+            <div className="grid grid-cols-2 h-full items-center">
+              {/* Left Column - Text Content */}
+              <div className="flex flex-col justify-center space-y-8">
+                {/* Product Name */}
+                <h1 className="hero-product-name text-3xl lg:text-4xl xl:text-5xl font-normal text-black">
+                  Ximpul Flow
+                </h1>
+                
+                {/* Main Headline */}
+                <h2 className="hero-main-heading text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text">
+                  Your<br />Freedom.
+                </h2>
+                
+                {/* Tagline */}
+                <p className="hero-tagline text-xl lg:text-2xl">
+                  Built for <span className="text-primary font-medium">Water Freedom</span>.
+                </p>
+                
+                {/* CTA Section */}
+                <div className="hero-cta space-y-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full"
+                    onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Buy
+                  </Button>
+                  
+                  {/* Pricing */}
+                  <p className="text-lg text-gray-600">
+                    From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+                  </p>
+                </div>
+              </div>
+              
+              {/* Right Column - Product Image */}
+              <div className="hero-product-image flex justify-center items-center">
+                <img
+                  src="/lovable-uploads/0e4e7115-fe82-42ef-9bad-980c3f100417.png"
+                  alt="Ximpul Flow Water Bottle"
+                  className="max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Mobile Content - Keep unchanged */}
+        {/* Content Container - Mobile Layout */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
           {/* Product Name */}
           <h1 className="hero-product-name text-2xl font-normal text-black mb-4">
@@ -248,16 +306,16 @@ const Index = () => {
           
           {/* Product Image */}
           <div className="hero-product-image mb-8 flex justify-center">
-            <img 
-              src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" 
-              alt="Ximpul Flow Water Bottle" 
-              className="max-w-xs w-full h-auto object-contain" 
+            <img
+              src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png"
+              alt="Ximpul Flow Water Bottle"
+              className="max-w-xs w-full h-auto object-contain"
             />
           </div>
           
           {/* Tagline */}
           <p className="hero-tagline text-lg mb-6">
-            Will you keep paying for what falls from the sky?
+            Built for <span className="text-primary font-medium">Water Freedom</span>.
           </p>
           
           {/* CTA Section */}
@@ -292,14 +350,22 @@ const Index = () => {
               </p>
             </div>
             <div className="order-1 lg:order-2">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Plastic bottles" className="w-full rounded-3xl shadow-xl" />
+              <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+                alt="Plastic bottles"
+                className="w-full rounded-3xl shadow-xl"
+              />
             </div>
           </div>
 
           {/* Story Block 2 */}
           <div className="grid lg:grid-cols-2 gap-16 items-center fade-on-scroll">
             <div>
-              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80" alt="Ximpul Flow lifestyle" className="w-full rounded-3xl shadow-xl" />
+              <img
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
+                alt="Ximpul Flow lifestyle"
+                className="w-full rounded-3xl shadow-xl"
+              />
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-light text-foreground mb-6 leading-relaxed">
@@ -322,7 +388,11 @@ const Index = () => {
               </p>
             </div>
             <div className="order-1 lg:order-2">
-              <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80" alt="Lifestyle with bottle" className="w-full rounded-3xl shadow-xl" />
+              <img
+                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80"
+                alt="Lifestyle with bottle"
+                className="w-full rounded-3xl shadow-xl"
+              />
             </div>
           </div>
         </div>
@@ -375,18 +445,32 @@ const Index = () => {
               {
                 name: 'Obsidian Black',
                 image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80',
-                benefits: ['Hot or cold — your choice', 'Safe & leak-proof', 'Personalize your bottle', 'Lifestyle-first — not just a bottle']
+                benefits: [
+                  'Hot or cold — your choice',
+                  'Safe & leak-proof',
+                  'Personalize your bottle',
+                  'Lifestyle-first — not just a bottle'
+                ]
               },
               {
                 name: 'Graphite Gray',
                 image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80',
-                benefits: ['Premium materials', 'Condensation-free design', 'Easy-grip surface', 'Statement piece for your lifestyle']
+                benefits: [
+                  'Premium materials',
+                  'Condensation-free design',
+                  'Easy-grip surface',
+                  'Statement piece for your lifestyle'
+                ]
               }
             ].map((product, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] overflow-hidden rounded-3xl">
                 <CardContent className="p-0">
                   <div className="relative">
-                    <img src={product.image} alt={product.name} className="w-full h-96 object-cover" />
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-96 object-cover"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-8">
                       <h3 className="text-white text-2xl font-light mb-4">{product.name}</h3>
@@ -429,7 +513,7 @@ const Index = () => {
                       <RadioGroupItem value={color.value} id={color.value} />
                       <div className="flex items-center space-x-3">
                         <div 
-                          className="w-8 h-8 rounded-full border-2 border-border" 
+                          className="w-8 h-8 rounded-full border-2 border-border"
                           style={{ backgroundColor: color.color }}
                         />
                         <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
@@ -449,8 +533,8 @@ const Index = () => {
                     <div 
                       key={accessory.name}
                       className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${
-                        selectedAccessories.includes(accessory.name) 
-                          ? 'border-primary bg-primary/5' 
+                        selectedAccessories.includes(accessory.name)
+                          ? 'border-primary bg-primary/5'
                           : 'border-border hover:border-primary/50'
                       }`}
                       onClick={() => handleAccessoryToggle(accessory.name)}
@@ -473,8 +557,8 @@ const Index = () => {
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Personalize</h3>
                 <Input 
-                  placeholder="Add your name (optional)" 
-                  className="text-lg p-4 rounded-2xl border-2" 
+                  placeholder="Add your name (optional)"
+                  className="text-lg p-4 rounded-2xl border-2"
                 />
                 <p className="text-sm text-muted-foreground mt-2">+300 BDT for engraving</p>
               </div>
@@ -548,11 +632,7 @@ const Index = () => {
 
           <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((item, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`} 
-                className="border border-border rounded-2xl px-6 bg-background"
-              >
+              <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-2xl px-6 bg-background">
                 <AccordionTrigger className="text-left text-lg font-medium hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
