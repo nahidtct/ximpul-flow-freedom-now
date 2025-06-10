@@ -101,3 +101,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom animations for Ximpul Flow */
+@layer utilities {
+  .fade-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  .fade-on-scroll.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom cursor for interactive elements */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
