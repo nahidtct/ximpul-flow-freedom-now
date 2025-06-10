@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -238,31 +239,82 @@ const Index = () => {
           }}
         />
         
-        {/* Content Container */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Content Container - Desktop Layout */}
+        <div className="relative z-10 w-full h-full hidden md:block">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            {/* Desktop Grid Layout */}
+            <div className="grid grid-cols-2 h-full items-center">
+              {/* Left Column - Text Content */}
+              <div className="flex flex-col justify-center space-y-8">
+                {/* Product Name */}
+                <h1 className="hero-product-name text-3xl lg:text-4xl xl:text-5xl font-normal text-black">
+                  Ximpul Flow
+                </h1>
+                
+                {/* Main Headline */}
+                <h2 className="hero-main-heading text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text">
+                  Your<br />Freedom.
+                </h2>
+                
+                {/* Tagline */}
+                <p className="hero-tagline text-xl lg:text-2xl">
+                  Built for <span className="text-primary font-medium">Water Freedom</span>.
+                </p>
+                
+                {/* CTA Section */}
+                <div className="hero-cta space-y-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full"
+                    onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Buy
+                  </Button>
+                  
+                  {/* Pricing */}
+                  <p className="text-lg text-gray-600">
+                    From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+                  </p>
+                </div>
+              </div>
+              
+              {/* Right Column - Product Image */}
+              <div className="hero-product-image flex justify-center items-center">
+                <img
+                  src="/lovable-uploads/0e4e7115-fe82-42ef-9bad-980c3f100417.png"
+                  alt="Ximpul Flow Water Bottle"
+                  className="max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Container - Mobile Layout */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
           {/* Product Name */}
-          <h1 className="hero-product-name text-2xl md:text-3xl lg:text-4xl font-normal text-black mb-4 md:mb-6">
+          <h1 className="hero-product-name text-2xl font-normal text-black mb-4">
             Ximpul Flow
           </h1>
           
           {/* Main Headline */}
-          <h2 className="hero-main-heading text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-semibold mb-8 md:mb-12 lg:mb-16 leading-tight tracking-tight apple-gradient-text">
+          <h2 className="hero-main-heading text-4xl sm:text-5xl font-semibold mb-8 leading-tight tracking-tight apple-gradient-text">
             Your Water.
             <br />
             Your Freedom.
           </h2>
           
           {/* Product Image */}
-          <div className="hero-product-image mb-8 md:mb-12 lg:mb-16 flex justify-center">
+          <div className="hero-product-image mb-8 flex justify-center">
             <img
               src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png"
               alt="Ximpul Flow Water Bottle"
-              className="max-w-xs md:max-w-md lg:max-w-lg xl:max-w-2xl w-full h-auto object-contain"
+              className="max-w-xs w-full h-auto object-contain"
             />
           </div>
           
           {/* Tagline */}
-          <p className="hero-tagline text-lg md:text-xl lg:text-2xl mb-6 md:mb-8">
+          <p className="hero-tagline text-lg mb-6">
             Built for <span className="text-primary font-medium">Water Freedom</span>.
           </p>
           
@@ -270,14 +322,14 @@ const Index = () => {
           <div className="hero-cta">
             <Button 
               size="lg" 
-              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4 md:mb-6"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4"
               onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Buy
             </Button>
             
             {/* Pricing */}
-            <p className="text-base md:text-lg text-gray-600">
+            <p className="text-base text-gray-600">
               From 1,090 BDT or 91 BDT/mo. for 12 mo.*
             </p>
           </div>
