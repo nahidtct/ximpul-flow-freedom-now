@@ -124,117 +124,121 @@ const Index = () => {
     name: 'Cleaning Brush',
     price: 150
   }];
-  const features = [{
-    icon: <Thermometer className="w-8 h-8 text-primary" />,
-    title: "Advanced Temperature Control",
-    description: "Keeps drinks hot for 12 hours, cold for 24 hours with premium double-wall vacuum insulation technology"
-  }, {
-    icon: <Shield className="w-8 h-8 text-primary" />,
-    title: "Food-Grade Safety",
-    description: "Made with premium 304 stainless steel, completely BPA-free and safe for all beverages"
-  }, {
-    icon: <Droplets className="w-8 h-8 text-primary" />,
-    title: "100% Leak-Proof Design",
-    description: "Advanced seal technology with triple-lock mechanism ensures zero spills in any position"
-  }, {
-    icon: <Zap className="w-8 h-8 text-primary" />,
-    title: "Easy Clean Technology",
-    description: "Wide mouth design and smooth interior coating for effortless cleaning and maintenance"
-  }, {
-    icon: <Recycle className="w-8 h-8 text-primary" />,
-    title: "Eco-Friendly Impact",
-    description: "Replace 1,000+ plastic bottles per year. Sustainable choice for conscious consumers"
-  }, {
-    icon: <Award className="w-8 h-8 text-primary" />,
-    title: "Premium Craftsmanship",
-    description: "Precision-engineered with attention to every detail. Built to last a lifetime"
-  }];
-  const testimonials = [{
-    quote: "I feel proud to use it.",
-    author: "Rifat Ahmed",
-    location: "Dhaka",
-    rating: 5
-  }, {
-    quote: "Amazing build quality — feels like a global brand.",
-    author: "Fatima Khan",
-    location: "Chittagong",
-    rating: 5
-  }, {
-    quote: "I love that I no longer need to buy plastic bottles.",
-    author: "Sakib Rahman",
-    location: "Sylhet",
-    rating: 5
-  }];
-  const faqItems = [{
-    question: "How long does Ximpul Flow keep drinks hot or cold?",
-    answer: "Ximpul Flow keeps drinks hot for up to 12 hours and cold for up to 24 hours thanks to our advanced double-wall vacuum insulation technology."
-  }, {
-    question: "Is Ximpul Flow safe for all types of beverages?",
-    answer: "Yes, Ximpul Flow is made from premium 304 stainless steel and is completely BPA-free, making it safe for water, coffee, tea, juices, and other beverages."
-  }, {
-    question: "Can I personalize my bottle with engraving?",
-    answer: "Absolutely! We offer professional engraving services to add your name or custom text to your bottle for an additional 300 BDT."
-  }, {
-    question: "How do I clean my Ximpul Flow bottle?",
-    answer: "The wide mouth design makes cleaning easy. Simply use warm soapy water and our included cleaning brush. The smooth interior coating prevents odor and stain buildup."
-  }, {
-    question: "What's included with my purchase?",
-    answer: "Each Ximpul Flow comes with the bottle, standard cap, and cleaning brush. Additional accessories can be purchased separately."
-  }, {
-    question: "Do you offer international shipping?",
-    answer: "Currently, we ship within Bangladesh. We're working on expanding our shipping options to serve customers internationally."
-  }];
+  const features = [
+    {
+      icon: <Thermometer className="w-8 h-8 text-primary" />,
+      title: "Advanced Temperature Control",
+      description: "Keeps drinks hot for 12 hours, cold for 24 hours with premium double-wall vacuum insulation technology"
+    }, {
+      icon: <Shield className="w-8 h-8 text-primary" />,
+      title: "Food-Grade Safety",
+      description: "Made with premium 304 stainless steel, completely BPA-free and safe for all beverages"
+    }, {
+      icon: <Droplets className="w-8 h-8 text-primary" />,
+      title: "100% Leak-Proof Design",
+      description: "Advanced seal technology with triple-lock mechanism ensures zero spills in any position"
+    }, {
+      icon: <Zap className="w-8 h-8 text-primary" />,
+      title: "Easy Clean Technology",
+      description: "Wide mouth design and smooth interior coating for effortless cleaning and maintenance"
+    }, {
+      icon: <Recycle className="w-8 h-8 text-primary" />,
+      title: "Eco-Friendly Impact",
+      description: "Replace 1,000+ plastic bottles per year. Sustainable choice for conscious consumers"
+    }, {
+      icon: <Award className="w-8 h-8 text-primary" />,
+      title: "Premium Craftsmanship",
+      description: "Precision-engineered with attention to every detail. Built to last a lifetime"
+    }
+  ];
+  const testimonials = [
+    {
+      quote: "I feel proud to use it.",
+      author: "Rifat Ahmed",
+      location: "Dhaka",
+      rating: 5
+    }, {
+      quote: "Amazing build quality — feels like a global brand.",
+      author: "Fatima Khan",
+      location: "Chittagong",
+      rating: 5
+    }, {
+      quote: "I love that I no longer need to buy plastic bottles.",
+      author: "Sakib Rahman",
+      location: "Sylhet",
+      rating: 5
+    }
+  ];
+  const faqItems = [
+    {
+      question: "How long does Ximpul Flow keep drinks hot or cold?",
+      answer: "Ximpul Flow keeps drinks hot for up to 12 hours and cold for up to 24 hours thanks to our advanced double-wall vacuum insulation technology."
+    }, {
+      question: "Is Ximpul Flow safe for all types of beverages?",
+      answer: "Yes, Ximpul Flow is made from premium 304 stainless steel and is completely BPA-free, making it safe for water, coffee, tea, juices, and other beverages."
+    }, {
+      question: "Can I personalize my bottle with engraving?",
+      answer: "Absolutely! We offer professional engraving services to add your name or custom text to your bottle for an additional 300 BDT."
+    }, {
+      question: "How do I clean my Ximpul Flow bottle?",
+      answer: "The wide mouth design makes cleaning easy. Simply use warm soapy water and our included cleaning brush. The smooth interior coating prevents odor and stain buildup."
+    }, {
+      question: "What's included with my purchase?",
+      answer: "Each Ximpul Flow comes with the bottle, standard cap, and cleaning brush. Additional accessories can be purchased separately."
+    }, {
+      question: "Do you offer international shipping?",
+      answer: "Currently, we ship within Bangladesh. We're working on expanding our shipping options to serve customers internationally."
+    }
+  ];
   return <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Apple MacBook Air Style */}
-      <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden py-0 mx-0 my-[65px]">
-        {/* Background Gradient */}
-        <div className="absolute inset-0" style={{
-        background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
-        transition: 'opacity 1.83s ease-out'
-      }} />
-        
-        {/* Content Container - Desktop Layout */}
-        <div className="relative z-10 w-full h-full hidden md:flex">
-          <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 py-0 lg:px-0 mx-0 my-0">
-            {/* Product Name */}
-            <h1 className="hero-product-name lg:text-4xl xl:text-5xl mb-8 mx-0 my-[2px] px-0 py-0 text-[#1d1d1f] font-semibold text-3xl">Ximpul Flow</h1>
+      {/* Hero Section - Apple MacBook Air Style - Exactly like screenshot */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-white">
+        {/* Desktop Content */}
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block text-center">
+          {/* Product Name */}
+          <h1 className="hero-product-name text-5xl lg:text-6xl font-normal text-[#1d1d1f] mb-6">
+            Ximpul Flow
+          </h1>
+          
+          {/* Main Headline - Single Line exactly like MacBook Air */}
+          <h2 className="hero-main-heading text-7xl lg:text-8xl xl:text-9xl font-semibold leading-none tracking-tight text-[#1d1d1f] mb-16 whitespace-nowrap">
+            Your Water. Your Freedom.
+          </h2>
+          
+          {/* Product Image - Large and Centered */}
+          <div className="hero-product-image mb-16 flex justify-center">
+            <img 
+              src="/lovable-uploads/ac604d15-e2d6-44f4-8750-0fced0ad0285.png" 
+              alt="Ximpul Flow Water Bottle" 
+              className="max-w-lg lg:max-w-xl xl:max-w-2xl w-full h-auto object-contain" 
+            />
+          </div>
+          
+          {/* Tagline */}
+          <p className="hero-tagline text-2xl lg:text-3xl xl:text-4xl mb-12 text-blue-500 font-light">
+            Will you keep paying for what falls from the sky?
+          </p>
+          
+          {/* CTA Section */}
+          <div className="hero-cta">
+            <Button 
+              size="lg" 
+              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 mb-6"
+              onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Buy
+            </Button>
             
-            {/* Main Headline */}
-            <h2 className="hero-main-heading lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text mb-12 text-5xl py-0">
-              Your Water.
-              <br />
-              Your Freedom.
-            </h2>
-            
-            {/* Product Image - Centered and Large */}
-            <div className="hero-product-image mb-12 py-0">
-              <img src="/lovable-uploads/ac604d15-e2d6-44f4-8750-0fced0ad0285.png" alt="Ximpul Flow Water Bottle" className="max-w-sm lg:max-w-md xl:max-w-lg w-full h-auto object-contain" />
-            </div>
-            
-            {/* Tagline */}
-            <p className="hero-tagline text-xl lg:text-2xl mb-8">
-              Built for <span className="text-primary font-medium">Water Freedom</span>.
+            {/* Pricing */}
+            <p className="text-lg text-gray-600">
+              From 1,090 BDT or 91 BDT/mo. for 12 mo.*
             </p>
-            
-            {/* CTA Section */}
-            <div className="hero-cta">
-              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4" onClick={() => document.getElementById('buy')?.scrollIntoView({
-              behavior: 'smooth'
-            })}>
-                Buy
-              </Button>
-              
-              {/* Pricing */}
-              <p className="text-lg text-gray-600">
-                From 1,090 BDT or 91 BDT/mo. for 12 mo.*
-              </p>
-            </div>
           </div>
         </div>
 
-        {/* Content Container - Mobile Layout */}
+        {/* Mobile Content - Keep unchanged */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
           {/* Product Name */}
           <h1 className="hero-product-name text-2xl font-normal text-black mb-4">
@@ -255,7 +259,7 @@ const Index = () => {
           
           {/* Tagline */}
           <p className="hero-tagline text-lg mb-6">
-            Built for <span className="text-primary font-medium">Water Freedom</span>.
+            Will you keep paying for what falls from the sky?
           </p>
           
           {/* CTA Section */}
