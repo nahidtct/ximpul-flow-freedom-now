@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -23,24 +22,11 @@ const Index = () => {
     
     // GSAP Animations
     const ctx = gsap.context(() => {
-      // Hero text animation
-      gsap.fromTo('.hero-title', 
-        { 
-          opacity: 0, 
-          y: 50,
-          scale: 0.9 
-        },
-        { 
-          opacity: 1, 
-          y: 0,
-          scale: 1,
-          duration: 1.5,
-          ease: "power3.out",
-          delay: 0.5
-        }
-      );
-
-      gsap.fromTo('.hero-subtitle', 
+      // Hero animations with staggered timeline
+      const tl = gsap.timeline();
+      
+      // Animate product name first
+      tl.fromTo('.hero-product-name', 
         { 
           opacity: 0, 
           y: 30 
@@ -48,13 +34,54 @@ const Index = () => {
         { 
           opacity: 1, 
           y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          delay: 1
+          duration: 0.8,
+          ease: "power3.out"
         }
-      );
-
-      gsap.fromTo('.hero-button', 
+      )
+      // Then animate main heading
+      .fromTo('.hero-main-heading', 
+        { 
+          opacity: 0, 
+          y: 50,
+          scale: 0.95
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out"
+        }, "-=0.4"
+      )
+      // Then animate product image
+      .fromTo('.hero-product-image', 
+        { 
+          opacity: 0, 
+          y: 80,
+          scale: 0.9
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 1.5,
+          ease: "power3.out"
+        }, "-=0.8"
+      )
+      // Finally animate tagline and CTA
+      .fromTo('.hero-tagline', 
+        { 
+          opacity: 0, 
+          y: 30 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.6"
+      )
+      .fromTo('.hero-cta', 
         { 
           opacity: 0, 
           y: 30,
@@ -64,26 +91,9 @@ const Index = () => {
           opacity: 1, 
           y: 0,
           scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          delay: 1.5
-        }
-      );
-
-      gsap.fromTo('.hero-image', 
-        { 
-          opacity: 0, 
-          y: 50,
-          scale: 0.8 
-        },
-        { 
-          opacity: 1, 
-          y: 0,
-          scale: 1,
-          duration: 1.8,
-          ease: "power3.out",
-          delay: 0.8
-        }
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.4"
       );
 
       // Fade in animations for sections
@@ -217,59 +227,59 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Full Screen Height */}
-      <section className="hero-section h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Hero Section - Apple MacBook Air Style */}
+      <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden">
         {/* Background Gradient */}
         <div 
           className="absolute inset-0"
           style={{
             background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
+            transition: 'opacity 1.83s ease-out'
           }}
         />
         
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center h-full pt-16">
-          {/* Left Content */}
-          <div className="text-left lg:text-left">
-            {/* Product Name */}
-            <h1 className="hero-title text-3xl md:text-4xl font-normal text-black mb-4 tracking-tight">
-              Ximpul Flow
-            </h1>
-            
-            {/* Main Headline */}
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-gray-800 mb-8 leading-tight tracking-tight">
-              Your Water.
-              <br />
-              Your Freedom.
-            </h2>
-            
-            {/* Tagline */}
-            <p className="hero-subtitle text-xl md:text-2xl font-medium mb-8 text-gray-600">
-              Built for <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Water Freedom</span>.
-            </p>
-            
-            {/* CTA Button */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Product Name */}
+          <h1 className="hero-product-name text-2xl md:text-3xl lg:text-4xl font-normal text-black mb-4 md:mb-6">
+            Ximpul Flow
+          </h1>
+          
+          {/* Main Headline */}
+          <h2 className="hero-main-heading text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-semibold mb-8 md:mb-12 lg:mb-16 leading-tight tracking-tight apple-gradient-text">
+            Your Water.
+            <br />
+            Your Freedom.
+          </h2>
+          
+          {/* Product Image */}
+          <div className="hero-product-image mb-8 md:mb-12 lg:mb-16 flex justify-center">
+            <img
+              src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png"
+              alt="Ximpul Flow Water Bottle"
+              className="max-w-xs md:max-w-md lg:max-w-lg xl:max-w-2xl w-full h-auto object-contain"
+            />
+          </div>
+          
+          {/* Tagline */}
+          <p className="hero-tagline text-lg md:text-xl lg:text-2xl mb-6 md:mb-8">
+            Built for <span className="text-primary font-medium">Water Freedom</span>.
+          </p>
+          
+          {/* CTA Section */}
+          <div className="hero-cta">
             <Button 
               size="lg" 
-              className="hero-button bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-6"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4 md:mb-6"
               onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Buy
             </Button>
             
             {/* Pricing */}
-            <p className="text-lg text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               From 1,090 BDT or 91 BDT/mo. for 12 mo.*
             </p>
-          </div>
-          
-          {/* Right Content - Product Image */}
-          <div className="flex justify-center lg:justify-end">
-            <img
-              src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png"
-              alt="Ximpul Flow Water Bottle"
-              className="hero-image max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain"
-            />
           </div>
         </div>
       </section>
