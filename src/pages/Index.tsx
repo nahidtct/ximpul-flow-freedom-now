@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -198,37 +197,25 @@ const Index = () => {
         
         {/* Content Container - Desktop Layout */}
         <div className="relative z-10 w-full h-full hidden md:flex">
-          <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 py-0">
+          <div className="w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 py-0 lg:px-0 mx-0 my-0">
             {/* Product Name */}
-            <h1 className="hero-product-name text-black mb-8 font-semibold" style={{
-              fontSize: '32px',
-              lineHeight: '1.125',
-              fontWeight: '600',
-              letterSpacing: '.004em',
-              fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
-            }}>
-              Ximpul Flow
-            </h1>
+            <h1 className="hero-product-name lg:text-4xl xl:text-5xl mb-8 mx-0 my-[2px] px-0 py-0 text-[#1d1d1f] font-semibold text-3xl">Ximpul Flow</h1>
             
             {/* Main Headline */}
-            <h2 className="hero-main-heading text-black mb-12 font-semibold tracking-tight" style={{
-              fontSize: '56px',
-              lineHeight: '1.0714285714',
-              fontWeight: '600',
-              letterSpacing: '0em',
-              fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
-            }}>
-              Your Water. Your Freedom.
+            <h2 className="hero-main-heading lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text mb-12 text-5xl py-0">
+              Your Water.
+              <br />
+              Your Freedom.
             </h2>
             
             {/* Product Image - Centered and Large */}
-            <div className="hero-product-image mb-12">
+            <div className="hero-product-image mb-12 py-0">
               <img src="/lovable-uploads/ac604d15-e2d6-44f4-8750-0fced0ad0285.png" alt="Ximpul Flow Water Bottle" className="max-w-sm lg:max-w-md xl:max-w-lg w-full h-auto object-contain" />
             </div>
             
             {/* Tagline */}
             <p className="hero-tagline text-xl lg:text-2xl mb-8">
-              Will you keep paying for what falls from the sky?
+              Built for <span className="text-primary font-medium">Water Freedom</span>.
             </p>
             
             {/* CTA Section */}
@@ -268,7 +255,7 @@ const Index = () => {
           
           {/* Tagline */}
           <p className="hero-tagline text-lg mb-6">
-            Will you keep paying for what falls from the sky?
+            Built for <span className="text-primary font-medium">Water Freedom</span>.
           </p>
           
           {/* CTA Section */}
