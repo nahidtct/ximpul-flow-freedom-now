@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
@@ -14,52 +13,47 @@ export const HeroSection = () => {
         }}
       />
       
-      {/* Desktop Content - Side by Side Layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block py-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[60vh]">
-          {/* Left Side - Text Content */}
-          <div className="text-left">
-            {/* Product Name */}
-            <h1 className="text-[32px] font-semibold text-[#1d1d1f] mb-6">
-              Ximpul Flow
-            </h1>
-            
-            {/* Main Headline - Single Line */}
-            <h2 className="text-[56px] font-semibold leading-none tracking-tight apple-gradient-text mb-8 whitespace-nowrap">
-              Your Water. Your Freedom.
-            </h2>
-            
-            {/* Tagline */}
-            <p className="text-xl lg:text-2xl mb-8 text-white/90">
-              Will you keep paying for what falls from the sky?
-            </p>
-            
-            {/* CTA Section */}
-            <div>
-              <Button 
-                size="lg" 
-                className="bg-white text-slate-900 hover:bg-white/90 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 mb-4"
-                onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Buy Now
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-              
-              {/* Pricing */}
-              <p className="text-lg text-white/80">
-                From 1,090 BDT or 91 BDT/mo. for 12 mo.*
-              </p>
-            </div>
-          </div>
-
-          {/* Right Side - Product Image */}
-          <div className="flex justify-center lg:justify-end">
-            <img 
-              src="/lovable-uploads/ac604d15-e2d6-44f4-8750-0fced0ad0285.png" 
-              alt="Ximpul Flow Water Bottle" 
-              className="max-w-sm lg:max-w-md xl:max-w-lg w-full h-auto object-contain" 
-            />
-          </div>
+      {/* Desktop Content - Apple MacBook Air Style Layout */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block text-center">
+        {/* Product Name */}
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-normal text-[#1d1d1f] mb-6">
+          Ximpul Flow
+        </h1>
+        
+        {/* Main Headline - Single Line */}
+        <h2 className="text-6xl lg:text-7xl xl:text-8xl font-semibold leading-none tracking-tight apple-gradient-text mb-12 whitespace-nowrap">
+          Your Water. Your Freedom.
+        </h2>
+        
+        {/* Product Image - Centered */}
+        <div className="mb-12 flex justify-center">
+          <img 
+            src="/lovable-uploads/ac604d15-e2d6-44f4-8750-0fced0ad0285.png" 
+            alt="Ximpul Flow Water Bottle" 
+            className="max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain" 
+          />
+        </div>
+        
+        {/* Tagline */}
+        <p className="text-xl lg:text-2xl xl:text-3xl mb-8 text-white/90 font-light">
+          Will you keep paying for what falls from the sky?
+        </p>
+        
+        {/* CTA Section */}
+        <div>
+          <Button 
+            size="lg" 
+            className="bg-white text-slate-900 hover:bg-white/90 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 mb-4"
+            onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Buy Now
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Button>
+          
+          {/* Pricing */}
+          <p className="text-lg text-white/80">
+            From 1,090 BDT or 91 BDT/mo. for 12 mo.*
+          </p>
         </div>
       </div>
 
