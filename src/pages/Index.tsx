@@ -7,6 +7,11 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap, Recycle, Award } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   const [selectedColor, setSelectedColor] = useState('obsidian');
@@ -16,24 +21,91 @@ const Index = () => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
     
-    // Add scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    // GSAP Animations
+    const ctx = gsap.context(() => {
+      // Hero text animation
+      gsap.fromTo('.hero-title', 
+        { 
+          opacity: 0, 
+          y: 50,
+          scale: 0.9 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 1.5,
+          ease: "power3.out",
+          delay: 0.5
+        }
+      );
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
+      gsap.fromTo('.hero-subtitle', 
+        { 
+          opacity: 0, 
+          y: 30 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          delay: 1
+        }
+      );
+
+      gsap.fromTo('.hero-button', 
+        { 
+          opacity: 0, 
+          y: 30,
+          scale: 0.9 
+        },
+        { 
+          opacity: 1, 
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          delay: 1.5
+        }
+      );
+
+      // Background parallax effect
+      gsap.to('.hero-bg', {
+        yPercent: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: '.hero-section',
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
         }
       });
-    }, observerOptions);
 
-    const elements = document.querySelectorAll('.fade-on-scroll');
-    elements.forEach(el => observer.observe(el));
+      // Fade in animations for sections
+      gsap.utils.toArray('.fade-on-scroll').forEach((element: any) => {
+        gsap.fromTo(element, 
+          { 
+            opacity: 0, 
+            y: 50 
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      });
+    });
 
-    return () => observer.disconnect();
+    return () => ctx.revert();
   }, []);
 
   const handleAccessoryToggle = (accessory: string) => {
@@ -141,41 +213,55 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Light with Apple Style */}
-      <section className="apple-spacing flex items-center justify-center bg-gradient-to-b from-background to-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Text Content */}
-            <div className="text-center lg:text-left">
-              <h1 className="text-5xl md:text-7xl font-thin text-foreground mb-6 leading-tight">
-                Your Water.
-                <br />
-                <span className="font-light text-primary">Your Freedom.</span>
-              </h1>
-              
-              <p className="text-xl md:text-2xl font-light text-muted-foreground mb-12 max-w-2xl leading-relaxed">
-                Will you keep paying for what falls from the sky?
-              </p>
-              
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Buy Now
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-
-            {/* Hero Image */}
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
-                alt="Ximpul Flow Bottle"
-                className="w-full max-w-md mx-auto rounded-3xl shadow-2xl"
-              />
-            </div>
-          </div>
+      {/* Hero Section - Apple Style with Gradient Background */}
+      <section className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden" style={{
+        background: 'linear-gradient(180deg, #D4EAF6, #F9F9F9 75%, #FFF)',
+        transition: 'opacity 1.83s ease-out'
+      }}>
+        {/* Background Image */}
+        <div 
+          className="hero-bg absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=2000&q=80')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        
+        {/* Content */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="hero-title mb-6 leading-tight" style={{
+            backgroundRepeat: 'no-repeat',
+            backgroundImage: `url('/lovable-uploads/9c100997-6295-435f-82b4-dbb189b560d0.png')`,
+            display: 'inline-block',
+            backgroundSize: 'cover',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            fontSize: 'clamp(32px, 8vw, 80px)',
+            lineHeight: '1.125',
+            fontWeight: '600',
+            letterSpacing: '.004em',
+            fontFamily: 'SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif'
+          }}>
+            Your Water.
+            <br />
+            Your Freedom.
+          </h1>
+          
+          <p className="hero-subtitle text-xl md:text-2xl font-light text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Will you keep paying for what falls from the sky?
+          </p>
+          
+          <Button 
+            size="lg" 
+            className="hero-button bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+            onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Buy Now
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 
@@ -350,7 +436,7 @@ const Index = () => {
               {/* Color Selection */}
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Choose Your Color</h3>
-                <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-2 gap-6">
+                <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {colors.map((color) => (
                     <div key={color.value} className="flex items-center space-x-3 p-4 rounded-2xl border-2 hover:border-primary/50 transition-colors">
                       <RadioGroupItem value={color.value} id={color.value} />
@@ -371,7 +457,7 @@ const Index = () => {
               {/* Accessories Selection */}
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Add Accessories</h3>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {accessories.map((accessory) => (
                     <div 
                       key={accessory.name}
@@ -523,7 +609,7 @@ const Index = () => {
 
           <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             {/* Links */}
-            <div className="flex space-x-6">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-center">
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 Privacy Policy
               </a>
