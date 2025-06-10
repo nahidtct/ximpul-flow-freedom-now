@@ -2,6 +2,13 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote, Star } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 export const TestimonialsSection = () => {
   const testimonials = [
@@ -22,41 +29,57 @@ export const TestimonialsSection = () => {
       author: "Sakib Rahman",
       location: "Sylhet",
       rating: 5
+    },
+    {
+      quote: "The personalization makes it truly mine.",
+      author: "Nusrat Jahan",
+      location: "Rajshahi",
+      rating: 5
     }
   ];
 
   return (
-    <section className="apple-spacing bg-background fade-on-scroll">
+    <section className="py-24 bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-            What Our Community Says
+            Join the Movement
           </h2>
           <p className="text-xl text-muted-foreground font-light">
-            Real stories from real customers
+            See what our community has to say
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-0 shadow-lg rounded-3xl overflow-hidden">
-              <CardContent className="p-8 text-center">
-                <Quote className="w-8 h-8 text-primary mb-4 mx-auto opacity-60" />
-                <p className="text-lg font-light text-foreground mb-6 leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-                
-                <div className="flex items-center justify-center mb-2">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="font-medium text-foreground">{testimonial.author}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Carousel className="w-full max-w-4xl mx-auto">
+          <CarouselContent>
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={index} className="md:basis-1/2">
+                <Card className="border-0 shadow-lg h-full">
+                  <CardContent className="p-8 flex flex-col justify-between h-full">
+                    <div>
+                      <Quote className="w-8 h-8 text-primary mb-4 opacity-60" />
+                      <p className="text-lg font-light text-foreground mb-6 leading-relaxed">
+                        "{testimonial.quote}"
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <div className="flex items-center mb-2">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="font-medium text-foreground">{testimonial.author}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="-left-12" />
+          <CarouselNext className="-right-12" />
+        </Carousel>
       </div>
     </section>
   );

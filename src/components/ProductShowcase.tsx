@@ -27,7 +27,7 @@ export const ProductShowcase = () => {
   ];
 
   return (
-    <section className="apple-spacing bg-background fade-on-scroll">
+    <section className="py-24 bg-muted/30 fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
@@ -40,13 +40,13 @@ export const ProductShowcase = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {products.map((product, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] overflow-hidden rounded-3xl">
+            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
               <CardContent className="p-0">
-                <div className="relative">
+                <div className="relative overflow-hidden rounded-lg">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-96 object-cover"
+                    className="w-full h-96 object-cover transition-transform duration-700 hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
