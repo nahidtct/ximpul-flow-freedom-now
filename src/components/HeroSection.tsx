@@ -15,8 +15,8 @@ export const HeroSection = () => {
       />
       
       {/* Desktop Content - Side by Side Layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block py-16">
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block py-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[60vh]">
           {/* Left Side - Text Content */}
           <div className="text-left">
             {/* Product Name */}
