@@ -189,7 +189,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section - Apple MacBook Air Style */}
-      <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden my-[10px]">
+      <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden my-[65px]">
         {/* Animated Background Paths */}
         <BackgroundPathsOnly />
         
