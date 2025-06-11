@@ -189,7 +189,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section - Apple MacBook Air Style */}
-      <section className="hero-section h-screen flex flex-col justify-center items-center relative overflow-hidden my-0">
+      <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden my-0">
         {/* Animated Background Paths */}
         <BackgroundPathsOnly />
         
@@ -201,44 +201,41 @@ const Index = () => {
         
         {/* Content Container - Desktop Layout */}
         <div className="relative z-10 w-full h-full hidden md:block">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-            {/* Desktop Grid Layout */}
-            <div className="grid grid-cols-2 h-full items-center">
-              {/* Left Column - Text Content */}
-              <div className="flex flex-col justify-center space-y-8">
-                {/* Product Name */}
-                <h1 className="hero-product-name lg:text-4xl xl:text-5xl text-black text-4xl font-semibold">
-                  Ximpul Flow
-                </h1>
-                
-                {/* Main Headline */}
-                <h2 className="hero-main-heading lg:text-7xl xl:text-8xl font-semibold leading-tight tracking-tight apple-gradient-text text-7xl">
-                  Your Water. Your Freedom.
-                </h2>
-                
-                {/* Tagline */}
-                <p className="hero-tagline text-xl lg:text-2xl">
-                  Will you keep paying for what falls from the sky?
-                </p>
-                
-                {/* CTA Section */}
-                <div className="hero-cta space-y-4">
-                  <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full" onClick={() => document.getElementById('buy')?.scrollIntoView({
-                  behavior: 'smooth'
-                })}>
-                    Buy
-                  </Button>
-                  
-                  {/* Pricing */}
-                  <p className="text-lg text-gray-600">
-                    From 1,090 BDT
-                  </p>
-                </div>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-full text-center">
+            {/* Desktop Vertical Layout (matching mobile) */}
+            <div className="flex flex-col justify-center items-center h-full">
+              {/* Product Name */}
+              <h1 className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] text-3xl font-semibold mb-3 mt-16">
+                Ximpul Flow
+              </h1>
+              
+              {/* Main Headline */}
+              <h2 className="hero-main-heading lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight apple-gradient-text text-5xl mb-6">
+                Your Water. Your Freedom.
+              </h2>
+              
+              {/* Product Image */}
+              <div className="hero-product-image mb-6 flex justify-center">
+                <img src="/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png" alt="Ximpul Flow Water Bottle" className="max-w-xs lg:max-w-sm xl:max-w-md w-full h-auto object-contain" />
               </div>
               
-              {/* Right Column - Product Image */}
-              <div className="hero-product-image flex justify-center items-center">
-                <img src="/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png" alt="Ximpul Flow Water Bottle" className="max-w-md lg:max-w-lg xl:max-w-xl w-full h-auto object-contain" />
+              {/* Tagline */}
+              <p className="hero-tagline text-lg lg:text-xl mb-5">
+                Will you keep paying for what falls from the sky?
+              </p>
+              
+              {/* CTA Section */}
+              <div className="hero-cta space-y-4">
+                <Button size="default" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-base font-medium rounded-full" onClick={() => document.getElementById('buy')?.scrollIntoView({
+                behavior: 'smooth'
+                })}>
+                  Buy
+                </Button>
+                
+                {/* Pricing */}
+                <p className="text-base text-gray-600">
+                  From 1,090 BDT
+                </p>
               </div>
             </div>
           </div>
@@ -247,7 +244,7 @@ const Index = () => {
         {/* Content Container - Mobile Layout */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
           {/* Product Name */}
-          <h1 className="hero-product-name text-2xl text-black mb-4 font-semibold">
+          <h1 className="hero-product-name text-2xl text-[#1d1d1f] mb-4 font-semibold">
             Ximpul Flow
           </h1>
           
