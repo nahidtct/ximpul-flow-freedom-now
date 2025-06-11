@@ -205,12 +205,12 @@ const Index = () => {
             {/* Desktop Vertical Layout (matching mobile) */}
             <div className="flex flex-col justify-center items-center h-full">
               {/* Product Name */}
-              <h1 className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] text-3xl font-semibold mb-3 mt-16">
+              <h1 className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-16 font-semibold text-3xl py-[2px]">
                 Ximpul Flow
               </h1>
               
               {/* Main Headline */}
-              <h2 className="hero-main-heading lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight apple-gradient-text text-5xl mb-6">
+              <h2 className="hero-main-heading lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-6xl">
                 Your Water. Your Freedom.
               </h2>
               
@@ -220,7 +220,7 @@ const Index = () => {
               </div>
               
               {/* Tagline */}
-              <p className="hero-tagline text-lg lg:text-xl mb-5">
+              <p className="hero-tagline text-lg lg:text-xl mb-5 font-bold">
                 Will you keep paying for what falls from the sky?
               </p>
               
@@ -228,12 +228,12 @@ const Index = () => {
               <div className="hero-cta space-y-4">
                 <Button size="default" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-base font-medium rounded-full" onClick={() => document.getElementById('buy')?.scrollIntoView({
                 behavior: 'smooth'
-                })}>
+              })}>
                   Buy
                 </Button>
                 
                 {/* Pricing */}
-                <p className="text-base text-gray-600">
+                <p className="text-base text-[#1d1d1f] font-semibold">
                   From 1,090 BDT
                 </p>
               </div>
