@@ -67,7 +67,8 @@ const Index = () => {
         y: 0,
         duration: 0.8,
         ease: "power3.out"
-      }, "-=0.6").fromTo('.hero-cta', {
+      }, "-=0.6")
+      .fromTo('.hero-cta', {
         opacity: 0,
         y: 30,
         scale: 0.9
@@ -101,7 +102,11 @@ const Index = () => {
     return () => ctx.revert();
   }, []);
   const handleAccessoryToggle = (accessory: string) => {
-    setSelectedAccessories(prev => prev.includes(accessory) ? prev.filter(a => a !== accessory) : [...prev, accessory]);
+    setSelectedAccessories(prev => 
+      prev.includes(accessory) 
+        ? prev.filter(a => a !== accessory) 
+        : [...prev, accessory]
+    );
   };
   const colors = [{
     name: 'Obsidian Black',
@@ -219,16 +224,18 @@ const Index = () => {
                 <img src="/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png" alt="Ximpul Flow Water Bottle" className="max-w-xs lg:max-w-sm xl:max-w-md w-full h-auto object-contain" />
               </div>
               
-              {/* Tagline */}
-              <p className="hero-tagline text-lg lg:text-xl mb-5 font-bold">
+              {/* Tagline with Gradient Background */}
+              <p className="hero-tagline mb-5 gradient-text">
                 Will you keep paying for what falls from the sky?
               </p>
               
               {/* CTA Section */}
               <div className="hero-cta space-y-4">
-                <Button size="default" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-base font-medium rounded-full" onClick={() => document.getElementById('buy')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
+                <Button 
+                  size="default" 
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-base font-medium rounded-full" 
+                  onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Buy
                 </Button>
                 
@@ -260,16 +267,18 @@ const Index = () => {
             <img src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" alt="Ximpul Flow Water Bottle" className="max-w-xs w-full h-auto object-contain" />
           </div>
           
-          {/* Tagline */}
-          <p className="hero-tagline text-lg mb-6">
+          {/* Tagline with Gradient Background */}
+          <p className="hero-tagline mb-6 gradient-text">
             Will you keep paying for what falls from the sky?
           </p>
           
           {/* CTA Section */}
           <div className="hero-cta">
-            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4" onClick={() => document.getElementById('buy')?.scrollIntoView({
-            behavior: 'smooth'
-          })}>
+            <Button 
+              size="lg" 
+              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4" 
+              onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Buy
             </Button>
             
@@ -344,7 +353,8 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {features.map((feature, index) => <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
                 <div className="mb-6 flex justify-center">
                   <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     {feature.icon}
@@ -354,7 +364,8 @@ const Index = () => {
                 <p className="text-muted-foreground font-light leading-relaxed">
                   {feature.description}
                 </p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -373,14 +384,15 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {[{
-            name: 'Obsidian Black',
-            image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80',
-            benefits: ['Hot or cold — your choice', 'Safe & leak-proof', 'Personalize your bottle', 'Lifestyle-first — not just a bottle']
-          }, {
-            name: 'Graphite Gray',
-            image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80',
-            benefits: ['Premium materials', 'Condensation-free design', 'Easy-grip surface', 'Statement piece for your lifestyle']
-          }].map((product, index) => <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] overflow-hidden rounded-3xl">
+              name: 'Obsidian Black',
+              image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80',
+              benefits: ['Hot or cold — your choice', 'Safe & leak-proof', 'Personalize your bottle', 'Lifestyle-first — not just a bottle']
+            }, {
+              name: 'Graphite Gray',
+              image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80',
+              benefits: ['Premium materials', 'Condensation-free design', 'Easy-grip surface', 'Statement piece for your lifestyle']
+            }].map((product, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] overflow-hidden rounded-3xl">
                 <CardContent className="p-0">
                   <div className="relative">
                     <img src={product.image} alt={product.name} className="w-full h-96 object-cover" />
@@ -388,14 +400,17 @@ const Index = () => {
                     <div className="absolute bottom-0 left-0 right-0 p-8">
                       <h3 className="text-white text-2xl font-light mb-4">{product.name}</h3>
                       <div className="space-y-2">
-                        {product.benefits.map((benefit, idx) => <p key={idx} className="text-white/90 text-sm font-light">
+                        {product.benefits.map((benefit, idx) => (
+                          <p key={idx} className="text-white/90 text-sm font-light">
                             {benefit}
-                          </p>)}
+                          </p>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -418,17 +433,20 @@ const Index = () => {
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Choose Your Color</h3>
                 <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {colors.map(color => <div key={color.value} className="flex items-center space-x-3 p-4 rounded-2xl border-2 hover:border-primary/50 transition-colors">
+                  {colors.map(color => (
+                    <div key={color.value} className="flex items-center space-x-3 p-4 rounded-2xl border-2 hover:border-primary/50 transition-colors">
                       <RadioGroupItem value={color.value} id={color.value} />
                       <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 rounded-full border-2 border-border" style={{
-                      backgroundColor: color.color
-                    }} />
+                        <div 
+                          className="w-8 h-8 rounded-full border-2 border-border" 
+                          style={{ backgroundColor: color.color }}
+                        />
                         <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
                           {color.name}
                         </label>
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </RadioGroup>
               </div>
 
@@ -436,15 +454,27 @@ const Index = () => {
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Add Accessories</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {accessories.map(accessory => <div key={accessory.name} className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} onClick={() => handleAccessoryToggle(accessory.name)}>
+                  {accessories.map(accessory => (
+                    <div 
+                      key={accessory.name} 
+                      className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${
+                        selectedAccessories.includes(accessory.name) 
+                          ? 'border-primary bg-primary/5' 
+                          : 'border-border hover:border-primary/50'
+                      }`}
+                      onClick={() => handleAccessoryToggle(accessory.name)}
+                    >
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="font-medium">{accessory.name}</p>
                           <p className="text-sm text-muted-foreground">+{accessory.price} BDT</p>
                         </div>
-                        {selectedAccessories.includes(accessory.name) && <Check className="w-5 h-5 text-primary" />}
+                        {selectedAccessories.includes(accessory.name) && (
+                          <Check className="w-5 h-5 text-primary" />
+                        )}
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -462,7 +492,10 @@ const Index = () => {
                     Starting at <span className="text-primary font-medium">1,090 BDT</span>
                   </p>
                 </div>
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 w-full md:w-auto">
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 w-full md:w-auto"
+                >
                   Buy Now
                   <ChevronRight className="ml-2 h-6 w-6" />
                 </Button>
@@ -485,7 +518,8 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => <Card key={index} className="border-0 shadow-lg rounded-3xl overflow-hidden">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-lg rounded-3xl overflow-hidden">
                 <CardContent className="p-8 text-center">
                   <Quote className="w-8 h-8 text-primary mb-4 mx-auto opacity-60" />
                   <p className="text-lg font-light text-foreground mb-6 leading-relaxed">
@@ -493,12 +527,15 @@ const Index = () => {
                   </p>
                   
                   <div className="flex items-center justify-center mb-2">
-                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
                   </div>
                   <p className="font-medium text-foreground">{testimonial.author}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.location}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -516,14 +553,16 @@ const Index = () => {
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
-            {faqItems.map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-2xl px-6 bg-background">
+            {faqItems.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-2xl px-6 bg-background">
                 <AccordionTrigger className="text-left text-lg font-medium hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground font-light leading-relaxed">
                   {item.answer}
                 </AccordionContent>
-              </AccordionItem>)}
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
@@ -541,9 +580,11 @@ const Index = () => {
             Or will you help make it free again?
           </p>
           
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-2xl" onClick={() => document.getElementById('buy')?.scrollIntoView({
-          behavior: 'smooth'
-        })}>
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-2xl" 
+            onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Buy Now
             <ChevronRight className="ml-2 h-6 w-6" />
           </Button>
