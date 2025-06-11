@@ -601,5 +601,3 @@ const Index = () => {
     </div>;
 };
 export default Index;
-
-</edits_to_apply>
