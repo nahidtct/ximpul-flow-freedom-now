@@ -372,30 +372,74 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Product Features Section - Enhanced Apple Style */}
-      <section id="features" className="apple-spacing bg-muted/30 fade-on-scroll">
+      {/* Apple-style Features Section */}
+      <section id="features" className="apple-spacing bg-background fade-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              Engineered for Life
-            </h2>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
-              Every detail crafted with purpose. Premium materials meet innovative design.
-            </p>
+          {/* Main Features Grid */}
+          <div className="grid lg:grid-cols-3 gap-16 mb-20">
+            {/* Feature 1 - Temperature Control */}
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">Up to</p>
+              <h3 className="text-5xl md:text-6xl font-light text-primary mb-2">24 hours</h3>
+              <p className="text-base text-foreground mb-6">
+                of cold retention with<br />
+                premium insulation<sup className="text-xs">9</sup>
+              </p>
+            </div>
+
+            {/* Feature 2 - Hot Retention */}
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">Up to</p>
+              <h3 className="text-5xl md:text-6xl font-light text-primary mb-2">12 hours</h3>
+              <p className="text-base text-foreground mb-6">
+                of hot retention on a<br />
+                single fill<sup className="text-xs">10</sup>
+              </p>
+            </div>
+
+            {/* Feature 3 - Durability */}
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">Up to</p>
+              <h3 className="text-5xl md:text-6xl font-light text-primary mb-2">10 years</h3>
+              <p className="text-base text-foreground mb-6">
+                of lifetime with proper<br />
+                care and maintenance<sup className="text-xs">11</sup>
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {features.map((feature, index) => <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-                <div className="mb-6 flex justify-center">
-                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    {feature.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-medium text-foreground mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>)}
+          {/* Additional Features Grid */}
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="bg-muted/30 rounded-3xl p-8 h-80 flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png" 
+                alt="Ximpul Flow with USB-C charging capabilities"
+                className="max-h-full w-auto object-contain"
+              />
+            </div>
+            <div>
+              <p className="text-lg font-medium text-foreground mb-4">
+                <strong>Easy to Clean.</strong> Wide mouth design makes cleaning effortless. 
+                Both bottle models now come with dishwasher-safe capabilities.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-16 items-center mt-16">
+            <div className="order-2 md:order-1">
+              <p className="text-lg font-medium text-foreground mb-4">
+                <strong>Premium materials.</strong> For Ximpul Flow with 
+                304 stainless steel construction, you can 
+                use any standard cleaning method or dishwasher cycle.
+              </p>
+            </div>
+            <div className="order-1 md:order-2 bg-muted/30 rounded-3xl p-8 h-80 flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" 
+                alt="Ximpul Flow charging options"
+                className="max-h-full w-auto object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
