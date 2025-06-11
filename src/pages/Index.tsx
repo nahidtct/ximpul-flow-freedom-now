@@ -281,6 +281,47 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Apple-style Product Description Section */}
+      <section className="apple-spacing bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-16">
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+              Ximpul Flow is the world's most practical water bottle for a reason. Actually, for a 
+              lot of reasons. It delivers <strong className="text-foreground">up to 24 hours of cold retention.</strong> The premium steel construction unlocks 
+              a whole new level of <strong className="text-foreground">durability for work and play.</strong> <strong className="text-foreground">Personalized engraving</strong> is 
+              built in to help you make it uniquely yours. And it now comes in a 
+              stunning <strong className="text-foreground">Obsidian Black color.</strong> With the perfectly portable Ximpul Flow, you'll be 
+              ready to take on just about anything, anywhere.
+            </p>
+
+            <div className="mb-12">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">DESIGN</p>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-tight">
+                Built to go places.
+              </h2>
+            </div>
+          </div>
+
+          {/* Bottle Images Showcase */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png" 
+                alt="Ximpul Flow Obsidian Black" 
+                className="w-full h-auto transform -rotate-12 hover:rotate-0 transition-transform duration-700"
+              />
+            </div>
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" 
+                alt="Ximpul Flow Graphite Gray" 
+                className="w-full h-auto transform rotate-12 hover:rotate-0 transition-transform duration-700"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Brand Story Section - Apple Style with Side-by-Side */}
       <section id="story" className="apple-spacing bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
