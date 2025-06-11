@@ -205,7 +205,7 @@ const Index = () => {
             {/* Desktop Vertical Layout (matching mobile) */}
             <div className="flex flex-col justify-center items-center h-full">
               {/* Product Name */}
-              <h1 className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-16 font-semibold text-3xl py-[2px]">
+              <h1 className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-16 font-semibold text-3xl py-[10px]">
                 Ximpul Flow
               </h1>
               
