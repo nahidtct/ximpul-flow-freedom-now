@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { HighlightGroup, HighlighterItem, Particles } from '@/components/ui/highlighter';
-import { Hash } from 'lucide-react';
+import { Hash, Share } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export const HashtagSection = () => {
   const hashtags = [
@@ -14,6 +15,21 @@ export const HashtagSection = () => {
     '#XimpulMovement',
     '#RefillRevolution'
   ];
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Ximpul Flow - Your Water, Your Freedom',
+        text: 'Check out Ximpul Flow - making water free again! #MakeWaterFreeAgain #XimpulFlow',
+        url: window.location.href,
+      });
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      navigator.clipboard.writeText(
+        `Check out Ximpul Flow - making water free again! ${hashtags.join(' ')} ${window.location.href}`
+      );
+    }
+  };
 
   return (
     <section className="apple-spacing bg-gradient-to-br from-primary/5 to-primary/10 fade-on-scroll">
@@ -49,39 +65,67 @@ export const HashtagSection = () => {
                     </h3>
                   </div>
                   
-                  <div className="relative max-w-5xl mx-auto min-h-[400px] flex flex-wrap content-start gap-4">
-                    {hashtags.map((hashtag, index) => (
-                      <div
-                        key={index}
-                        className="group/hashtag relative overflow-hidden rounded-2xl border border-border/50 bg-muted/20 hover:bg-muted/40 transition-all duration-300 hover:scale-105 cursor-pointer"
-                        style={{
-                          position: 'absolute',
-                          left: `${Math.random() * 70}%`,
-                          top: `${Math.random() * 60}%`,
-                          transform: `rotate(${(Math.random() - 0.5) * 10}deg)`,
-                        }}
-                      >
-                        <div className="p-4 text-center">
-                          <p className="text-primary font-medium text-sm md:text-base leading-relaxed group-hover/hashtag:text-primary/80 transition-colors whitespace-nowrap">
-                            {hashtag}
-                          </p>
+                  <div className="max-w-4xl mx-auto space-y-4">
+                    <div className="flex flex-wrap justify-center gap-4">
+                      {hashtags.slice(0, 3).map((hashtag, index) => (
+                        <div
+                          key={index}
+                          className="group/hashtag relative overflow-hidden rounded-2xl border border-border/50 bg-muted/20 hover:bg-muted/40 transition-all duration-300 hover:scale-105 cursor-pointer"
+                        >
+                          <div className="p-4 text-center">
+                            <p className="text-primary font-medium text-sm md:text-base leading-relaxed group-hover/hashtag:text-primary/80 transition-colors whitespace-nowrap">
+                              {hashtag}
+                            </p>
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover/hashtag:opacity-100 transition-opacity duration-300 rounded-2xl" />
                         </div>
-                        
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover/hashtag:opacity-100 transition-opacity duration-300 rounded-2xl" />
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                    
+                    <div className="flex flex-wrap justify-center gap-4">
+                      {hashtags.slice(3, 6).map((hashtag, index) => (
+                        <div
+                          key={index + 3}
+                          className="group/hashtag relative overflow-hidden rounded-2xl border border-border/50 bg-muted/20 hover:bg-muted/40 transition-all duration-300 hover:scale-105 cursor-pointer"
+                        >
+                          <div className="p-4 text-center">
+                            <p className="text-primary font-medium text-sm md:text-base leading-relaxed group-hover/hashtag:text-primary/80 transition-colors whitespace-nowrap">
+                              {hashtag}
+                            </p>
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover/hashtag:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="flex flex-wrap justify-center gap-4">
+                      {hashtags.slice(6).map((hashtag, index) => (
+                        <div
+                          key={index + 6}
+                          className="group/hashtag relative overflow-hidden rounded-2xl border border-border/50 bg-muted/20 hover:bg-muted/40 transition-all duration-300 hover:scale-105 cursor-pointer"
+                        >
+                          <div className="p-4 text-center">
+                            <p className="text-primary font-medium text-sm md:text-base leading-relaxed group-hover/hashtag:text-primary/80 transition-colors whitespace-nowrap">
+                              {hashtag}
+                            </p>
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover/hashtag:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                   
                   <div className="mt-16 text-center">
                     <p className="text-muted-foreground font-light text-lg mb-6">
                       Share your Ximpul Flow journey and inspire others to choose freedom
                     </p>
-                    <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-                      <span className="px-3 py-1 rounded-full bg-muted/30">Instagram</span>
-                      <span className="px-3 py-1 rounded-full bg-muted/30">Facebook</span>
-                      <span className="px-3 py-1 rounded-full bg-muted/30">Twitter</span>
-                      <span className="px-3 py-1 rounded-full bg-muted/30">LinkedIn</span>
-                    </div>
+                    <Button 
+                      onClick={handleShare}
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    >
+                      <Share className="w-4 h-4 mr-2" />
+                      Share
+                    </Button>
                   </div>
                 </div>
               </div>

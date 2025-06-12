@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Facebook, Instagram, Youtube } from 'lucide-react';
@@ -10,10 +9,8 @@ import { CarouselSection } from '@/components/CarouselSection';
 import { HashtagSection } from '@/components/HashtagSection';
 import { MovementSection } from '@/components/MovementSection';
 import { BuySection } from '@/components/BuySection';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { FAQSection } from '@/components/FAQSection';
 import { FinalCTASection } from '@/components/FinalCTASection';
-import { ProductFeaturesListSection } from '@/components/ProductFeaturesListSection';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -202,9 +199,6 @@ const Index = () => {
       {/* Hashtag Movement Section */}
       <HashtagSection />
 
-      {/* Product Features List Section */}
-      <ProductFeaturesListSection />
-
       {/* Movement Section - "Make Water Free Again" Story */}
       <MovementSection />
 
@@ -213,9 +207,6 @@ const Index = () => {
 
       {/* Buy Section with Color and Accessories Selection */}
       <BuySection />
-
-      {/* Testimonials Section */}
-      <TestimonialsSection />
 
       {/* FAQ Section */}
       <FAQSection />
