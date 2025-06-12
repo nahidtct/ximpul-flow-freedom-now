@@ -1,17 +1,21 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap, Recycle, Award, Heart, Coffee, Dumbbell, Car, Users } from 'lucide-react';
+import { ChevronRight, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PremiumAffordableSection } from '@/components/PremiumAffordableSection';
 import { ProductFeaturesSection } from '@/components/ProductFeaturesSection';
 import { CarouselSection } from '@/components/CarouselSection';
 import { HashtagSection } from '@/components/HashtagSection';
+import { StorySection } from '@/components/StorySection';
+import { LifestyleSection } from '@/components/LifestyleSection';
+import { MovementSection } from '@/components/MovementSection';
+import { BuySection } from '@/components/BuySection';
+import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { FAQSection } from '@/components/FAQSection';
+import { FinalCTASection } from '@/components/FinalCTASection';
+import { ProductFeaturesListSection } from '@/components/ProductFeaturesListSection';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -20,9 +24,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
-  const [selectedColor, setSelectedColor] = useState('obsidian');
-  const [selectedAccessories, setSelectedAccessories] = useState<string[]>([]);
-
   useEffect(() => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -109,129 +110,11 @@ const Index = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleAccessoryToggle = (accessory: string) => {
-    setSelectedAccessories(prev => prev.includes(accessory) ? prev.filter(a => a !== accessory) : [...prev, accessory]);
-  };
-
-  const colors = [{
-    name: 'Obsidian Black',
-    value: 'obsidian',
-    color: '#1a1a1a'
-  }, {
-    name: 'Graphite Gray',
-    value: 'graphite',
-    color: '#6b7280'
-  }];
-
-  const accessories = [{
-    name: 'Silicone Sleeve',
-    price: 300,
-    note: 'Soft grip and extra protection'
-  }, {
-    name: 'Straw Cap',
-    price: 250,
-    note: 'Flexibility for active use'
-  }, {
-    name: 'Handle Rope',
-    price: 200,
-    note: 'Additional or alternative handle'
-  }, {
-    name: 'Cleaning Brush',
-    price: 150,
-    note: 'Maintain hygiene easily'
-  }, {
-    name: 'Engraving Service',
-    price: 300,
-    note: 'Personalize with name/message'
-  }];
-
-  const features = [{
-    icon: <Droplets className="w-8 h-8 text-primary" />,
-    title: "500ML Capacity",
-    description: "Ideal for daily hydration — perfect size for office, gym, school or travel"
-  }, {
-    icon: <Shield className="w-8 h-8 text-primary" />,
-    title: "304 Stainless Steel",
-    description: "Premium body material with PP cap and silicone sleeve — FDA approved & BPA-free"
-  }, {
-    icon: <Thermometer className="w-8 h-8 text-primary" />,
-    title: "24-Hour Insulation",
-    description: "Double-wall vacuum insulation keeps water hot or cold up to 24 hours"
-  }, {
-    icon: <Coffee className="w-8 h-8 text-primary" />,
-    title: "Two Cap Options",
-    description: "Choose between Standard Cap or Straw Cap — two drinking styles for your preference"
-  }, {
-    icon: <Award className="w-8 h-8 text-primary" />,
-    title: "100% Leak-Proof",
-    description: "Safe to carry in bags, perfect for any lifestyle activity"
-  }, {
-    icon: <Car className="w-8 h-8 text-primary" />,
-    title: "Everyday Convenience",
-    description: "Fits in car holders, portable handle rope, designed for daily use"
-  }];
-
-  const lifestyleImages = [
-    {
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
-      caption: 'From morning commute to mountain trail — one bottle, all day.'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80',
-      caption: 'Convenient — drink hot or cold as you prefer.'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80',
-      caption: 'Not just a bottle — it\'s a lifestyle.'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80',
-      caption: 'Premium but affordable.'
-    }
-  ];
-
-  const testimonials = [{
-    quote: "I feel proud to use it.",
-    author: "Rifat Ahmed",
-    location: "Dhaka",
-    rating: 5
-  }, {
-    quote: "Amazing build quality — feels like a global brand.",
-    author: "Fatima Khan",
-    location: "Chittagong",
-    rating: 5
-  }, {
-    quote: "I love that I no longer need to buy plastic bottles.",
-    author: "Sakib Rahman",
-    location: "Sylhet",
-    rating: 5
-  }];
-
-  const faqItems = [{
-    question: "How long does Ximpul Flow keep drinks hot or cold?",
-    answer: "Ximpul Flow keeps drinks hot or cold for up to 24 hours thanks to our double-wall vacuum insulation technology."
-  }, {
-    question: "What cap options are available?",
-    answer: "You can choose between Standard Cap or Straw Cap. The Lifestyle Edition includes both caps for maximum flexibility."
-  }, {
-    question: "Is Ximpul Flow safe for all types of beverages?",
-    answer: "Yes, Ximpul Flow is made from premium 304 stainless steel and is FDA approved & BPA-free, making it safe for water, coffee, tea, juices, and other beverages."
-  }, {
-    question: "Can I personalize my bottle with engraving?",
-    answer: "Absolutely! We offer professional engraving services to add your name or custom message to your bottle for an additional 300 BDT."
-  }, {
-    question: "What's the difference between Base and Lifestyle Edition?",
-    answer: "Base Edition (1090 BDT) includes the bottle, one cap, and handle rope. Lifestyle Edition (1590 BDT) includes both caps, extra accessories, cleaning brushes, silicone sleeve, and aluminum hook."
-  }, {
-    question: "Do you offer international shipping?",
-    answer: "Currently, we ship within Bangladesh. We're working on expanding our shipping options to serve customers internationally."
-  }];
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Don't Touch (Already Done) */}
+      {/* Hero Section */}
       <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden my-0">
         {/* Animated Background Paths */}
         <BackgroundPathsOnly />
@@ -395,299 +278,31 @@ const Index = () => {
       <HashtagSection />
 
       {/* Story Section - Emotional Paragraphs */}
-      <section id="story" className="apple-spacing bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
-          {/* Story Block 1 */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center fade-on-scroll">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-light text-foreground mb-6 leading-relaxed">
-                Water falls from the sky. It should be free.
-              </h2>
-              <p className="text-lg text-muted-foreground font-light">
-                Yet we pay for it every day — trapped in plastic, polluted, overpriced. Ximpul Flow is here to change that.
-              </p>
-            </div>
-            <div className="order-1 lg:order-2">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Plastic bottles problem" className="w-full rounded-3xl shadow-xl" />
-            </div>
-          </div>
+      <StorySection />
 
-          {/* Story Block 2 */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center fade-on-scroll">
-            <div>
-              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80" alt="Ximpul Flow lifestyle" className="w-full rounded-3xl shadow-xl" />
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-light text-foreground mb-6 leading-relaxed">
-                It is more than a bottle. It is a statement.
-              </h2>
-              <p className="text-lg text-muted-foreground font-light">
-                <span className="text-primary font-medium">Make Water Free Again.</span> Safe beyond plastic, convenient beyond the ordinary. Hot or cold, exactly how you want it. Premium, affordable, and built with world-class quality — not just for luxury brands, but for Bangladesh.
-              </p>
-            </div>
-          </div>
-
-          {/* Story Block 3 */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center fade-on-scroll">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-light text-foreground mb-6 leading-relaxed">
-                By using your own bottle — stylish, personalized with your own name
-              </h2>
-              <p className="text-lg text-muted-foreground font-light">
-                You take back the freedom to drink water as it was meant to be. You stop buying plastic water bottles again and again. You become part of a lifestyle that respects simplicity, health, and the planet.
-              </p>
-            </div>
-            <div className="order-1 lg:order-2">
-              <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80" alt="Lifestyle with bottle" className="w-full rounded-3xl shadow-xl" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Features Section */}
-      <section id="features" className="apple-spacing bg-muted/30 fade-on-scroll">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              Engineered for Life
-            </h2>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
-              Every detail crafted with purpose. Premium materials meet innovative design.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-                <div className="mb-6 flex justify-center">
-                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    {feature.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-medium text-foreground mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Product Features List Section */}
+      <ProductFeaturesListSection />
 
       {/* Lifestyle Section - Photos with One-line Captions */}
-      <section className="apple-spacing bg-background fade-on-scroll">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              Add it into your lifestyle
-            </h2>
-            <p className="text-xl text-muted-foreground font-light">
-              Premium. Safer. Smarter.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {lifestyleImages.map((item, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.caption}
-                      className="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <p className="text-white text-lg font-light leading-relaxed">{item.caption}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <LifestyleSection />
 
       {/* Movement Section - "Make Water Free Again" Story */}
-      <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-6xl font-light text-foreground mb-8 leading-tight">
-              Make Water Free Again
-            </h2>
-            <p className="text-xl md:text-2xl font-light text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Every refill is a small revolution. Be part of the movement. Say goodbye to plastic bottles. Say hello to flow.
-            </p>
-            <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
-              Stop buying plastic bottles — choose freedom with Ximpul Flow. It's safer than plastic bottles — for your health and the planet.
-            </p>
-          </div>
-        </div>
-      </section>
+      <MovementSection />
 
       {/* Pricing Section - Clear Packages */}
       <ProductShowcase />
 
       {/* Buy Section with Color and Accessories Selection */}
-      <section id="buy" className="apple-spacing bg-muted/30 fade-on-scroll">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              Customize Your Level
-            </h2>
-            <p className="text-xl text-muted-foreground font-light">
-              Personalize with engraving
-            </p>
-          </div>
-
-          <Card className="border-0 shadow-2xl rounded-3xl overflow-hidden">
-            <CardContent className="p-12">
-              {/* Color Selection */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-light text-foreground mb-6">Choose Your Color</h3>
-                <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {colors.map(color => (
-                    <div key={color.value} className="flex items-center space-x-3 p-4 rounded-2xl border-2 hover:border-primary/50 transition-colors">
-                      <RadioGroupItem value={color.value} id={color.value} />
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 rounded-full border-2 border-border" style={{backgroundColor: color.color}} />
-                        <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
-                          {color.name}
-                        </label>
-                      </div>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </div>
-
-              {/* Accessories Selection */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-light text-foreground mb-6">Add Accessories</h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {accessories.map(accessory => (
-                    <div key={accessory.name} className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} onClick={() => handleAccessoryToggle(accessory.name)}>
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="font-medium">{accessory.name}</p>
-                          <p className="text-sm text-muted-foreground">{accessory.note}</p>
-                        </div>
-                        <div className="text-right">
-                          <p className="font-medium">+{accessory.price} BDT</p>
-                          {selectedAccessories.includes(accessory.name) && <Check className="w-5 h-5 text-primary mt-1 ml-auto" />}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Personalization */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-light text-foreground mb-6">Personalize</h3>
-                <Input placeholder="Add your name or message (optional)" className="text-lg p-4 rounded-2xl border-2" />
-                <p className="text-sm text-muted-foreground mt-2">Engraving service: +300 BDT</p>
-              </div>
-
-              {/* Price and Buy Button */}
-              <div className="text-center">
-                <div className="mb-6">
-                  <p className="text-3xl font-light text-foreground">
-                    Starting at <span className="text-primary font-medium">1,090 BDT</span>
-                  </p>
-                </div>
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 w-full md:w-auto">
-                  Join the Movement
-                  <ChevronRight className="ml-2 h-6 w-6" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      <BuySection />
 
       {/* Testimonials Section */}
-      <section className="apple-spacing bg-background fade-on-scroll">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              What Our Community Says
-            </h2>
-            <p className="text-xl text-muted-foreground font-light">
-              Real stories from real customers
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 shadow-lg rounded-3xl overflow-hidden">
-                <CardContent className="p-8 text-center">
-                  <Quote className="w-8 h-8 text-primary mb-4 mx-auto opacity-60" />
-                  <p className="text-lg font-light text-foreground mb-6 leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                  
-                  <div className="flex items-center justify-center mb-2">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="font-medium text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection />
 
       {/* FAQ Section */}
-      <section id="faq" className="apple-spacing bg-muted/30 fade-on-scroll">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-muted-foreground font-light">
-              Everything you need to know about Ximpul Flow
-            </p>
-          </div>
-
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqItems.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-2xl px-6 bg-background">
-                <AccordionTrigger className="text-left text-lg font-medium hover:no-underline">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
+      <FAQSection />
 
       {/* Final CTA - Emotional + Action */}
-      <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-6xl font-light text-foreground mb-8 leading-tight">
-            Will you pay again
-            <br />
-            for what falls from the sky?
-          </h2>
-          
-          <p className="text-xl md:text-2xl font-light text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Or will you help make it free again — one refill at a time?
-          </p>
-          
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-2xl" onClick={() => document.getElementById('buy')?.scrollIntoView({
-            behavior: 'smooth'
-          })}>
-            Join the Movement
-            <ChevronRight className="ml-2 h-6 w-6" />
-          </Button>
-        </div>
-      </section>
+      <FinalCTASection />
 
       {/* Simple Footer */}
       <footer className="bg-background border-t py-12">
