@@ -11,6 +11,7 @@ import { ProductShowcase } from '@/components/ProductShowcase';
 import { PremiumAffordableSection } from '@/components/PremiumAffordableSection';
 import { ProductFeaturesSection } from '@/components/ProductFeaturesSection';
 import { CarouselSection } from '@/components/CarouselSection';
+import { HashtagSection } from '@/components/HashtagSection';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -389,6 +390,9 @@ const Index = () => {
 
       {/* New Carousel Section */}
       <CarouselSection />
+
+      {/* Hashtag Movement Section */}
+      <HashtagSection />
 
       {/* Story Section - Emotional Paragraphs */}
       <section id="story" className="apple-spacing bg-background">
