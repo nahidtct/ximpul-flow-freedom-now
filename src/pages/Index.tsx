@@ -377,6 +377,193 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Premium but Affordable Section */}
+      <section className="apple-spacing bg-gradient-to-br from-amber-50 to-orange-50 fade-on-scroll">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Text content */}
+            <div className="order-2 lg:order-1">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mb-8 leading-tight tracking-tight">
+                Premium but affordable
+              </h2>
+              <p className="text-xl text-muted-foreground font-light leading-relaxed">
+                World-class quality that doesn't break the bank. Experience premium materials and innovative design at a price that makes sense.
+              </p>
+            </div>
+            
+            {/* Right side - Product image */}
+            <div className="order-1 lg:order-2">
+              <div className="relative">
+                <img
+                  src="/lovable-uploads/859d4aae-9ba7-49d6-9f8c-5dd7370a224c.png"
+                  alt="Lightweight and compact water bottles"
+                  className="w-full h-auto object-contain rounded-3xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Features Grid Section */}
+      <section className="apple-spacing bg-gradient-to-br from-amber-50 to-orange-50 fade-on-scroll">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
+              Product Features
+            </h2>
+          </div>
+
+          {/* Features grid matching the reference image layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Large feature card - spans 2 columns on lg screens */}
+            <div className="lg:col-span-2 bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 lg:p-12">
+              <div className="grid lg:grid-cols-2 gap-8 items-center h-full">
+                <div>
+                  <h3 className="text-2xl lg:text-3xl font-light text-foreground mb-4">
+                    Dual-thread lid for fast opening
+                  </h3>
+                  <p className="text-lg text-muted-foreground font-light">
+                    Choose between Standard Cap or Straw Cap — two drinking styles for your preference
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <img
+                    src="/lovable-uploads/bc4b68af-e1e3-4507-9871-146b30a058fb.png"
+                    alt="Dual-thread lid demonstration"
+                    className="w-32 h-32 lg:w-48 lg:h-48 object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Smaller feature cards */}
+            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
+              <h3 className="text-xl font-medium text-foreground mb-4">
+                316L thin interior wall
+              </h3>
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-gray-600" />
+                </div>
+              </div>
+              <p className="text-muted-foreground font-light">
+                Premium 304 stainless steel construction
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
+              <div className="mb-4">
+                <span className="text-5xl font-light text-amber-600">500</span>
+                <span className="text-xl text-muted-foreground ml-2">mL</span>
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">volume</h3>
+              <p className="text-muted-foreground font-light">
+                Ideal for daily hydration
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
+              <h3 className="text-xl font-medium text-foreground mb-4">
+                Tailless vacuum technology
+              </h3>
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full flex items-center justify-center">
+                  <Thermometer className="w-8 h-8 text-blue-600" />
+                </div>
+              </div>
+              <p className="text-muted-foreground font-light">
+                Double-wall vacuum insulation
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
+              <div className="mb-4">
+                <span className="text-5xl font-light text-amber-600">24</span>
+                <span className="text-xl text-muted-foreground ml-2">hours</span>
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">
+                Heat preservation/ cold preservation
+              </h3>
+              <p className="text-muted-foreground font-light">
+                Keeps drinks at perfect temperature
+              </p>
+            </div>
+          </div>
+
+          {/* Detailed features list */}
+          <div className="mt-16 bg-white/50 backdrop-blur-sm rounded-3xl p-8 lg:p-12">
+            <h3 className="text-2xl font-light text-foreground mb-8 text-center">Complete Feature Set</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Capacity: 500ML</p>
+                  <p className="text-sm text-muted-foreground">Ideal for daily hydration</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Material: 304 Stainless Steel</p>
+                  <p className="text-sm text-muted-foreground">Body, PP (Cap), Silicone (Sleeve)</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">24-Hour Insulation</p>
+                  <p className="text-sm text-muted-foreground">Double-wall vacuum insulation</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Two Cap Options</p>
+                  <p className="text-sm text-muted-foreground">Standard Cap or Straw Cap</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">100% Leak-Proof</p>
+                  <p className="text-sm text-muted-foreground">Safe for office, gym, school or travel</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Portable Handle Rope</p>
+                  <p className="text-sm text-muted-foreground">Easy to carry, hang on backpack</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Silicone Sleeve (Optional)</p>
+                  <p className="text-sm text-muted-foreground">Soft grip + impact protection</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">FDA Approved & BPA-Free</p>
+                  <p className="text-sm text-muted-foreground">Safe for kids and adults</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Fits in Car Holders</p>
+                  <p className="text-sm text-muted-foreground">Designed for everyday convenience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Story Section - Emotional Paragraphs */}
       <section id="story" className="apple-spacing bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
