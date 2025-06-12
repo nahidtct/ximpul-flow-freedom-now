@@ -1,0 +1,179 @@
+
+import React from 'react';
+import { Check, Shield, Thermometer } from 'lucide-react';
+
+export const ProductFeaturesSection = () => {
+  return (
+    <section className="apple-spacing bg-background fade-on-scroll">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
+            Product Features
+          </h2>
+        </div>
+
+        {/* Mobile-first responsive grid - 2 columns on mobile, responsive on larger screens */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+          {/* Large feature card - spans full width on mobile (col-span-2), 2 columns on lg screens */}
+          <div className="col-span-2 lg:col-span-2 bg-muted/30 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center h-full">
+              <div>
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-light text-foreground mb-2 md:mb-4">
+                  Lightweight and compact
+                </h3>
+                <p className="text-sm md:text-lg text-muted-foreground font-light">
+                  Perfect size for daily use — fits in bags, car holders, and backpack pockets
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src="/lovable-uploads/bc4b68af-e1e3-4507-9871-146b30a058fb.png"
+                  alt="Lightweight and compact bottles"
+                  className="w-16 h-16 md:w-32 md:h-32 lg:w-48 lg:h-48 object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Smaller feature cards - each takes 1 column on mobile (2x2 grid) */}
+          <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-3 md:p-8 text-center">
+            <h3 className="text-sm md:text-xl font-medium text-foreground mb-2 md:mb-4">
+              Dual-thread lid for fast opening
+            </h3>
+            <div className="flex justify-center mb-2 md:mb-4">
+              <div className="w-8 h-8 md:w-16 md:h-16 bg-muted rounded-full flex items-center justify-center">
+                <Shield className="w-4 h-4 md:w-8 md:h-8 text-muted-foreground" />
+              </div>
+            </div>
+            <p className="text-xs md:text-base text-muted-foreground font-light">
+              Quick access when you need it
+            </p>
+          </div>
+
+          <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-3 md:p-8 text-center">
+            <h3 className="text-sm md:text-xl font-medium text-foreground mb-2 md:mb-4">
+              316L thin interior wall
+            </h3>
+            <div className="flex justify-center mb-2 md:mb-4">
+              <div className="w-8 h-8 md:w-16 md:h-16 bg-muted rounded-full flex items-center justify-center">
+                <Shield className="w-4 h-4 md:w-8 md:h-8 text-muted-foreground" />
+              </div>
+            </div>
+            <p className="text-xs md:text-base text-muted-foreground font-light">
+              Premium 304 stainless steel construction
+            </p>
+          </div>
+
+          <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-3 md:p-8 text-center">
+            <h3 className="text-sm md:text-xl font-medium text-foreground mb-2 md:mb-4">
+              Tailless vacuum technology
+            </h3>
+            <div className="flex justify-center mb-2 md:mb-4">
+              <div className="w-8 h-8 md:w-16 md:h-16 bg-muted rounded-full flex items-center justify-center">
+                <Thermometer className="w-4 h-4 md:w-8 md:h-8 text-muted-foreground" />
+              </div>
+            </div>
+            <p className="text-xs md:text-base text-muted-foreground font-light">
+              Double-wall vacuum insulation
+            </p>
+          </div>
+
+          <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-3 md:p-8 text-center">
+            <div className="mb-2 md:mb-4">
+              <span className="text-2xl md:text-4xl lg:text-5xl font-light text-primary">500</span>
+              <span className="text-sm md:text-xl text-muted-foreground ml-1 md:ml-2">mL</span>
+            </div>
+            <h3 className="text-sm md:text-xl font-medium text-foreground mb-1 md:mb-2">volume</h3>
+            <p className="text-xs md:text-base text-muted-foreground font-light">
+              Ideal for daily hydration
+            </p>
+          </div>
+
+          <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-3 md:p-8 text-center">
+            <div className="mb-2 md:mb-4">
+              <span className="text-2xl md:text-4xl lg:text-5xl font-light text-primary">24</span>
+              <span className="text-sm md:text-xl text-muted-foreground ml-1 md:ml-2">hours</span>
+            </div>
+            <h3 className="text-sm md:text-xl font-medium text-foreground mb-1 md:mb-2">
+              Heat preservation/ cold preservation
+            </h3>
+            <p className="text-xs md:text-base text-muted-foreground font-light">
+              Keeps drinks at perfect temperature
+            </p>
+          </div>
+        </div>
+
+        {/* Detailed features list */}
+        <div className="mt-16 bg-muted/20 backdrop-blur-sm rounded-3xl p-8 lg:p-12">
+          <h3 className="text-2xl font-light text-foreground mb-8 text-center">Complete Feature Set</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">Capacity: 500ML</p>
+                <p className="text-sm text-muted-foreground">Ideal for daily hydration</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">Material: 304 Stainless Steel</p>
+                <p className="text-sm text-muted-foreground">Body, PP (Cap), Silicone (Sleeve)</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">24-Hour Insulation</p>
+                <p className="text-sm text-muted-foreground">Double-wall vacuum insulation</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">Two Cap Options</p>
+                <p className="text-sm text-muted-foreground">Standard Cap or Straw Cap</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">100% Leak-Proof</p>
+                <p className="text-sm text-muted-foreground">Safe for office, gym, school or travel</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">Portable Handle Rope</p>
+                <p className="text-sm text-muted-foreground">Easy to carry, hang on backpack</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">Silicone Sleeve (Optional)</p>
+                <p className="text-sm text-muted-foreground">Soft grip + impact protection</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">FDA Approved & BPA-Free</p>
+                <p className="text-sm text-muted-foreground">Safe for kids and adults</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-foreground">Fits in Car Holders</p>
+                <p className="text-sm text-muted-foreground">Designed for everyday convenience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
