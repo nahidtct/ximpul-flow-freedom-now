@@ -321,62 +321,58 @@ const Index = () => {
 
       {/* Water Freedom Section - Apple Inspired */}
       <section className="apple-spacing bg-background fade-on-scroll">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">FREEDOM</p>
-            <h2 className="text-4xl md:text-6xl font-light text-foreground mb-8 leading-tight">
-              Water is free. Why pay for it?
-            </h2>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Opening paragraph in Apple style */}
+          <div className="mb-16">
+            <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-4xl mx-auto mb-12">
+              In Bangladesh, most of us drink natural groundwater. Yet we buy bottled water — wrapped in plastic, sold at a premium. 
+              <span className="text-foreground font-medium"> Ximpul Flow is your freedom.</span> A bottle to carry your own clean water — hot or cold — wherever life takes you. 
+              Every refill makes water free again.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            {/* Content */}
-            <div className="space-y-8">
-              <p className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed">
-                In Bangladesh, most of us drink natural groundwater. Yet we buy bottled water — wrapped in plastic, sold at a premium.
-              </p>
-              
-              <p className="text-xl md:text-2xl font-light text-foreground leading-relaxed">
-                <span className="text-primary font-medium">Ximpul Flow is your freedom.</span> A bottle to carry your own clean water — hot or cold — wherever life takes you.
-              </p>
-              
-              <p className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed">
-                Every refill makes water free again.
-              </p>
-              
-              <div className="pt-4">
-                <p className="text-2xl md:text-3xl font-medium text-foreground mb-6">
-                  Will you choose freedom?
-                </p>
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105"
-                  onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Choose Freedom
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            </div>
+          {/* Section label */}
+          <div className="mb-8">
+            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">FREEDOM</p>
+          </div>
 
-            {/* Water Image */}
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                <img
-                  src="/lovable-uploads/f9439641-a560-4a74-91d0-703236696c10.png"
-                  alt="Pure water flowing into hands - the essence of freedom"
-                  className="w-full h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-              
-              {/* Floating caption */}
-              <div className="absolute bottom-8 left-8 right-8">
-                <p className="text-white text-lg font-light leading-relaxed bg-black/30 backdrop-blur-sm rounded-2xl p-4">
-                  Pure. Natural. Free as it should be.
-                </p>
-              </div>
+          {/* Main heading in Apple style */}
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mb-20 leading-tight tracking-tight">
+            Water is free. Why pay for it?
+          </h2>
+
+          {/* Image section */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+              <img
+                src="/lovable-uploads/f9439641-a560-4a74-91d0-703236696c10.png"
+                alt="Pure water flowing into hands - the essence of freedom"
+                className="w-full h-[500px] md:h-[600px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
+            
+            {/* Floating caption */}
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-white text-lg font-light leading-relaxed bg-black/40 backdrop-blur-sm rounded-2xl p-6 max-w-md mx-auto">
+                Pure. Natural. Free as it should be.
+              </p>
+            </div>
+          </div>
+
+          {/* Call to action */}
+          <div className="mt-16">
+            <p className="text-2xl md:text-3xl font-light text-foreground mb-8">
+              Will you choose freedom?
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105"
+              onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Choose Freedom
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
