@@ -378,7 +378,7 @@ const Index = () => {
       </section>
 
       {/* Premium but Affordable Section */}
-      <section className="apple-spacing bg-gradient-to-br from-amber-50 to-orange-50 fade-on-scroll">
+      <section className="apple-spacing bg-background fade-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Text content */}
@@ -406,7 +406,7 @@ const Index = () => {
       </section>
 
       {/* Product Features Grid Section */}
-      <section className="apple-spacing bg-gradient-to-br from-amber-50 to-orange-50 fade-on-scroll">
+      <section className="apple-spacing bg-background fade-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section header */}
           <div className="text-center mb-16">
@@ -415,85 +415,99 @@ const Index = () => {
             </h2>
           </div>
 
-          {/* Features grid matching the reference image layout */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Large feature card - spans 2 columns on lg screens */}
-            <div className="lg:col-span-2 bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 lg:p-12">
-              <div className="grid lg:grid-cols-2 gap-8 items-center h-full">
+          {/* Mobile-first responsive grid matching the reference image */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {/* Large feature card - spans full width on mobile, 2 columns on lg screens */}
+            <div className="md:col-span-2 lg:col-span-2 bg-muted/30 rounded-3xl p-6 md:p-8 lg:p-12">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center h-full">
                 <div>
-                  <h3 className="text-2xl lg:text-3xl font-light text-foreground mb-4">
-                    Dual-thread lid for fast opening
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-light text-foreground mb-4">
+                    Lightweight and compact
                   </h3>
-                  <p className="text-lg text-muted-foreground font-light">
-                    Choose between Standard Cap or Straw Cap — two drinking styles for your preference
+                  <p className="text-base md:text-lg text-muted-foreground font-light">
+                    Perfect size for daily use — fits in bags, car holders, and backpack pockets
                   </p>
                 </div>
                 <div className="flex justify-center">
                   <img
                     src="/lovable-uploads/bc4b68af-e1e3-4507-9871-146b30a058fb.png"
-                    alt="Dual-thread lid demonstration"
-                    className="w-32 h-32 lg:w-48 lg:h-48 object-contain"
+                    alt="Lightweight and compact bottles"
+                    className="w-24 h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 object-contain"
                   />
                 </div>
               </div>
             </div>
 
             {/* Smaller feature cards */}
-            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
-              <h3 className="text-xl font-medium text-foreground mb-4">
+            <div className="bg-muted/30 rounded-3xl p-6 md:p-8 text-center">
+              <h3 className="text-lg md:text-xl font-medium text-foreground mb-4">
+                Dual-thread lid for fast opening
+              </h3>
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-muted rounded-full flex items-center justify-center">
+                  <Shield className="w-6 h-6 md:w-8 md:h-8 text-muted-foreground" />
+                </div>
+              </div>
+              <p className="text-sm md:text-base text-muted-foreground font-light">
+                Quick access when you need it
+              </p>
+            </div>
+
+            <div className="bg-muted/30 rounded-3xl p-6 md:p-8 text-center">
+              <h3 className="text-lg md:text-xl font-medium text-foreground mb-4">
                 316L thin interior wall
               </h3>
               <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                  <Shield className="w-8 h-8 text-gray-600" />
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-muted rounded-full flex items-center justify-center">
+                  <Shield className="w-6 h-6 md:w-8 md:h-8 text-muted-foreground" />
                 </div>
               </div>
-              <p className="text-muted-foreground font-light">
+              <p className="text-sm md:text-base text-muted-foreground font-light">
                 Premium 304 stainless steel construction
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
-              <div className="mb-4">
-                <span className="text-5xl font-light text-amber-600">500</span>
-                <span className="text-xl text-muted-foreground ml-2">mL</span>
-              </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">volume</h3>
-              <p className="text-muted-foreground font-light">
-                Ideal for daily hydration
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
-              <h3 className="text-xl font-medium text-foreground mb-4">
+            <div className="bg-muted/30 rounded-3xl p-6 md:p-8 text-center">
+              <h3 className="text-lg md:text-xl font-medium text-foreground mb-4">
                 Tailless vacuum technology
               </h3>
               <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full flex items-center justify-center">
-                  <Thermometer className="w-8 h-8 text-blue-600" />
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-muted rounded-full flex items-center justify-center">
+                  <Thermometer className="w-6 h-6 md:w-8 md:h-8 text-muted-foreground" />
                 </div>
               </div>
-              <p className="text-muted-foreground font-light">
+              <p className="text-sm md:text-base text-muted-foreground font-light">
                 Double-wall vacuum insulation
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 text-center">
+            <div className="bg-muted/30 rounded-3xl p-6 md:p-8 text-center">
               <div className="mb-4">
-                <span className="text-5xl font-light text-amber-600">24</span>
-                <span className="text-xl text-muted-foreground ml-2">hours</span>
+                <span className="text-3xl md:text-4xl lg:text-5xl font-light text-primary">500</span>
+                <span className="text-lg md:text-xl text-muted-foreground ml-2">mL</span>
               </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">
+              <h3 className="text-lg md:text-xl font-medium text-foreground mb-2">volume</h3>
+              <p className="text-sm md:text-base text-muted-foreground font-light">
+                Ideal for daily hydration
+              </p>
+            </div>
+
+            <div className="bg-muted/30 rounded-3xl p-6 md:p-8 text-center">
+              <div className="mb-4">
+                <span className="text-3xl md:text-4xl lg:text-5xl font-light text-primary">24</span>
+                <span className="text-lg md:text-xl text-muted-foreground ml-2">hours</span>
+              </div>
+              <h3 className="text-lg md:text-xl font-medium text-foreground mb-2">
                 Heat preservation/ cold preservation
               </h3>
-              <p className="text-muted-foreground font-light">
+              <p className="text-sm md:text-base text-muted-foreground font-light">
                 Keeps drinks at perfect temperature
               </p>
             </div>
           </div>
 
           {/* Detailed features list */}
-          <div className="mt-16 bg-white/50 backdrop-blur-sm rounded-3xl p-8 lg:p-12">
+          <div className="mt-16 bg-muted/20 backdrop-blur-sm rounded-3xl p-8 lg:p-12">
             <h3 className="text-2xl font-light text-foreground mb-8 text-center">Complete Feature Set</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="flex items-start space-x-3">
