@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Facebook, Instagram, Youtube } from 'lucide-react';
@@ -139,7 +140,7 @@ const Index = () => {
               </p>
               
               <div className="hero-cta space-y-4">
-                <Button size="default" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-base font-medium rounded-full" onClick={() => document.getElementById('buy')?.scrollIntoView({
+                <Button size="default" className="bg-black hover:bg-black/90 text-white px-6 py-2 text-base font-medium rounded-2xl" onClick={() => document.getElementById('buy')?.scrollIntoView({
                   behavior: 'smooth'
                 })}>
                   Buy
@@ -174,7 +175,7 @@ const Index = () => {
           </p>
           
           <div className="hero-cta">
-            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4" onClick={() => document.getElementById('buy')?.scrollIntoView({
+            <Button size="lg" className="bg-black hover:bg-black/90 text-white px-8 py-3 text-lg font-medium rounded-2xl mb-4" onClick={() => document.getElementById('buy')?.scrollIntoView({
               behavior: 'smooth'
             })}>
               Buy

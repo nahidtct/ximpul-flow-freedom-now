@@ -2,7 +2,6 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Thermometer, Shield, Droplets, Zap, Recycle, Award } from 'lucide-react';
 
 export const ProductShowcase = () => {
@@ -14,7 +13,7 @@ export const ProductShowcase = () => {
       image: '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png',
       description: 'The next evolution of hydration and freedom.',
       price: '1,090',
-      buttonText: 'Join the Movement',
+      buttonText: 'Buy',
       currentlyViewing: 'Currently viewing',
       features: [
         { icon: <Thermometer className="w-5 h-5" />, title: 'Temperature Control', description: 'Keeps drinks hot for 12 hours, cold for 24 hours' },
@@ -30,7 +29,7 @@ export const ProductShowcase = () => {
       image: '/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png',
       description: 'The next evolution of hydration, freedom, and style.',
       price: '1,590',
-      buttonText: 'Join the Movement',
+      buttonText: 'Buy',
       currentlyViewing: 'Currently viewing',
       features: [
         { icon: <Thermometer className="w-5 h-5" />, title: 'Advanced Temperature Control', description: 'Keeps drinks hot for 12 hours, cold for 24 hours' },
@@ -48,7 +47,7 @@ export const ProductShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-            Choose Your Flow
+            Buy
           </h2>
           <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
             Two editions. Infinite possibilities. Each bottle tells your story.
@@ -101,40 +100,34 @@ export const ProductShowcase = () => {
                 {/* Buy Button */}
                 <div className="text-center mb-8">
                   <Button 
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105"
+                    className="bg-black hover:bg-black/90 text-white px-8 py-3 rounded-2xl font-medium transition-all duration-300 hover:scale-105"
                     onClick={() => document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     {product.buttonText}
                   </Button>
                 </div>
 
-                {/* Expandable Features */}
-                <Accordion type="single" collapsible>
-                  <AccordionItem value="features" className="border-0">
-                    <AccordionTrigger className="text-center justify-center hover:no-underline text-sm font-medium text-muted-foreground">
-                      View specifications
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="space-y-4 pt-4">
-                        {product.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start space-x-3">
-                            <div className="p-2 rounded-full bg-primary/10 flex-shrink-0">
-                              {feature.icon}
-                            </div>
-                            <div>
-                              <h4 className="font-medium text-foreground text-sm mb-1">
-                                {feature.title}
-                              </h4>
-                              <p className="text-xs text-muted-foreground leading-relaxed">
-                                {feature.description}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
+                {/* Always Expanded Features */}
+                <div className="space-y-4 pt-4 border-t border-border">
+                  <h4 className="text-center text-sm font-medium text-foreground mb-4">
+                    Specifications
+                  </h4>
+                  {product.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start space-x-3">
+                      <div className="p-2 rounded-2xl bg-primary/10 flex-shrink-0">
+                        {feature.icon}
                       </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                      <div>
+                        <h4 className="font-medium text-foreground text-sm mb-1">
+                          {feature.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           ))}

@@ -47,7 +47,7 @@ export const BuySection = () => {
   }];
 
   return (
-    <section id="buy" className="apple-spacing bg-muted/30 fade-on-scroll">
+    <section id="buy" className="apple-spacing bg-background fade-on-scroll">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
@@ -58,7 +58,7 @@ export const BuySection = () => {
           </p>
         </div>
 
-        <Card className="border-0 shadow-2xl rounded-3xl overflow-hidden">
+        <Card className="border-0 shadow-2xl rounded-2xl overflow-hidden">
           <CardContent className="p-12">
             {/* Color Selection */}
             <div className="mb-12">
@@ -68,7 +68,7 @@ export const BuySection = () => {
                   <div key={color.value} className="flex items-center space-x-3 p-4 rounded-2xl border-2 hover:border-primary/50 transition-colors">
                     <RadioGroupItem value={color.value} id={color.value} />
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full border-2 border-border" style={{backgroundColor: color.color}} />
+                      <div className="w-8 h-8 rounded-2xl border-2 border-border" style={{backgroundColor: color.color}} />
                       <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
                         {color.name}
                       </label>
@@ -113,7 +113,7 @@ export const BuySection = () => {
                   Starting at <span className="text-primary font-medium">1,090 BDT</span>
                 </p>
               </div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 w-full md:w-auto">
+              <Button size="lg" className="bg-black hover:bg-black/90 text-white px-12 py-6 text-xl font-medium rounded-2xl transition-all duration-300 hover:scale-105 w-full md:w-auto">
                 Join the Movement
                 <ChevronRight className="ml-2 h-6 w-6" />
               </Button>

@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react';
 
 export const FinalCTASection = () => {
   return (
-    <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll">
+    <section className="apple-spacing bg-background fade-on-scroll">
       <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-6xl font-light text-foreground mb-8 leading-tight">
           Will you pay again
@@ -17,7 +17,7 @@ export const FinalCTASection = () => {
           Or will you help make it free again — one refill at a time?
         </p>
         
-        <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-2xl" onClick={() => document.getElementById('buy')?.scrollIntoView({
+        <Button size="lg" className="bg-black hover:bg-black/90 text-white px-12 py-6 text-xl font-medium rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl" onClick={() => document.getElementById('buy')?.scrollIntoView({
           behavior: 'smooth'
         })}>
           Join the Movement
