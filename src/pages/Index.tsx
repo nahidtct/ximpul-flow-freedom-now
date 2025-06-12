@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,6 +10,7 @@ import { Navigation } from '@/components/Navigation';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PremiumAffordableSection } from '@/components/PremiumAffordableSection';
 import { ProductFeaturesSection } from '@/components/ProductFeaturesSection';
+import { CarouselSection } from '@/components/CarouselSection';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -384,6 +386,9 @@ const Index = () => {
 
       {/* Product Features Grid Section */}
       <ProductFeaturesSection />
+
+      {/* New Carousel Section */}
+      <CarouselSection />
 
       {/* Story Section - Emotional Paragraphs */}
       <section id="story" className="apple-spacing bg-background">
