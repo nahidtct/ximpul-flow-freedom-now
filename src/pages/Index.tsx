@@ -1,10 +1,11 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap, Recycle, Award } from 'lucide-react';
+import { ChevronRight, Star, Quote, Instagram, Facebook, Youtube, Check, Droplets, Shield, Thermometer, Zap, Recycle, Award, Heart, Coffee, Dumbbell, Car, Users } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
@@ -13,9 +14,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
+
 const Index = () => {
   const [selectedColor, setSelectedColor] = useState('obsidian');
   const [selectedAccessories, setSelectedAccessories] = useState<string[]>([]);
+
   useEffect(() => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -101,9 +104,11 @@ const Index = () => {
     });
     return () => ctx.revert();
   }, []);
+
   const handleAccessoryToggle = (accessory: string) => {
     setSelectedAccessories(prev => prev.includes(accessory) ? prev.filter(a => a !== accessory) : [...prev, accessory]);
   };
+
   const colors = [{
     name: 'Obsidian Black',
     value: 'obsidian',
@@ -113,44 +118,74 @@ const Index = () => {
     value: 'graphite',
     color: '#6b7280'
   }];
+
   const accessories = [{
     name: 'Silicone Sleeve',
-    price: 300
+    price: 300,
+    note: 'Soft grip and extra protection'
   }, {
     name: 'Straw Cap',
-    price: 250
+    price: 250,
+    note: 'Flexibility for active use'
   }, {
     name: 'Handle Rope',
-    price: 200
+    price: 200,
+    note: 'Additional or alternative handle'
   }, {
     name: 'Cleaning Brush',
-    price: 150
+    price: 150,
+    note: 'Maintain hygiene easily'
+  }, {
+    name: 'Engraving Service',
+    price: 300,
+    note: 'Personalize with name/message'
   }];
+
   const features = [{
-    icon: <Thermometer className="w-8 h-8 text-primary" />,
-    title: "Advanced Temperature Control",
-    description: "Keeps drinks hot for 12 hours, cold for 24 hours with premium double-wall vacuum insulation technology"
+    icon: <Droplets className="w-8 h-8 text-primary" />,
+    title: "500ML Capacity",
+    description: "Ideal for daily hydration — perfect size for office, gym, school or travel"
   }, {
     icon: <Shield className="w-8 h-8 text-primary" />,
-    title: "Food-Grade Safety",
-    description: "Made with premium 304 stainless steel, completely BPA-free and safe for all beverages"
+    title: "304 Stainless Steel",
+    description: "Premium body material with PP cap and silicone sleeve — FDA approved & BPA-free"
   }, {
-    icon: <Droplets className="w-8 h-8 text-primary" />,
-    title: "100% Leak-Proof Design",
-    description: "Advanced seal technology with triple-lock mechanism ensures zero spills in any position"
+    icon: <Thermometer className="w-8 h-8 text-primary" />,
+    title: "24-Hour Insulation",
+    description: "Double-wall vacuum insulation keeps water hot or cold up to 24 hours"
   }, {
-    icon: <Zap className="w-8 h-8 text-primary" />,
-    title: "Easy Clean Technology",
-    description: "Wide mouth design and smooth interior coating for effortless cleaning and maintenance"
-  }, {
-    icon: <Recycle className="w-8 h-8 text-primary" />,
-    title: "Eco-Friendly Impact",
-    description: "Replace 1,000+ plastic bottles per year. Sustainable choice for conscious consumers"
+    icon: <Coffee className="w-8 h-8 text-primary" />,
+    title: "Two Cap Options",
+    description: "Choose between Standard Cap or Straw Cap — two drinking styles for your preference"
   }, {
     icon: <Award className="w-8 h-8 text-primary" />,
-    title: "Premium Craftsmanship",
-    description: "Precision-engineered with attention to every detail. Built to last a lifetime"
+    title: "100% Leak-Proof",
+    description: "Safe to carry in bags, perfect for any lifestyle activity"
+  }, {
+    icon: <Car className="w-8 h-8 text-primary" />,
+    title: "Everyday Convenience",
+    description: "Fits in car holders, portable handle rope, designed for daily use"
   }];
+
+  const lifestyleImages = [
+    {
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+      caption: 'From morning commute to mountain trail — one bottle, all day.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80',
+      caption: 'Convenient — drink hot or cold as you prefer.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80',
+      caption: 'Not just a bottle — it\'s a lifestyle.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80',
+      caption: 'Premium but affordable.'
+    }
+  ];
+
   const testimonials = [{
     quote: "I feel proud to use it.",
     author: "Rifat Ahmed",
@@ -167,38 +202,41 @@ const Index = () => {
     location: "Sylhet",
     rating: 5
   }];
+
   const faqItems = [{
     question: "How long does Ximpul Flow keep drinks hot or cold?",
-    answer: "Ximpul Flow keeps drinks hot for up to 12 hours and cold for up to 24 hours thanks to our advanced double-wall vacuum insulation technology."
+    answer: "Ximpul Flow keeps drinks hot or cold for up to 24 hours thanks to our double-wall vacuum insulation technology."
+  }, {
+    question: "What cap options are available?",
+    answer: "You can choose between Standard Cap or Straw Cap. The Lifestyle Edition includes both caps for maximum flexibility."
   }, {
     question: "Is Ximpul Flow safe for all types of beverages?",
-    answer: "Yes, Ximpul Flow is made from premium 304 stainless steel and is completely BPA-free, making it safe for water, coffee, tea, juices, and other beverages."
+    answer: "Yes, Ximpul Flow is made from premium 304 stainless steel and is FDA approved & BPA-free, making it safe for water, coffee, tea, juices, and other beverages."
   }, {
     question: "Can I personalize my bottle with engraving?",
-    answer: "Absolutely! We offer professional engraving services to add your name or custom text to your bottle for an additional 300 BDT."
+    answer: "Absolutely! We offer professional engraving services to add your name or custom message to your bottle for an additional 300 BDT."
   }, {
-    question: "How do I clean my Ximpul Flow bottle?",
-    answer: "The wide mouth design makes cleaning easy. Simply use warm soapy water and our included cleaning brush. The smooth interior coating prevents odor and stain buildup."
-  }, {
-    question: "What's included with my purchase?",
-    answer: "Each Ximpul Flow comes with the bottle, standard cap, and cleaning brush. Additional accessories can be purchased separately."
+    question: "What's the difference between Base and Lifestyle Edition?",
+    answer: "Base Edition (1090 BDT) includes the bottle, one cap, and handle rope. Lifestyle Edition (1590 BDT) includes both caps, extra accessories, cleaning brushes, silicone sleeve, and aluminum hook."
   }, {
     question: "Do you offer international shipping?",
     answer: "Currently, we ship within Bangladesh. We're working on expanding our shipping options to serve customers internationally."
   }];
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section - Apple MacBook Air Style */}
+      {/* Hero Section - Don't Touch (Already Done) */}
       <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden my-0">
         {/* Animated Background Paths */}
         <BackgroundPathsOnly />
         
         {/* Background Gradient */}
         <div className="absolute inset-0 z-[1]" style={{
-        background: 'linear-gradient(180deg, rgba(212, 234, 246, 0.3), rgba(249, 249, 249, 0.6) 75%, rgba(255, 255, 255, 0.8))',
-        transition: 'opacity 1.83s ease-out'
-      }} />
+          background: 'linear-gradient(180deg, rgba(212, 234, 246, 0.3), rgba(249, 249, 249, 0.6) 75%, rgba(255, 255, 255, 0.8))',
+          transition: 'opacity 1.83s ease-out'
+        }} />
         
         {/* Content Container - Desktop Layout */}
         <div className="relative z-10 w-full h-full hidden md:block">
@@ -228,8 +266,8 @@ const Index = () => {
               {/* CTA Section */}
               <div className="hero-cta space-y-4">
                 <Button size="default" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-base font-medium rounded-full" onClick={() => document.getElementById('buy')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
+                  behavior: 'smooth'
+                })}>
                   Buy
                 </Button>
                 
@@ -269,8 +307,8 @@ const Index = () => {
           {/* CTA Section */}
           <div className="hero-cta">
             <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 text-lg font-medium rounded-full mb-4" onClick={() => document.getElementById('buy')?.scrollIntoView({
-            behavior: 'smooth'
-          })}>
+              behavior: 'smooth'
+            })}>
               Buy
             </Button>
             
@@ -282,48 +320,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Apple-style Product Description Section */}
-      <section className="apple-spacing bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-16">
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Ximpul Flow is the world's most practical water bottle for a reason. Actually, for a 
-              lot of reasons. It delivers <strong className="text-foreground">up to 24 hours of cold retention.</strong> The premium steel construction unlocks 
-              a whole new level of <strong className="text-foreground">durability for work and play.</strong> <strong className="text-foreground">Personalized engraving</strong> is 
-              built in to help you make it uniquely yours. And it now comes in a 
-              stunning <strong className="text-foreground">Obsidian Black color.</strong> With the perfectly portable Ximpul Flow, you'll be 
-              ready to take on just about anything, anywhere.
-            </p>
-
-            <div className="mb-12">
-              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">DESIGN</p>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-tight">
-                Built to go places.
-              </h2>
-            </div>
-          </div>
-
-          {/* Bottle Images Showcase */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png" 
-                alt="Ximpul Flow Obsidian Black" 
-                className="w-full h-auto transform -rotate-12 hover:rotate-0 transition-transform duration-700"
-              />
-            </div>
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" 
-                alt="Ximpul Flow Graphite Gray" 
-                className="w-full h-auto transform rotate-12 hover:rotate-0 transition-transform duration-700"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Brand Story Section - Apple Style with Side-by-Side */}
+      {/* Story Section - Emotional Paragraphs */}
       <section id="story" className="apple-spacing bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
           {/* Story Block 1 */}
@@ -333,11 +330,11 @@ const Index = () => {
                 Water falls from the sky. It should be free.
               </h2>
               <p className="text-lg text-muted-foreground font-light">
-                Yet we pay for it every day — trapped in plastic, polluted, overpriced.
+                Yet we pay for it every day — trapped in plastic, polluted, overpriced. Ximpul Flow is here to change that.
               </p>
             </div>
             <div className="order-1 lg:order-2">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Plastic bottles" className="w-full rounded-3xl shadow-xl" />
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Plastic bottles problem" className="w-full rounded-3xl shadow-xl" />
             </div>
           </div>
 
@@ -348,10 +345,10 @@ const Index = () => {
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-light text-foreground mb-6 leading-relaxed">
-                Ximpul Flow is here to change that.
+                It is more than a bottle. It is a statement.
               </h2>
               <p className="text-lg text-muted-foreground font-light">
-                It is more than a bottle. It is a statement: <span className="text-primary font-medium">Make Water Free Again.</span>
+                <span className="text-primary font-medium">Make Water Free Again.</span> Safe beyond plastic, convenient beyond the ordinary. Hot or cold, exactly how you want it. Premium, affordable, and built with world-class quality — not just for luxury brands, but for Bangladesh.
               </p>
             </div>
           </div>
@@ -363,7 +360,7 @@ const Index = () => {
                 By using your own bottle — stylish, personalized with your own name
               </h2>
               <p className="text-lg text-muted-foreground font-light">
-                You take back the freedom to drink water as it was meant to be.
+                You take back the freedom to drink water as it was meant to be. You stop buying plastic water bottles again and again. You become part of a lifestyle that respects simplicity, health, and the planet.
               </p>
             </div>
             <div className="order-1 lg:order-2">
@@ -373,7 +370,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Product Features Section - Enhanced Apple Style */}
+      {/* Product Features Section */}
       <section id="features" className="apple-spacing bg-muted/30 fade-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
@@ -386,7 +383,8 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {features.map((feature, index) => <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
                 <div className="mb-6 flex justify-center">
                   <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     {feature.icon}
@@ -396,12 +394,64 @@ const Index = () => {
                 <p className="text-muted-foreground font-light leading-relaxed">
                   {feature.description}
                 </p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Product Showcase - Using the new component */}
+      {/* Lifestyle Section - Photos with One-line Captions */}
+      <section className="apple-spacing bg-background fade-on-scroll">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
+              Add it into your lifestyle
+            </h2>
+            <p className="text-xl text-muted-foreground font-light">
+              Premium. Safer. Smarter.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {lifestyleImages.map((item, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.caption}
+                      className="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <p className="text-white text-lg font-light leading-relaxed">{item.caption}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Movement Section - "Make Water Free Again" Story */}
+      <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-6xl font-light text-foreground mb-8 leading-tight">
+              Make Water Free Again
+            </h2>
+            <p className="text-xl md:text-2xl font-light text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              Every refill is a small revolution. Be part of the movement. Say goodbye to plastic bottles. Say hello to flow.
+            </p>
+            <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+              Stop buying plastic bottles — choose freedom with Ximpul Flow. It's safer than plastic bottles — for your health and the planet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section - Clear Packages */}
       <ProductShowcase />
 
       {/* Buy Section with Color and Accessories Selection */}
@@ -409,10 +459,10 @@ const Index = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
-              Make It Yours
+              Customize Your Level
             </h2>
             <p className="text-xl text-muted-foreground font-light">
-              Customize your Ximpul Flow
+              Personalize with engraving
             </p>
           </div>
 
@@ -422,41 +472,46 @@ const Index = () => {
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Choose Your Color</h3>
                 <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {colors.map(color => <div key={color.value} className="flex items-center space-x-3 p-4 rounded-2xl border-2 hover:border-primary/50 transition-colors">
+                  {colors.map(color => (
+                    <div key={color.value} className="flex items-center space-x-3 p-4 rounded-2xl border-2 hover:border-primary/50 transition-colors">
                       <RadioGroupItem value={color.value} id={color.value} />
                       <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 rounded-full border-2 border-border" style={{
-                      backgroundColor: color.color
-                    }} />
+                        <div className="w-8 h-8 rounded-full border-2 border-border" style={{backgroundColor: color.color}} />
                         <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
                           {color.name}
                         </label>
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </RadioGroup>
               </div>
 
               {/* Accessories Selection */}
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Add Accessories</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {accessories.map(accessory => <div key={accessory.name} className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} onClick={() => handleAccessoryToggle(accessory.name)}>
+                <div className="grid grid-cols-1 gap-4">
+                  {accessories.map(accessory => (
+                    <div key={accessory.name} className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} onClick={() => handleAccessoryToggle(accessory.name)}>
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="font-medium">{accessory.name}</p>
-                          <p className="text-sm text-muted-foreground">+{accessory.price} BDT</p>
+                          <p className="text-sm text-muted-foreground">{accessory.note}</p>
                         </div>
-                        {selectedAccessories.includes(accessory.name) && <Check className="w-5 h-5 text-primary" />}
+                        <div className="text-right">
+                          <p className="font-medium">+{accessory.price} BDT</p>
+                          {selectedAccessories.includes(accessory.name) && <Check className="w-5 h-5 text-primary mt-1 ml-auto" />}
+                        </div>
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
               </div>
 
               {/* Personalization */}
               <div className="mb-12">
                 <h3 className="text-2xl font-light text-foreground mb-6">Personalize</h3>
-                <Input placeholder="Add your name (optional)" className="text-lg p-4 rounded-2xl border-2" />
-                <p className="text-sm text-muted-foreground mt-2">+300 BDT for engraving</p>
+                <Input placeholder="Add your name or message (optional)" className="text-lg p-4 rounded-2xl border-2" />
+                <p className="text-sm text-muted-foreground mt-2">Engraving service: +300 BDT</p>
               </div>
 
               {/* Price and Buy Button */}
@@ -467,7 +522,7 @@ const Index = () => {
                   </p>
                 </div>
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 w-full md:w-auto">
-                  Buy Now
+                  Join the Movement
                   <ChevronRight className="ml-2 h-6 w-6" />
                 </Button>
               </div>
@@ -489,7 +544,8 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => <Card key={index} className="border-0 shadow-lg rounded-3xl overflow-hidden">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-lg rounded-3xl overflow-hidden">
                 <CardContent className="p-8 text-center">
                   <Quote className="w-8 h-8 text-primary mb-4 mx-auto opacity-60" />
                   <p className="text-lg font-light text-foreground mb-6 leading-relaxed">
@@ -497,12 +553,15 @@ const Index = () => {
                   </p>
                   
                   <div className="flex items-center justify-center mb-2">
-                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
                   </div>
                   <p className="font-medium text-foreground">{testimonial.author}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.location}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -520,19 +579,21 @@ const Index = () => {
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
-            {faqItems.map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-2xl px-6 bg-background">
+            {faqItems.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-2xl px-6 bg-background">
                 <AccordionTrigger className="text-left text-lg font-medium hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground font-light leading-relaxed">
                   {item.answer}
                 </AccordionContent>
-              </AccordionItem>)}
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Final CTA - Emotional + Action */}
       <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-6xl font-light text-foreground mb-8 leading-tight">
@@ -542,13 +603,13 @@ const Index = () => {
           </h2>
           
           <p className="text-xl md:text-2xl font-light text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Or will you help make it free again?
+            Or will you help make it free again — one refill at a time?
           </p>
           
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-2xl" onClick={() => document.getElementById('buy')?.scrollIntoView({
-          behavior: 'smooth'
-        })}>
-            Buy Now
+            behavior: 'smooth'
+          })}>
+            Join the Movement
             <ChevronRight className="ml-2 h-6 w-6" />
           </Button>
         </div>
@@ -598,6 +659,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
