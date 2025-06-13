@@ -72,12 +72,9 @@ export const Footer = () => {
                 <Link to="/trueprice" className="block text-white/80 hover:text-white transition-colors">
                   #TruePrice Explained
                 </Link>
-                <button 
-                  onClick={() => scrollToSection('faq')} 
-                  className="block text-white/80 hover:text-white transition-colors text-left"
-                >
+                <Link to="/faq" className="block text-white/80 hover:text-white transition-colors">
                   FAQ
-                </button>
+                </Link>
                 <Link to="/terms-privacy" className="block text-white/80 hover:text-white transition-colors">
                   Terms & Privacy
                 </Link>
