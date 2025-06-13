@@ -12,6 +12,7 @@ import { MovementSection } from '@/components/MovementSection';
 import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
 import { FinalCTASection } from '@/components/FinalCTASection';
+import { Footer } from '@/components/Footer';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -215,48 +216,8 @@ const Index = () => {
       {/* Final CTA - Emotional + Action */}
       <FinalCTASection />
 
-      {/* Simple Footer */}
-      <footer className="bg-background border-t py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <p className="text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground">
-              "Every refill tells a story — of change, of freedom, of a better way to live."
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-center">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Refund Policy
-              </a>
-            </div>
-
-            <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-          <div className="text-center mt-8 pt-8 border-t">
-            <p className="text-muted-foreground font-light">
-              © 2024 Ximpul Flow. Made with love in Bangladesh.
-            </p>
-          </div>
-        </div>
-      </footer>
+      {/* Use the updated Footer component */}
+      <Footer />
     </div>
   );
 };
