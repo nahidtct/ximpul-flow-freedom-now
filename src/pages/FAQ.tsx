@@ -79,16 +79,7 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background border-t py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-muted-foreground font-light">
-              © 2024 Ximpul Flow. Made with love in Bangladesh.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
