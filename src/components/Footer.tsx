@@ -6,6 +6,15 @@ import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <>
       {/* Pre-footer CTA */}
@@ -16,7 +25,8 @@ export const Footer = () => {
           </h3>
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium rounded-full"
+            className="bg-black hover:bg-black/90 text-white px-8 py-4 text-lg font-medium rounded-2xl"
+            onClick={() => scrollToSection('buy')}
           >
             Buy Now
           </Button>
@@ -41,9 +51,9 @@ export const Footer = () => {
               <div className="flex gap-2">
                 <Input 
                   placeholder="Enter your email" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 rounded-2xl"
                 />
-                <Button className="bg-white text-slate-900 hover:bg-white/90">
+                <Button className="bg-white text-slate-900 hover:bg-white/90 rounded-2xl">
                   Subscribe
                 </Button>
               </div>
@@ -51,16 +61,28 @@ export const Footer = () => {
 
             {/* Links */}
             <div>
-              <h4 className="text-lg font-medium mb-4">Legal</h4>
+              <h4 className="text-lg font-medium mb-4">Pages</h4>
               <div className="space-y-2">
-                <Link to="/privacy" className="block text-white/80 hover:text-white transition-colors">
-                  Privacy Policy
+                <Link to="/about" className="block text-white/80 hover:text-white transition-colors">
+                  About Ximpul
                 </Link>
-                <Link to="/terms" className="block text-white/80 hover:text-white transition-colors">
-                  Terms of Service
+                <Link to="/" className="block text-white/80 hover:text-white transition-colors">
+                  Ximpul Flow
                 </Link>
-                <Link to="/refund" className="block text-white/80 hover:text-white transition-colors">
-                  Refund Policy
+                <Link to="/trueprice" className="block text-white/80 hover:text-white transition-colors">
+                  #TruePrice Explained
+                </Link>
+                <button 
+                  onClick={() => scrollToSection('faq')} 
+                  className="block text-white/80 hover:text-white transition-colors text-left"
+                >
+                  FAQ
+                </button>
+                <Link to="/terms-privacy" className="block text-white/80 hover:text-white transition-colors">
+                  Terms & Privacy
+                </Link>
+                <Link to="/contact" className="block text-white/80 hover:text-white transition-colors">
+                  Contact
                 </Link>
               </div>
             </div>
