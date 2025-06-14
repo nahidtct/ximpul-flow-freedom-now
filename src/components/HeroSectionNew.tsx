@@ -22,7 +22,7 @@ export const HeroSectionNew = () => {
           <div className="flex flex-col justify-center items-center h-full">
             {/* Animated Underline Text for product name */}
             <div className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-8 font-semibold text-3xl py-[10px]">
-              <AnimatedText text="Introducing Ximpul Flow" textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" underlineClassName="w-full text-primary" />
+              <AnimatedText text="Introducing Flow" textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" underlineClassName="w-full text-primary" />
             </div>
 
             <h2 className="hero-main-heading lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]">
@@ -54,7 +54,7 @@ export const HeroSectionNew = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden pt-4">
         {/* Animated Underline Text for product name on mobile */}
         <div className="hero-product-name text-2xl text-[#1d1d1f] mb-4 font-semibold">
-          <AnimatedText text="Introducing Ximpul Flow" textClassName="text-2xl text-[#1d1d1f] font-semibold" underlineClassName="w-full text-primary" />
+          <AnimatedText text="Introducing Flow" textClassName="text-2xl text-[#1d1d1f] font-semibold" underlineClassName="w-full text-primary" />
         </div>
         
         <h2 className="hero-main-heading text-[1.8rem] sm:text-[2.7rem] font-semibold mb-8 leading-tight tracking-tight apple-gradient-text">
