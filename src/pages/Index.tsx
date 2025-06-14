@@ -2,6 +2,7 @@
 import React from 'react';
 import { Navigation } from '@/components/Navigation';
 import { ProductShowcase } from '@/components/ProductShowcase';
+import { PremiumAffordableSection } from '@/components/PremiumAffordableSection';
 import { ProductFeaturesSection } from '@/components/ProductFeaturesSection';
 import { CarouselSection } from '@/components/CarouselSection';
 import { HashtagSection } from '@/components/HashtagSection';
@@ -23,8 +24,11 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSectionNew />
       
-      {/* Apple Intelligence-inspired Section with merged content */}
+      {/* Apple Intelligence-inspired Section */}
       <AppleIntelligenceSection />
+
+      {/* Premium but Affordable Section */}
+      <PremiumAffordableSection />
 
       {/* Product Features Grid Section */}
       <ProductFeaturesSection />
