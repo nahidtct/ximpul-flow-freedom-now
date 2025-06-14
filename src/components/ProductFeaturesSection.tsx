@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Check, Shield, Thermometer } from 'lucide-react';
+import { BorderTrail } from './ui/border-trail';
 
 export const ProductFeaturesSection = () => {
   return (
@@ -12,10 +14,11 @@ export const ProductFeaturesSection = () => {
           </h2>
         </div>
 
-        {/* Mobile-first responsive grid - 2 columns on mobile, responsive on larger screens */}
+        {/* Mobile-first responsive grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-          {/* Updated large feature card */}
-          <div className="col-span-2 lg:col-span-2 bg-muted/30 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12">
+          {/* Feature card with BorderTrail */}
+          <div className="col-span-2 lg:col-span-2 bg-muted/30 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12 relative overflow-hidden">
+            <BorderTrail size={72} />
             <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center h-full">
               <div>
                 <h3 className="text-lg md:text-2xl lg:text-3xl font-light text-foreground mb-2 md:mb-4">
@@ -78,16 +81,14 @@ export const ProductFeaturesSection = () => {
             </p>
           </div>
 
-          {/* Updated volume/usage card */}
           <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-3 md:p-8 text-center">
             <div className="mb-2 md:mb-4">
               <span className="text-base md:text-xl lg:text-2xl font-light text-primary">
                 Safe for school, office, gym, travel
               </span>
             </div>
-            {/* Title is just hidden, to keep visual spacing */}
+            {/* Hidden title for spacing */}
             <h3 className="text-sm md:text-xl font-medium text-foreground mb-1 md:mb-2 invisible">volume</h3>
-            {/* No additional description, for cleanness */}
           </div>
         </div>
 
