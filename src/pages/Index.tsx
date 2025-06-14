@@ -198,23 +198,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* --- Replace the old "Product Story" section with the new HeroWithMockup --- */}
+      {/* --- "Carry your freedom. One refill at a time." section (after hero) --- */}
       <HeroWithMockup
         title="Carry your freedom. One refill at a time."
         description="In Bangladesh, we still rely on natural groundwater — but we buy bottled water daily, wrapped in plastic, priced unfairly. Ximpul Flow is your tool to change that. Built to last. Designed for freedom. This isn't just a bottle — it's a movement."
-        primaryCta={{
-          text: "Join the Movement",
-          href: "#buy"
-        }}
-        secondaryCta={{
-          text: "View on GitHub",
-          href: "https://github.com/ximpulxyz/ximpul-flow",
-        }}
         mockupImage={{
-          src: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80",
-          alt: "Hand holding reusable water bottle",
-          width: 800,
-          height: 600
+          src: "/lovable-uploads/d6a90878-c7f3-45a5-b375-17431754b055.png",
+          alt: "Hands holding water",
+          width: 1152,
+          height: 768
         }}
       />
 

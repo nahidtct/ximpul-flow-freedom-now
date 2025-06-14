@@ -1,24 +1,12 @@
 
-// ... [Paste the full code provided in the user block above, but with the icon swap to lucide-react as above]
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { Mockup } from "@/components/ui/mockup"
 import { Glow } from "@/components/ui/glow"
-import { Github } from "lucide-react";
 
 interface HeroWithMockupProps {
   title: string
   description: string
-  primaryCta?: {
-    text: string
-    href: string
-  }
-  secondaryCta?: {
-    text: string
-    href: string
-    icon?: React.ReactNode
-  }
-  mockupImage: {
+  mockupImage?: {
     src: string
     alt: string
     width: number
@@ -30,18 +18,17 @@ interface HeroWithMockupProps {
 export function HeroWithMockup({
   title,
   description,
-  primaryCta = {
-    text: "Get Started",
-    href: "/get-started",
-  },
-  secondaryCta = {
-    text: "GitHub",
-    href: "https://github.com/your-repo",
-    icon: <Github className="mr-2 h-4 w-4" />,
-  },
   mockupImage,
   className,
 }: HeroWithMockupProps) {
+  // Fallback to uploaded image if none provided
+  const image = mockupImage ?? {
+    src: "/lovable-uploads/d6a90878-c7f3-45a5-b375-17431754b055.png",
+    alt: "Hands holding water",
+    width: 1152,
+    height: 768
+  };
+
   return (
     <section
       className={cn(
@@ -56,10 +43,12 @@ export function HeroWithMockup({
           {/* Heading */}
           <h1
             className={cn(
+              // Reduce font size by 50%
               "inline-block animate-appear",
               "bg-gradient-to-b from-foreground via-foreground/90 to-muted-foreground",
               "bg-clip-text text-transparent",
-              "text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl",
+              // halved all font sizes from original
+              "text-2xl font-bold tracking-tight sm:text-2.5xl md:text-3xl lg:text-3.5xl xl:text-4xl",
               "leading-[1.1] sm:leading-[1.1]",
               "drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]",
             )}
@@ -71,47 +60,13 @@ export function HeroWithMockup({
           <p
             className={cn(
               "max-w-[550px] animate-appear opacity-0 [animation-delay:150ms]",
-              "text-base sm:text-lg md:text-xl",
+              "text-base sm:text-lg",
               "text-muted-foreground",
               "font-medium",
             )}
           >
             {description}
           </p>
-
-          {/* CTAs */}
-          <div
-            className="relative z-10 flex flex-wrap justify-center gap-4 
-            animate-appear opacity-0 [animation-delay:300ms]"
-          >
-            <Button
-              asChild
-              size="lg"
-              className={cn(
-                "bg-gradient-to-b from-brand to-brand/90 dark:from-brand/90 dark:to-brand/80",
-                "hover:from-brand/95 hover:to-brand/85 dark:hover:from-brand/80 dark:hover:to-brand/70",
-                "text-white shadow-lg",
-                "transition-all duration-300",
-              )}
-            >
-              <a href={primaryCta.href}>{primaryCta.text}</a>
-            </Button>
-
-            <Button
-              asChild
-              size="lg"
-              variant="ghost"
-              className={cn(
-                "text-foreground/80 dark:text-foreground/70",
-                "transition-all duration-300",
-              )}
-            >
-              <a href={secondaryCta.href}>
-                {secondaryCta.icon ?? <Github className="mr-2 h-4 w-4" />}
-                {secondaryCta.text}
-              </a>
-            </Button>
-          </div>
 
           {/* Mockup */}
           <div className="relative w-full pt-12 px-4 sm:px-6 lg:px-8">
@@ -123,7 +78,10 @@ export function HeroWithMockup({
               )}
             >
               <img
-                {...mockupImage}
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
                 className="w-full h-auto"
                 loading="lazy"
                 decoding="async"
