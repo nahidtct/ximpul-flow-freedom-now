@@ -9,7 +9,7 @@ export const MovementSection = () => {
           <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-8 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
             Make Water Free Again
           </h2>
-          <p className="text-xl md:text-2xl font-light text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg font-light text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Every refill is a small revolution. Be part of the movement. Say goodbye to plastic bottles. Say hello to flow.
           </p>
           <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">

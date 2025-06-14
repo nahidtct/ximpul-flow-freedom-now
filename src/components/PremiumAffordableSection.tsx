@@ -11,7 +11,7 @@ export const PremiumAffordableSection = () => {
             <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-8 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
               Premium but affordable
             </h2>
-            <p className="text-xl text-muted-foreground font-light leading-relaxed">
+            <p className="text-lg text-muted-foreground font-light leading-relaxed">
               World-class quality that doesn't break the bank. Experience premium materials and innovative design at a price that makes sense.
             </p>
           </div>

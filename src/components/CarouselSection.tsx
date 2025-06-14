@@ -47,7 +47,7 @@ export const CarouselSection = () => {
           <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
             Why Choose Ximpul Flow
           </h2>
-          <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
             Every feature designed with your lifestyle in mind
           </p>
         </div>

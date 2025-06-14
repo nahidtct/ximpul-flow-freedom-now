@@ -28,7 +28,7 @@ export const TestimonialsSection = () => {
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
             What Our Community Says
           </h2>
-          <p className="text-xl text-muted-foreground font-light">
+          <p className="text-lg text-muted-foreground font-light">
             Real stories from real customers
           </p>
         </div>

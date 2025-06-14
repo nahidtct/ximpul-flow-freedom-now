@@ -36,7 +36,7 @@ export const ProductFeaturesListSection = () => {
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
             Engineered for Life
           </h2>
-          <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
             Every detail crafted with purpose. Premium materials meet innovative design.
           </p>
         </div>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -45,7 +46,7 @@ export const Footer = () => {
           <h3 className="text-3xl md:text-4xl font-light text-foreground mb-4">
             Ready to carry freedom?
           </h3>
-          <p className="text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground mb-8">
+          <p className="text-lg font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground mb-8">
             "Every refill tells a story — of change, of freedom, of a better way to live."
           </p>
           <RainbowButton className="text-lg" onClick={() => scrollToSection('buy')}>

@@ -29,7 +29,7 @@ export const LifestyleSection = () => {
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
             Add it into your lifestyle
           </h2>
-          <p className="text-xl text-muted-foreground font-light">
+          <p className="text-lg text-muted-foreground font-light">
             Premium. Safer. Smarter.
           </p>
         </div>
