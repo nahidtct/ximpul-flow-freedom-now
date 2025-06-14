@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 export const HeroSectionNew = () => {
   const scrollToBuy = () => {
@@ -42,9 +43,9 @@ export const HeroSectionNew = () => {
             </p>
             
             <div className="hero-cta space-y-4">
-              <Button size="default" className="bg-black hover:bg-black/90 text-white px-6 py-2 text-base font-medium rounded-2xl" onClick={scrollToBuy}>
+              <RainbowButton onClick={scrollToBuy}>
                 Buy
-              </Button>
+              </RainbowButton>
               
               <p className="text-base text-[#1d1d1f] font-semibold">
                 From 1,090 BDT
@@ -72,9 +73,9 @@ export const HeroSectionNew = () => {
         <p className="hero-tagline mb-6 gradient-text">Water is Free. Why are we paying for it?</p>
         
         <div className="hero-cta">
-          <Button size="lg" className="bg-black hover:bg-black/90 text-white px-8 py-3 text-lg font-medium rounded-2xl mb-4" onClick={scrollToBuy}>
+          <RainbowButton className="mb-4" onClick={scrollToBuy}>
             Buy
-          </Button>
+          </RainbowButton>
           
           <p className="text-base text-gray-600">
             From 1,090 BDT
