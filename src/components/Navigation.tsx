@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
@@ -109,7 +108,7 @@ export const Navigation = () => {
             ))}
           </div>
 
-          {/* Buy Button */}
+          {/* Desktop Buy Button */}
           <div className="hidden md:block">
             <Button 
               className="bg-black hover:bg-black/90 text-white rounded-2xl" 
@@ -141,6 +140,7 @@ export const Navigation = () => {
                   {item.name}
                 </button>
               ))}
+              {/* Mobile Buy Button */}
               <div className="px-3 py-2">
                 <Button 
                   className="w-full bg-black hover:bg-black/90 text-white rounded-2xl" 
