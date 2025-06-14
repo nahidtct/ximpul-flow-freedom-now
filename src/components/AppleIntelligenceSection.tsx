@@ -6,7 +6,7 @@ export const AppleIntelligenceSection = () => {
     <section className="relative min-h-screen bg-background fade-on-scroll">
       {/* Full-width background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('/lovable-uploads/859d4aae-9ba7-49d6-9f8c-5dd7370a224c.png')`
         }}
