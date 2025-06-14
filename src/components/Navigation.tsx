@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -111,22 +111,19 @@ export const Navigation = () => {
 
           {/* Desktop Buy Button */}
           <div className="hidden md:block">
-            <Button 
-              className="bg-black hover:bg-black/90 text-white rounded-2xl" 
-              onClick={() => scrollToSection('buy')}
-            >
+            <RainbowButton onClick={() => scrollToSection('buy')}>
               Buy
-            </Button>
+            </RainbowButton>
           </div>
 
           {/* Mobile Buy Button and Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button 
-              className="bg-black hover:bg-black/90 text-white rounded-2xl text-sm px-3 py-2" 
+            <RainbowButton
+              className="h-9 px-4 text-sm"
               onClick={() => scrollToSection('buy')}
             >
               Buy
-            </Button>
+            </RainbowButton>
             <button 
               className="p-2" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

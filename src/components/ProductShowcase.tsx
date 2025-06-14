@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 export const ProductShowcase = () => {
   const products = [{
     name: 'Ximpul Flow',
@@ -109,11 +109,11 @@ export const ProductShowcase = () => {
 
                 {/* Buy Button */}
                 <div className="text-center mb-8">
-                  <Button className="bg-black hover:bg-black/90 text-white px-8 py-3 rounded-2xl font-medium transition-all duration-300 hover:scale-105" onClick={() => document.getElementById('buy')?.scrollIntoView({
+                  <RainbowButton onClick={() => document.getElementById('buy')?.scrollIntoView({
                 behavior: 'smooth'
               })}>
                     {product.buttonText}
-                  </Button>
+                  </RainbowButton>
                 </div>
 
                 {/* Always Expanded Features */}

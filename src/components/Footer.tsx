@@ -1,8 +1,7 @@
-
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 export const Footer = () => {
   const navigate = useNavigate();
@@ -54,13 +53,12 @@ export const Footer = () => {
           <p className="text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground mb-8">
             "Every refill tells a story — of change, of freedom, of a better way to live."
           </p>
-          <Button 
-            size="lg" 
-            className="bg-black hover:bg-black/90 text-white px-8 py-4 text-lg font-medium rounded-2xl"
+          <RainbowButton
+            className="text-lg"
             onClick={() => scrollToSection('buy')}
           >
             Buy Now
-          </Button>
+          </RainbowButton>
         </div>
       </section>
 
