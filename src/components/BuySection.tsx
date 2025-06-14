@@ -4,6 +4,7 @@ import { EditionSelector } from './buy/EditionSelector';
 import { ColorSelector } from './buy/ColorSelector';
 import { AccessoriesCarousel } from './buy/AccessoriesCarousel';
 import { EngravingSection } from './buy/EngravingSection';
+import { EngravingModal } from './buy/EngravingModal';
 import { PaymentMethodSelector } from './buy/PaymentMethodSelector';
 import { CustomerDetailsForm } from './buy/CustomerDetailsForm';
 import { OrderSummary } from './buy/OrderSummary';
@@ -17,6 +18,7 @@ export const BuySection = () => {
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('online');
+  const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
 
   const handleAccessoryToggle = (accessory: string) => {
     if (!selectedColor) return;
@@ -125,7 +127,14 @@ export const BuySection = () => {
             <EngravingSection 
               engravingText={engravingText}
               selectedColor={selectedColor}
-              onEngravingChange={setEngravingText}
+              onOpenModal={() => setIsEngravingModalOpen(true)}
+            />
+
+            <EngravingModal
+              isOpen={isEngravingModalOpen}
+              onClose={() => setIsEngravingModalOpen(false)}
+              initialText={engravingText}
+              onSave={setEngravingText}
             />
 
             <PaymentMethodSelector 

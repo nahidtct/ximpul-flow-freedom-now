@@ -1,14 +1,13 @@
 
-import { Input } from '@/components/ui/input';
-import { Lock } from 'lucide-react';
+import { Lock, Edit } from 'lucide-react';
 
 interface EngravingSectionProps {
   engravingText: string;
   selectedColor: string;
-  onEngravingChange: (value: string) => void;
+  onOpenModal: () => void;
 }
 
-export const EngravingSection = ({ engravingText, selectedColor, onEngravingChange }: EngravingSectionProps) => {
+export const EngravingSection = ({ engravingText, selectedColor, onOpenModal }: EngravingSectionProps) => {
   const isDisabled = !selectedColor;
 
   return (
@@ -24,13 +23,16 @@ export const EngravingSection = ({ engravingText, selectedColor, onEngravingChan
         )}
       </div>
       <div className="p-6">
-        <Input 
-          placeholder="Add your name or message" 
-          value={engravingText} 
-          onChange={e => selectedColor && onEngravingChange(e.target.value)} 
-          className="text-base h-12 rounded-lg border-gray-300" 
+        <button 
+          onClick={onOpenModal}
           disabled={isDisabled}
-        />
+          className="w-full h-12 px-4 rounded-lg border border-gray-300 flex items-center justify-between text-base disabled:cursor-not-allowed disabled:bg-gray-50"
+        >
+          <span className={engravingText ? 'text-gray-900' : 'text-gray-500'}>
+            {engravingText || 'Add your name or message'}
+          </span>
+          <Edit className="w-4 h-4 text-gray-500" />
+        </button>
         <p className="text-sm text-gray-500 mt-2">
           {engravingText ? 'Engraving: +300 BDT' : 'Engraving available for +300 BDT'}
         </p>
