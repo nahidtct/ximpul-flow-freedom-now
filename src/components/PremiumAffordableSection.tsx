@@ -8,7 +8,7 @@ export const PremiumAffordableSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Text content */}
           <div className="order-2 lg:order-1">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mb-8 leading-tight tracking-tight">
+            <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-8 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
               Premium but affordable
             </h2>
             <p className="text-xl text-muted-foreground font-light leading-relaxed">
