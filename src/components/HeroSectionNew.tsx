@@ -65,7 +65,7 @@ export const HeroSectionNew = () => {
           <img src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" alt="Ximpul Flow Water Bottle" className="max-w-xs w-full h-auto object-contain" />
         </div>
         
-        <p className="hero-tagline mb-6 gradient-text">Water is Free. Why are We Paying for It?</p>
+        <p className="hero-tagline mb-6 gradient-text">Water is Free. Why are we paying for it?</p>
         
         <div className="hero-cta">
           <Button size="lg" className="bg-black hover:bg-black/90 text-white px-8 py-3 text-lg font-medium rounded-2xl mb-4" onClick={scrollToBuy}>
