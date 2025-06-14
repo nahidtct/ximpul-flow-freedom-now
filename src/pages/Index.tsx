@@ -12,7 +12,6 @@ import { FAQSection } from '@/components/FAQSection';
 import { Footer } from '@/components/Footer';
 import { HeroSectionNew } from '@/components/HeroSectionNew';
 import { HeroSectionDemo } from '@/components/HeroSectionDemo';
-import { AppleIntelligenceSection } from '@/components/AppleIntelligenceSection';
 import { useHeroAnimations } from '@/hooks/useHeroAnimations';
 
 const Index = () => {
@@ -28,9 +27,6 @@ const Index = () => {
       {/* New Hero Section Demo */}
       <HeroSectionDemo />
       
-      {/* Apple Intelligence-inspired Section */}
-      <AppleIntelligenceSection />
-
       {/* Premium but Affordable Section */}
       <PremiumAffordableSection />
 
