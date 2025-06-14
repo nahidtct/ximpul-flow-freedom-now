@@ -11,7 +11,7 @@ export const AppleIntelligenceSection = () => {
         >
           Carry your freedom.
         </h2>
-        <div className="apple-section-subtitle text-4xl sm:text-3xl md:text-5xl mb-5">
+        <div className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-5 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
           One refill at a time.
         </div>
         <div className="apple-section-desc mx-auto max-w-2xl mb-6">
