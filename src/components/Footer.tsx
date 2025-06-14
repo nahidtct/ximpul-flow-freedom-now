@@ -2,16 +2,45 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
+    // If we're already on the home page, just scroll
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If we're on a different page, navigate to home first, then scroll
+      navigate('/');
+      // Use setTimeout to ensure the page has loaded before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  };
+
+  const navigateToPage = (path: string) => {
+    navigate(path);
+    // Always scroll to top when navigating to a new page
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
         behavior: 'smooth'
       });
-    }
+    }, 100);
   };
 
   return (
@@ -39,27 +68,26 @@ export const Footer = () => {
       <footer className="bg-background border-t py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-
           <div className="flex flex-col items-center">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center mb-6">
-              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              <button onClick={() => navigateToPage('/about')} className="text-muted-foreground hover:text-foreground transition-colors">
                 About Ximpul
-              </Link>
-              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button onClick={() => navigate('/')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Ximpul Flow
-              </Link>
-              <Link to="/trueprice" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">
                 #TruePrice Explained
-              </Link>
-              <Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button onClick={() => scrollToSection('faq')} className="text-muted-foreground hover:text-foreground transition-colors">
                 FAQ
-              </Link>
-              <Link to="/terms-privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button onClick={() => navigateToPage('/terms-privacy')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Terms & Privacy
-              </Link>
-              <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button onClick={() => navigateToPage('/contact')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Contact
-              </Link>
+              </button>
             </div>
 
             <div className="flex space-x-6 mt-4">
