@@ -12,7 +12,7 @@ export const HeroSectionNew = () => {
   };
 
   return (
-    <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden pt-24 md:pt-16">
+    <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden pt-32 md:pt-24">
       <BackgroundPathsOnly />
       
       <div className="absolute inset-0 z-[1]" style={{
@@ -25,7 +25,7 @@ export const HeroSectionNew = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-full text-center">
           <div className="flex flex-col justify-center items-center h-full">
             {/* Animated Underline Text for product name */}
-            <div className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-16 font-semibold text-3xl py-[10px]">
+            <div className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-8 font-semibold text-3xl py-[10px]">
               <AnimatedText
                 text="Introducing Ximpul Flow"
                 textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl"
@@ -59,7 +59,7 @@ export const HeroSectionNew = () => {
       </div>
 
       {/* Content Container - Mobile Layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden pt-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden pt-4">
         {/* Animated Underline Text for product name on mobile */}
         <div className="hero-product-name text-2xl text-[#1d1d1f] mb-4 font-semibold">
           <AnimatedText
