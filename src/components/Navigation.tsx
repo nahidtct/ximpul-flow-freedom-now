@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,30 +19,55 @@ export const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
+    setIsMobileMenuOpen(false);
+    
+    // If we're already on the home page, just scroll
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If we're on a different page, navigate to home first, then scroll
+      navigate('/');
+      // Use setTimeout to ensure the page has loaded before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  };
+
+  const goToHome = () => {
+    setIsMobileMenuOpen(false);
+    navigate('/');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
         behavior: 'smooth'
       });
-    }
-    setIsMobileMenuOpen(false);
+    }, 100);
   };
 
   const navItems = [{
     name: 'Ximpul Flow',
-    action: () => window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+    action: goToHome
   }, {
     name: 'About Ximpul',
-    action: () => window.location.href = '/about'
+    action: () => navigate('/about')
   }, {
     name: 'Shop',
     action: () => scrollToSection('buy')
   }, {
     name: '#TruePrice',
-    action: () => window.location.href = '/trueprice'
+    action: () => navigate('/trueprice')
   }, {
     name: 'FAQ',
     action: () => scrollToSection('faq')
@@ -51,11 +78,11 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo - Now clickable */}
-          <Link to="/" className="flex items-center space-x-2">
+          <button onClick={goToHome} className="flex items-center space-x-2">
             <div className="text-2xl font-bold">
               <span className="text-black">Ximpul</span>
             </div>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
