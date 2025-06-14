@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { HighlightGroup, HighlighterItem, Particles } from '@/components/ui/highlighter';
 import { Hash, Share } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Typewriter } from '@/components/ui/typewriter';
 
 export const HashtagSection = () => {
   const hashtags = [
@@ -74,8 +74,20 @@ export const HashtagSection = () => {
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
             Join the Movement
           </h2>
-          <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
-            Be part of the revolution that's making water free again
+          <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto min-h-[56px] md:min-h-[28px]">
+            Be part of the revolution that's{' '}
+            <Typewriter
+              text={[
+                "making water free again.",
+                "ending plastic bottle waste.",
+                "hydrating the future.",
+                "flowing with freedom."
+              ]}
+              speed={60}
+              waitTime={2500}
+              deleteSpeed={30}
+              className="text-primary font-medium"
+            />
           </p>
         </div>
 
