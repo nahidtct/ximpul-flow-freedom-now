@@ -197,33 +197,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Product Story Section */}
-      <section className="apple-spacing bg-background fade-on-scroll">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-4xl md:text-5xl font-light text-foreground mb-8 leading-tight">
-                Carry your freedom. One refill at a time.
-              </h2>
-              
-              <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-muted-foreground">
-                <p>
-                  In Bangladesh, we still rely on natural groundwater — but we buy bottled water daily, wrapped in plastic, priced unfairly.
-                </p>
-                <p>
-                  Ximpul Flow is your tool to change that. Built to last. Designed for freedom. This isn't just a bottle — it's a movement.
-                </p>
-              </div>
-            </div>
-            
-            <div className="order-1 lg:order-2">
-              <img 
-                src="/lovable-uploads/2be1ace5-987b-4571-ac83-2463e6fce899.png" 
-                alt="Water falling into cupped hands" 
-                className="w-full h-auto object-cover rounded-2xl shadow-lg"
-              />
-            </div>
-          </div>
+      {/* Custom Apple-Style Story Section */}
+      <section className="w-full flex flex-col items-center justify-center py-16 fade-on-scroll bg-background">
+        <h2
+          className="text-4xl md:text-6xl font-semibold text-center mb-4 apple-gradient-heading"
+          style={{
+            background:
+              "linear-gradient(90deg, #0a84ff 10%, #bf5af2 50%, #ff375f 80%, #ff9f0a 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          Carry your freedom.
+        </h2>
+        <div className="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
+          One refill at a time.
+        </div>
+        <div className="max-w-2xl mx-auto text-center text-lg md:text-xl text-gray-500 font-normal mb-2">
+          In Bangladesh, we still rely on natural groundwater — but we buy bottled water daily, wrapped in plastic, priced unfairly.
+          <br className="hidden md:block" />
+          <span className="block mt-2">
+            Ximpul Flow is your tool to change that. Built to last. Designed for freedom. This isn't just a bottle — it's a movement.
+          </span>
         </div>
       </section>
 

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -112,6 +111,22 @@
   font-weight: 600;
   letter-spacing: .004em;
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+/* Apple-Style Large Gradient Heading */
+.apple-gradient-heading {
+  background: linear-gradient(90deg, #0a84ff 10%, #bf5af2 50%, #ff375f 80%, #ff9f0a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100%;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .apple-gradient-heading {
+    font-size: clamp(2rem, 7vw, 3rem) !important;
+  }
 }
 
 /* Custom animations for Ximpul Flow */
