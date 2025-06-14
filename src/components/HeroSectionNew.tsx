@@ -29,7 +29,7 @@ export const HeroSectionNew = () => {
               <AnimatedText text="Introducing Flow" textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" underlineClassName="w-full text-primary" />
             </div>
 
-            <h2 className="hero-main-heading lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]">
+            <h2 className="hero-main-heading lg:text-[2.43rem] xl:text-[2.916rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[2.916rem]">
               A Bottle That Makes Water Free Again.
             </h2>
             
@@ -61,7 +61,7 @@ export const HeroSectionNew = () => {
           <AnimatedText text="Introducing Flow" textClassName="text-2xl text-[#1d1d1f] font-semibold" underlineClassName="w-full text-primary" />
         </div>
         
-        <h2 className="hero-main-heading text-[1.8rem] sm:text-[2.7rem] font-semibold mb-8 leading-tight tracking-tight apple-gradient-text">
+        <h2 className="hero-main-heading text-[1.62rem] sm:text-[2.43rem] font-semibold mb-8 leading-tight tracking-tight apple-gradient-text">
           A Bottle That Makes Water Free Again.
         </h2>
         
