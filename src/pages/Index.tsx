@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Facebook, Instagram, Youtube } from 'lucide-react';
@@ -112,7 +113,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden pt-16">
+      <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden pt-20 md:pt-16">
         <BackgroundPathsOnly />
         
         <div className="absolute inset-0 z-[1]" style={{
@@ -161,7 +162,7 @@ const Index = () => {
         </div>
 
         {/* Content Container - Mobile Layout */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden pt-4">
           {/* Animated Underline Text for product name on mobile */}
           <div className="hero-product-name text-2xl text-[#1d1d1f] mb-4 font-semibold">
             <AnimatedText
