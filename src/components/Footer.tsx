@@ -2,11 +2,9 @@ import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RainbowButton } from '@/components/ui/rainbow-button';
-
 export const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const scrollToSection = (sectionId: string) => {
     // If we're already on the home page, just scroll
     if (location.pathname === '/') {
@@ -30,7 +28,6 @@ export const Footer = () => {
       }, 100);
     }
   };
-
   const navigateToPage = (path: string) => {
     navigate(path);
     // Always scroll to top when navigating to a new page
@@ -41,9 +38,7 @@ export const Footer = () => {
       });
     }, 100);
   };
-
-  return (
-    <>
+  return <>
       {/* Pre-footer CTA */}
       <section className="py-16 bg-muted/50">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -53,10 +48,7 @@ export const Footer = () => {
           <p className="text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground mb-8">
             "Every refill tells a story — of change, of freedom, of a better way to live."
           </p>
-          <RainbowButton
-            className="text-lg"
-            onClick={() => scrollToSection('buy')}
-          >
+          <RainbowButton className="text-lg" onClick={() => scrollToSection('buy')}>
             Buy Now
           </RainbowButton>
         </div>
@@ -102,12 +94,9 @@ export const Footer = () => {
           </div>
 
           <div className="text-center mt-8 pt-8 border-t">
-            <p className="text-muted-foreground font-light">
-              © 2024 Ximpul Flow. Made with love in Bangladesh.
-            </p>
+            <p className="text-muted-foreground font-light">© 2024 www.ximpul.com - Made with love in Bangladesh.</p>
           </div>
         </div>
       </footer>
-    </>
-  );
+    </>;
 };
