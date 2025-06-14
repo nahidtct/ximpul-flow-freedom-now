@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Check, ShoppingCart, Plus, CreditCard, Banknote } from 'lucide-react';
+
 export const BuySection = () => {
   const [selectedEdition, setSelectedEdition] = useState('base');
   const [selectedColor, setSelectedColor] = useState('obsidian');
@@ -14,9 +15,11 @@ export const BuySection = () => {
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('online');
+
   const handleAccessoryToggle = (accessory: string) => {
     setSelectedAccessories(prev => prev.includes(accessory) ? prev.filter(a => a !== accessory) : [...prev, accessory]);
   };
+
   const editions = [{
     name: 'Base Edition',
     value: 'base',
@@ -66,7 +69,9 @@ export const BuySection = () => {
 
   // Product gallery images (using the uploaded image for all for now)
   const galleryImages = ['/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png', '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png', '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png', '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png', '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png'];
-  return <section id="buy" className="py-8 bg-gray-50 fade-on-scroll">
+
+  return (
+    <section id="buy" className="py-8 bg-gray-50 fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
@@ -78,8 +83,8 @@ export const BuySection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* Product Gallery */}
-          <div className="space-y-6">
+          {/* Product Gallery - Sticky on desktop */}
+          <div className="lg:sticky lg:top-8 lg:self-start space-y-6">
             {/* Main Product Image */}
             <div className="aspect-square bg-white rounded-2xl border border-gray-200 overflow-hidden">
               <img src="/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png" alt="Ximpul Flow Water Bottle" className="w-full h-full object-contain p-8" />
@@ -87,9 +92,11 @@ export const BuySection = () => {
             
             {/* Thumbnail Gallery */}
             <div className="grid grid-cols-5 gap-3">
-              {galleryImages.map((image, index) => <div key={index} className="aspect-square bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:border-blue-500 transition-colors">
+              {galleryImages.map((image, index) => (
+                <div key={index} className="aspect-square bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:border-blue-500 transition-colors">
                   <img src={image} alt={`Product view ${index + 1}`} className="w-full h-full object-contain p-2" />
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -103,7 +110,8 @@ export const BuySection = () => {
               </div>
               <div className="p-6">
                 <RadioGroup value={selectedEdition} onValueChange={setSelectedEdition} className="space-y-4">
-                  {editions.map(edition => <div key={edition.value} className={`relative p-4 rounded-lg border cursor-pointer transition-all ${selectedEdition === edition.value ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}>
+                  {editions.map(edition => (
+                    <div key={edition.value} className={`relative p-4 rounded-lg border cursor-pointer transition-all ${selectedEdition === edition.value ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}>
                       <RadioGroupItem value={edition.value} id={edition.value} className="sr-only" />
                       <label htmlFor={edition.value} className="cursor-pointer block">
                         <div className="flex items-center space-x-4">
@@ -114,11 +122,14 @@ export const BuySection = () => {
                           </div>
                           <div className="text-lg font-bold text-blue-600">{edition.price} BDT</div>
                         </div>
-                        {selectedEdition === edition.value && <div className="absolute top-2 right-2">
+                        {selectedEdition === edition.value && (
+                          <div className="absolute top-2 right-2">
                             <Check className="w-5 h-5 text-blue-600" />
-                          </div>}
+                          </div>
+                        )}
                       </label>
-                    </div>)}
+                    </div>
+                  ))}
                 </RadioGroup>
               </div>
             </div>
@@ -130,17 +141,19 @@ export const BuySection = () => {
               </div>
               <div className="p-6">
                 <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="space-y-3">
-                  {colors.map(color => <div key={color.value} className={`flex items-center space-x-4 p-4 rounded-lg border cursor-pointer transition-all ${selectedColor === color.value ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}>
+                  {colors.map(color => (
+                    <div key={color.value} className={`flex items-center space-x-4 p-4 rounded-lg border cursor-pointer transition-all ${selectedColor === color.value ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}>
                       <RadioGroupItem value={color.value} id={color.value} />
                       <img src="/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png" alt="Product icon" className="w-8 h-8 object-contain flex-shrink-0" />
                       <div className="w-6 h-6 rounded-full border border-gray-300" style={{
-                    backgroundColor: color.color
-                  }} />
+                        backgroundColor: color.color
+                      }} />
                       <label htmlFor={color.value} className="text-base font-medium cursor-pointer flex-1">
                         {color.name}
                       </label>
                       {selectedColor === color.value && <Check className="w-5 h-5 text-blue-600" />}
-                    </div>)}
+                    </div>
+                  ))}
                 </RadioGroup>
               </div>
             </div>
@@ -153,7 +166,8 @@ export const BuySection = () => {
               <div className="p-6">
                 <Carousel className="w-full">
                   <CarouselContent className="-ml-2">
-                    {accessories.map((accessory, index) => <CarouselItem key={index} className="pl-2 basis-1/2">
+                    {accessories.map((accessory, index) => (
+                      <CarouselItem key={index} className="pl-2 basis-1/2">
                         <div className={`p-4 rounded-lg border cursor-pointer transition-all text-center ${selectedAccessories.includes(accessory.name) ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`} onClick={() => handleAccessoryToggle(accessory.name)}>
                           <div className="space-y-3">
                             <img src="/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png" alt="Accessory icon" className="w-10 h-10 object-contain mx-auto" />
@@ -165,7 +179,8 @@ export const BuySection = () => {
                             </div>
                           </div>
                         </div>
-                      </CarouselItem>)}
+                      </CarouselItem>
+                    ))}
                   </CarouselContent>
                   <CarouselPrevious className="left-2 h-8 w-8" />
                   <CarouselNext className="right-2 h-8 w-8" />
@@ -253,20 +268,26 @@ export const BuySection = () => {
                     <span className="font-semibold text-gray-900">{basePrice} BDT</span>
                   </div>
                   
-                  {selectedAccessories.length > 0 && <div className="space-y-2">
+                  {selectedAccessories.length > 0 && (
+                    <div className="space-y-2">
                       {selectedAccessories.map(accessory => {
-                    const item = accessories.find(a => a.name === accessory);
-                    return <div key={accessory} className="flex justify-between text-sm">
+                        const item = accessories.find(a => a.name === accessory);
+                        return (
+                          <div key={accessory} className="flex justify-between text-sm">
                             <span className="text-gray-600">{accessory}</span>
                             <span className="font-medium text-gray-900">+{item?.price} BDT</span>
-                          </div>;
-                  })}
-                    </div>}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                   
-                  {engravingText && <div className="flex justify-between text-sm">
+                  {engravingText && (
+                    <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Engraving Service</span>
                       <span className="font-medium text-gray-900">+300 BDT</span>
-                    </div>}
+                    </div>
+                  )}
 
                   <div className="flex justify-between text-base">
                     <span className="text-gray-600">Subtotal</span>
@@ -304,5 +325,6 @@ export const BuySection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
