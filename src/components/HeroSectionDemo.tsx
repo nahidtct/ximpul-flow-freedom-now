@@ -1,0 +1,39 @@
+
+"use client"
+
+import { HeroSection } from "@/components/ui/hero-section"
+import { Icons } from "@/components/ui/icons"
+
+export function HeroSectionDemo() {
+  return (
+    <HeroSection
+      badge={{
+        text: "Introducing Ximpul Flow",
+        action: {
+          text: "Learn more",
+          href: "#features",
+        },
+      }}
+      title="Premium Water Freedom"
+      description="Experience the future of hydration with our revolutionary water bottle designed for the modern lifestyle. Make water free again with Ximpul Flow."
+      actions={[
+        {
+          text: "Get Started",
+          href: "#buy",
+          variant: "default",
+        },
+        {
+          text: "GitHub",
+          href: "https://github.com/ximpul",
+          variant: "glow",
+          icon: <Icons.gitHub className="h-5 w-5" />,
+        },
+      ]}
+      image={{
+        light: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=1248&h=765&fit=crop&crop=center",
+        dark: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=1248&h=765&fit=crop&crop=center",
+        alt: "Ximpul Flow Water Bottle Premium Experience",
+      }}
+    />
+  )
+}

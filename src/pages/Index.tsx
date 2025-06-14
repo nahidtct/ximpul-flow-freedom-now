@@ -11,6 +11,7 @@ import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
 import { Footer } from '@/components/Footer';
 import { HeroSectionNew } from '@/components/HeroSectionNew';
+import { HeroSectionDemo } from '@/components/HeroSectionDemo';
 import { AppleIntelligenceSection } from '@/components/AppleIntelligenceSection';
 import { useHeroAnimations } from '@/hooks/useHeroAnimations';
 
@@ -23,6 +24,9 @@ const Index = () => {
       
       {/* Hero Section */}
       <HeroSectionNew />
+      
+      {/* New Hero Section Demo */}
+      <HeroSectionDemo />
       
       {/* Apple Intelligence-inspired Section */}
       <AppleIntelligenceSection />
