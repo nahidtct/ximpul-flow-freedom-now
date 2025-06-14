@@ -10,7 +10,6 @@ import { HashtagSection } from '@/components/HashtagSection';
 import { MovementSection } from '@/components/MovementSection';
 import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
-import { Features } from "@/components/ui/features-4";
 
 import { Footer } from '@/components/Footer';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
@@ -223,10 +222,6 @@ const Index = () => {
           />
         </div>
       </section>
-
-      {/* Features Section START */}
-      <Features />
-      {/* Features Section END */}
 
       {/* Premium but Affordable Section */}
       <PremiumAffordableSection />
