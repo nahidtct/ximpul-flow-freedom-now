@@ -17,66 +17,21 @@ interface FaqItem {
 interface Faq3Props {
   heading: string;
   description: string;
-  items?: FaqItem[];
+  items: FaqItem[];
   supportHeading: string;
   supportDescription: string;
   supportButtonText: string;
   supportButtonUrl: string;
 }
 
-const faqItems = [
-  {
-    id: "faq-1",
-    question: "What is Ximpul?",
-    answer:
-      "Ximpul is a lifestyle brand from Bangladesh dedicated to bringing global-quality products to people at #TruePrice — with full transparency and no compromise on innovation or product integrity."
-  },
-  {
-    id: "faq-2",
-    question: "What does #TruePrice mean?",
-    answer:
-      "#TruePrice means you get the same factory quality as premium global brands — without paying an inflated brand price. It also means we don't sell fake \"factory-direct\" scrap. Every product is fully curated, tested, and guaranteed."
-  },
-  {
-    id: "faq-3",
-    question: "Is Ximpul trying to copy other brands?",
-    answer:
-      "No. We do not copy brands. We source from top factories and work to bring equal or better quality products to Bangladesh — under our own brand, at honest prices."
-  },
-  {
-    id: "faq-4",
-    question: "Why is packaging so simple?",
-    answer:
-      "We believe your money should go to the product, not the box. Our simple, eco-friendly packaging helps reduce waste and keeps the focus on delivering real value."
-  },
-  {
-    id: "faq-5",
-    question: "What is Ximpul Flow?",
-    answer:
-      "Ximpul Flow is our first initiative — a premium water bottle designed to help people carry their own safe, clean water, and contribute to making water free again — instead of paying again and again for bottled water."
-  },
-  {
-    id: "faq-6",
-    question: "Is there any compromise on product quality?",
-    answer:
-      "Never. Every Ximpul product is selected through strict quality control. Our mission is to deliver global quality at #TruePrice — without compromise."
-  },
-  {
-    id: "faq-7",
-    question: "What types of products will Ximpul offer in the future?",
-    answer:
-      "We will gradually introduce lifestyle products across multiple categories: hydration, personal accessories, home, travel — always following our brand philosophy: The best. For all. At #TruePrice."
-  }
-];
-
 const Faq3 = ({
-  heading = "Frequently asked questions",
-  description = "Find answers to common questions about our products. Can't find what you're looking for? Contact our support team.",
-  items = faqItems,
-  supportHeading = "Need more support?",
-  supportDescription = "Our dedicated support team is here to help you with any questions or concerns. Get in touch with us for personalized assistance.",
-  supportButtonText = "Contact Support",
-  supportButtonUrl = "/contact",
+  heading,
+  description,
+  items,
+  supportHeading,
+  supportDescription,
+  supportButtonText,
+  supportButtonUrl,
 }: Faq3Props) => {
   return (
     <section className="py-32">

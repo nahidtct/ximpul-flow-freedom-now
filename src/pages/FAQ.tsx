@@ -55,9 +55,8 @@ const FAQ = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* FAQ Component */}
       <Faq3 
-        heading="Frequently asked questions"
+        heading="Frequently Asked Questions"
         description="Everything you need to know about Ximpul Flow and our mission to make water free again."
         items={faqItems}
         supportHeading="Still have questions?"
