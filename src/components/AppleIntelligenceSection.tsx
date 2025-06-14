@@ -6,7 +6,7 @@ export const AppleIntelligenceSection = () => {
     <section className="bg-background fade-on-scroll py-24 sm:py-20">
       <div className="max-w-3xl mx-auto px-4 text-center flex flex-col items-center">
         <h2
-          className="apple-gradient-headline text-5xl sm:text-4xl md:text-6xl mb-3"
+          className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-3 text-[3.24rem]"
           style={{ lineHeight: 1.09 }}
         >
           Carry your freedom.
