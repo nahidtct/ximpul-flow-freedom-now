@@ -84,113 +84,131 @@ export const BuySection = () => {
   const totalPrice = basePrice + accessoriesPrice + engravingPrice;
 
   return (
-    <section id="buy" className="py-24 bg-background fade-on-scroll">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-4">
+    <section id="buy" className="py-16 sm:py-20 lg:py-24 bg-background fade-on-scroll">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-foreground mb-3">
             Customize Your Level
           </h2>
-          <p className="text-xl text-muted-foreground font-light">
+          <p className="text-base sm:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
             Personalize with engraving. Complete your order in one simple step.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Column - Product Configuration */}
-          <div className="lg:col-span-2">
-            <Card className="border border-border shadow-lg rounded-2xl overflow-hidden">
-              <CardContent className="p-8 space-y-10">
-                
-                {/* Edition Selection */}
-                <div>
-                  <h3 className="text-2xl font-semibold mb-6">Choose Your Edition</h3>
-                  <RadioGroup value={selectedEdition} onValueChange={setSelectedEdition} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
+          {/* Main Configuration - Takes more space on desktop */}
+          <div className="lg:col-span-3">
+            <div className="space-y-8 sm:space-y-10">
+              
+              {/* Edition Selection */}
+              <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="p-4 sm:p-6 border-b border-gray-50">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900">Choose Your Edition</h3>
+                </div>
+                <div className="p-4 sm:p-6">
+                  <RadioGroup value={selectedEdition} onValueChange={setSelectedEdition} className="space-y-3">
                     {editions.map(edition => (
-                      <div key={edition.value} className={`p-6 rounded-2xl border-2 cursor-pointer transition-all ${selectedEdition === edition.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
+                      <div key={edition.value} className={`relative p-4 sm:p-5 rounded-xl border-2 cursor-pointer transition-all duration-200 ${selectedEdition === edition.value ? 'border-primary bg-primary/5 shadow-sm' : 'border-gray-200 hover:border-gray-300'}`}>
                         <RadioGroupItem value={edition.value} id={edition.value} className="sr-only" />
                         <label htmlFor={edition.value} className="cursor-pointer block">
-                          <div className="text-lg font-semibold mb-2">{edition.name}</div>
-                          <div className="text-sm text-muted-foreground mb-3">{edition.description}</div>
-                          <div className="text-xl font-bold text-primary">{edition.price} BDT</div>
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <div className="text-sm sm:text-base font-medium text-gray-900 mb-1">{edition.name}</div>
+                              <div className="text-xs sm:text-sm text-gray-600">{edition.description}</div>
+                            </div>
+                            <div className="text-lg sm:text-xl font-semibold text-primary">{edition.price} BDT</div>
+                          </div>
+                          {selectedEdition === edition.value && (
+                            <div className="absolute top-3 right-3">
+                              <Check className="w-4 h-4 text-primary" />
+                            </div>
+                          )}
                         </label>
                       </div>
                     ))}
                   </RadioGroup>
                 </div>
+              </div>
 
-                {/* Color Selection */}
-                <div>
-                  <h3 className="text-2xl font-semibold mb-6">Choose Your Color</h3>
-                  <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Color Selection */}
+              <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="p-4 sm:p-6 border-b border-gray-50">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900">Choose Your Color</h3>
+                </div>
+                <div className="p-4 sm:p-6">
+                  <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="space-y-3">
                     {colors.map(color => (
-                      <div key={color.value} className={`flex items-center space-x-4 p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedColor === color.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
+                      <div key={color.value} className={`flex items-center space-x-3 p-3 sm:p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${selectedColor === color.value ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                         <RadioGroupItem value={color.value} id={color.value} />
-                        <div className="flex items-center space-x-3">
-                          <div className="w-8 h-8 rounded-full border-2 border-border" style={{backgroundColor: color.color}} />
-                          <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
-                            {color.name}
-                          </label>
-                        </div>
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-gray-300" style={{backgroundColor: color.color}} />
+                        <label htmlFor={color.value} className="text-sm sm:text-base font-medium cursor-pointer flex-1">
+                          {color.name}
+                        </label>
+                        {selectedColor === color.value && (
+                          <Check className="w-4 h-4 text-primary" />
+                        )}
                       </div>
                     ))}
                   </RadioGroup>
                 </div>
+              </div>
 
-                {/* Accessories Carousel */}
-                <div>
-                  <h3 className="text-2xl font-semibold mb-6">Add Accessories (Optional)</h3>
-                  <Carousel className="w-full max-w-full">
-                    <CarouselContent className="-ml-2 md:-ml-4">
-                      {accessories.map((accessory, index) => (
-                        <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                          <div 
-                            className={`p-4 rounded-2xl border-2 cursor-pointer transition-all h-full ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} 
-                            onClick={() => handleAccessoryToggle(accessory.name)}
-                          >
-                            <div className="flex flex-col justify-between h-full">
-                              <div>
-                                <p className="font-semibold text-sm mb-1">{accessory.name}</p>
-                                <p className="text-xs text-muted-foreground mb-3">{accessory.note}</p>
-                              </div>
-                              <div className="flex items-center justify-between">
-                                <span className="font-semibold text-sm">+{accessory.price} BDT</span>
-                                {selectedAccessories.includes(accessory.name) && (
-                                  <Check className="w-4 h-4 text-primary" />
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
-                  </Carousel>
+              {/* Accessories */}
+              <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="p-4 sm:p-6 border-b border-gray-50">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900">Add Accessories <span className="text-sm font-normal text-gray-500">(Optional)</span></h3>
                 </div>
+                <div className="p-4 sm:p-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                    {accessories.map((accessory, index) => (
+                      <div 
+                        key={index}
+                        className={`p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 text-center ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`} 
+                        onClick={() => handleAccessoryToggle(accessory.name)}
+                      >
+                        <div className="space-y-2">
+                          <p className="font-medium text-xs sm:text-sm text-gray-900">{accessory.name}</p>
+                          <p className="text-xs text-gray-600 line-clamp-2">{accessory.note}</p>
+                          <div className="flex items-center justify-between">
+                            <span className="font-semibold text-xs sm:text-sm text-primary">+{accessory.price} BDT</span>
+                            {selectedAccessories.includes(accessory.name) && (
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
-                {/* Engraving */}
-                <div>
-                  <Label htmlFor="engraving" className="text-2xl font-semibold mb-6 block">
-                    Personalize with Engraving (Optional)
-                  </Label>
+              {/* Engraving */}
+              <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="p-4 sm:p-6 border-b border-gray-50">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900">Personalize with Engraving <span className="text-sm font-normal text-gray-500">(Optional)</span></h3>
+                </div>
+                <div className="p-4 sm:p-6">
                   <Input 
-                    id="engraving"
                     placeholder="Add your name or message" 
                     value={engravingText}
                     onChange={(e) => setEngravingText(e.target.value)}
-                    className="text-lg p-4 rounded-2xl border-2" 
+                    className="text-sm sm:text-base p-3 sm:p-4 rounded-lg border-gray-300" 
                   />
-                  <p className="text-sm text-muted-foreground mt-2">
+                  <p className="text-xs sm:text-sm text-gray-600 mt-2">
                     {engravingText ? 'Engraving service: +300 BDT' : 'Engraving service available for +300 BDT'}
                   </p>
                 </div>
+              </div>
 
-                {/* Customer Details */}
-                <div>
-                  <h3 className="text-2xl font-semibold mb-6">Your Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Customer Details */}
+              <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="p-4 sm:p-6 border-b border-gray-50">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900">Your Information</h3>
+                </div>
+                <div className="p-4 sm:p-6">
+                  <div className="space-y-4">
                     <div>
-                      <Label htmlFor="name" className="text-base font-medium mb-2 block">
+                      <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-2 block">
                         Full Name *
                       </Label>
                       <Input 
@@ -199,12 +217,12 @@ export const BuySection = () => {
                         placeholder="Enter your full name" 
                         value={customerName}
                         onChange={(e) => setCustomerName(e.target.value)}
-                        className="text-lg p-4 rounded-2xl border-2" 
+                        className="text-sm sm:text-base p-3 sm:p-4 rounded-lg border-gray-300" 
                         required
                       />
                     </div>
                     <div>
-                      <Label htmlFor="phone" className="text-base font-medium mb-2 block">
+                      <Label htmlFor="phone" className="text-sm font-medium text-gray-700 mb-2 block">
                         Phone Number *
                       </Label>
                       <Input 
@@ -213,27 +231,28 @@ export const BuySection = () => {
                         placeholder="Enter your phone number" 
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value)}
-                        className="text-lg p-4 rounded-2xl border-2" 
+                        className="text-sm sm:text-base p-3 sm:p-4 rounded-lg border-gray-300" 
                         required
                       />
                     </div>
                   </div>
                 </div>
+              </div>
 
-              </CardContent>
-            </Card>
+            </div>
           </div>
 
-          {/* Right Column - Order Summary */}
-          <div className="lg:col-span-1">
-            <Card className="border border-border shadow-lg rounded-2xl overflow-hidden sticky top-8">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6">Order Summary</h3>
-                
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between">
-                    <span>Ximpul Flow {editions.find(e => e.value === selectedEdition)?.name}</span>
-                    <span>{basePrice} BDT</span>
+          {/* Order Summary - Sidebar on desktop */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm overflow-hidden sticky top-4">
+              <div className="p-4 sm:p-6 border-b border-gray-50">
+                <h3 className="text-lg font-medium text-gray-900">Order Summary</h3>
+              </div>
+              <div className="p-4 sm:p-6">
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Ximpul Flow {editions.find(e => e.value === selectedEdition)?.name}</span>
+                    <span className="font-medium text-gray-900">{basePrice} BDT</span>
                   </div>
                   
                   {selectedAccessories.length > 0 && (
@@ -241,9 +260,9 @@ export const BuySection = () => {
                       {selectedAccessories.map(accessory => {
                         const item = accessories.find(a => a.name === accessory);
                         return (
-                          <div key={accessory} className="flex justify-between text-sm">
-                            <span>{accessory}</span>
-                            <span>+{item?.price} BDT</span>
+                          <div key={accessory} className="flex justify-between text-xs">
+                            <span className="text-gray-600">{accessory}</span>
+                            <span className="font-medium text-gray-900">+{item?.price} BDT</span>
                           </div>
                         );
                       })}
@@ -251,34 +270,35 @@ export const BuySection = () => {
                   )}
                   
                   {engravingText && (
-                    <div className="flex justify-between text-sm">
-                      <span>Engraving Service</span>
-                      <span>+300 BDT</span>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-gray-600">Engraving Service</span>
+                      <span className="font-medium text-gray-900">+300 BDT</span>
                     </div>
                   )}
                 </div>
 
-                <div className="border-t pt-4 mb-6">
-                  <div className="flex justify-between text-xl font-bold">
-                    <span>Total</span>
+                <div className="border-t border-gray-100 pt-4 mb-6">
+                  <div className="flex justify-between text-lg font-semibold">
+                    <span className="text-gray-900">Total</span>
                     <span className="text-primary">{totalPrice} BDT</span>
                   </div>
                 </div>
 
                 <Button 
                   size="lg" 
-                  className="w-full bg-black hover:bg-black/90 text-white py-4 text-lg font-medium rounded-2xl transition-all duration-300 hover:scale-105"
+                  className="w-full bg-black hover:bg-black/90 text-white py-3 sm:py-4 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 hover:scale-[1.02]"
                   disabled={!customerName || !customerPhone}
                 >
-                  <ShoppingCart className="mr-2 h-5 w-5" />
+                  <ShoppingCart className="mr-2 h-4 w-4" />
                   Complete Order
                 </Button>
 
-                <p className="text-xs text-muted-foreground text-center mt-4">
-                  Free delivery within Dhaka. Cash on delivery available.
+                <p className="text-xs text-gray-500 text-center mt-4 leading-relaxed">
+                  Free delivery within Dhaka<br />
+                  Cash on delivery available
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </div>
