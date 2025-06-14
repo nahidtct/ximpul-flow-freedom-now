@@ -5,13 +5,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Check, ShoppingCart, Phone, User, Package } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Check, ShoppingCart } from 'lucide-react';
 
 export const BuySection = () => {
   const [selectedEdition, setSelectedEdition] = useState('base');
   const [selectedColor, setSelectedColor] = useState('obsidian');
   const [selectedAccessories, setSelectedAccessories] = useState<string[]>([]);
+  const [engravingText, setEngravingText] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
 
@@ -79,7 +80,7 @@ export const BuySection = () => {
     const item = accessories.find(a => a.name === accessory);
     return total + (item?.price || 0);
   }, 0);
-  const engravingPrice = customerName ? 300 : 0;
+  const engravingPrice = engravingText ? 300 : 0;
   const totalPrice = basePrice + accessoriesPrice + engravingPrice;
 
   return (
@@ -90,7 +91,7 @@ export const BuySection = () => {
             Customize Your Level
           </h2>
           <p className="text-xl text-muted-foreground font-light">
-            Complete your order in 3 simple steps
+            Personalize with engraving. Complete your order in one simple step.
           </p>
         </div>
 
@@ -98,137 +99,127 @@ export const BuySection = () => {
           {/* Left Column - Product Configuration */}
           <div className="lg:col-span-2">
             <Card className="border border-border shadow-lg rounded-2xl overflow-hidden">
-              <CardContent className="p-8">
-                <Tabs defaultValue="edition" className="w-full">
-                  <TabsList className="grid w-full grid-cols-3 mb-8">
-                    <TabsTrigger value="edition" className="flex items-center gap-2">
-                      <Package className="w-4 h-4" />
-                      Edition
-                    </TabsTrigger>
-                    <TabsTrigger value="customize" className="flex items-center gap-2">
-                      <User className="w-4 h-4" />
-                      Customize
-                    </TabsTrigger>
-                    <TabsTrigger value="details" className="flex items-center gap-2">
-                      <Phone className="w-4 h-4" />
-                      Details
-                    </TabsTrigger>
-                  </TabsList>
+              <CardContent className="p-8 space-y-10">
+                
+                {/* Edition Selection */}
+                <div>
+                  <h3 className="text-2xl font-semibold mb-6">Choose Your Edition</h3>
+                  <RadioGroup value={selectedEdition} onValueChange={setSelectedEdition} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {editions.map(edition => (
+                      <div key={edition.value} className={`p-6 rounded-2xl border-2 cursor-pointer transition-all ${selectedEdition === edition.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
+                        <RadioGroupItem value={edition.value} id={edition.value} className="sr-only" />
+                        <label htmlFor={edition.value} className="cursor-pointer block">
+                          <div className="text-lg font-semibold mb-2">{edition.name}</div>
+                          <div className="text-sm text-muted-foreground mb-3">{edition.description}</div>
+                          <div className="text-xl font-bold text-primary">{edition.price} BDT</div>
+                        </label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                </div>
 
-                  {/* Step 1: Edition & Color Selection */}
-                  <TabsContent value="edition" className="space-y-8">
-                    <div>
-                      <h3 className="text-2xl font-semibold mb-6">Choose Your Edition</h3>
-                      <RadioGroup value={selectedEdition} onValueChange={setSelectedEdition} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {editions.map(edition => (
-                          <div key={edition.value} className={`p-6 rounded-2xl border-2 cursor-pointer transition-all ${selectedEdition === edition.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
-                            <RadioGroupItem value={edition.value} id={edition.value} className="sr-only" />
-                            <label htmlFor={edition.value} className="cursor-pointer block">
-                              <div className="text-lg font-semibold mb-2">{edition.name}</div>
-                              <div className="text-sm text-muted-foreground mb-3">{edition.description}</div>
-                              <div className="text-xl font-bold text-primary">{edition.price} BDT</div>
-                            </label>
-                          </div>
-                        ))}
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <h3 className="text-2xl font-semibold mb-6">Choose Your Color</h3>
-                      <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {colors.map(color => (
-                          <div key={color.value} className={`flex items-center space-x-4 p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedColor === color.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
-                            <RadioGroupItem value={color.value} id={color.value} />
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 rounded-full border-2 border-border" style={{backgroundColor: color.color}} />
-                              <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
-                                {color.name}
-                              </label>
-                            </div>
-                          </div>
-                        ))}
-                      </RadioGroup>
-                    </div>
-                  </TabsContent>
-
-                  {/* Step 2: Accessories */}
-                  <TabsContent value="customize" className="space-y-6">
-                    <h3 className="text-2xl font-semibold mb-6">Add Accessories (Optional)</h3>
-                    <div className="grid grid-cols-1 gap-4">
-                      {accessories.map(accessory => (
-                        <div 
-                          key={accessory.name} 
-                          className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} 
-                          onClick={() => handleAccessoryToggle(accessory.name)}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <p className="font-semibold">{accessory.name}</p>
-                              <p className="text-sm text-muted-foreground">{accessory.note}</p>
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <span className="font-semibold">+{accessory.price} BDT</span>
-                              {selectedAccessories.includes(accessory.name) && (
-                                <Check className="w-5 h-5 text-primary" />
-                              )}
-                            </div>
-                          </div>
+                {/* Color Selection */}
+                <div>
+                  <h3 className="text-2xl font-semibold mb-6">Choose Your Color</h3>
+                  <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {colors.map(color => (
+                      <div key={color.value} className={`flex items-center space-x-4 p-4 rounded-2xl border-2 cursor-pointer transition-all ${selectedColor === color.value ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
+                        <RadioGroupItem value={color.value} id={color.value} />
+                        <div className="flex items-center space-x-3">
+                          <div className="w-8 h-8 rounded-full border-2 border-border" style={{backgroundColor: color.color}} />
+                          <label htmlFor={color.value} className="text-lg font-medium cursor-pointer">
+                            {color.name}
+                          </label>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                </div>
 
-                    <div className="pt-6 border-t">
-                      <Label htmlFor="engraving" className="text-lg font-semibold mb-3 block">
-                        Personalize with Engraving (Optional)
+                {/* Accessories Carousel */}
+                <div>
+                  <h3 className="text-2xl font-semibold mb-6">Add Accessories (Optional)</h3>
+                  <Carousel className="w-full max-w-full">
+                    <CarouselContent className="-ml-2 md:-ml-4">
+                      {accessories.map((accessory, index) => (
+                        <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                          <div 
+                            className={`p-4 rounded-2xl border-2 cursor-pointer transition-all h-full ${selectedAccessories.includes(accessory.name) ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} 
+                            onClick={() => handleAccessoryToggle(accessory.name)}
+                          >
+                            <div className="flex flex-col justify-between h-full">
+                              <div>
+                                <p className="font-semibold text-sm mb-1">{accessory.name}</p>
+                                <p className="text-xs text-muted-foreground mb-3">{accessory.note}</p>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="font-semibold text-sm">+{accessory.price} BDT</span>
+                                {selectedAccessories.includes(accessory.name) && (
+                                  <Check className="w-4 h-4 text-primary" />
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </Carousel>
+                </div>
+
+                {/* Engraving */}
+                <div>
+                  <Label htmlFor="engraving" className="text-2xl font-semibold mb-6 block">
+                    Personalize with Engraving (Optional)
+                  </Label>
+                  <Input 
+                    id="engraving"
+                    placeholder="Add your name or message" 
+                    value={engravingText}
+                    onChange={(e) => setEngravingText(e.target.value)}
+                    className="text-lg p-4 rounded-2xl border-2" 
+                  />
+                  <p className="text-sm text-muted-foreground mt-2">
+                    {engravingText ? 'Engraving service: +300 BDT' : 'Engraving service available for +300 BDT'}
+                  </p>
+                </div>
+
+                {/* Customer Details */}
+                <div>
+                  <h3 className="text-2xl font-semibold mb-6">Your Information</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="name" className="text-base font-medium mb-2 block">
+                        Full Name *
                       </Label>
                       <Input 
-                        id="engraving"
-                        placeholder="Add your name or message" 
+                        id="name"
+                        type="text"
+                        placeholder="Enter your full name" 
                         value={customerName}
                         onChange={(e) => setCustomerName(e.target.value)}
                         className="text-lg p-4 rounded-2xl border-2" 
+                        required
                       />
-                      <p className="text-sm text-muted-foreground mt-2">
-                        {customerName ? 'Engraving service: +300 BDT' : 'Free personalization available'}
-                      </p>
                     </div>
-                  </TabsContent>
+                    <div>
+                      <Label htmlFor="phone" className="text-base font-medium mb-2 block">
+                        Phone Number *
+                      </Label>
+                      <Input 
+                        id="phone"
+                        type="tel"
+                        placeholder="Enter your phone number" 
+                        value={customerPhone}
+                        onChange={(e) => setCustomerPhone(e.target.value)}
+                        className="text-lg p-4 rounded-2xl border-2" 
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
 
-                  {/* Step 3: Customer Details */}
-                  <TabsContent value="details" className="space-y-6">
-                    <h3 className="text-2xl font-semibold mb-6">Your Information</h3>
-                    <div className="space-y-4">
-                      <div>
-                        <Label htmlFor="name" className="text-base font-medium mb-2 block">
-                          Full Name *
-                        </Label>
-                        <Input 
-                          id="name"
-                          type="text"
-                          placeholder="Enter your full name" 
-                          value={customerName}
-                          onChange={(e) => setCustomerName(e.target.value)}
-                          className="text-lg p-4 rounded-2xl border-2" 
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="phone" className="text-base font-medium mb-2 block">
-                          Phone Number *
-                        </Label>
-                        <Input 
-                          id="phone"
-                          type="tel"
-                          placeholder="Enter your phone number" 
-                          value={customerPhone}
-                          onChange={(e) => setCustomerPhone(e.target.value)}
-                          className="text-lg p-4 rounded-2xl border-2" 
-                          required
-                        />
-                      </div>
-                    </div>
-                  </TabsContent>
-                </Tabs>
               </CardContent>
             </Card>
           </div>
@@ -259,7 +250,7 @@ export const BuySection = () => {
                     </div>
                   )}
                   
-                  {customerName && (
+                  {engravingText && (
                     <div className="flex justify-between text-sm">
                       <span>Engraving Service</span>
                       <span>+300 BDT</span>
