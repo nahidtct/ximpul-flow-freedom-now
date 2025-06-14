@@ -115,7 +115,7 @@ export const Navigation = () => {
               className="bg-black hover:bg-black/90 text-white rounded-2xl" 
               onClick={() => scrollToSection('buy')}
             >
-              Buy Now
+              Buy
             </Button>
           </div>
 
@@ -146,7 +146,7 @@ export const Navigation = () => {
                   className="w-full bg-black hover:bg-black/90 text-white rounded-2xl" 
                   onClick={() => scrollToSection('buy')}
                 >
-                  Buy Now
+                  Buy
                 </Button>
               </div>
             </div>
