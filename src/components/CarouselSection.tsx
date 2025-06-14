@@ -43,7 +43,7 @@ export const CarouselSection = () => {
     <section className="apple-spacing bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
+          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
             Why Choose Ximpul Flow
           </h2>
           <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">

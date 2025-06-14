@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check, Shield, Thermometer } from 'lucide-react';
 
@@ -7,7 +8,7 @@ export const ProductFeaturesSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
+          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
             Product Features
           </h2>
         </div>
