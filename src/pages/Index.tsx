@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/HeroSection';
@@ -82,6 +81,7 @@ const Index = () => {
       <BrandStorySection />
       <HashtagSection />
       <TestimonialsSection />
+      <BuySection />
       
       <div id="faq" className="fade-on-scroll">
         <Faq3 
@@ -95,7 +95,6 @@ const Index = () => {
         />
       </div>
       
-      <BuySection />
       <Footer />
     </div>
   );
