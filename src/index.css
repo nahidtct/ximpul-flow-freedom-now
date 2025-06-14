@@ -45,6 +45,9 @@
     --sidebar-accent-foreground: 0 84% 60%;
     --sidebar-border: 0 0% 90%;
     --sidebar-ring: 0 84% 60%;
+
+    --brand: 210 100% 50%;
+    --brand-foreground: 213 100% 60%;
   }
 
   .dark {
@@ -75,6 +78,9 @@
     --sidebar-accent-foreground: 0 84% 60%;
     --sidebar-border: 0 0% 10%;
     --sidebar-ring: 0 84% 60%;
+
+    --brand: 213 100% 60%;
+    --brand-foreground: 210 100% 50%;
   }
 }
 
@@ -190,6 +196,10 @@
     .gradient-text {
       font-size: clamp(0.875rem, 7vw, 1.125rem) !important;
     }
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground/90 to-muted-foreground;
   }
 }
 

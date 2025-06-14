@@ -16,6 +16,7 @@ import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
+import { HeroWithMockup } from "@/components/ui/hero-with-mockup";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -197,35 +198,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Product Story Section */}
-      <section className="apple-spacing bg-background fade-on-scroll">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-4xl md:text-5xl font-light text-foreground mb-8 leading-tight">
-                Carry your freedom. One refill at a time.
-              </h2>
-              
-              <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-muted-foreground">
-                <p>
-                  In Bangladesh, we still rely on natural groundwater — but we buy bottled water daily, wrapped in plastic, priced unfairly.
-                </p>
-                <p>
-                  Ximpul Flow is your tool to change that. Built to last. Designed for freedom. This isn't just a bottle — it's a movement.
-                </p>
-              </div>
-            </div>
-            
-            <div className="order-1 lg:order-2">
-              <img 
-                src="/lovable-uploads/2be1ace5-987b-4571-ac83-2463e6fce899.png" 
-                alt="Water falling into cupped hands" 
-                className="w-full h-auto object-cover rounded-2xl shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* --- Replace the old "Product Story" section with the new HeroWithMockup --- */}
+      <HeroWithMockup
+        title="Carry your freedom. One refill at a time."
+        description="In Bangladesh, we still rely on natural groundwater — but we buy bottled water daily, wrapped in plastic, priced unfairly. Ximpul Flow is your tool to change that. Built to last. Designed for freedom. This isn't just a bottle — it's a movement."
+        primaryCta={{
+          text: "Join the Movement",
+          href: "#buy"
+        }}
+        secondaryCta={{
+          text: "View on GitHub",
+          href: "https://github.com/ximpulxyz/ximpul-flow",
+        }}
+        mockupImage={{
+          src: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80",
+          alt: "Hand holding reusable water bottle",
+          width: 800,
+          height: 600
+        }}
+      />
 
       {/* Premium but Affordable Section */}
       <PremiumAffordableSection />
