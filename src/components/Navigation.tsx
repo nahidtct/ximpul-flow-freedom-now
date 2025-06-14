@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
@@ -118,13 +119,21 @@ export const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden" 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Buy Button and Menu Button */}
+          <div className="md:hidden flex items-center space-x-2">
+            <Button 
+              className="bg-black hover:bg-black/90 text-white rounded-2xl text-sm px-3 py-2" 
+              onClick={() => scrollToSection('buy')}
+            >
+              Buy
+            </Button>
+            <button 
+              className="p-2" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -140,15 +149,6 @@ export const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              {/* Mobile Buy Button */}
-              <div className="px-3 py-2">
-                <Button 
-                  className="w-full bg-black hover:bg-black/90 text-white rounded-2xl" 
-                  onClick={() => scrollToSection('buy')}
-                >
-                  Buy
-                </Button>
-              </div>
             </div>
           </div>
         )}
