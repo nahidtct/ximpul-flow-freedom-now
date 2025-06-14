@@ -4,23 +4,26 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 export const FAQSection = () => {
   const faqItems = [{
-    question: "How long does Ximpul Flow keep drinks hot or cold?",
-    answer: "Ximpul Flow keeps drinks hot or cold for up to 24 hours thanks to our double-wall vacuum insulation technology."
+    question: "What is Ximpul?",
+    answer: "Ximpul is a lifestyle brand from Bangladesh dedicated to bringing global-quality products to people at #TruePrice — with full transparency and no compromise on innovation or product integrity."
   }, {
-    question: "What cap options are available?",
-    answer: "You can choose between Standard Cap or Straw Cap. The Lifestyle Edition includes both caps for maximum flexibility."
+    question: "What is Ximpul Flow?",
+    answer: "Ximpul Flow is our first initiative — a premium water bottle designed to help people carry their own safe, clean water, and contribute to making water free again — instead of paying again and again for bottled water."
   }, {
-    question: "Is Ximpul Flow safe for all types of beverages?",
-    answer: "Yes, Ximpul Flow is made from premium 304 stainless steel and is FDA approved & BPA-free, making it safe for water, coffee, tea, juices, and other beverages."
+    question: "What does #TruePrice mean?",
+    answer: "#TruePrice means you get the same factory quality as premium global brands — without paying an inflated brand price. It also means we don't sell fake \"factory-direct\" scrap. Every product is fully curated, tested, and guaranteed."
   }, {
-    question: "Can I personalize my bottle with engraving?",
-    answer: "Absolutely! We offer professional engraving services to add your name or custom message to your bottle for an additional 300 BDT."
+    question: "Is Ximpul trying to copy other brands?",
+    answer: "No. We do not copy brands. We source from top factories and work to bring equal or better quality products to Bangladesh — under our own brand, at honest prices."
   }, {
-    question: "What's the difference between Base and Lifestyle Edition?",
-    answer: "Base Edition (1090 BDT) includes the bottle, one cap, and handle rope. Lifestyle Edition (1590 BDT) includes both caps, extra accessories, cleaning brushes, silicone sleeve, and aluminum hook."
+    question: "Why is packaging so simple?",
+    answer: "We believe your money should go to the product, not the box. Our simple, eco-friendly packaging helps reduce waste and keeps the focus on delivering real value."
   }, {
-    question: "Do you offer international shipping?",
-    answer: "Currently, we ship within Bangladesh. We're working on expanding our shipping options to serve customers internationally."
+    question: "Is there any compromise on product quality?",
+    answer: "Never. Every Ximpul product is selected through strict quality control. Our mission is to deliver global quality at #TruePrice — without compromise."
+  }, {
+    question: "What types of products will Ximpul offer in the future?",
+    answer: "We will gradually introduce lifestyle products across multiple categories: hydration, personal accessories, home, travel — always following our brand philosophy: The best. For all. At #TruePrice."
   }];
 
   return (
@@ -30,9 +33,6 @@ export const FAQSection = () => {
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-muted-foreground font-light">
-            Everything you need to know about Ximpul Flow
-          </p>
         </div>
 
         <Accordion type="single" collapsible className="space-y-4">

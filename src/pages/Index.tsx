@@ -11,7 +11,7 @@ import { HashtagSection } from '@/components/HashtagSection';
 import { MovementSection } from '@/components/MovementSection';
 import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
-import { FinalCTASection } from '@/components/FinalCTASection';
+
 import { Footer } from '@/components/Footer';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
@@ -125,11 +125,11 @@ const Index = () => {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-full text-center">
             <div className="flex flex-col justify-center items-center h-full">
               <h1 className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-16 font-semibold text-3xl py-[10px]">
-                Ximpul Flow
+                Introducing Ximpul Flow
               </h1>
               
-              <h2 className="hero-main-heading lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-6xl">
-                Your Water. Your Freedom.
+              <h2 className="hero-main-heading lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]">
+                A Bottle That Makes Water Free Again.
               </h2>
               
               <div className="hero-product-image mb-6 flex justify-center">
@@ -137,7 +137,7 @@ const Index = () => {
               </div>
               
               <p className="hero-tagline mb-5 gradient-text text-2xl font-bold">
-                Will you keep paying for what falls from the sky?
+                Water is free. Why are we paying for it?
               </p>
               
               <div className="hero-cta space-y-4">
@@ -158,13 +158,11 @@ const Index = () => {
         {/* Content Container - Mobile Layout */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
           <h1 className="hero-product-name text-2xl text-[#1d1d1f] mb-4 font-semibold">
-            Ximpul Flow
+            Introducing Ximpul Flow
           </h1>
           
-          <h2 className="hero-main-heading text-4xl sm:text-5xl font-semibold mb-8 leading-tight tracking-tight apple-gradient-text">
-            Your Water.
-            <br />
-            Your Freedom.
+          <h2 className="hero-main-heading text-[1.8rem] sm:text-[2.7rem] font-semibold mb-8 leading-tight tracking-tight apple-gradient-text">
+            A Bottle That Makes Water Free Again.
           </h2>
           
           <div className="hero-product-image mb-8 flex justify-center">
@@ -172,7 +170,7 @@ const Index = () => {
           </div>
           
           <p className="hero-tagline mb-6 gradient-text">
-            Will you keep paying for what falls from the sky?
+            Water is free. Why are we paying for it?
           </p>
           
           <div className="hero-cta">
@@ -212,9 +210,6 @@ const Index = () => {
 
       {/* FAQ Section */}
       <FAQSection />
-
-      {/* Final CTA - Emotional + Action */}
-      <FinalCTASection />
 
       {/* Use the updated Footer component */}
       <Footer />

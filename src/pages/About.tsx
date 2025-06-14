@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Footer } from '@/components/Footer';
 
 const About = () => {
   return (
@@ -109,15 +110,7 @@ const About = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background border-t py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-muted-foreground font-light">
-              © 2024 Ximpul Flow. Made with love in Bangladesh.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
