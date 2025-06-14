@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -33,77 +32,52 @@ export const Footer = () => {
         </div>
       </section>
 
-      {/* Main Footer */}
-      <footer className="bg-slate-900 text-white py-16">
+      {/* Main Footer - Simple horizontal layout */}
+      <footer className="bg-background border-t py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Brand Quote */}
-          <div className="text-center mb-12">
-            <p className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground">
               "Every refill tells a story — of change, of freedom, of a better way to live."
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* Newsletter */}
-            <div>
-              <h4 className="text-lg font-medium mb-4">Join the Movement</h4>
-              <p className="text-white/80 mb-4 font-light">Stay updated with our latest news and offers.</p>
-              <div className="flex gap-2">
-                <Input 
-                  placeholder="Enter your email" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 rounded-2xl"
-                />
-                <Button className="bg-white text-slate-900 hover:bg-white/90 rounded-2xl">
-                  Subscribe
-                </Button>
-              </div>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-center">
+              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                About Ximpul
+              </Link>
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+                Ximpul Flow
+              </Link>
+              <Link to="/trueprice" className="text-muted-foreground hover:text-foreground transition-colors">
+                #TruePrice Explained
+              </Link>
+              <Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
+                FAQ
+              </Link>
+              <Link to="/terms-privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+                Terms & Privacy
+              </Link>
+              <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                Contact
+              </Link>
             </div>
 
-            {/* Links */}
-            <div>
-              <h4 className="text-lg font-medium mb-4">Pages</h4>
-              <div className="space-y-2">
-                <Link to="/about" className="block text-white/80 hover:text-white transition-colors">
-                  About Ximpul
-                </Link>
-                <Link to="/" className="block text-white/80 hover:text-white transition-colors">
-                  Ximpul Flow
-                </Link>
-                <Link to="/trueprice" className="block text-white/80 hover:text-white transition-colors">
-                  #TruePrice Explained
-                </Link>
-                <Link to="/faq" className="block text-white/80 hover:text-white transition-colors">
-                  FAQ
-                </Link>
-                <Link to="/terms-privacy" className="block text-white/80 hover:text-white transition-colors">
-                  Terms & Privacy
-                </Link>
-                <Link to="/contact" className="block text-white/80 hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </div>
-            </div>
-
-            {/* Social */}
-            <div>
-              <h4 className="text-lg font-medium mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
-                  <Facebook className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
-                  <Youtube className="w-6 h-6" />
-                </a>
-              </div>
+            <div className="flex space-x-4">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Youtube className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
-          {/* Bottom */}
-          <div className="border-t border-white/20 mt-12 pt-8 text-center">
-            <p className="text-white/60 font-light">
+          <div className="text-center mt-8 pt-8 border-t">
+            <p className="text-muted-foreground font-light">
               © 2024 Ximpul Flow. Made with love in Bangladesh.
             </p>
           </div>
