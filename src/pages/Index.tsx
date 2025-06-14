@@ -15,6 +15,7 @@ import { Footer } from '@/components/Footer';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AnimatedText } from '@/components/ui/animated-underline-text-one';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -123,10 +124,15 @@ const Index = () => {
         <div className="relative z-10 w-full h-full hidden md:block">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-full text-center">
             <div className="flex flex-col justify-center items-center h-full">
-              <h1 className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-16 font-semibold text-3xl py-[10px]">
-                Introducing Ximpul Flow
-              </h1>
-              
+              {/* Animated Underline Text for product name */}
+              <div className="hero-product-name lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 mt-16 font-semibold text-3xl py-[10px]">
+                <AnimatedText
+                  text="Introducing Ximpul Flow"
+                  textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl"
+                  underlineClassName="w-full text-primary"
+                />
+              </div>
+
               <h2 className="hero-main-heading lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]">
                 A Bottle That Makes Water Free Again.
               </h2>
@@ -156,9 +162,14 @@ const Index = () => {
 
         {/* Content Container - Mobile Layout */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:hidden">
-          <h1 className="hero-product-name text-2xl text-[#1d1d1f] mb-4 font-semibold">
-            Introducing Ximpul Flow
-          </h1>
+          {/* Animated Underline Text for product name on mobile */}
+          <div className="hero-product-name text-2xl text-[#1d1d1f] mb-4 font-semibold">
+            <AnimatedText
+              text="Introducing Ximpul Flow"
+              textClassName="text-2xl text-[#1d1d1f] font-semibold"
+              underlineClassName="w-full text-primary"
+            />
+          </div>
           
           <h2 className="hero-main-heading text-[1.8rem] sm:text-[2.7rem] font-semibold mb-8 leading-tight tracking-tight apple-gradient-text">
             A Bottle That Makes Water Free Again.
