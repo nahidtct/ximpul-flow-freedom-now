@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ProductGallery } from './buy/ProductGallery';
 import { EditionSelector } from './buy/EditionSelector';
@@ -46,23 +45,38 @@ export const BuySection = () => {
     color: '#6b7280'
   }];
 
-  const accessories: Accessory[] = [{
-    name: 'Silicone Sleeve',
-    price: 300,
-    note: 'Soft grip protection'
-  }, {
-    name: 'Straw Cap',
-    price: 250,
-    note: 'Active use flexibility'
-  }, {
-    name: 'Handle Rope',
-    price: 200,
-    note: 'Alternative handle'
-  }, {
-    name: 'Cleaning Brush',
-    price: 150,
-    note: 'Easy maintenance'
-  }];
+  const accessories: Accessory[] = [
+    {
+      name: 'Silicone Sleeve',
+      price: 300,
+      note: 'Soft grip and extra protection'
+    },
+    {
+      name: 'Straw Cap',
+      price: 250,
+      note: 'Flexibility for active use'
+    },
+    {
+      name: 'Standard Cap',
+      price: 200,
+      note: 'Replace or upgrade'
+    },
+    {
+      name: 'Straw Cleaning Brush',
+      price: 150,
+      note: 'Maintain hygiene easily'
+    },
+    {
+      name: 'Cleaning Brush',
+      price: 150,
+      note: 'Maintain hygiene easily'
+    },
+    {
+      name: 'Aluminium Hook',
+      price: 200,
+      note: 'Strong, metallic hook for bag mounting'
+    }
+  ];
 
   const galleryImages = [
     '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png',
