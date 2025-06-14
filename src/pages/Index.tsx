@@ -112,7 +112,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden my-0">
+      <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden pt-16">
         <BackgroundPathsOnly />
         
         <div className="absolute inset-0 z-[1]" style={{
