@@ -83,8 +83,8 @@ export function HeroSection({
             ))}
           </div>
 
-          {/* Image with Glow */}
-          <div className="relative pt-12">
+          {/* Image with Glow - Reduced padding from pt-12 to pt-6 */}
+          <div className="relative pt-6">
             <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
               <Mockup type="responsive">
                 <img src={imageSrc} alt={image.alt} width={1248} height={765} className="w-full h-auto object-cover" />
