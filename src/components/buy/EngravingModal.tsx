@@ -11,7 +11,7 @@ interface EngravingModalProps {
   onSave: (text: string) => void;
 }
 
-const emojis = ['😀', '😂', '😍', '🤔', '😎', '👍', '✌️', '🤘', '❤️', '⭐', '✨', '⚽️', '🏀', '🏈', '🦄', '👻', '🤖', '👽', '💀', '💩', '😄', '😊', '😉', '🥰', '🥳', '💯', '🔥', '🎉', '👋', '🙏'];
+const emojis = ['★', '♡', '♪', '☾', '☀', '⚡', '☕', '✨', '✌', '❤', '⭐', '✓', '✕', '☺', '☹', '✏', '✈', '⚛', '⚜', '⚠', '☯', '⌘', '☘', '☠'];
 
 export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: EngravingModalProps) => {
   const [engravingText, setEngravingText] = useState(initialText);
@@ -41,12 +41,19 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
           </DialogDescription>
         </DialogHeader>
         <div className="py-4 flex flex-col items-center space-y-4">
-          <img src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" alt="Product" className="h-48 object-contain" />
+          <div className="relative w-full flex justify-center">
+            <img src="/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png" alt="Product" className="h-48 object-contain" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 text-center pointer-events-none">
+              <p className="text-gray-500/90 font-mono text-lg break-words">
+                {engravingText}
+              </p>
+            </div>
+          </div>
           <Input 
             placeholder="YOUR ENGRAVING"
             value={engravingText}
             onChange={(e) => setEngravingText(e.target.value)}
-            className="text-center h-12 text-lg tracking-widest uppercase"
+            className="text-center h-12 text-lg tracking-widest"
             maxLength={30}
           />
           <div className="grid grid-cols-8 gap-2 w-full pt-4">
@@ -59,9 +66,9 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
         </div>
         <DialogFooter className="sm:justify-center">
           <DialogClose asChild>
-            <Button type="button" variant="ghost">Cancel</Button>
+            <Button type="button" variant="outline">Cancel</Button>
           </DialogClose>
-          <Button type="button" onClick={handleSave}>Save</Button>
+          <Button type="button" onClick={handleSave} className="bg-black text-white hover:bg-black/90">Save</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
