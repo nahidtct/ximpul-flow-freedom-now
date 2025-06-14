@@ -9,6 +9,7 @@ export const HashtagSection = () => {
     '#MakeWaterFreeAgain',
     '#YourWaterYourFreedom',
     '#XimpulFlow',
+    '#TruePrice',
     '#FlowWithFreedom',
     '#StopBuyingPlastic',
     '#BangladeshLifestyle',
@@ -17,17 +18,52 @@ export const HashtagSection = () => {
   ];
 
   const handleShare = () => {
+    const shareText = `Check out Ximpul Flow - making water free again! ${hashtags.join(' ')}`;
+    const shareUrl = window.location.href;
+    
     if (navigator.share) {
       navigator.share({
         title: 'Ximpul Flow - Your Water, Your Freedom',
-        text: 'Check out Ximpul Flow - making water free again! #MakeWaterFreeAgain #XimpulFlow',
-        url: window.location.href,
+        text: shareText,
+        url: shareUrl,
       });
     } else {
-      // Fallback for browsers that don't support Web Share API
-      navigator.clipboard.writeText(
-        `Check out Ximpul Flow - making water free again! ${hashtags.join(' ')} ${window.location.href}`
+      // Fallback - try to open share options
+      const encodedText = encodeURIComponent(shareText);
+      const encodedUrl = encodeURIComponent(shareUrl);
+      
+      // Create a simple share menu
+      const shareOptions = [
+        {
+          name: 'Facebook',
+          url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`
+        },
+        {
+          name: 'Twitter',
+          url: `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`
+        },
+        {
+          name: 'LinkedIn',
+          url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}&summary=${encodedText}`
+        },
+        {
+          name: 'WhatsApp',
+          url: `https://wa.me/?text=${encodedText} ${encodedUrl}`
+        }
+      ];
+      
+      // Show options to user
+      const selectedOption = prompt(
+        'Choose how to share:\n1. Facebook\n2. Twitter\n3. LinkedIn\n4. WhatsApp\n5. Copy to clipboard\n\nEnter number (1-5):'
       );
+      
+      if (selectedOption && selectedOption >= '1' && selectedOption <= '4') {
+        const optionIndex = parseInt(selectedOption) - 1;
+        window.open(shareOptions[optionIndex].url, '_blank', 'width=600,height=400');
+      } else if (selectedOption === '5') {
+        navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+        alert('Copied to clipboard!');
+      }
     }
   };
 
