@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -104,6 +105,11 @@ export default {
           "0%": { "background-position": "0%" },
           "100%": { "background-position": "200%" },
         },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -111,6 +117,7 @@ export default {
 				appear: "appear 0.5s ease-out forwards",
 				"appear-zoom": "appear-zoom 0.5s ease-out forwards",
 				rainbow: "rainbow var(--speed, 2s) infinite linear",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
 			}
 		}
 	},

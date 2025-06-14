@@ -10,6 +10,7 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import { CheckCircle } from 'lucide-react';
+import { BorderBeam } from '@/components/ui/border-beam';
 
 export const CarouselSection = () => {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -65,7 +66,7 @@ export const CarouselSection = () => {
             <CarouselContent className="-ml-4">
               {slides.map((slide, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full border-0 bg-muted/20 hover:bg-muted/30 transition-all duration-300 rounded-2xl">
+                  <Card className="relative h-full border-0 bg-muted/20 hover:bg-muted/30 transition-all duration-300 rounded-2xl overflow-hidden">
                     <CardContent className="p-8 h-full flex flex-col">
                       {/* Product Image */}
                       <div className="flex justify-center mb-6">
@@ -84,6 +85,7 @@ export const CarouselSection = () => {
                         </p>
                       </div>
                     </CardContent>
+                    <BorderBeam duration={12} delay={index * 0.2} />
                   </Card>
                 </CarouselItem>
               ))}
