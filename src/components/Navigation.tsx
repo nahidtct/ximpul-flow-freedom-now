@@ -56,18 +56,30 @@ export const Navigation = () => {
     }, 100);
   };
 
+  const navigateToPage = (path: string) => {
+    setIsMobileMenuOpen(false);
+    navigate(path);
+    // Always scroll to top when navigating to a new page
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
+
   const navItems = [{
     name: 'Ximpul Flow',
     action: goToHome
   }, {
     name: 'About Ximpul',
-    action: () => navigate('/about')
+    action: () => navigateToPage('/about')
   }, {
     name: 'Shop',
     action: () => scrollToSection('buy')
   }, {
     name: '#TruePrice',
-    action: () => navigate('/trueprice')
+    action: () => navigateToPage('/trueprice')
   }, {
     name: 'FAQ',
     action: () => scrollToSection('faq')
