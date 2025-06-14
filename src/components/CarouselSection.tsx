@@ -66,8 +66,18 @@ export const CarouselSection = () => {
               {slides.map((slide, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <Card className="h-full border-0 bg-muted/20 hover:bg-muted/30 transition-all duration-300 rounded-2xl">
-                    <CardContent className="p-8 h-full flex items-center">
-                      <div className="flex items-start space-x-4">
+                    <CardContent className="p-8 h-full flex flex-col">
+                      {/* Product Image */}
+                      <div className="flex justify-center mb-6">
+                        <img 
+                          src="/lovable-uploads/3206014d-8b7b-48fa-be6b-24c9a2af5025.png" 
+                          alt="Ximpul Flow Water Bottle" 
+                          className="w-24 h-32 object-contain"
+                        />
+                      </div>
+                      
+                      {/* Text Content */}
+                      <div className="flex items-start space-x-4 flex-grow">
                         <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                         <p className="text-foreground leading-relaxed font-light text-lg">
                           {slide}
