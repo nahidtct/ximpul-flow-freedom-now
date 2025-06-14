@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Thermometer, Shield, Droplets, Zap, Recycle, Award } from 'lucide-react';
+import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
 export const ProductShowcase = () => {
   const products = [{
     name: 'Ximpul Flow',
@@ -57,11 +57,7 @@ export const ProductShowcase = () => {
     }, {
       icon: <Recycle className="w-5 h-5" />,
       title: 'Lifestyle Accessories',
-      description: 'Includes silicone sleeve, straw cap, and handle rope'
-    }, {
-      icon: <Award className="w-5 h-5" />,
-      title: 'Premium Package',
-      description: 'Complete lifestyle solution for active users'
+      description: 'Includes silicone sleeve, straw cap, cleaning brushes, and aluminium hook'
     }]
   }];
   return <section className="py-24 bg-background fade-on-scroll">
