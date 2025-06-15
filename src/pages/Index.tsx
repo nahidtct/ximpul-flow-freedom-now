@@ -39,11 +39,11 @@ const Index = () => {
       {/* Movement Section - "Make Water Free Again" Story */}
       <MovementSection />
 
-      {/* New Carousel Section */}
-      <CarouselSection />
-
       {/* Pricing Section - Clear Packages */}
       <ProductShowcase />
+
+      {/* New Carousel Section */}
+      <CarouselSection />
 
       {/* Buy Section with Color and Accessories Selection */}
       <BuySection />
