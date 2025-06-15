@@ -1,16 +1,28 @@
+
 import React from 'react';
 import { Check, Shield, Thermometer } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 export const ProductFeaturesSection = () => {
+  const navigate = useNavigate();
+
+  const goToSpecs = () => {
+    navigate('/specs');
+  };
+
   return (
     <section className="apple-spacing bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
+          <h2 className="lg:text-[2.7rem] xl:text-[2.916rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
             Product Features
           </h2>
+          <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
+            View Full Specs
+          </Button>
         </div>
 
         {/* Mobile-first responsive grid - 2 columns on mobile, responsive on larger screens */}
