@@ -27,14 +27,14 @@ const Index = () => {
       {/* New Hero Section Demo */}
       <HeroSectionDemo />
       
-      {/* Premium but Affordable Section */}
-      <PremiumAffordableSection />
-
       {/* Product Features Grid Section */}
       <ProductFeaturesSection />
 
       {/* New Carousel Section */}
       <CarouselSection />
+
+      {/* Premium but Affordable Section */}
+      <PremiumAffordableSection />
 
       {/* Hashtag Movement Section */}
       <HashtagSection />
