@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Navigation } from '@/components/Navigation';
 import { ProductShowcase } from '@/components/ProductShowcase';
@@ -35,11 +36,11 @@ const Index = () => {
       {/* Hashtag Movement Section */}
       <HashtagSection />
 
-      {/* New Carousel Section */}
-      <CarouselSection />
-
       {/* Movement Section - "Make Water Free Again" Story */}
       <MovementSection />
+
+      {/* New Carousel Section */}
+      <CarouselSection />
 
       {/* Pricing Section - Clear Packages */}
       <ProductShowcase />
