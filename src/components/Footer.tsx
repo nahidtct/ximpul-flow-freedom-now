@@ -3,9 +3,11 @@ import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RainbowButton } from '@/components/ui/rainbow-button';
+
 export const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
     // If we're already on the home page, just scroll
     if (location.pathname === '/') {
@@ -29,6 +31,7 @@ export const Footer = () => {
       }, 100);
     }
   };
+
   const navigateToPage = (path: string) => {
     navigate(path);
     // Always scroll to top when navigating to a new page
@@ -39,6 +42,7 @@ export const Footer = () => {
       });
     }, 100);
   };
+
   return <>
       {/* Pre-footer CTA */}
       <section className="py-16 bg-muted/50">
@@ -67,8 +71,8 @@ export const Footer = () => {
               <button onClick={() => navigateToPage('/specs')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Specs
               </button>
-              <button onClick={() => navigateToPage('/about')} className="text-muted-foreground hover:text-foreground transition-colors">
-                About Ximpul
+              <button onClick={() => scrollToSection('products')} className="text-muted-foreground hover:text-foreground transition-colors">
+                Compare
               </button>
               <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">
                 #TruePrice Explained

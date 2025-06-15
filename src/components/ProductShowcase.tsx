@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
@@ -70,7 +69,7 @@ export const ProductShowcase = () => {
       description: 'Includes silicone sleeve, straw cap, cleaning brushes, and aluminium hook'
     }]
   }];
-  return <section className="py-24 bg-background fade-on-scroll">
+  return <section id="products" className="py-24 bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           

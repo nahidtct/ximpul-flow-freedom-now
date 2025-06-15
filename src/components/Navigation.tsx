@@ -76,8 +76,8 @@ export const Navigation = () => {
     name: 'Specs',
     action: () => navigateToPage('/specs')
   }, {
-    name: 'About Ximpul',
-    action: () => navigateToPage('/about')
+    name: 'Compare',
+    action: () => scrollToSection('products')
   }, {
     name: 'Shop',
     action: () => scrollToSection('buy')
