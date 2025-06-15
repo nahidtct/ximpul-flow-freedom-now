@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check, Shield, Thermometer } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -20,9 +19,6 @@ export const ProductFeaturesSection = () => {
           <h2 className="lg:text-[2.7rem] xl:text-[2.916rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
             Product Features
           </h2>
-          <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
-            View Full Specs
-          </Button>
         </div>
 
         {/* Mobile-first responsive grid - 2 columns on mobile, responsive on larger screens */}
@@ -222,6 +218,13 @@ export const ProductFeaturesSection = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* View Full Specs button at the bottom */}
+        <div className="text-center mt-12">
+          <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
+            View Full Specs
+          </Button>
         </div>
       </div>
     </section>
