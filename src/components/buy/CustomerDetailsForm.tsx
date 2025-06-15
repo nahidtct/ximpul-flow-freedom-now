@@ -1,17 +1,28 @@
 
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { Lock } from 'lucide-react';
 
 interface CustomerDetailsFormProps {
   customerName: string;
   customerPhone: string;
+  customerAddress: string;
   selectedColor: string;
   onNameChange: (value: string) => void;
   onPhoneChange: (value: string) => void;
+  onAddressChange: (value: string) => void;
 }
 
-export const CustomerDetailsForm = ({ customerName, customerPhone, selectedColor, onNameChange, onPhoneChange }: CustomerDetailsFormProps) => {
+export const CustomerDetailsForm = ({ 
+  customerName, 
+  customerPhone, 
+  customerAddress,
+  selectedColor, 
+  onNameChange, 
+  onPhoneChange,
+  onAddressChange 
+}: CustomerDetailsFormProps) => {
   const isDisabled = !selectedColor;
 
   return (
@@ -29,12 +40,12 @@ export const CustomerDetailsForm = ({ customerName, customerPhone, selectedColor
         <div className="space-y-4">
           <div>
             <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-2 block">
-              Full Name *
+              Name *
             </Label>
             <Input 
               id="name" 
               type="text" 
-              placeholder="Enter your full name" 
+              placeholder="Enter your name" 
               value={customerName} 
               onChange={e => selectedColor && onNameChange(e.target.value)} 
               className="text-base h-12 rounded-lg border-gray-300" 
@@ -53,6 +64,20 @@ export const CustomerDetailsForm = ({ customerName, customerPhone, selectedColor
               value={customerPhone} 
               onChange={e => selectedColor && onPhoneChange(e.target.value)} 
               className="text-base h-12 rounded-lg border-gray-300" 
+              required 
+              disabled={isDisabled}
+            />
+          </div>
+          <div>
+            <Label htmlFor="address" className="text-sm font-medium text-gray-700 mb-2 block">
+              Address *
+            </Label>
+            <Textarea 
+              id="address" 
+              placeholder="Enter your complete address" 
+              value={customerAddress} 
+              onChange={e => selectedColor && onAddressChange(e.target.value)} 
+              className="text-base rounded-lg border-gray-300 min-h-[100px]" 
               required 
               disabled={isDisabled}
             />

@@ -17,6 +17,7 @@ export const BuySection = () => {
   const [engravingText, setEngravingText] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
+  const [customerAddress, setCustomerAddress] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
 
@@ -148,9 +149,11 @@ export const BuySection = () => {
             <CustomerDetailsForm 
               customerName={customerName}
               customerPhone={customerPhone}
+              customerAddress={customerAddress}
               selectedColor={selectedColor}
               onNameChange={setCustomerName}
               onPhoneChange={setCustomerPhone}
+              onAddressChange={setCustomerAddress}
             />
 
             <OrderSummary 
