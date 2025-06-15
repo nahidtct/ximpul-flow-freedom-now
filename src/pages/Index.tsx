@@ -33,6 +33,9 @@ const Index = () => {
       {/* Product Features Grid Section */}
       <ProductFeaturesSection />
 
+      {/* New Carousel Section */}
+      <CarouselSection />
+
       {/* Hashtag Movement Section */}
       <HashtagSection />
 
@@ -41,9 +44,6 @@ const Index = () => {
 
       {/* Pricing Section - Clear Packages */}
       <ProductShowcase />
-
-      {/* New Carousel Section */}
-      <CarouselSection />
 
       {/* Buy Section with Color and Accessories Selection */}
       <BuySection />
