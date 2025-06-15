@@ -54,12 +54,12 @@ export const HeroSectionNew = () => {
                 <RainbowButton onClick={scrollToBuy}>
                   Buy
                 </RainbowButton>
-                <Button size="lg" variant="outline" onClick={goToSpecs}>
+                <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
                   Specs
                 </Button>
               </div>
               
-              <p className="text-base text-[#1d1d1f] font-semibold">
+              <p className="text-base text-[#1d1f1f] font-semibold">
                 From 1,090 BDT
               </p>
             </div>
@@ -89,7 +89,7 @@ export const HeroSectionNew = () => {
             <RainbowButton onClick={scrollToBuy}>
               Buy
             </RainbowButton>
-            <Button size="lg" variant="outline" onClick={goToSpecs}>
+            <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
               Specs
             </Button>
           </div>

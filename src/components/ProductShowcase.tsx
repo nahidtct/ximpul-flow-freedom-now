@@ -1,8 +1,18 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
 import { RainbowButton } from '@/components/ui/rainbow-button';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+
 export const ProductShowcase = () => {
+  const navigate = useNavigate();
+
+  const goToSpecs = () => {
+    navigate('/specs');
+  };
+
   const products = [{
     name: 'Ximpul Flow',
     edition: 'Base Edition',
@@ -109,11 +119,16 @@ export const ProductShowcase = () => {
 
                 {/* Buy Button */}
                 <div className="text-center mb-8">
-                  <RainbowButton onClick={() => document.getElementById('buy')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
-                    {product.buttonText}
-                  </RainbowButton>
+                  <div className="flex items-center justify-center gap-4">
+                    <RainbowButton onClick={() => document.getElementById('buy')?.scrollIntoView({
+                  behavior: 'smooth'
+                })}>
+                      {product.buttonText}
+                    </RainbowButton>
+                    <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
+                      Specs
+                    </Button>
+                  </div>
                 </div>
 
                 {/* Always Expanded Features */}
