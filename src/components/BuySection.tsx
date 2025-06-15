@@ -20,6 +20,15 @@ export const BuySection = () => {
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
 
+  const galleryImages = [
+    '/lovable-uploads/58ab89a6-dcd6-4dbd-8f34-f33d92e0dad9.png',
+    '/lovable-uploads/6d02ee6b-27ea-423a-b207-0225e530b813.png',
+    '/lovable-uploads/f20b8efa-8169-4ff2-9742-0d729584792c.png',
+    '/lovable-uploads/ec80b5a4-7467-4700-acfe-06bf9d6b46e1.png',
+    '/lovable-uploads/084234fa-91d8-4a6f-9590-0a9273da4525.png'
+  ];
+  const [mainImage, setMainImage] = useState(galleryImages[0]);
+
   const handleAccessoryToggle = (accessory: string) => {
     if (!selectedColor) return;
     setSelectedAccessories(prev => prev.includes(accessory) ? prev.filter(a => a !== accessory) : [...prev, accessory]);
@@ -80,14 +89,6 @@ export const BuySection = () => {
     }
   ];
 
-  const galleryImages = [
-    '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png',
-    '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png',
-    '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png',
-    '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png',
-    '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png'
-  ];
-
   return (
     <section id="buy" className="py-8 bg-gray-50 fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4">
@@ -99,8 +100,9 @@ export const BuySection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <ProductGallery 
-            mainImage="/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png"
+            mainImage={mainImage}
             galleryImages={galleryImages}
+            onThumbnailClick={setMainImage}
           />
 
           <div className="space-y-6">
