@@ -1,15 +1,22 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 
 export const HeroSectionNew = () => {
+  const navigate = useNavigate();
+
   const scrollToBuy = () => {
     document.getElementById('buy')?.scrollIntoView({
       behavior: 'smooth'
     });
+  };
+
+  const goToSpecs = () => {
+    navigate('/specs');
   };
 
   return (
@@ -43,9 +50,14 @@ export const HeroSectionNew = () => {
             </p>
             
             <div className="hero-cta space-y-4">
-              <RainbowButton onClick={scrollToBuy}>
-                Buy
-              </RainbowButton>
+              <div className="flex items-center justify-center gap-4">
+                <RainbowButton onClick={scrollToBuy}>
+                  Buy
+                </RainbowButton>
+                <Button size="lg" variant="outline" onClick={goToSpecs}>
+                  Specs
+                </Button>
+              </div>
               
               <p className="text-base text-[#1d1d1f] font-semibold">
                 From 1,090 BDT
@@ -73,9 +85,14 @@ export const HeroSectionNew = () => {
         <p className="hero-tagline mb-6 gradient-text">Water is Free. Why are we paying for it?</p>
         
         <div className="hero-cta">
-          <RainbowButton className="mb-4" onClick={scrollToBuy}>
-            Buy
-          </RainbowButton>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <RainbowButton onClick={scrollToBuy}>
+              Buy
+            </RainbowButton>
+            <Button size="lg" variant="outline" onClick={goToSpecs}>
+              Specs
+            </Button>
+          </div>
           
           <p className="text-base text-gray-600">
             From 1,090 BDT

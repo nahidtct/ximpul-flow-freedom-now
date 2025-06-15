@@ -10,7 +10,7 @@ import TruePrice from "./pages/TruePrice";
 import FAQ from "./pages/FAQ";
 import TermsPrivacy from "./pages/TermsPrivacy";
 import Contact from "./pages/Contact";
-import Spec from "./pages/Spec";
+import Specs from "./pages/Specs";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +27,7 @@ const App = () => (
           <Route path="/faq" element={<FAQ />} />
           <Route path="/terms-privacy" element={<TermsPrivacy />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/spec" element={<Spec />} />
+          <Route path="/specs" element={<Specs />} />
         </Routes>
       </Router>
     </TooltipProvider>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -60,14 +61,14 @@ export const Footer = () => {
 
           <div className="flex flex-col items-center">
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-4 text-center mb-6">
-              <button onClick={() => navigateToPage('/about')} className="text-muted-foreground hover:text-foreground transition-colors">
-                About Ximpul
-              </button>
-              <button onClick={() => navigate('/')} className="text-muted-foreground hover:text-foreground transition-colors">
+              <button onClick={() => navigateToPage('/')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Ximpul Flow
               </button>
-              <button onClick={() => navigateToPage('/spec')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Spec
+              <button onClick={() => navigateToPage('/specs')} className="text-muted-foreground hover:text-foreground transition-colors">
+                Specs
+              </button>
+              <button onClick={() => navigateToPage('/about')} className="text-muted-foreground hover:text-foreground transition-colors">
+                About Ximpul
               </button>
               <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">
                 #TruePrice Explained

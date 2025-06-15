@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
@@ -72,11 +73,11 @@ export const Navigation = () => {
     name: 'Ximpul Flow',
     action: goToHome
   }, {
+    name: 'Specs',
+    action: () => navigateToPage('/specs')
+  }, {
     name: 'About Ximpul',
     action: () => navigateToPage('/about')
-  }, {
-    name: 'Spec',
-    action: () => navigateToPage('/spec')
   }, {
     name: 'Shop',
     action: () => scrollToSection('buy')
