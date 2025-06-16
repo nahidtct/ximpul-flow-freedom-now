@@ -1,5 +1,7 @@
+
 import { useMutation } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 interface OrderData {
   customerName: string;
@@ -15,11 +17,7 @@ interface OrderData {
   totalAmount: number;
 }
 
-interface UseOrderSubmissionProps {
-  onSuccess?: (orderId: string) => void;
-}
-
-export const useOrderSubmission = (props?: UseOrderSubmissionProps) => {
+export const useOrderSubmission = () => {
   return useMutation({
     mutationFn: async (orderData: OrderData) => {
       console.log('Submitting order:', orderData);
@@ -52,17 +50,12 @@ export const useOrderSubmission = (props?: UseOrderSubmissionProps) => {
       return data;
     },
     onSuccess: (data) => {
-      console.log('Order success callback triggered');
-      if (props?.onSuccess) {
-        props.onSuccess(data.id);
-      }
+      toast.success(`Order placed successfully! Order ID: ${data.id.slice(0, 8)}`);
+      console.log('Order success toast shown');
     },
     onError: (error) => {
       console.error('Order submission failed:', error);
-      // Keep the error toast for error cases
-      import('sonner').then(({ toast }) => {
-        toast.error('Failed to place order. Please try again.');
-      });
+      toast.error('Failed to place order. Please try again.');
     },
   });
 };

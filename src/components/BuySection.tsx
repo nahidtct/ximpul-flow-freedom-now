@@ -9,7 +9,6 @@ import { EngravingModal } from './buy/EngravingModal';
 import { PaymentMethodSelector } from './buy/PaymentMethodSelector';
 import { CustomerDetailsForm } from './buy/CustomerDetailsForm';
 import { OrderSummary } from './buy/OrderSummary';
-import { ThankYouModal } from './ThankYouModal';
 import { useProducts, useAccessories } from '@/hooks/useProducts';
 import { useOrderSubmission } from '@/hooks/useOrderSubmission';
 import { Color } from '@/types/buySection';
@@ -24,22 +23,10 @@ export const BuySection = () => {
   const [customerAddress, setCustomerAddress] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
-  const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false);
-  const [successOrderId, setSuccessOrderId] = useState('');
 
   const { data: editions = [], isLoading: loadingProducts, error: productsError } = useProducts();
   const { data: accessories = [], isLoading: loadingAccessories, error: accessoriesError } = useAccessories();
-  
-  const orderMutation = useOrderSubmission({
-    onSuccess: (orderId) => {
-      setSuccessOrderId(orderId);
-      setIsThankYouModalOpen(true);
-    }
-  });
-
-  console.log('BuySection rendering - products:', editions, 'accessories:', accessories);
-  console.log('Loading states - products:', loadingProducts, 'accessories:', loadingAccessories);
-  console.log('Errors - products:', productsError, 'accessories:', accessoriesError);
+  const orderMutation = useOrderSubmission();
 
   const galleryImages = [
     '/lovable-uploads/58ab89a6-dcd6-4dbd-8f34-f33d92e0dad9.png',
@@ -93,7 +80,6 @@ export const BuySection = () => {
 
   // Show error state if there are any errors
   if (productsError || accessoriesError) {
-    console.error('Buy section errors:', { productsError, accessoriesError });
     return (
       <section id="buy" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -214,12 +200,6 @@ export const BuySection = () => {
           </div>
         </div>
       </div>
-
-      <ThankYouModal
-        isOpen={isThankYouModalOpen}
-        onClose={() => setIsThankYouModalOpen(false)}
-        orderId={successOrderId}
-      />
     </section>
   );
 };
