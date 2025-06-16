@@ -15,6 +15,8 @@ import { useHeroAnimations } from '@/hooks/useHeroAnimations';
 const Index = () => {
   useHeroAnimations();
 
+  console.log('Index component rendering with BuySection');
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
