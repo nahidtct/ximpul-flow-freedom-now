@@ -28,6 +28,10 @@ export const BuySection = () => {
   const { data: accessories = [], isLoading: loadingAccessories, error: accessoriesError } = useAccessories();
   const orderMutation = useOrderSubmission();
 
+  console.log('BuySection rendering - products:', editions, 'accessories:', accessories);
+  console.log('Loading states - products:', loadingProducts, 'accessories:', loadingAccessories);
+  console.log('Errors - products:', productsError, 'accessories:', accessoriesError);
+
   const galleryImages = [
     '/lovable-uploads/58ab89a6-dcd6-4dbd-8f34-f33d92e0dad9.png',
     '/lovable-uploads/6d02ee6b-27ea-423a-b207-0225e530b813.png',
@@ -80,6 +84,7 @@ export const BuySection = () => {
 
   // Show error state if there are any errors
   if (productsError || accessoriesError) {
+    console.error('Buy section errors:', { productsError, accessoriesError });
     return (
       <section id="buy" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
