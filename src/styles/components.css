@@ -1,0 +1,62 @@
+
+/* Component-specific styles */
+
+/* Apple-style gradient text effect */
+.apple-gradient-text {
+  background: linear-gradient(180deg, #1f2937 0%, #374151 50%, #6b7280 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: cover;
+}
+
+/* Gradient text with uploaded background image */
+.gradient-text {
+  background-repeat: no-repeat;
+  background-image: url(/lovable-uploads/e364f418-dced-47e2-abbd-1c15d1258162.png);
+  display: inline-block;
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 32px;
+  line-height: 1.125;
+  font-weight: 600;
+  letter-spacing: .004em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+/* Apple-style multi-gradient headline */
+.apple-gradient-headline {
+  background: linear-gradient(
+    90deg,
+    #1296F6 0%,
+    #7474F6 40%,
+    #C056FA 60%,
+    #FB5A63 80%,
+    #FF6A26 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  display: inline-block;
+}
+
+/* Subheadline bold display */
+.apple-section-subtitle {
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+/* Muted description for section */
+.apple-section-desc {
+  color: #86868b;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 400;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
