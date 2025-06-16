@@ -232,6 +232,27 @@ html {
   transform: scale(1.02);
 }
 
+/* Confetti Animation */
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #f0f;
+  animation: confetti-fall linear infinite;
+  transform-origin: center;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 /* Apple-style typography improvements */
 @media (max-width: 768px) {
   .hero-title {

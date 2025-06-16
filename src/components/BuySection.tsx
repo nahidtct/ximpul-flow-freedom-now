@@ -9,6 +9,7 @@ import { EngravingModal } from './buy/EngravingModal';
 import { PaymentMethodSelector } from './buy/PaymentMethodSelector';
 import { CustomerDetailsForm } from './buy/CustomerDetailsForm';
 import { OrderSummary } from './buy/OrderSummary';
+import { ThankYouModal } from './ThankYouModal';
 import { useProducts, useAccessories } from '@/hooks/useProducts';
 import { useOrderSubmission } from '@/hooks/useOrderSubmission';
 import { Color } from '@/types/buySection';
@@ -23,10 +24,18 @@ export const BuySection = () => {
   const [customerAddress, setCustomerAddress] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
+  const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false);
+  const [successOrderId, setSuccessOrderId] = useState('');
 
   const { data: editions = [], isLoading: loadingProducts, error: productsError } = useProducts();
   const { data: accessories = [], isLoading: loadingAccessories, error: accessoriesError } = useAccessories();
-  const orderMutation = useOrderSubmission();
+  
+  const orderMutation = useOrderSubmission({
+    onSuccess: (orderId) => {
+      setSuccessOrderId(orderId);
+      setIsThankYouModalOpen(true);
+    }
+  });
 
   console.log('BuySection rendering - products:', editions, 'accessories:', accessories);
   console.log('Loading states - products:', loadingProducts, 'accessories:', loadingAccessories);
@@ -205,6 +214,12 @@ export const BuySection = () => {
           </div>
         </div>
       </div>
+
+      <ThankYouModal
+        isOpen={isThankYouModalOpen}
+        onClose={() => setIsThankYouModalOpen(false)}
+        orderId={successOrderId}
+      />
     </section>
   );
 };
