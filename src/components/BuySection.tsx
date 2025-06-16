@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ProductGallery } from './buy/ProductGallery';
 import { EditionSelector } from './buy/EditionSelector';
@@ -9,9 +8,11 @@ import { EngravingModal } from './buy/EngravingModal';
 import { PaymentMethodSelector } from './buy/PaymentMethodSelector';
 import { CustomerDetailsForm } from './buy/CustomerDetailsForm';
 import { OrderSummary } from './buy/OrderSummary';
+import { ThankYouModal } from './ThankYouModal';
 import { useProducts, useAccessories } from '@/hooks/useProducts';
 import { useOrderSubmission } from '@/hooks/useOrderSubmission';
 import { Color } from '@/types/buySection';
+import { toast } from 'sonner';
 
 export const BuySection = () => {
   const [selectedEdition, setSelectedEdition] = useState('');
@@ -23,6 +24,13 @@ export const BuySection = () => {
   const [customerAddress, setCustomerAddress] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
+  const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false);
+  const [orderDetails, setOrderDetails] = useState<{
+    orderId: string;
+    totalAmount: number;
+    paymentMethod: string;
+    customerName: string;
+  } | null>(null);
 
   const { data: editions = [], isLoading: loadingProducts, error: productsError } = useProducts();
   const { data: accessories = [], isLoading: loadingAccessories, error: accessoriesError } = useAccessories();
@@ -75,6 +83,31 @@ export const BuySection = () => {
       subtotal,
       deliveryFee,
       totalAmount: totalPrice
+    }, {
+      onSuccess: (data) => {
+        console.log('Order success:', data);
+        setOrderDetails({
+          orderId: data.id.slice(0, 8),
+          totalAmount: totalPrice,
+          paymentMethod,
+          customerName
+        });
+        setIsThankYouModalOpen(true);
+        
+        // Reset form after successful order
+        setSelectedEdition('');
+        setSelectedColor('');
+        setSelectedAccessories([]);
+        setEngravingText('');
+        setCustomerName('');
+        setCustomerPhone('');
+        setCustomerAddress('');
+        setPaymentMethod('online');
+      },
+      onError: (error) => {
+        console.error('Order submission failed:', error);
+        toast.error('Failed to place order. Please try again.');
+      }
     });
   };
 
@@ -118,88 +151,101 @@ export const BuySection = () => {
   }
 
   return (
-    <section id="buy" className="py-16 bg-gray-50 fade-on-scroll">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
-          <p className="text-lg text-gray-600">
-            Complete your order in simple steps
-          </p>
-        </div>
+    <>
+      <section id="buy" className="py-16 bg-gray-50 fade-on-scroll">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
+            <p className="text-lg text-gray-600">
+              Complete your order in simple steps
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <ProductGallery 
-            mainImage={mainImage}
-            galleryImages={galleryImages}
-            onThumbnailClick={setMainImage}
-          />
-
-          <div className="space-y-6">
-            <EditionSelector 
-              editions={editions}
-              selectedEdition={selectedEdition}
-              onEditionChange={setSelectedEdition}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <ProductGallery 
+              mainImage={mainImage}
+              galleryImages={galleryImages}
+              onThumbnailClick={setMainImage}
             />
 
-            <ColorSelector 
-              colors={colors}
-              selectedColor={selectedColor}
-              selectedEdition={selectedEdition}
-              onColorChange={setSelectedColor}
-            />
+            <div className="space-y-6">
+              <EditionSelector 
+                editions={editions}
+                selectedEdition={selectedEdition}
+                onEditionChange={setSelectedEdition}
+              />
 
-            <AccessoriesCarousel 
-              accessories={accessories}
-              selectedAccessories={selectedAccessories}
-              selectedColor={selectedColor}
-              onAccessoryToggle={handleAccessoryToggle}
-            />
+              <ColorSelector 
+                colors={colors}
+                selectedColor={selectedColor}
+                selectedEdition={selectedEdition}
+                onColorChange={setSelectedColor}
+              />
 
-            <EngravingSection 
-              engravingText={engravingText}
-              selectedColor={selectedColor}
-              onOpenModal={() => setIsEngravingModalOpen(true)}
-            />
+              <AccessoriesCarousel 
+                accessories={accessories}
+                selectedAccessories={selectedAccessories}
+                selectedColor={selectedColor}
+                onAccessoryToggle={handleAccessoryToggle}
+              />
 
-            <EngravingModal
-              isOpen={isEngravingModalOpen}
-              onClose={() => setIsEngravingModalOpen(false)}
-              initialText={engravingText}
-              onSave={setEngravingText}
-            />
+              <EngravingSection 
+                engravingText={engravingText}
+                selectedColor={selectedColor}
+                onOpenModal={() => setIsEngravingModalOpen(true)}
+              />
 
-            <PaymentMethodSelector 
-              paymentMethod={paymentMethod}
-              selectedColor={selectedColor}
-              onPaymentMethodChange={setPaymentMethod}
-            />
+              <EngravingModal
+                isOpen={isEngravingModalOpen}
+                onClose={() => setIsEngravingModalOpen(false)}
+                initialText={engravingText}
+                onSave={setEngravingText}
+              />
 
-            <CustomerDetailsForm 
-              customerName={customerName}
-              customerPhone={customerPhone}
-              customerAddress={customerAddress}
-              selectedColor={selectedColor}
-              onNameChange={setCustomerName}
-              onPhoneChange={setCustomerPhone}
-              onAddressChange={setCustomerAddress}
-            />
+              <PaymentMethodSelector 
+                paymentMethod={paymentMethod}
+                selectedColor={selectedColor}
+                onPaymentMethodChange={setPaymentMethod}
+              />
 
-            <OrderSummary 
-              selectedEdition={selectedEdition}
-              selectedAccessories={selectedAccessories}
-              engravingText={engravingText}
-              paymentMethod={paymentMethod}
-              customerName={customerName}
-              customerPhone={customerPhone}
-              selectedColor={selectedColor}
-              editions={editions}
-              accessories={accessories}
-              onOrderSubmit={handleOrderSubmit}
-              isSubmitting={orderMutation.isPending}
-            />
+              <CustomerDetailsForm 
+                customerName={customerName}
+                customerPhone={customerPhone}
+                customerAddress={customerAddress}
+                selectedColor={selectedColor}
+                onNameChange={setCustomerName}
+                onPhoneChange={setCustomerPhone}
+                onAddressChange={setCustomerAddress}
+              />
+
+              <OrderSummary 
+                selectedEdition={selectedEdition}
+                selectedAccessories={selectedAccessories}
+                engravingText={engravingText}
+                paymentMethod={paymentMethod}
+                customerName={customerName}
+                customerPhone={customerPhone}
+                selectedColor={selectedColor}
+                editions={editions}
+                accessories={accessories}
+                onOrderSubmit={handleOrderSubmit}
+                isSubmitting={orderMutation.isPending}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {orderDetails && (
+        <ThankYouModal
+          isOpen={isThankYouModalOpen}
+          onClose={() => {
+            setIsThankYouModalOpen(false);
+            setOrderDetails(null);
+          }}
+          orderDetails={orderDetails}
+        />
+      )}
+    </>
   );
 };

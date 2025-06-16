@@ -1,7 +1,6 @@
 
 import { useMutation } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
 
 interface OrderData {
   customerName: string;
@@ -49,13 +48,8 @@ export const useOrderSubmission = () => {
       console.log('Order submitted successfully:', data);
       return data;
     },
-    onSuccess: (data) => {
-      toast.success(`Order placed successfully! Order ID: ${data.id.slice(0, 8)}`);
-      console.log('Order success toast shown');
-    },
     onError: (error) => {
       console.error('Order submission failed:', error);
-      toast.error('Failed to place order. Please try again.');
     },
   });
 };
