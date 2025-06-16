@@ -24,8 +24,8 @@ export const BuySection = () => {
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
 
-  const { data: editions = [], isLoading: loadingProducts } = useProducts();
-  const { data: accessories = [], isLoading: loadingAccessories } = useAccessories();
+  const { data: editions = [], isLoading: loadingProducts, error: productsError } = useProducts();
+  const { data: accessories = [], isLoading: loadingAccessories, error: accessoriesError } = useAccessories();
   const orderMutation = useOrderSubmission();
 
   const galleryImages = [
@@ -78,12 +78,39 @@ export const BuySection = () => {
     });
   };
 
-  if (loadingProducts || loadingAccessories) {
+  // Show error state if there are any errors
+  if (productsError || accessoriesError) {
     return (
-      <section id="buy" className="py-8 bg-gray-50">
+      <section id="buy" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
-            <p className="text-lg text-gray-600">Loading...</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
+            <p className="text-lg text-red-600">
+              Unable to load product information. Please try again later.
+            </p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              Retry
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Show loading state
+  if (loadingProducts || loadingAccessories) {
+    return (
+      <section id="buy" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Order Your Ximpul Flow</h2>
+            <div className="flex items-center justify-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+              <p className="ml-3 text-lg text-gray-600">Loading products...</p>
+            </div>
           </div>
         </div>
       </section>
@@ -91,9 +118,10 @@ export const BuySection = () => {
   }
 
   return (
-    <section id="buy" className="py-8 bg-gray-50 fade-on-scroll">
+    <section id="buy" className="py-16 bg-gray-50 fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
           <p className="text-lg text-gray-600">
             Complete your order in simple steps
           </p>

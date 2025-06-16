@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Navigation } from '@/components/Navigation';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PremiumAffordableSection } from '@/components/PremiumAffordableSection';
 import { ProductFeaturesSection } from '@/components/ProductFeaturesSection';
@@ -9,7 +8,6 @@ import { HashtagSection } from '@/components/HashtagSection';
 import { MovementSection } from '@/components/MovementSection';
 import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
-import { Footer } from '@/components/Footer';
 import { HeroSectionNew } from '@/components/HeroSectionNew';
 import { HeroSectionDemo } from '@/components/HeroSectionDemo';
 import { useHeroAnimations } from '@/hooks/useHeroAnimations';
@@ -19,8 +17,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      
       {/* Hero Section */}
       <HeroSectionNew />
       
@@ -50,9 +46,6 @@ const Index = () => {
 
       {/* FAQ Section */}
       <FAQSection />
-
-      {/* Use the updated Footer component */}
-      <Footer />
     </div>
   );
 };
