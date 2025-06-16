@@ -14,6 +14,8 @@ import { useOrderSubmission } from '@/hooks/useOrderSubmission';
 import { Color } from '@/types/buySection';
 
 export const BuySection = () => {
+  console.log('BuySection component rendering...');
+  
   const [selectedEdition, setSelectedEdition] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedAccessories, setSelectedAccessories] = useState<string[]>([]);
@@ -28,7 +30,7 @@ export const BuySection = () => {
   const { data: accessories = [], isLoading: loadingAccessories, error: accessoriesError } = useAccessories();
   const orderMutation = useOrderSubmission();
 
-  // Enhanced debugging for published environment
+  // Enhanced debugging for all environments
   console.log('BuySection render state:', {
     editions: editions.length,
     accessories: accessories.length,
@@ -36,7 +38,8 @@ export const BuySection = () => {
     loadingAccessories,
     productsError: productsError?.message || null,
     accessoriesError: accessoriesError?.message || null,
-    environment: import.meta.env.MODE
+    environment: import.meta.env.MODE,
+    href: window.location.href
   });
 
   const galleryImages = [
@@ -89,87 +92,9 @@ export const BuySection = () => {
     });
   };
 
-  // Show error state with more detailed information
-  if (productsError || accessoriesError) {
-    console.error('Error loading data:', { productsError, accessoriesError });
-    return (
-      <section id="buy" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
-              <p className="text-lg text-red-600 mb-2">
-                Unable to load product information
-              </p>
-              <p className="text-sm text-red-500 mb-4">
-                {productsError?.message || accessoriesError?.message || 'Network or database connection issue'}
-              </p>
-              <button 
-                onClick={() => window.location.reload()} 
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Retry Loading
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // Show loading state with better visual feedback
-  if (loadingProducts || loadingAccessories) {
-    return (
-      <section id="buy" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Order Your Ximpul Flow</h2>
-            <div className="bg-white rounded-lg p-8 max-w-md mx-auto border border-gray-200">
-              <div className="flex items-center justify-center mb-4">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-blue-600"></div>
-              </div>
-              <p className="text-lg text-gray-600 mb-2">Loading products...</p>
-              <p className="text-sm text-gray-500">
-                {loadingProducts && 'Loading editions...'} 
-                {loadingAccessories && 'Loading accessories...'}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // Check if we have the minimum required data
-  if (editions.length === 0 && accessories.length === 0) {
-    console.warn('No products or accessories loaded, but no errors detected');
-    return (
-      <section id="buy" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 max-w-md mx-auto">
-              <p className="text-lg text-yellow-700 mb-2">
-                Products are loading...
-              </p>
-              <p className="text-sm text-yellow-600 mb-4">
-                If this persists, there might be a database connection issue.
-              </p>
-              <button 
-                onClick={() => window.location.reload()} 
-                className="px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors"
-              >
-                Refresh Page
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
+  // Always render the section container - this ensures the section is visible
   return (
-    <section id="buy" className="py-16 bg-gray-50 fade-on-scroll">
+    <section id="buy" className="py-16 bg-gray-50 fade-on-scroll" style={{ minHeight: '400px' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
@@ -178,78 +103,143 @@ export const BuySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <ProductGallery 
-            mainImage={mainImage}
-            galleryImages={galleryImages}
-            onThumbnailClick={setMainImage}
-          />
-
-          <div className="space-y-6">
-            <EditionSelector 
-              editions={editions}
-              selectedEdition={selectedEdition}
-              onEditionChange={setSelectedEdition}
-            />
-
-            <ColorSelector 
-              colors={colors}
-              selectedColor={selectedColor}
-              selectedEdition={selectedEdition}
-              onColorChange={setSelectedColor}
-            />
-
-            <AccessoriesCarousel 
-              accessories={accessories}
-              selectedAccessories={selectedAccessories}
-              selectedColor={selectedColor}
-              onAccessoryToggle={handleAccessoryToggle}
-            />
-
-            <EngravingSection 
-              engravingText={engravingText}
-              selectedColor={selectedColor}
-              onOpenModal={() => setIsEngravingModalOpen(true)}
-            />
-
-            <EngravingModal
-              isOpen={isEngravingModalOpen}
-              onClose={() => setIsEngravingModalOpen(false)}
-              initialText={engravingText}
-              onSave={setEngravingText}
-            />
-
-            <PaymentMethodSelector 
-              paymentMethod={paymentMethod}
-              selectedColor={selectedColor}
-              onPaymentMethodChange={setPaymentMethod}
-            />
-
-            <CustomerDetailsForm 
-              customerName={customerName}
-              customerPhone={customerPhone}
-              customerAddress={customerAddress}
-              selectedColor={selectedColor}
-              onNameChange={setCustomerName}
-              onPhoneChange={setCustomerPhone}
-              onAddressChange={setCustomerAddress}
-            />
-
-            <OrderSummary 
-              selectedEdition={selectedEdition}
-              selectedAccessories={selectedAccessories}
-              engravingText={engravingText}
-              paymentMethod={paymentMethod}
-              customerName={customerName}
-              customerPhone={customerPhone}
-              selectedColor={selectedColor}
-              editions={editions}
-              accessories={accessories}
-              onOrderSubmit={handleOrderSubmit}
-              isSubmitting={orderMutation.isPending}
-            />
+        {/* Show error state */}
+        {(productsError || accessoriesError) && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto mb-8">
+            <p className="text-lg text-red-600 mb-2">
+              Unable to load product information
+            </p>
+            <p className="text-sm text-red-500 mb-4">
+              {productsError?.message || accessoriesError?.message || 'Network or database connection issue'}
+            </p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Retry Loading
+            </button>
           </div>
-        </div>
+        )}
+
+        {/* Show loading state */}
+        {(loadingProducts || loadingAccessories) && !productsError && !accessoriesError && (
+          <div className="bg-white rounded-lg p-8 max-w-md mx-auto border border-gray-200 mb-8">
+            <div className="flex items-center justify-center mb-4">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-blue-600"></div>
+            </div>
+            <p className="text-lg text-gray-600 mb-2 text-center">Loading products...</p>
+            <p className="text-sm text-gray-500 text-center">
+              {loadingProducts && 'Loading editions...'} 
+              {loadingAccessories && 'Loading accessories...'}
+            </p>
+          </div>
+        )}
+
+        {/* Show main content when data is available OR show fallback */}
+        {(!loadingProducts && !loadingAccessories) && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <ProductGallery 
+              mainImage={mainImage}
+              galleryImages={galleryImages}
+              onThumbnailClick={setMainImage}
+            />
+
+            <div className="space-y-6">
+              {editions.length > 0 ? (
+                <EditionSelector 
+                  editions={editions}
+                  selectedEdition={selectedEdition}
+                  onEditionChange={setSelectedEdition}
+                />
+              ) : (
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">1. Choose Edition</h3>
+                  <p className="text-gray-500">Loading editions...</p>
+                </div>
+              )}
+
+              <ColorSelector 
+                colors={colors}
+                selectedColor={selectedColor}
+                selectedEdition={selectedEdition}
+                onColorChange={setSelectedColor}
+              />
+
+              {accessories.length > 0 ? (
+                <AccessoriesCarousel 
+                  accessories={accessories}
+                  selectedAccessories={selectedAccessories}
+                  selectedColor={selectedColor}
+                  onAccessoryToggle={handleAccessoryToggle}
+                />
+              ) : (
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">3. Add Accessories</h3>
+                  <p className="text-gray-500">Loading accessories...</p>
+                </div>
+              )}
+
+              <EngravingSection 
+                engravingText={engravingText}
+                selectedColor={selectedColor}
+                onOpenModal={() => setIsEngravingModalOpen(true)}
+              />
+
+              <EngravingModal
+                isOpen={isEngravingModalOpen}
+                onClose={() => setIsEngravingModalOpen(false)}
+                initialText={engravingText}
+                onSave={setEngravingText}
+              />
+
+              <PaymentMethodSelector 
+                paymentMethod={paymentMethod}
+                selectedColor={selectedColor}
+                onPaymentMethodChange={setPaymentMethod}
+              />
+
+              <CustomerDetailsForm 
+                customerName={customerName}
+                customerPhone={customerPhone}
+                customerAddress={customerAddress}
+                selectedColor={selectedColor}
+                onNameChange={setCustomerName}
+                onPhoneChange={setCustomerPhone}
+                onAddressChange={setCustomerAddress}
+              />
+
+              <OrderSummary 
+                selectedEdition={selectedEdition}
+                selectedAccessories={selectedAccessories}
+                engravingText={engravingText}
+                paymentMethod={paymentMethod}
+                customerName={customerName}
+                customerPhone={customerPhone}
+                selectedColor={selectedColor}
+                editions={editions}
+                accessories={accessories}
+                onOrderSubmit={handleOrderSubmit}
+                isSubmitting={orderMutation.isPending}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Debug info - only in development */}
+        {import.meta.env.MODE === 'development' && (
+          <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <h4 className="font-semibold text-yellow-800 mb-2">Debug Info:</h4>
+            <pre className="text-xs text-yellow-700">
+              {JSON.stringify({
+                editions: editions.length,
+                accessories: accessories.length,
+                loadingProducts,
+                loadingAccessories,
+                hasErrors: !!(productsError || accessoriesError)
+              }, null, 2)}
+            </pre>
+          </div>
+        )}
       </div>
     </section>
   );
