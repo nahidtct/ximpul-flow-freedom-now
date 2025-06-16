@@ -9,7 +9,117 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      accessories: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string
+          note: string | null
+          price: number
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          name: string
+          note?: string | null
+          price: number
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string
+          note?: string | null
+          price?: number
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          created_at: string | null
+          customer_address: string
+          customer_name: string
+          customer_phone: string
+          delivery_fee: number | null
+          engraving_text: string | null
+          id: string
+          order_status: string | null
+          payment_method: string
+          selected_accessories: Json | null
+          selected_color: string
+          selected_edition: string
+          subtotal: number
+          total_amount: number
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          customer_address: string
+          customer_name: string
+          customer_phone: string
+          delivery_fee?: number | null
+          engraving_text?: string | null
+          id?: string
+          order_status?: string | null
+          payment_method: string
+          selected_accessories?: Json | null
+          selected_color: string
+          selected_edition: string
+          subtotal: number
+          total_amount: number
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          customer_address?: string
+          customer_name?: string
+          customer_phone?: string
+          delivery_fee?: number | null
+          engraving_text?: string | null
+          id?: string
+          order_status?: string | null
+          payment_method?: string
+          selected_accessories?: Json | null
+          selected_color?: string
+          selected_edition?: string
+          subtotal?: number
+          total_amount?: number
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          edition: string
+          id: string
+          name: string
+          price: number
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          edition: string
+          id?: string
+          name: string
+          price: number
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          edition?: string
+          id?: string
+          name?: string
+          price?: number
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

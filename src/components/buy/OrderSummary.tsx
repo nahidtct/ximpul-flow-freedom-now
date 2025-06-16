@@ -13,6 +13,8 @@ interface OrderSummaryProps {
   selectedColor: string;
   editions: Edition[];
   accessories: Accessory[];
+  onOrderSubmit: () => void;
+  isSubmitting: boolean;
 }
 
 export const OrderSummary = ({ 
@@ -24,7 +26,9 @@ export const OrderSummary = ({
   customerPhone, 
   selectedColor,
   editions,
-  accessories
+  accessories,
+  onOrderSubmit,
+  isSubmitting
 }: OrderSummaryProps) => {
   const basePrice = selectedEdition ? (editions.find(e => e.value === selectedEdition)?.price || 0) : 0;
   const accessoriesPrice = selectedAccessories.reduce((total, accessory) => {
@@ -35,6 +39,8 @@ export const OrderSummary = ({
   const deliveryFee = paymentMethod === 'cod' ? 100 : 0;
   const subtotal = basePrice + accessoriesPrice + engravingPrice;
   const totalPrice = subtotal + deliveryFee;
+
+  const isFormValid = customerName && customerPhone && selectedEdition && selectedColor;
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
@@ -105,9 +111,14 @@ export const OrderSummary = ({
           </div>
         )}
 
-        <Button size="lg" className="w-full bg-black hover:bg-black/90 text-white text-base font-semibold rounded-lg h-14" disabled={!customerName || !customerPhone || !selectedEdition || !selectedColor}>
+        <Button 
+          size="lg" 
+          className="w-full bg-black hover:bg-black/90 text-white text-base font-semibold rounded-lg h-14" 
+          disabled={!isFormValid || isSubmitting}
+          onClick={onOrderSubmit}
+        >
           <ShoppingCart className="mr-2 h-5 w-5" />
-          {paymentMethod === 'online' ? 'Pay Online' : 'Order with COD'}
+          {isSubmitting ? 'Processing...' : paymentMethod === 'online' ? 'Pay Online' : 'Order with COD'}
         </Button>
 
         <p className="text-sm text-gray-500 text-center mt-3">
