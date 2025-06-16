@@ -28,10 +28,16 @@ export const BuySection = () => {
   const { data: accessories = [], isLoading: loadingAccessories, error: accessoriesError } = useAccessories();
   const orderMutation = useOrderSubmission();
 
-  // Console log for debugging
-  console.log('BuySection rendering - products:', editions, 'accessories:', accessories);
-  console.log('Loading states - products:', loadingProducts, 'accessories:', loadingAccessories);
-  console.log('Errors - products:', productsError, 'accessories:', accessoriesError);
+  // Enhanced debugging for published environment
+  console.log('BuySection render state:', {
+    editions: editions.length,
+    accessories: accessories.length,
+    loadingProducts,
+    loadingAccessories,
+    productsError: productsError?.message || null,
+    accessoriesError: accessoriesError?.message || null,
+    environment: import.meta.env.MODE
+  });
 
   const galleryImages = [
     '/lovable-uploads/58ab89a6-dcd6-4dbd-8f34-f33d92e0dad9.png',
@@ -83,7 +89,7 @@ export const BuySection = () => {
     });
   };
 
-  // Show error state if there are any errors
+  // Show error state with more detailed information
   if (productsError || accessoriesError) {
     console.error('Error loading data:', { productsError, accessoriesError });
     return (
@@ -91,31 +97,70 @@ export const BuySection = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
-            <p className="text-lg text-red-600">
-              Unable to load product information. Please try again later.
-            </p>
-            <button 
-              onClick={() => window.location.reload()} 
-              className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Retry
-            </button>
+            <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
+              <p className="text-lg text-red-600 mb-2">
+                Unable to load product information
+              </p>
+              <p className="text-sm text-red-500 mb-4">
+                {productsError?.message || accessoriesError?.message || 'Network or database connection issue'}
+              </p>
+              <button 
+                onClick={() => window.location.reload()} 
+                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Retry Loading
+              </button>
+            </div>
           </div>
         </div>
       </section>
     );
   }
 
-  // Show loading state
+  // Show loading state with better visual feedback
   if (loadingProducts || loadingAccessories) {
     return (
       <section id="buy" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Order Your Ximpul Flow</h2>
-            <div className="flex items-center justify-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-              <p className="ml-3 text-lg text-gray-600">Loading products...</p>
+            <div className="bg-white rounded-lg p-8 max-w-md mx-auto border border-gray-200">
+              <div className="flex items-center justify-center mb-4">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-blue-600"></div>
+              </div>
+              <p className="text-lg text-gray-600 mb-2">Loading products...</p>
+              <p className="text-sm text-gray-500">
+                {loadingProducts && 'Loading editions...'} 
+                {loadingAccessories && 'Loading accessories...'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Check if we have the minimum required data
+  if (editions.length === 0 && accessories.length === 0) {
+    console.warn('No products or accessories loaded, but no errors detected');
+    return (
+      <section id="buy" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 max-w-md mx-auto">
+              <p className="text-lg text-yellow-700 mb-2">
+                Products are loading...
+              </p>
+              <p className="text-sm text-yellow-600 mb-4">
+                If this persists, there might be a database connection issue.
+              </p>
+              <button 
+                onClick={() => window.location.reload()} 
+                className="px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors"
+              >
+                Refresh Page
+              </button>
             </div>
           </div>
         </div>
