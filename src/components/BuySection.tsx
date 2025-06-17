@@ -66,22 +66,6 @@ export const BuySection = () => {
             isSubmitting={buySection.orderMutation.isPending}
           />
         )}
-
-        {/* Debug info - only in development */}
-        {import.meta.env.MODE === 'development' && (
-          <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <h4 className="font-semibold text-yellow-800 mb-2">Debug Info:</h4>
-            <pre className="text-xs text-yellow-700">
-              {JSON.stringify({
-                editions: buySection.editions.length,
-                accessories: buySection.accessories.length,
-                loadingProducts: buySection.loadingProducts,
-                loadingAccessories: buySection.loadingAccessories,
-                hasErrors: !!(buySection.productsError || buySection.accessoriesError)
-              }, null, 2)}
-            </pre>
-          </div>
-        )}
       </div>
     </section>
   );
