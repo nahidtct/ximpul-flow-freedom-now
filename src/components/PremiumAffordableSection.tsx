@@ -3,7 +3,7 @@ import React from 'react';
 
 export const PremiumAffordableSection = () => {
   return (
-    <section className="apple-spacing bg-background fade-on-scroll">
+    <section className="py-16 bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Text content */}
@@ -20,8 +20,8 @@ export const PremiumAffordableSection = () => {
           <div className="order-1 lg:order-2">
             <div className="relative">
               <img
-                src="/lovable-uploads/ca5ff7e6-093e-46b0-9d74-565f162ef716.png"
-                alt="Premium water bottle with textured grip"
+                src="/lovable-uploads/bb4f7329-6e04-437c-b4c8-b96a09551e0d.png"
+                alt="Premium water bottle with textured grip design"
                 className="w-full h-auto object-contain rounded-3xl"
               />
             </div>
