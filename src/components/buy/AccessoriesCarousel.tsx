@@ -12,6 +12,21 @@ interface AccessoriesCarouselProps {
 export const AccessoriesCarousel = ({ accessories, selectedAccessories, selectedColor, onAccessoryToggle }: AccessoriesCarouselProps) => {
   const isDisabled = !selectedColor;
 
+  // Map accessory names to their specific images
+  const getAccessoryImage = (accessoryName: string) => {
+    const imageMap: { [key: string]: string } = {
+      'Carabiner Hook': '/lovable-uploads/5ab211c1-9638-4224-9a53-0c8e660bc9be.png',
+      'Bottle Brush': '/lovable-uploads/4315376a-ff14-4683-84d6-b03c96f689d0.png',
+      'Steel Straw Set': '/lovable-uploads/a09450ea-b274-4a61-ab28-d9f053a0d789.png',
+      'Grip Sleeve': '/lovable-uploads/5db54c96-cade-47a7-abd9-6d68ec608f3c.png',
+      'Premium Cap': '/lovable-uploads/f083954e-29e0-4720-a050-e8d9f88e5192.png',
+      'Hydration Lid': '/lovable-uploads/f260e012-e3be-4c1c-8b71-1d2d98fbc29f.png'
+    };
+    
+    // Return specific image if found, otherwise fallback to generic image
+    return imageMap[accessoryName] || '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png';
+  };
+
   return (
     <div className={`bg-white rounded-xl border border-gray-200 overflow-hidden ${isDisabled ? 'opacity-50' : ''}`}>
       <div className="px-6 py-4 border-b border-gray-100">
@@ -58,7 +73,7 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
                     : 'bg-gray-100 group-hover:bg-gray-200'
                 }`}>
                   <img 
-                    src="/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png" 
+                    src={getAccessoryImage(accessory.name)}
                     alt={accessory.name} 
                     className="w-10 h-10 object-contain opacity-80" 
                   />
