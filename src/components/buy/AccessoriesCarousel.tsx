@@ -53,7 +53,7 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
           {accessories.map((accessory, index) => (
             <div 
               key={index}
-              className={`group relative p-5 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
+              className={`group relative p-3 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
                 isDisabled 
                   ? 'border-gray-100 cursor-not-allowed bg-gray-50' 
                   : selectedAccessories.includes(accessory.name) 
@@ -63,7 +63,7 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
               onClick={() => !isDisabled && onAccessoryToggle(accessory.name)}
             >
               {/* Selection Indicator */}
-              <div className={`absolute top-4 right-4 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+              <div className={`absolute top-3 right-3 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                 selectedAccessories.includes(accessory.name) && !isDisabled
                   ? 'bg-blue-500 border-blue-500' 
                   : 'border-gray-300 bg-white'
@@ -76,8 +76,8 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
               </div>
 
               {/* Product Image */}
-              <div className="flex justify-center mb-4">
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 ${
+              <div className="flex justify-center mb-3">
+                <div className={`w-20 h-20 rounded-xl flex items-center justify-center transition-all duration-300 p-1 ${
                   selectedAccessories.includes(accessory.name) && !isDisabled
                     ? 'bg-blue-100' 
                     : 'bg-gray-100 group-hover:bg-gray-200'
@@ -85,7 +85,7 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
                   <img 
                     src={getAccessoryImage(accessory.name)}
                     alt={accessory.name} 
-                    className="w-10 h-10 object-contain opacity-80" 
+                    className="w-full h-full object-contain" 
                     onError={(e) => {
                       console.log('Image failed to load:', getAccessoryImage(accessory.name));
                       e.currentTarget.src = '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png';
