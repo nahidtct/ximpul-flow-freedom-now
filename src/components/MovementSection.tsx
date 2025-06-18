@@ -1,11 +1,12 @@
+
 import React from 'react';
+
 export const MovementSection = () => {
-  return <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll bg-white">
+  return (
+    <section className="apple-spacing bg-gradient-to-br from-primary/10 to-primary/5 fade-on-scroll">
       <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-8 text-[3.24rem]" style={{
-          lineHeight: 1.09
-        }}>
+          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-8 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
             Make Water Free Again
           </h2>
           <p className="text-lg font-light text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -16,5 +17,6 @@ export const MovementSection = () => {
           </p>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
