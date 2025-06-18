@@ -42,7 +42,7 @@ export const HeroSectionNew = () => {
             </h2>
             
             <div className="hero-product-image mb-6 flex justify-center">
-              <img src="/lovable-uploads/6e9c56b5-1da4-4f5b-b10f-e1eeea35c436.png" alt="Ximpul Flow Water Bottle" className="max-w-xs lg:max-w-sm xl:max-w-md w-full h-auto object-contain" />
+              <img src="/lovable-uploads/3571bcd7-9657-4f1b-81c0-2154e44c244c.png" alt="Ximpul Flow Water Bottle" className="max-w-xs lg:max-w-sm xl:max-w-md w-full h-auto object-contain" />
             </div>
             
             <p className="hero-tagline mb-5 gradient-text text-2xl font-bold">
@@ -79,7 +79,7 @@ export const HeroSectionNew = () => {
         </h2>
         
         <div className="hero-product-image mb-8 flex justify-center">
-          <img src="/lovable-uploads/6e9c56b5-1da4-4f5b-b10f-e1eeea35c436.png" alt="Ximpul Flow Water Bottle" className="max-w-xs w-full h-auto object-contain" />
+          <img src="/lovable-uploads/3571bcd7-9657-4f1b-81c0-2154e44c244c.png" alt="Ximpul Flow Water Bottle" className="max-w-xs w-full h-auto object-contain" />
         </div>
         
         <p className="hero-tagline mb-6 gradient-text">Water is Free. Why are we paying for it?</p>
