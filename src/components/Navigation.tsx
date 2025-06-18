@@ -79,8 +79,8 @@ export const Navigation = () => {
     name: 'Compare',
     action: () => scrollToSection('products')
   }, {
-    name: 'Gallery',
-    action: () => scrollToSection('gallery')
+    name: 'Shop',
+    action: () => scrollToSection('buy')
   }, {
     name: '#TruePrice',
     action: () => navigateToPage('/trueprice')

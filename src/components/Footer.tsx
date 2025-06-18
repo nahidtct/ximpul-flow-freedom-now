@@ -1,13 +1,10 @@
-
 import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RainbowButton } from '@/components/ui/rainbow-button';
-
 export const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const scrollToSection = (sectionId: string) => {
     // If we're already on the home page, just scroll
     if (location.pathname === '/') {
@@ -31,7 +28,6 @@ export const Footer = () => {
       }, 100);
     }
   };
-
   const navigateToPage = (path: string) => {
     navigate(path);
     // Always scroll to top when navigating to a new page
@@ -42,7 +38,6 @@ export const Footer = () => {
       });
     }, 100);
   };
-
   return <>
       {/* Pre-footer CTA */}
       <section className="py-16 bg-inherit">
@@ -62,6 +57,7 @@ export const Footer = () => {
       {/* Main Footer - Simple horizontal layout */}
       <footer className="border-t py-12 bg-[#f5f5f7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <div className="flex flex-col items-center">
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-4 text-center mb-6">
               <button onClick={() => navigateToPage('/')} className="text-muted-foreground hover:text-foreground transition-colors">
@@ -72,9 +68,6 @@ export const Footer = () => {
               </button>
               <button onClick={() => scrollToSection('products')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Compare
-              </button>
-              <button onClick={() => scrollToSection('gallery')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Gallery
               </button>
               <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">
                 #TruePrice Explained
