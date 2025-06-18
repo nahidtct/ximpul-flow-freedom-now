@@ -117,7 +117,7 @@ export const LifestyleGallery = () => {
         >
           <X size={32} />
         </button>
-        <div className="relative max-w-4xl max-h-full">
+        <div className="relative max-w-4xl max-h-full overflow-hidden">
           <img
             src={imageSrc}
             alt={title}
@@ -131,6 +131,37 @@ export const LifestyleGallery = () => {
         </div>
       </div>
     );
+  };
+
+  // Create proper autoplay plugin
+  const createAutoplayPlugin = () => {
+    return {
+      name: 'autoplay',
+      options: {},
+      init: (embla: any) => {
+        let autoplayTimer: NodeJS.Timeout;
+        
+        const autoplay = () => {
+          autoplayTimer = setTimeout(() => {
+            embla.scrollNext();
+            autoplay();
+          }, 3000);
+        };
+        
+        const startAutoplay = () => autoplay();
+        const stopAutoplay = () => clearTimeout(autoplayTimer);
+        
+        embla.on('pointerDown', stopAutoplay);
+        embla.on('pointerUp', startAutoplay);
+        
+        startAutoplay();
+        
+        return () => {
+          stopAutoplay();
+        };
+      },
+      destroy: () => {}
+    };
   };
 
   return (
@@ -159,32 +190,7 @@ export const LifestyleGallery = () => {
                 align: "start",
                 loop: true,
               }}
-              plugins={[
-                {
-                  init: (embla) => {
-                    let autoplayTimer: NodeJS.Timeout;
-                    
-                    const autoplay = () => {
-                      autoplayTimer = setTimeout(() => {
-                        embla.scrollNext();
-                        autoplay();
-                      }, 3000);
-                    };
-                    
-                    const startAutoplay = () => autoplay();
-                    const stopAutoplay = () => clearTimeout(autoplayTimer);
-                    
-                    embla.on('pointerDown', stopAutoplay);
-                    embla.on('pointerUp', startAutoplay);
-                    
-                    startAutoplay();
-                    
-                    return () => {
-                      stopAutoplay();
-                    };
-                  }
-                }
-              ]}
+              plugins={[createAutoplayPlugin()]}
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {productImages.map((item, index) => (
