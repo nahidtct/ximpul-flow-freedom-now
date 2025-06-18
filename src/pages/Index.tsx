@@ -10,6 +10,7 @@ import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
 import { HeroSectionNew } from '@/components/HeroSectionNew';
 import { HeroSectionDemo } from '@/components/HeroSectionDemo';
+import { LifestyleGallery } from '@/components/LifestyleGallery';
 import { useHeroAnimations } from '@/hooks/useHeroAnimations';
 
 const Index = () => {
@@ -33,6 +34,9 @@ const Index = () => {
 
       {/* Premium but Affordable Section */}
       <PremiumAffordableSection />
+
+      {/* Product Gallery Section */}
+      <LifestyleGallery />
 
       {/* Hashtag Movement Section */}
       <HashtagSection />
