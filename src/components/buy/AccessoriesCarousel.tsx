@@ -14,17 +14,27 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
 
   // Map accessory names to their specific images
   const getAccessoryImage = (accessoryName: string) => {
+    console.log('Getting image for accessory:', accessoryName);
+    
     const imageMap: { [key: string]: string } = {
       'Carabiner Hook': '/lovable-uploads/5ab211c1-9638-4224-9a53-0c8e660bc9be.png',
+      'Aluminium Hook': '/lovable-uploads/5ab211c1-9638-4224-9a53-0c8e660bc9be.png',
       'Bottle Brush': '/lovable-uploads/4315376a-ff14-4683-84d6-b03c96f689d0.png',
+      'Cleaning Brush': '/lovable-uploads/4315376a-ff14-4683-84d6-b03c96f689d0.png',
       'Steel Straw Set': '/lovable-uploads/a09450ea-b274-4a61-ab28-d9f053a0d789.png',
+      'Straw Cap': '/lovable-uploads/a09450ea-b274-4a61-ab28-d9f053a0d789.png',
       'Grip Sleeve': '/lovable-uploads/5db54c96-cade-47a7-abd9-6d68ec608f3c.png',
+      'Silicone Sleeve': '/lovable-uploads/5db54c96-cade-47a7-abd9-6d68ec608f3c.png',
       'Premium Cap': '/lovable-uploads/f083954e-29e0-4720-a050-e8d9f88e5192.png',
-      'Hydration Lid': '/lovable-uploads/f260e012-e3be-4c1c-8b71-1d2d98fbc29f.png'
+      'Standard Cap': '/lovable-uploads/f083954e-29e0-4720-a050-e8d9f88e5192.png',
+      'Hydration Lid': '/lovable-uploads/f260e012-e3be-4c1c-8b71-1d2d98fbc29f.png',
+      'Straw Cleaning Brush': '/lovable-uploads/f260e012-e3be-4c1c-8b71-1d2d98fbc29f.png'
     };
     
     // Return specific image if found, otherwise fallback to generic image
-    return imageMap[accessoryName] || '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png';
+    const image = imageMap[accessoryName] || '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png';
+    console.log('Returning image:', image, 'for accessory:', accessoryName);
+    return image;
   };
 
   return (
@@ -76,6 +86,10 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
                     src={getAccessoryImage(accessory.name)}
                     alt={accessory.name} 
                     className="w-10 h-10 object-contain opacity-80" 
+                    onError={(e) => {
+                      console.log('Image failed to load:', getAccessoryImage(accessory.name));
+                      e.currentTarget.src = '/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png';
+                    }}
                   />
                 </div>
               </div>
