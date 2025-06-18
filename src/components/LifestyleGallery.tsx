@@ -8,7 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ZoomIn, X } from 'lucide-react';
 
 export const LifestyleGallery = () => {
@@ -158,12 +157,12 @@ export const LifestyleGallery = () => {
                   className="pl-2 md:pl-4 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
                   <div className="group relative">
-                    <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden bg-white">
+                    <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg overflow-hidden bg-white">
                       <CardContent className="p-0 relative">
                         <div className="relative overflow-hidden aspect-square">
                           <img
                             src={item.image}
-                            alt={item.title}
+                            alt=""
                             className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 p-4 md:p-6"
                           />
                           
@@ -175,13 +174,6 @@ export const LifestyleGallery = () => {
                             <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3 backdrop-blur-sm">
                               <ZoomIn className="w-6 h-6 text-gray-800" />
                             </div>
-                          </div>
-                          
-                          {/* Title overlay */}
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-4">
-                            <h3 className="text-white text-sm md:text-base font-medium text-center leading-tight">
-                              {item.title}
-                            </h3>
                           </div>
                         </div>
                       </CardContent>
