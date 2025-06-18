@@ -1,13 +1,10 @@
-
 import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RainbowButton } from '@/components/ui/rainbow-button';
-
 export const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const scrollToSection = (sectionId: string) => {
     // If we're already on the home page, just scroll
     if (location.pathname === '/') {
@@ -31,7 +28,6 @@ export const Footer = () => {
       }, 100);
     }
   };
-
   const navigateToPage = (path: string) => {
     navigate(path);
     // Always scroll to top when navigating to a new page
@@ -42,7 +38,6 @@ export const Footer = () => {
       });
     }, 100);
   };
-
   return <>
       {/* Pre-footer CTA */}
       <section className="py-16 bg-muted/50">
@@ -102,7 +97,7 @@ export const Footer = () => {
           </div>
 
           <div className="text-center mt-8 pt-8 border-t">
-            <p className="text-muted-foreground font-light">© 2024 www.ximpul.com - Made with love in Bangladesh.</p>
+            <p className="text-muted-foreground font-light">© 2024 www.ximpul.com - Made with love for Bangladesh.</p>
           </div>
         </div>
       </footer>
