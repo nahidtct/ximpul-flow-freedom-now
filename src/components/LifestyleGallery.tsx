@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { ZoomIn, X } from 'lucide-react';
+import useEmblaCarousel from 'embla-carousel-react';
 
 export const LifestyleGallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -96,6 +97,24 @@ export const LifestyleGallery = () => {
     }
   ];
 
+  // Autoplay functionality
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: 'start'
+  });
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoplay = () => {
+      emblaApi.scrollNext();
+    };
+
+    const interval = setInterval(autoplay, 3000); // Auto-scroll every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [emblaApi]);
+
   const ImageZoomModal = ({ imageSrc, title, isOpen, onClose }: {
     imageSrc: string;
     title: string;
@@ -115,11 +134,11 @@ export const LifestyleGallery = () => {
         >
           <X size={32} />
         </button>
-        <div className="relative max-w-4xl max-h-full overflow-auto">
+        <div className="relative max-w-4xl max-h-full flex items-center justify-center">
           <img
             src={imageSrc}
             alt={title}
-            className="w-full h-auto object-contain max-h-[90vh]"
+            className="max-w-full max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
@@ -131,7 +150,7 @@ export const LifestyleGallery = () => {
   };
 
   return (
-    <section className="py-16 bg-background fade-on-scroll">
+    <section id="gallery" className="py-16 bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight apple-gradient-text mb-6">
@@ -143,18 +162,12 @@ export const LifestyleGallery = () => {
         </div>
 
         <div className="relative">
-          <Carousel 
-            className="w-full" 
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="flex -ml-2 md:-ml-4">
               {productImages.map((item, index) => (
-                <CarouselItem 
+                <div 
                   key={index} 
-                  className="pl-2 md:pl-4 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                  className="pl-2 md:pl-4 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 min-w-0 shrink-0"
                 >
                   <div className="group relative">
                     <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg overflow-hidden bg-white">
@@ -179,14 +192,10 @@ export const LifestyleGallery = () => {
                       </CardContent>
                     </Card>
                   </div>
-                </CarouselItem>
+                </div>
               ))}
-            </CarouselContent>
-            
-            {/* Navigation buttons - hidden on mobile, visible on larger screens */}
-            <CarouselPrevious className="hidden md:flex -left-6 lg:-left-12 h-12 w-12 border-2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg" />
-            <CarouselNext className="hidden md:flex -right-6 lg:-right-12 h-12 w-12 border-2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg" />
-          </Carousel>
+            </div>
+          </div>
 
           {/* Mobile swipe indicator */}
           <div className="flex md:hidden justify-center mt-6 space-x-2">

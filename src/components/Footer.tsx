@@ -59,7 +59,7 @@ export const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex flex-col items-center">
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-4 text-center mb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 text-center mb-6">
               <button onClick={() => navigateToPage('/')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Ximpul Flow
               </button>
@@ -68,6 +68,9 @@ export const Footer = () => {
               </button>
               <button onClick={() => scrollToSection('products')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Compare
+              </button>
+              <button onClick={() => scrollToSection('gallery')} className="text-muted-foreground hover:text-foreground transition-colors">
+                Gallery
               </button>
               <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">
                 #TruePrice Explained
