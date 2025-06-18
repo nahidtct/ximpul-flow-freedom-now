@@ -10,6 +10,7 @@ import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
 import { HeroSectionNew } from '@/components/HeroSectionNew';
 import { HeroSectionDemo } from '@/components/HeroSectionDemo';
+import { CircularRevealSection } from '@/components/CircularRevealSection';
 import { useHeroAnimations } from '@/hooks/useHeroAnimations';
 
 const Index = () => {
@@ -25,6 +26,9 @@ const Index = () => {
       {/* New Hero Section Demo */}
       <HeroSectionDemo />
       
+      {/* Circular Reveal Section */}
+      <CircularRevealSection />
+
       {/* New Carousel Section */}
       <CarouselSection />
 
