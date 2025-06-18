@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Check, Shield, Thermometer } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { SpecsPulseBeams } from '@/components/ui/specs-pulse-beams';
 
 export const ProductFeaturesSection = () => {
   const navigate = useNavigate();
@@ -220,9 +221,11 @@ export const ProductFeaturesSection = () => {
           </div>
         </div>
 
-        {/* Animated PulseBeams button for "View Full Specs" */}
+        {/* View Full Specs button at the bottom */}
         <div className="text-center mt-12">
-          <SpecsPulseBeams onClick={goToSpecs} />
+          <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
+            View Full Specs
+          </Button>
         </div>
       </div>
     </section>
