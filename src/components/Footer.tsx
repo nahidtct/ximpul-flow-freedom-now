@@ -97,7 +97,7 @@ export const Footer = () => {
           </div>
 
           <div className="text-center mt-8 pt-8 border-t">
-            <p className="text-muted-foreground font-light">© 2024 www.ximpul.com - Made with love for Bangladesh.</p>
+            <p className="text-muted-foreground font-light">© 2024 www.ximpul.com - Made with love, for Bangladesh.</p>
           </div>
         </div>
       </footer>
