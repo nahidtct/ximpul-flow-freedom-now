@@ -55,7 +55,7 @@ export const Footer = () => {
       </section>
 
       {/* Main Footer - Simple horizontal layout */}
-      <footer className="bg-background border-t py-12">
+      <footer className="border-t py-12 bg-[#f5f5f7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex flex-col items-center">
