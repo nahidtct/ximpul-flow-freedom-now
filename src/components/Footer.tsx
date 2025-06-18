@@ -72,9 +72,7 @@ export const Footer = () => {
               <button onClick={() => scrollToSection('gallery')} className="text-muted-foreground hover:text-foreground transition-colors">
                 Gallery
               </button>
-              <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">
-                #TruePrice Explained
-              </button>
+              <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">#TruePrice</button>
               <button onClick={() => scrollToSection('faq')} className="text-muted-foreground hover:text-foreground transition-colors">
                 FAQ
               </button>
