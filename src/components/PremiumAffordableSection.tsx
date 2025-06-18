@@ -20,8 +20,8 @@ export const PremiumAffordableSection = () => {
           <div className="order-1 lg:order-2">
             <div className="relative">
               <img
-                src="/lovable-uploads/859d4aae-9ba7-49d6-9f8c-5dd7370a224c.png"
-                alt="Lightweight and compact water bottles"
+                src="/lovable-uploads/ca5ff7e6-093e-46b0-9d74-565f162ef716.png"
+                alt="Premium water bottle with textured grip"
                 className="w-full h-auto object-contain rounded-3xl"
               />
             </div>
