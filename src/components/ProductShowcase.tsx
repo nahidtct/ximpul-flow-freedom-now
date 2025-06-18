@@ -42,7 +42,7 @@ export const ProductShowcase = () => {
     name: 'Ximpul Flow',
     edition: 'Lifestyle Edition',
     emotionalTitle: 'For those who live in motion.',
-    image: '/lovable-uploads/d93145c9-b665-4286-b586-342c557a9096.png',
+    image: '/lovable-uploads/64d91283-a1ff-4902-a552-a85ad04e66c6.png',
     description: 'The next evolution of hydration, freedom, and style.',
     price: '1,590',
     buttonText: 'Buy',
