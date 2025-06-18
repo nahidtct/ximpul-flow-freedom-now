@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -8,8 +8,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { ZoomIn, X } from 'lucide-react';
 
 export const LifestyleGallery = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const productImages = [
     {
       image: '/lovable-uploads/a44c6b1e-d7be-4764-be5b-56df9fac3e9a.png',
@@ -50,46 +54,178 @@ export const LifestyleGallery = () => {
     {
       image: '/lovable-uploads/a2c202be-17b1-4dd1-9b5d-a7412ff6cf1a.png',
       title: 'Top View'
+    },
+    {
+      image: '/lovable-uploads/1c49a7b6-451a-4563-8f46-c9195df603c2.png',
+      title: 'Full Bottle Black'
+    },
+    {
+      image: '/lovable-uploads/cf4d7d09-de2d-4916-ac25-875ba3566f2c.png',
+      title: 'Carry Strap Detail'
+    },
+    {
+      image: '/lovable-uploads/4b860037-5da5-4f05-9f57-44c26a976c1f.png',
+      title: 'Side Profile Premium'
+    },
+    {
+      image: '/lovable-uploads/e59b7dea-5f41-47bb-807c-2514529f2d82.png',
+      title: 'Cap Mechanism'
+    },
+    {
+      image: '/lovable-uploads/7e464cce-b9a0-4b39-b6fa-47d5b11e6a0f.png',
+      title: 'Cleaning Brush'
+    },
+    {
+      image: '/lovable-uploads/d272d0d8-b289-4813-9bf6-0234161a1b19.png',
+      title: 'Carabiner Black'
+    },
+    {
+      image: '/lovable-uploads/23701c94-3ba7-4802-95a3-c2e8712f08da.png',
+      title: 'Carabiner Silver'
+    },
+    {
+      image: '/lovable-uploads/f6a20326-95c9-43eb-bb1d-3482df957c7c.png',
+      title: 'Premium Cap Silver'
+    },
+    {
+      image: '/lovable-uploads/1b91a224-7043-4b36-9360-4fcac97442e5.png',
+      title: 'Glass Straws'
+    },
+    {
+      image: '/lovable-uploads/a74e49fa-1bce-40fd-ac1a-28e505b52dc3.png',
+      title: 'Silver Cap Top View'
     }
   ];
 
+  const ImageZoomModal = ({ imageSrc, title, isOpen, onClose }: {
+    imageSrc: string;
+    title: string;
+    isOpen: boolean;
+    onClose: () => void;
+  }) => {
+    if (!isOpen) return null;
+
+    return (
+      <div 
+        className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+        >
+          <X size={32} />
+        </button>
+        <div className="relative max-w-4xl max-h-full overflow-auto">
+          <img
+            src={imageSrc}
+            alt={title}
+            className="w-full h-auto object-contain max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+            <h3 className="text-white text-xl font-medium text-center">{title}</h3>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <section className="py-24 bg-background fade-on-scroll">
+    <section className="py-16 bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{ lineHeight: 1.09 }}>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight apple-gradient-text mb-6">
             Every Detail Matters
           </h2>
-          <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
             Explore the premium craftsmanship and thoughtful design that makes Ximpul Flow extraordinary.
           </p>
         </div>
 
-        <Carousel className="w-full max-w-5xl mx-auto">
-          <CarouselContent>
-            {productImages.map((item, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="relative overflow-hidden bg-white">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-80 object-contain transition-transform duration-500 hover:scale-105 p-8"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                        <h3 className="text-white text-lg font-medium">{item.title}</h3>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="-left-12" />
-          <CarouselNext className="-right-12" />
-        </Carousel>
+        <div className="relative">
+          <Carousel 
+            className="w-full" 
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {productImages.map((item, index) => (
+                <CarouselItem 
+                  key={index} 
+                  className="pl-2 md:pl-4 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                >
+                  <div className="group relative">
+                    <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden bg-white">
+                      <CardContent className="p-0 relative">
+                        <div className="relative overflow-hidden aspect-square">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 p-4 md:p-6"
+                          />
+                          
+                          {/* Zoom overlay */}
+                          <div 
+                            className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center cursor-pointer"
+                            onClick={() => setSelectedImage(item.image)}
+                          >
+                            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3 backdrop-blur-sm">
+                              <ZoomIn className="w-6 h-6 text-gray-800" />
+                            </div>
+                          </div>
+                          
+                          {/* Title overlay */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-4">
+                            <h3 className="text-white text-sm md:text-base font-medium text-center leading-tight">
+                              {item.title}
+                            </h3>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            {/* Navigation buttons - hidden on mobile, visible on larger screens */}
+            <CarouselPrevious className="hidden md:flex -left-6 lg:-left-12 h-12 w-12 border-2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg" />
+            <CarouselNext className="hidden md:flex -right-6 lg:-right-12 h-12 w-12 border-2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg" />
+          </Carousel>
+
+          {/* Mobile swipe indicator */}
+          <div className="flex md:hidden justify-center mt-6 space-x-2">
+            <div className="text-sm text-muted-foreground flex items-center space-x-2">
+              <span>Swipe to explore</span>
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 bg-muted-foreground/30 rounded-full"></div>
+                <div className="w-2 h-2 bg-muted-foreground/60 rounded-full"></div>
+                <div className="w-2 h-2 bg-muted-foreground/30 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Image count indicator */}
+        <div className="text-center mt-8">
+          <p className="text-sm text-muted-foreground">
+            {productImages.length} premium detail shots • Tap any image to zoom
+          </p>
+        </div>
       </div>
+
+      {/* Zoom Modal */}
+      {selectedImage && (
+        <ImageZoomModal
+          imageSrc={selectedImage}
+          title={productImages.find(img => img.image === selectedImage)?.title || ''}
+          isOpen={!!selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
     </section>
   );
 };
