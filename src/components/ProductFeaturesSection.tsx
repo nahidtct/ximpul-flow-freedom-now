@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check, Shield, Thermometer } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -45,8 +46,8 @@ export const ProductFeaturesSection = () => {
                 </div>
                 <div className="flex justify-center">
                   <img
-                    src="/lovable-uploads/bc4b68af-e1e3-4507-9871-146b30a058fb.png"
-                    alt="Premium steel bottles"
+                    src="/lovable-uploads/4b5a8dad-1d37-4033-9f2d-86550eef1db6.png"
+                    alt="Premium steel bottles with different grip textures"
                     className="w-16 h-16 md:w-32 md:h-32 lg:w-48 lg:h-48 object-contain"
                   />
                 </div>
