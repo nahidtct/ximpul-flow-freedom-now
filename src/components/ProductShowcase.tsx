@@ -1,6 +1,7 @@
 
 
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
 import { RainbowButton } from '@/components/ui/rainbow-button';
@@ -9,23 +10,37 @@ import { useNavigate } from 'react-router-dom';
 
 export const ProductShowcase = () => {
   const navigate = useNavigate();
+  const [selectedColors, setSelectedColors] = useState({
+    0: 'graphite-gray', // Base Edition default
+    1: 'graphite-gray'  // Lifestyle Edition default
+  });
 
   const goToSpecs = () => {
     navigate('/specs');
+  };
+
+  const handleColorChange = (productIndex: number, colorValue: string) => {
+    setSelectedColors(prev => ({
+      ...prev,
+      [productIndex]: colorValue
+    }));
   };
 
   const products = [{
     name: 'Ximpul Flow',
     edition: 'Base Edition',
     emotionalTitle: 'Minimal. Functional. Everyday essential.',
-    image: '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png',
+    images: {
+      'graphite-gray': '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png',
+      'obsidian-black': '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png' // Replace with black version when provided
+    },
     description: 'The next evolution of hydration and freedom.',
     price: '1,090',
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
     colors: [
-      { name: 'Midnight Black', color: '#1a1a1a' },
-      { name: 'Ocean Blue', color: '#2563eb' }
+      { name: 'Graphite Gray', value: 'graphite-gray', color: '#6b7280' },
+      { name: 'Obsidian Black', value: 'obsidian-black', color: '#1a1a1a' }
     ],
     features: [{
       icon: <Thermometer className="w-5 h-5" />,
@@ -48,14 +63,17 @@ export const ProductShowcase = () => {
     name: 'Ximpul Flow',
     edition: 'Lifestyle Edition',
     emotionalTitle: 'For those who live in motion.',
-    image: '/lovable-uploads/64d91283-a1ff-4902-a552-a85ad04e66c6.png',
+    images: {
+      'graphite-gray': '/lovable-uploads/64d91283-a1ff-4902-a552-a85ad04e66c6.png',
+      'obsidian-black': '/lovable-uploads/64d91283-a1ff-4902-a552-a85ad04e66c6.png' // Replace with black version when provided
+    },
     description: 'The next evolution of hydration, freedom, and style.',
     price: '1,590',
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
     colors: [
-      { name: 'Rose Gold', color: '#e879f9' },
-      { name: 'Pearl White', color: '#f8fafc' }
+      { name: 'Graphite Gray', value: 'graphite-gray', color: '#6b7280' },
+      { name: 'Obsidian Black', value: 'obsidian-black', color: '#1a1a1a' }
     ],
     features: [{
       icon: <Thermometer className="w-5 h-5" />,
@@ -97,8 +115,8 @@ export const ProductShowcase = () => {
                 {/* Product Image */}
                 <div className="bg-muted/30 rounded-xl p-4 sm:p-8 h-32 sm:h-48 md:h-64 flex items-center justify-center">
                   <img 
-                    src={product.image} 
-                    alt={`${product.name} ${product.edition}`} 
+                    src={product.images[selectedColors[index]]} 
+                    alt={`${product.name} ${product.edition} - ${product.colors.find(c => c.value === selectedColors[index])?.name}`} 
                     className="max-h-full w-auto object-contain" 
                   />
                 </div>
@@ -108,9 +126,14 @@ export const ProductShowcase = () => {
                   {product.colors.map((color, colorIndex) => (
                     <div 
                       key={colorIndex}
-                      className="w-6 h-6 rounded-full border-2 border-gray-300 cursor-pointer hover:scale-110 transition-transform"
+                      className={`w-6 h-6 rounded-full border-2 cursor-pointer hover:scale-110 transition-transform ${
+                        selectedColors[index] === color.value 
+                          ? 'border-foreground ring-2 ring-foreground/20' 
+                          : 'border-gray-300'
+                      }`}
                       style={{ backgroundColor: color.color }}
                       title={color.name}
+                      onClick={() => handleColorChange(index, color.value)}
                     />
                   ))}
                 </div>
@@ -183,4 +206,5 @@ export const ProductShowcase = () => {
     </section>
   );
 };
+
 
