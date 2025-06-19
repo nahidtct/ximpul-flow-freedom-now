@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
@@ -22,6 +23,10 @@ export const ProductShowcase = () => {
     price: '1,090',
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
+    colors: [
+      { name: 'Midnight Black', color: '#1a1a1a' },
+      { name: 'Ocean Blue', color: '#2563eb' }
+    ],
     features: [{
       icon: <Thermometer className="w-5 h-5" />,
       title: 'Temperature Control',
@@ -48,6 +53,10 @@ export const ProductShowcase = () => {
     price: '1,590',
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
+    colors: [
+      { name: 'Rose Gold', color: '#e879f9' },
+      { name: 'Pearl White', color: '#f8fafc' }
+    ],
     features: [{
       icon: <Thermometer className="w-5 h-5" />,
       title: 'Advanced Temperature Control',
@@ -92,6 +101,18 @@ export const ProductShowcase = () => {
                     alt={`${product.name} ${product.edition}`} 
                     className="max-h-full w-auto object-contain" 
                   />
+                </div>
+
+                {/* Color Options */}
+                <div className="flex justify-center gap-2">
+                  {product.colors.map((color, colorIndex) => (
+                    <div 
+                      key={colorIndex}
+                      className="w-6 h-6 rounded-full border-2 border-gray-300 cursor-pointer hover:scale-110 transition-transform"
+                      style={{ backgroundColor: color.color }}
+                      title={color.name}
+                    />
+                  ))}
                 </div>
 
                 {/* Product Info */}
@@ -162,3 +183,4 @@ export const ProductShowcase = () => {
     </section>
   );
 };
+
