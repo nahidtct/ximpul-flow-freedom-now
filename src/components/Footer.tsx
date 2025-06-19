@@ -43,7 +43,7 @@ export const Footer = () => {
       
 
       {/* Main Footer - Simple horizontal layout */}
-      <footer className="border-t py-12 bg-[#f5f5f7]">
+      <footer className="border-t bg-[#f5f5f7] py-[20px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex flex-col items-center">
@@ -75,7 +75,7 @@ export const Footer = () => {
             
           </div>
 
-          <div className="text-center mt-8 pt-8 border-t">
+          <div className="text-center mt-8 pt-8 border-t py-0 my-0">
             <p className="text-muted-foreground font-light">© 2024 www.ximpul.com - Made with love, for Bangladesh.</p>
           </div>
         </div>
