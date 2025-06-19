@@ -48,9 +48,7 @@ export const Footer = () => {
           <p className="text-lg font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground mb-8">
             "Every refill tells a story — of change, of freedom, of a better way to live."
           </p>
-          <RainbowButton className="text-lg" onClick={() => scrollToSection('buy')}>
-            Buy Now
-          </RainbowButton>
+          
         </div>
       </section>
 
@@ -84,17 +82,7 @@ export const Footer = () => {
               </button>
             </div>
 
-            <div className="flex space-x-6 mt-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Youtube className="w-6 h-6" />
-              </a>
-            </div>
+            
           </div>
 
           <div className="text-center mt-8 pt-8 border-t">
