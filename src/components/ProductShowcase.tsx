@@ -32,7 +32,7 @@ export const ProductShowcase = () => {
     emotionalTitle: 'Minimal. Functional. Everyday essential.',
     images: {
       'graphite-gray': '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png',
-      'obsidian-black': '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png' // Replace with black version when provided
+      'obsidian-black': '/lovable-uploads/579120fc-bea9-4c7d-9c48-bae9573f46f2.png'
     },
     description: 'The next evolution of hydration and freedom.',
     price: '1,090',
@@ -65,7 +65,7 @@ export const ProductShowcase = () => {
     emotionalTitle: 'For those who live in motion.',
     images: {
       'graphite-gray': '/lovable-uploads/64d91283-a1ff-4902-a552-a85ad04e66c6.png',
-      'obsidian-black': '/lovable-uploads/64d91283-a1ff-4902-a552-a85ad04e66c6.png' // Replace with black version when provided
+      'obsidian-black': '/lovable-uploads/88d45bfe-e1d3-4b43-9e01-c85b09d04533.png'
     },
     description: 'The next evolution of hydration, freedom, and style.',
     price: '1,590',
