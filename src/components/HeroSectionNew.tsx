@@ -1,32 +1,26 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
 import { RainbowButton } from '@/components/ui/rainbow-button';
-
 export const HeroSectionNew = () => {
   const navigate = useNavigate();
-
   const scrollToBuy = () => {
     document.getElementById('buy')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const goToSpecs = () => {
     navigate('/specs');
   };
-
-  return (
-    <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden pt-32 md:pt-24">
+  return <section className="hero-section min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden pt-32 md:pt-24">
       <BackgroundPathsOnly />
       
       <div className="absolute inset-0 z-[1]" style={{
-        background: 'linear-gradient(180deg, rgba(212, 234, 246, 0.3), rgba(249, 249, 249, 0.6) 75%, rgba(255, 255, 255, 0.8))',
-        transition: 'opacity 1.83s ease-out'
-      }} />
+      background: 'linear-gradient(180deg, rgba(212, 234, 246, 0.3), rgba(249, 249, 249, 0.6) 75%, rgba(255, 255, 255, 0.8))',
+      transition: 'opacity 1.83s ease-out'
+    }} />
       
       {/* Content Container - Desktop Layout */}
       <div className="relative z-10 w-full h-full hidden md:block">
@@ -94,11 +88,10 @@ export const HeroSectionNew = () => {
             </Button>
           </div>
           
-          <p className="text-base text-gray-600">
+          <p className="text-gray-600 text-base font-semibold">
             From 1,090 BDT
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
