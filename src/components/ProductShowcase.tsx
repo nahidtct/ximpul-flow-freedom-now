@@ -1,10 +1,7 @@
 
-
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
-import { RainbowButton } from '@/components/ui/rainbow-button';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
@@ -102,9 +99,11 @@ export const ProductShowcase = () => {
     <section id="products" className="py-12 sm:py-24 bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center mb-8 sm:mb-16">
-          <p className="text-lg sm:text-xl text-muted-foreground font-light max-w-2xl mx-auto">
+          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{
+            lineHeight: 1.09
+          }}>
             Two editions. Infinite possibilities. Each bottle tells your story.
-          </p>
+          </h2>
         </div>
 
         {/* Apple-style side-by-side comparison */}
@@ -183,22 +182,14 @@ export const ProductShowcase = () => {
             ))}
           </div>
 
-          {/* Centered Buy and Specs Buttons */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <RainbowButton 
-              className="px-8 py-3"
-              onClick={() => document.getElementById('buy')?.scrollIntoView({
-                behavior: 'smooth'
-              })}
-            >
-              Buy
-            </RainbowButton>
+          {/* Centered Full Specifications Button */}
+          <div className="flex justify-center items-center mt-8">
             <Button 
               variant="outline" 
               onClick={goToSpecs} 
               className="px-8 py-3 hover:bg-foreground hover:text-background"
             >
-              Specs
+              Full Specifications
             </Button>
           </div>
         </div>
@@ -206,5 +197,3 @@ export const ProductShowcase = () => {
     </section>
   );
 };
-
-

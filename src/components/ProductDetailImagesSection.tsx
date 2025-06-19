@@ -23,7 +23,7 @@ export const ProductDetailImagesSection = () => {
             <img
               src="/lovable-uploads/d40394b0-42e9-46a0-87ae-0a105a42f578.png"
               alt="Portable Thermos Cup - Double wall 304 stainless steel, BPA free"
-              className="w-full h-auto object-contain rounded-3xl"
+              className="w-full h-auto object-contain"
             />
           </div>
           
@@ -32,7 +32,7 @@ export const ProductDetailImagesSection = () => {
             <img
               src="/lovable-uploads/ba703431-7720-4eba-9738-1e7bd3d1780e.png"
               alt="Portable Handle Rope - Durable Woven Nylon For Lasting Strength & Grip"
-              className="w-full h-auto object-contain rounded-3xl"
+              className="w-full h-auto object-contain"
             />
           </div>
           
@@ -41,7 +41,7 @@ export const ProductDetailImagesSection = () => {
             <img
               src="/lovable-uploads/829d04af-dcf4-4386-8ea2-1100018700d0.png"
               alt="Keep Hot/Cold About 20-24 hours - Heat preservation, durable, strong, leak proof, premium quality"
-              className="w-full h-auto object-contain rounded-3xl"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>

@@ -26,7 +26,11 @@ export const BuySection = () => {
     <section id="buy" className="py-16 bg-gray-50 fade-on-scroll" style={{ minHeight: '400px' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Order Your Ximpul Flow</h2>
+          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-4 text-[3.24rem]" style={{
+            lineHeight: 1.09
+          }}>
+            Order Your Ximpul Flow
+          </h2>
           <p className="text-lg text-gray-600">
             Complete your order in simple steps
           </p>
