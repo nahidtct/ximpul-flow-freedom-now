@@ -102,8 +102,11 @@ export const ProductShowcase = () => {
           <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{
             lineHeight: 1.09
           }}>
-            Two editions. Infinite possibilities. Each bottle tells your story.
+            Choose Your Perfect Edition
           </h2>
+          <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+            Two editions. Infinite possibilities. Each bottle tells your story.
+          </p>
         </div>
 
         {/* Apple-style side-by-side comparison */}

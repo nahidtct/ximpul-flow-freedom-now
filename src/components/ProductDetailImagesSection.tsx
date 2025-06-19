@@ -17,7 +17,7 @@ export const ProductDetailImagesSection = () => {
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-0">
           {/* First Image - Portable Thermos Cup */}
           <div className="w-full">
             <img
