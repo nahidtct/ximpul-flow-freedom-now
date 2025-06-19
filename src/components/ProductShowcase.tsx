@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
@@ -22,19 +23,19 @@ export const ProductShowcase = () => {
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
     features: [{
-      icon: <Thermometer className="w-4 h-4" />,
+      icon: <Thermometer className="w-5 h-5" />,
       title: 'Temperature Control',
       description: 'Keeps drinks hot for 12 hours, cold for 24 hours'
     }, {
-      icon: <Shield className="w-4 h-4" />,
+      icon: <Shield className="w-5 h-5" />,
       title: 'Food-Grade Safety',
       description: 'Premium 304 stainless steel, BPA-free'
     }, {
-      icon: <Droplets className="w-4 h-4" />,
+      icon: <Droplets className="w-5 h-5" />,
       title: 'Leak-Proof Design',
       description: 'Advanced seal technology with triple-lock mechanism'
     }, {
-      icon: <Zap className="w-4 h-4" />,
+      icon: <Zap className="w-5 h-5" />,
       title: 'Easy Clean',
       description: 'Wide mouth design for effortless cleaning'
     }]
@@ -48,23 +49,23 @@ export const ProductShowcase = () => {
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
     features: [{
-      icon: <Thermometer className="w-4 h-4" />,
+      icon: <Thermometer className="w-5 h-5" />,
       title: 'Advanced Temperature Control',
       description: 'Keeps drinks hot for 12 hours, cold for 24 hours'
     }, {
-      icon: <Shield className="w-4 h-4" />,
+      icon: <Shield className="w-5 h-5" />,
       title: 'Premium Safety',
       description: 'Premium 304 stainless steel, BPA-free'
     }, {
-      icon: <Droplets className="w-4 h-4" />,
+      icon: <Droplets className="w-5 h-5" />,
       title: 'Leak-Proof Design',
       description: 'Advanced seal technology with triple-lock mechanism'
     }, {
-      icon: <Zap className="w-4 h-4" />,
+      icon: <Zap className="w-5 h-5" />,
       title: 'Easy Clean Technology',
       description: 'Wide mouth design for effortless cleaning'
     }, {
-      icon: <Recycle className="w-4 h-4" />,
+      icon: <Recycle className="w-5 h-5" />,
       title: 'Lifestyle Accessories',
       description: 'Includes silicone sleeve, straw cap, cleaning brushes, and aluminium hook'
     }]
@@ -113,14 +114,24 @@ export const ProductShowcase = () => {
                   </p>
                 </div>
 
-                {/* Features - Compact List */}
-                <div className="text-left space-y-2 pt-4 border-t border-border">
-                  <h4 className="text-xs sm:text-sm font-medium text-foreground mb-2">
-                    Key Features
+                {/* Features - Apple-style with icons */}
+                <div className="text-left space-y-4 pt-6 border-t border-border">
+                  <h4 className="text-sm sm:text-base font-semibold text-foreground mb-4">
+                    {product.edition} Specifications
                   </h4>
                   {product.features.map((feature, idx) => (
-                    <div key={idx} className="text-xs sm:text-sm text-muted-foreground">
-                      {feature.title}
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="text-muted-foreground mt-0.5">
+                        {feature.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h5 className="text-sm sm:text-base font-medium text-foreground leading-tight">
+                          {feature.title}
+                        </h5>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
