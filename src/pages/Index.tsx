@@ -2,12 +2,10 @@
 import React from 'react';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PremiumAffordableSection } from '@/components/PremiumAffordableSection';
-import { ProductFeaturesSection } from '@/components/ProductFeaturesSection';
-import { CarouselSection } from '@/components/CarouselSection';
-import { HashtagSection } from '@/components/HashtagSection';
 import { MovementSection } from '@/components/MovementSection';
 import { BuySection } from '@/components/BuySection';
 import { FAQSection } from '@/components/FAQSection';
+import { HashtagSection } from '@/components/HashtagSection';
 import { HeroSectionNew } from '@/components/HeroSectionNew';
 import { HeroSectionDemo } from '@/components/HeroSectionDemo';
 import { LifestyleGallery } from '@/components/LifestyleGallery';
@@ -24,14 +22,11 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSectionNew />
       
-      {/* New Hero Section Demo */}
+      {/* New Hero Section Demo - "Carry Your Freedom" */}
       <HeroSectionDemo />
       
-      {/* New Carousel Section */}
-      <CarouselSection />
-
-      {/* Product Features Grid Section */}
-      <ProductFeaturesSection />
+      {/* Movement Section - "Make Water Free Again" Story - moved after Carry Your Freedom */}
+      <MovementSection />
 
       {/* Product Detail Images Section */}
       <ProductDetailImagesSection />
@@ -41,9 +36,6 @@ const Index = () => {
 
       {/* Product Gallery Section */}
       <LifestyleGallery />
-
-      {/* Movement Section - "Make Water Free Again" Story */}
-      <MovementSection />
 
       {/* Pricing Section - Clear Packages */}
       <ProductShowcase />
