@@ -12,6 +12,7 @@ import TruePrice from "./pages/TruePrice";
 import TermsPrivacy from "./pages/TermsPrivacy";
 import Contact from "./pages/Contact";
 import ThankYou from "./pages/ThankYou";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/trueprice" element={<TruePrice />} />
                 <Route path="/terms-privacy" element={<TermsPrivacy />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/thank-you" element={<ThankYou />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

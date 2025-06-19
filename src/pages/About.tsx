@@ -1,10 +1,8 @@
 
 import React from 'react';
 import { Navigation } from '@/components/Navigation';
-import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { Footer } from '@/components/Footer';
+import { AnimatedText } from '@/components/ui/animated-underline-text-one';
 
 const About = () => {
   return (
@@ -12,104 +10,136 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-light text-foreground mb-6 leading-tight">
-            About Ximpul
-          </h1>
-          <p className="text-xl md:text-2xl font-light text-muted-foreground mb-8">
-            The Brand Bringing #TruePrice to Bangladesh
-          </p>
+          <div className="mb-6">
+            <AnimatedText 
+              text="About Ximpul" 
+              textClassName="text-4xl md:text-6xl font-semibold text-[#1d1d1f] leading-tight tracking-tight" 
+              underlineClassName="w-full text-primary" 
+            />
+          </div>
+          
+          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent text-xl md:text-2xl font-light leading-relaxed">
+            "Ximpul brings global-quality products to Bangladesh — at #TruePrice — with full transparency, no compromise, and deep respect for your right to quality."
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl font-light leading-relaxed mb-8">
-              Ximpul is a new kind of brand from Bangladesh.
-              A brand born with one purpose: to bring global-quality products to our people — at a price that is fair, honest, and transparent.
-            </p>
-
-            <p className="text-lg font-light leading-relaxed mb-8">
-              In today's world, we all know the truth. Many so-called "branded" products sell at 5 to 10 times their actual cost. The factories that make them are open secrets. China is exposing these realities every day. But most Bangladeshis still pay inflated prices — or get stuck with poor-quality factory rejects when trying to shop "direct."
-            </p>
-
-            <div className="bg-muted/30 rounded-2xl p-8 my-12">
-              <h2 className="text-2xl font-light mb-4">We believe this is not acceptable.</h2>
-              <h2 className="text-2xl font-light mb-6">We believe #TruePrice is a right, not a luxury.</h2>
-            </div>
-
-            <p className="text-lg font-light leading-relaxed mb-8">
-              At Ximpul, we bridge this gap.
-              We connect you to the same factory-level quality you deserve — but with:
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-6 my-12">
-              <div className="bg-background border border-border rounded-2xl p-6">
-                <h3 className="font-medium mb-2">100% curated and tested products</h3>
-              </div>
-              <div className="bg-background border border-border rounded-2xl p-6">
-                <h3 className="font-medium mb-2">No scrap</h3>
-              </div>
-              <div className="bg-background border border-border rounded-2xl p-6">
-                <h3 className="font-medium mb-2">No fake products</h3>
-              </div>
-              <div className="bg-background border border-border rounded-2xl p-6">
-                <h3 className="font-medium mb-2">No inflated price for "branding"</h3>
-              </div>
-              <div className="bg-background border border-border rounded-2xl p-6">
-                <h3 className="font-medium mb-2">Full transparency</h3>
-              </div>
-              <div className="bg-background border border-border rounded-2xl p-6">
-                <h3 className="font-medium mb-2">Simple, eco-friendly packaging</h3>
-                <p className="text-sm text-muted-foreground">(we do not believe in making you pay extra for a box!)</p>
-              </div>
-            </div>
-
-            <div className="text-center my-12">
-              <p className="text-lg font-light leading-relaxed mb-4">
-                We do not copy brands.<br />
-                We do not chase trends.<br />
-                We focus on honest innovation and product integrity.
+        <div className="max-w-4xl mx-auto space-y-16">
+          
+          {/* Why Ximpul Exists */}
+          <div>
+            <h2 className="text-3xl font-semibold mb-8 text-center">Why does Ximpul exist?</h2>
+            <div className="space-y-6 text-lg leading-relaxed">
+              <p className="text-center font-medium">
+                Because in a country like Bangladesh, <span className="text-primary font-semibold">#TruePrice</span> is a right, not a luxury.
               </p>
-            </div>
-
-            <div className="bg-black text-white rounded-2xl p-8 text-center my-12">
-              <h2 className="text-3xl font-light mb-4">Our mission is clear:</h2>
-              <p className="text-2xl font-medium">"The best. For all. At #TruePrice."</p>
-            </div>
-
-            <p className="text-lg font-light leading-relaxed mb-8">
-              And we are starting this journey with our first initiative: Ximpul Flow — a movement to help make water free again.
-            </p>
-
-            <p className="text-lg font-light leading-relaxed mb-8">
-              We believe this is the future of responsible brands in Bangladesh.
-              We invite you to be part of it.
-            </p>
-
-            <div className="text-center my-12">
-              <h2 className="text-3xl font-light mb-4">Ximpul</h2>
-              <p className="text-lg text-muted-foreground">
-                #TruePrice | #OwnYourTruePrice | #BangladeshDeservesTheBest
+              <p>
+                People here should not be forced to overpay. Nor should they be forced to trust random, unreliable "factory-direct" sellers — where so often, scrap products arrive.
               </p>
-            </div>
-
-            <div className="text-center">
-              <Link to="/trueprice">
-                <Button className="bg-black hover:bg-black/90 text-white px-8 py-4 text-lg font-medium rounded-2xl">
-                  Learn About #TruePrice
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <p className="font-medium">
+                At Ximpul, we are your bridge.
+              </p>
+              <p>
+                We connect the best, most reliable factories with a transparent, trusted platform. We curate, test, and guarantee what we offer.
+              </p>
             </div>
           </div>
+
+          {/* Our Promise */}
+          <div className="bg-muted/30 rounded-3xl p-8">
+            <h3 className="text-2xl font-semibold mb-6 text-center">Our Promise:</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="flex items-center space-x-3">
+                <span className="text-green-600 text-xl">✅</span>
+                <span>No fakes</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-green-600 text-xl">✅</span>
+                <span>No scraps</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-green-600 text-xl">✅</span>
+                <span>No inflated prices</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-green-600 text-xl">✅</span>
+                <span>No brand premium — only product value</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-green-600 text-xl">✅</span>
+                <span>Simple packaging — because why pay for boxes instead of products?</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-green-600 text-xl">✅</span>
+                <span>100% focus on quality and innovation — because we believe Bangladesh deserves the best.</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Vision */}
+          <div className="text-center">
+            <div className="text-4xl mb-4">🏆</div>
+            <h3 className="text-2xl font-semibold mb-6">Vision</h3>
+            <p className="text-lg leading-relaxed">
+              To make global-quality products accessible to everyone in Bangladesh — at an honest <span className="text-primary font-semibold">#TruePrice</span> — with full transparency, no compromise, and deep respect for the people we serve.
+            </p>
+          </div>
+
+          {/* Mission */}
+          <div className="text-center">
+            <div className="text-4xl mb-4">🎯</div>
+            <h3 className="text-2xl font-semibold mb-6">Mission</h3>
+            <div className="space-y-4 text-lg leading-relaxed text-left">
+              <p>
+                In today's world, we all know the truth — many "branded" products sell at 5 to 10 times their actual cost. China is exposing this reality. People now understand what <span className="text-primary font-semibold">#TruePrice</span> is.
+              </p>
+              <p>
+                But in Bangladesh, millions still pay these high prices — or settle for poor-quality factory scrap when trying to shop "direct."
+              </p>
+              <p className="font-medium">
+                At Ximpul, we believe this is unfair.
+              </p>
+              <p>
+                We believe that good design, premium quality, and innovation should not be locked behind a brand name.
+              </p>
+              <p>
+                We are here to change that — through honest sourcing, constant innovation, and the courage to bring you products that are as good as the best brands — but at the real <span className="text-primary font-semibold">#TruePrice</span>.
+              </p>
+              <p className="font-medium">
+                This is not about copying brands.
+              </p>
+              <p>
+                It is about giving people the same quality — or better — while protecting them from fake products, broken promises, or overpriced labels.
+              </p>
+            </div>
+          </div>
+
+          {/* Brand Layer */}
+          <div className="bg-black text-white rounded-3xl p-8">
+            <h3 className="text-2xl font-semibold mb-8 text-center">Brand Layer</h3>
+            <div className="space-y-6">
+              <div className="border-b border-gray-600 pb-4">
+                <h4 className="text-xl font-semibold mb-2">Ximpul (mother brand)</h4>
+                <p className="text-gray-300">
+                  Build an ecosystem of high-quality lifestyle products at #TruePrice — with trust, transparency, and innovation for Bangladesh
+                </p>
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold mb-2">Ximpul Flow (first initiative)</h4>
+                <p className="text-gray-300">
+                  Start a movement to make water free again by helping people own their water — with a premium bottle built for freedom, convenience, and sustainability
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
