@@ -5,6 +5,18 @@ export const ProductDetailImagesSection = () => {
   return (
     <section className="py-16 bg-background fade-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Title and Subtitle */}
+        <div className="text-center mb-16">
+          <h2 className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[3.24rem]" style={{
+            lineHeight: 1.09
+          }}>
+            Introducing Ximpul Flow
+          </h2>
+          <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+            Every feature designed with your lifestyle in mind
+          </p>
+        </div>
+
         <div className="space-y-16">
           {/* First Image - Portable Thermos Cup */}
           <div className="w-full">
