@@ -8,10 +8,10 @@ export const PremiumAffordableSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Text content */}
           <div className="order-1 lg:order-1 text-center lg:text-left">
-            <div className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-[1.09] tracking-tight apple-gradient-text mb-8 text-[3.24rem]">
+            <div className="mb-8">
               <SparklesText 
                 text="Premium But Affordable"
-                className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-[1.09] tracking-tight mb-8 text-[3.24rem]"
+                className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-[1.09] tracking-tight mb-8 text-[3.24rem] text-gray-900"
                 colors={{
                   first: "#9E7AFF",
                   second: "#FE8BBB"
