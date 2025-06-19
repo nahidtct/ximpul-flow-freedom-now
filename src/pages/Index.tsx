@@ -42,9 +42,6 @@ const Index = () => {
       {/* Product Gallery Section */}
       <LifestyleGallery />
 
-      {/* Hashtag Movement Section */}
-      <HashtagSection />
-
       {/* Movement Section - "Make Water Free Again" Story */}
       <MovementSection />
 
@@ -56,6 +53,9 @@ const Index = () => {
 
       {/* FAQ Section */}
       <FAQSection />
+
+      {/* Hashtag Movement Section - moved after FAQ */}
+      <HashtagSection />
     </div>
   );
 };

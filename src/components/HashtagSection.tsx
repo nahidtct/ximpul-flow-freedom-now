@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { HighlightGroup, HighlighterItem, Particles } from '@/components/ui/highlighter';
-import { Hash, Share } from 'lucide-react';
+import { Hash } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Typewriter } from '@/components/ui/typewriter';
+import { Icons } from '@/components/ui/icons';
 
 export const HashtagSection = () => {
   const hashtags = [
@@ -17,54 +19,20 @@ export const HashtagSection = () => {
     '#RefillRevolution'
   ];
 
-  const handleShare = () => {
+  const handleSocialShare = (platform: string) => {
     const shareText = `Check out Ximpul Flow - making water free again! ${hashtags.join(' ')}`;
     const shareUrl = window.location.href;
+    const encodedText = encodeURIComponent(shareText);
+    const encodedUrl = encodeURIComponent(shareUrl);
     
-    if (navigator.share) {
-      navigator.share({
-        title: 'Ximpul Flow - Your Water, Your Freedom',
-        text: shareText,
-        url: shareUrl,
-      });
-    } else {
-      // Fallback - try to open share options
-      const encodedText = encodeURIComponent(shareText);
-      const encodedUrl = encodeURIComponent(shareUrl);
-      
-      // Create a simple share menu
-      const shareOptions = [
-        {
-          name: 'Facebook',
-          url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`
-        },
-        {
-          name: 'Twitter',
-          url: `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`
-        },
-        {
-          name: 'LinkedIn',
-          url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}&summary=${encodedText}`
-        },
-        {
-          name: 'WhatsApp',
-          url: `https://wa.me/?text=${encodedText} ${encodedUrl}`
-        }
-      ];
-      
-      // Show options to user
-      const selectedOption = prompt(
-        'Choose how to share:\n1. Facebook\n2. Twitter\n3. LinkedIn\n4. WhatsApp\n5. Copy to clipboard\n\nEnter number (1-5):'
-      );
-      
-      if (selectedOption && selectedOption >= '1' && selectedOption <= '4') {
-        const optionIndex = parseInt(selectedOption) - 1;
-        window.open(shareOptions[optionIndex].url, '_blank', 'width=600,height=400');
-      } else if (selectedOption === '5') {
-        navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
-        alert('Copied to clipboard!');
-      }
-    }
+    const shareUrls = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
+      youtube: `https://www.youtube.com/`, // YouTube doesn't have direct share URL, opens main page
+      instagram: `https://www.instagram.com/`, // Instagram doesn't support direct web sharing, opens main page
+      tiktok: `https://www.tiktok.com/`, // TikTok doesn't support direct web sharing, opens main page
+    };
+    
+    window.open(shareUrls[platform as keyof typeof shareUrls], '_blank', 'width=600,height=400');
   };
 
   return (
@@ -167,13 +135,38 @@ export const HashtagSection = () => {
                     <p className="text-muted-foreground font-light text-lg mb-6">
                       Share your Ximpul Flow journey and inspire others to choose freedom
                     </p>
-                    <Button 
-                      onClick={handleShare}
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                    >
-                      <Share className="w-4 h-4 mr-2" />
-                      Share
-                    </Button>
+                    <div className="flex justify-center gap-4">
+                      <Button 
+                        onClick={() => handleSocialShare('facebook')}
+                        className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full"
+                        size="icon"
+                      >
+                        <Icons.facebook className="w-5 h-5" />
+                      </Button>
+                      <Button 
+                        onClick={() => handleSocialShare('youtube')}
+                        className="bg-red-600 hover:bg-red-700 text-white p-3 rounded-full"
+                        size="icon"
+                      >
+                        <Icons.youtube className="w-5 h-5" />
+                      </Button>
+                      <Button 
+                        onClick={() => handleSocialShare('instagram')}
+                        className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-3 rounded-full"
+                        size="icon"
+                      >
+                        <Icons.instagram className="w-5 h-5" />
+                      </Button>
+                      <Button 
+                        onClick={() => handleSocialShare('tiktok')}
+                        className="bg-black hover:bg-gray-800 text-white p-3 rounded-full"
+                        size="icon"
+                      >
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
