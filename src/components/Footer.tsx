@@ -43,8 +43,8 @@ export const Footer = () => {
       
 
       {/* Main Footer - Simple horizontal layout */}
-      <footer className="border-t bg-[#f5f5f7] py-[20px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="border-t bg-[#f5f5f7] py-[18px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[20px]">
 
           <div className="flex flex-col items-center">
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 text-center mb-6">
