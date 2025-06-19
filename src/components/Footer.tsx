@@ -40,17 +40,7 @@ export const Footer = () => {
   };
   return <>
       {/* Pre-footer CTA */}
-      <section className="py-16 bg-inherit">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl md:text-4xl font-light text-foreground mb-4">
-            Ready to carry freedom?
-          </h3>
-          <p className="text-lg font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground mb-8">
-            "Every refill tells a story — of change, of freedom, of a better way to live."
-          </p>
-          
-        </div>
-      </section>
+      
 
       {/* Main Footer - Simple horizontal layout */}
       <footer className="border-t py-12 bg-[#f5f5f7]">
