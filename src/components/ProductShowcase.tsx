@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
@@ -114,26 +113,6 @@ export const ProductShowcase = () => {
                   </p>
                 </div>
 
-                {/* Buttons */}
-                <div className="space-y-2">
-                  <RainbowButton 
-                    className="w-full text-xs sm:text-sm px-4 py-2"
-                    onClick={() => document.getElementById('buy')?.scrollIntoView({
-                      behavior: 'smooth'
-                    })}
-                  >
-                    {product.buttonText}
-                  </RainbowButton>
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    onClick={goToSpecs} 
-                    className="w-full text-xs sm:text-sm hover:bg-foreground hover:text-background"
-                  >
-                    Specs
-                  </Button>
-                </div>
-
                 {/* Features - Compact List */}
                 <div className="text-left space-y-2 pt-4 border-t border-border">
                   <h4 className="text-xs sm:text-sm font-medium text-foreground mb-2">
@@ -149,14 +128,22 @@ export const ProductShowcase = () => {
             ))}
           </div>
 
-          {/* Compare Link */}
-          <div className="text-center mt-8">
-            <Button 
-              variant="link" 
-              onClick={goToSpecs}
-              className="text-primary text-sm hover:underline"
+          {/* Centered Buy and Specs Buttons */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <RainbowButton 
+              className="px-8 py-3"
+              onClick={() => document.getElementById('buy')?.scrollIntoView({
+                behavior: 'smooth'
+              })}
             >
-              Compare all specifications →
+              Buy
+            </RainbowButton>
+            <Button 
+              variant="outline" 
+              onClick={goToSpecs} 
+              className="px-8 py-3 hover:bg-foreground hover:text-background"
+            >
+              Specs
             </Button>
           </div>
         </div>
