@@ -118,7 +118,7 @@ export const LifestyleGallery = () => {
 
         <div className="relative">
           <div ref={emblaRef} className="overflow-hidden">
-            <div className="flex -ml-2 md:-ml-4 py-[50px]">
+            <div className="flex -ml-2 md:-ml-4 py-[40px]">
               {productImages.map((item, index) => <div key={index} className="pl-2 md:pl-4 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 min-w-0 shrink-0">
                   <div className="group relative">
                     <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg overflow-hidden bg-white py-0">
