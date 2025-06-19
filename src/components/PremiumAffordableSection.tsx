@@ -1,9 +1,6 @@
-
 import React from 'react';
-
 export const PremiumAffordableSection = () => {
-  return (
-    <section className="bg-background fade-on-scroll py-0">
+  return <section className="bg-background fade-on-scroll py-[10px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[31px]">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Text content */}
@@ -26,6 +23,5 @@ export const PremiumAffordableSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
