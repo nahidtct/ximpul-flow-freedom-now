@@ -1,10 +1,13 @@
+
 import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RainbowButton } from '@/components/ui/rainbow-button';
+
 export const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  
   const scrollToSection = (sectionId: string) => {
     // If we're already on the home page, just scroll
     if (location.pathname === '/') {
@@ -28,6 +31,7 @@ export const Footer = () => {
       }, 100);
     }
   };
+  
   const navigateToPage = (path: string) => {
     navigate(path);
     // Always scroll to top when navigating to a new page
@@ -38,50 +42,61 @@ export const Footer = () => {
       });
     }, 100);
   };
-  return <>
-      {/* Pre-footer CTA */}
-      
-
-      {/* Main Footer - Simple horizontal layout */}
-      <footer className="border-t bg-[#f5f5f7] py-[18px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[20px]">
-
-          <div className="flex flex-col items-center">
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-9 gap-4 text-center mb-6">
-              <button onClick={() => navigateToPage('/')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Ximpul Flow
-              </button>
-              <button onClick={() => navigateToPage('/specs')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Specs
-              </button>
-              <button onClick={() => scrollToSection('products')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Compare
-              </button>
-              <button onClick={() => scrollToSection('gallery')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Gallery
-              </button>
-              <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">#TruePrice</button>
-              <button onClick={() => scrollToSection('faq')} className="text-muted-foreground hover:text-foreground transition-colors">
-                FAQ
-              </button>
-              <button onClick={() => navigateToPage('/about')} className="text-muted-foreground hover:text-foreground transition-colors">
-                About
-              </button>
-              <button onClick={() => navigateToPage('/terms-privacy')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Terms & Privacy
-              </button>
-              <button onClick={() => navigateToPage('/contact')} className="text-muted-foreground hover:text-foreground transition-colors">
-                Contact
-              </button>
-            </div>
-
-            
-          </div>
-
-          <div className="text-center mt-8 pt-8 border-t py-0 my-0">
-            <p className="text-muted-foreground font-semibold">© 2025 www.ximpul.com - Made with love, for Bangladesh.</p>
+  
+  return (
+    <footer className="border-t bg-[#f5f5f7] py-[18px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[20px]">
+        <div className="flex flex-col items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-9 gap-4 text-center mb-6">
+            <button onClick={() => navigateToPage('/')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Ximpul Flow
+            </button>
+            <button onClick={() => navigateToPage('/specs')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Specs
+            </button>
+            <button onClick={() => scrollToSection('products')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Compare
+            </button>
+            <button onClick={() => scrollToSection('gallery')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Gallery
+            </button>
+            <button onClick={() => navigateToPage('/trueprice')} className="text-muted-foreground hover:text-foreground transition-colors">#TruePrice</button>
+            <button onClick={() => scrollToSection('faq')} className="text-muted-foreground hover:text-foreground transition-colors">
+              FAQ
+            </button>
+            <button onClick={() => navigateToPage('/about')} className="text-muted-foreground hover:text-foreground transition-colors">
+              About
+            </button>
+            <button onClick={() => navigateToPage('/terms-privacy')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Terms & Privacy
+            </button>
+            <button onClick={() => navigateToPage('/contact')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Contact
+            </button>
           </div>
         </div>
-      </footer>
-    </>;
+
+        {/* Solution Hub Technologies Attribution */}
+        <div className="text-center mt-6 pt-6 border-t">
+          <a 
+            href="https://sohub.com.bd/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <img 
+              src="/lovable-uploads/ace41ae7-2ae1-4476-85cf-1d1637a02cb0.png" 
+              alt="Solution Hub Technologies Logo" 
+              className="w-8 h-8"
+            />
+            <span className="font-medium">Solution Hub Technologies Owned & Operated</span>
+          </a>
+        </div>
+
+        <div className="text-center mt-4 pt-4 border-t">
+          <p className="text-muted-foreground font-semibold">© 2025 www.ximpul.com - Made with love, for Bangladesh.</p>
+        </div>
+      </div>
+    </footer>
+  );
 };
