@@ -8,15 +8,17 @@ export const PremiumAffordableSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Text content */}
           <div className="order-1 lg:order-1 text-center lg:text-left">
-            <SparklesText 
-              text="Premium But Affordable"
-              className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-[1.09] tracking-tight apple-gradient-text mb-8 text-[3.24rem]"
-              colors={{
-                first: "#9E7AFF",
-                second: "#FE8BBB"
-              }}
-              sparklesCount={12}
-            />
+            <div className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-[1.09] tracking-tight apple-gradient-text mb-8 text-[3.24rem]">
+              <SparklesText 
+                text="Premium But Affordable"
+                className="lg:text-[2.7rem] xl:text-[3.24rem] font-semibold leading-[1.09] tracking-tight mb-8 text-[3.24rem]"
+                colors={{
+                  first: "#9E7AFF",
+                  second: "#FE8BBB"
+                }}
+                sparklesCount={12}
+              />
+            </div>
             <p className="text-lg text-muted-foreground font-light leading-relaxed">
               World-class quality that doesn't break the bank. Experience premium materials and innovative design at a price that makes sense.
             </p>
