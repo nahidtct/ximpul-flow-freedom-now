@@ -88,7 +88,7 @@ export function HeroSection({
             <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
               <Mockup type="responsive">
                 <div className="overflow-hidden">
-                  <img src={imageSrc} alt={image.alt} width={1248} height={765} className="w-full h-auto object-cover" style={{ marginTop: '-25%' }} />
+                  <img src={imageSrc} alt="Ximpul Flow premium stainless steel water bottle Bangladesh - make water free again" width={1248} height={765} className="w-full h-auto object-cover" style={{ marginTop: '-25%' }} />
                 </div>
               </Mockup>
             </MockupFrame>

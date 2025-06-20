@@ -89,13 +89,13 @@ const TruePrice = () => {
               </p>
               
               <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-                <Link to="/">
+                <Link to="/" onClick={() => window.scrollTo(0, 0)}>
                   <Button className="bg-black hover:bg-black/90 text-white px-8 py-4 text-lg font-medium rounded-2xl w-full sm:w-auto">
                     Shop Ximpul Flow
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link to="/about">
+                <Link to="/about" onClick={() => window.scrollTo(0, 0)}>
                   <Button variant="outline" className="px-8 py-4 text-lg font-medium rounded-2xl w-full sm:w-auto">
                     Learn About Ximpul
                   </Button>

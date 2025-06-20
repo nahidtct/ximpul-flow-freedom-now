@@ -14,6 +14,9 @@ export const ProductShowcase = () => {
 
   const goToSpecs = () => {
     navigate('/specs');
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
   };
 
   const handleColorChange = (productIndex: number, colorValue: string) => {

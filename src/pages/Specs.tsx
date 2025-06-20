@@ -1,11 +1,26 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 
 const Specs = () => {
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Update page title and meta description
+    document.title = "Ximpul Flow Specs - 500ml Premium Water Bottle Features Bangladesh";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Complete Ximpul Flow specifications. 304 stainless steel, 24hr insulation, leak-proof, BPA-free. Technical details & features.');
+    }
+    
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', 'https://ximpul.com/specs');
+    }
+  }, []);
   
   const scrollToBuy = () => {
     navigate('/');

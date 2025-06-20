@@ -1,8 +1,23 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
 
 const About = () => {
+  useEffect(() => {
+    // Update page title and meta description
+    document.title = "About Ximpul - Bangladesh's Water Freedom Movement | Brand Story";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Discover Ximpul\'s mission to make water free again in Bangladesh. From founder story to brand values - join the movement toward conscious living.');
+    }
+    
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', 'https://ximpul.com/about');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}

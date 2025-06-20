@@ -11,9 +11,22 @@ const ThankYou = () => {
   const paymentMethod = searchParams.get('paymentMethod');
   const totalAmount = searchParams.get('totalAmount');
 
-  // Scroll to top when component mounts
+  // Scroll to top and update SEO when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Update page title and meta description
+    document.title = "Order Confirmed - Thank You for Choosing Ximpul Flow";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Your Ximpul Flow order is confirmed. Track delivery, customer support, and next steps for your premium water bottle.');
+    }
+    
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', 'https://ximpul.com/thank-you');
+    }
   }, []);
 
   // Generate numeric order ID from UUID
