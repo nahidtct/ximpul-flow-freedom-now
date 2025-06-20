@@ -26,13 +26,13 @@ export const ProductShowcase = () => {
   const products = [{
     name: 'Ximpul Flow',
     edition: 'Base Edition',
-    emotionalTitle: 'Minimal. Functional. Everyday essential.',
+    emotionalTitle: 'Minimal. Everyday essential.',
     images: {
       'graphite-gray': '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png',
       'obsidian-black': '/lovable-uploads/579120fc-bea9-4c7d-9c48-bae9573f46f2.png'
     },
     description: 'The next evolution of hydration and freedom.',
-    price: '1,090',
+    price: '1,090 BDT',
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
     colors: [
@@ -41,7 +41,7 @@ export const ProductShowcase = () => {
     ],
     features: [{
       icon: <Thermometer className="w-5 h-5" />,
-      title: 'Temperature Control',
+      title: 'Advanced Temperature Control',
       description: 'Keeps drinks hot for 12 hours, cold for 24 hours'
     }, {
       icon: <Shield className="w-5 h-5" />,
@@ -65,7 +65,7 @@ export const ProductShowcase = () => {
       'obsidian-black': '/lovable-uploads/88d45bfe-e1d3-4b43-9e01-c85b09d04533.png'
     },
     description: 'The next evolution of hydration, freedom, and style.',
-    price: '1,590',
+    price: '1,590 BDT',
     buttonText: 'Buy',
     currentlyViewing: 'Currently viewing',
     colors: [
@@ -78,7 +78,7 @@ export const ProductShowcase = () => {
       description: 'Keeps drinks hot for 12 hours, cold for 24 hours'
     }, {
       icon: <Shield className="w-5 h-5" />,
-      title: 'Premium Safety',
+      title: 'Food-Grade Safety',
       description: 'Premium 304 stainless steel, BPA-free'
     }, {
       icon: <Droplets className="w-5 h-5" />,
@@ -86,7 +86,7 @@ export const ProductShowcase = () => {
       description: 'Advanced seal technology with triple-lock mechanism'
     }, {
       icon: <Zap className="w-5 h-5" />,
-      title: 'Easy Clean Technology',
+      title: 'Easy Clean',
       description: 'Wide mouth design for effortless cleaning'
     }, {
       icon: <Recycle className="w-5 h-5" />,
@@ -156,13 +156,13 @@ export const ProductShowcase = () => {
                 {/* Price */}
                 <div>
                   <p className="text-lg sm:text-2xl font-light text-foreground">
-                    ${product.price}
+                    {product.price}
                   </p>
                 </div>
 
                 {/* Features - Apple-style with icons */}
                 <div className="text-left space-y-4 pt-6 border-t border-border">
-                  <h4 className="text-sm sm:text-base font-semibold text-foreground mb-4">
+                  <h4 className="text-sm sm:text-base font-semibold text-foreground mb-4 text-center sm:text-left">
                     {product.edition} Specifications
                   </h4>
                   {product.features.map((feature, idx) => (

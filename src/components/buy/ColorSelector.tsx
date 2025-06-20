@@ -36,18 +36,17 @@ export const ColorSelector = ({ colors, selectedColor, selectedEdition, onColorC
               isDisabled 
                 ? 'border-gray-200 cursor-not-allowed' 
                 : selectedColor === color.value 
-                  ? 'border-blue-500 bg-blue-50 cursor-pointer' 
+                  ? 'border-gray-900 bg-gray-100 cursor-pointer' 
                   : 'border-gray-200 cursor-pointer hover:border-gray-300'
             }`}>
               <RadioGroupItem value={color.value} id={color.value} disabled={isDisabled} />
-              <img src="/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png" alt="Product icon" className="w-8 h-8 object-contain flex-shrink-0" />
               <div className="w-6 h-6 rounded-full border border-gray-300" style={{
                 backgroundColor: color.color
               }} />
               <label htmlFor={color.value} className={`text-base font-medium flex-1 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                 {color.name}
               </label>
-              {selectedColor === color.value && <Check className="w-5 h-5 text-blue-600" />}
+              {selectedColor === color.value && <Check className="w-5 h-5 text-gray-900" />}
             </div>
           ))}
         </RadioGroup>

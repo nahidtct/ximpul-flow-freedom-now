@@ -26,7 +26,10 @@ export const Navigation = () => {
     if (location.pathname === '/') {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({
+        const navbarHeight = 48; // 12 * 4 = 48px (h-12 class)
+        const elementPosition = element.offsetTop - navbarHeight;
+        window.scrollTo({
+          top: elementPosition,
           behavior: 'smooth'
         });
       }
@@ -37,7 +40,10 @@ export const Navigation = () => {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({
+          const navbarHeight = 48; // 12 * 4 = 48px (h-12 class)
+          const elementPosition = element.offsetTop - navbarHeight;
+          window.scrollTo({
+            top: elementPosition,
             behavior: 'smooth'
           });
         }
@@ -76,23 +82,23 @@ export const Navigation = () => {
     name: 'Specs',
     action: () => navigateToPage('/specs')
   }, {
-    name: 'Compare',
-    action: () => scrollToSection('products')
-  }, {
     name: 'Gallery',
     action: () => scrollToSection('gallery')
   }, {
-    name: '#TruePrice',
-    action: () => navigateToPage('/trueprice')
+    name: 'Compare',
+    action: () => scrollToSection('products')
   }, {
     name: 'FAQ',
     action: () => scrollToSection('faq')
+  }, {
+    name: '#TruePrice',
+    action: () => navigateToPage('/trueprice')
   }];
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm border-b shadow-sm' : 'bg-white border-b border-white/10'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-12">
           {/* Logo - Now clickable */}
           <button onClick={goToHome} className="flex items-center space-x-2">
             <div className="text-2xl font-bold">
@@ -115,7 +121,7 @@ export const Navigation = () => {
 
           {/* Desktop Buy Button */}
           <div className="hidden md:block">
-            <RainbowButton onClick={() => scrollToSection('buy')}>
+            <RainbowButton className="h-8 px-4 text-sm" onClick={() => scrollToSection('buy')}>
               Buy
             </RainbowButton>
           </div>
@@ -123,7 +129,7 @@ export const Navigation = () => {
           {/* Mobile Buy Button and Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
             <RainbowButton
-              className="h-9 px-4 text-sm"
+              className="h-7 px-3 text-sm"
               onClick={() => scrollToSection('buy')}
             >
               Buy

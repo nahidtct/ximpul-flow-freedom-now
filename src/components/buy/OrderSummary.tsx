@@ -51,8 +51,8 @@ export const OrderSummary = ({
         <div className="space-y-3 mb-6">
           {selectedEdition && (
             <div className="flex justify-between text-base">
-              <span className="text-gray-600">Ximpul Flow {editions.find(e => e.value === selectedEdition)?.name}</span>
-              <span className="font-semibold text-gray-900">{basePrice} BDT</span>
+              <span className="text-gray-600">{editions.find(e => e.value === selectedEdition)?.name}</span>
+              <span className="font-semibold text-gray-900">{basePrice.toLocaleString()} BDT</span>
             </div>
           )}
           
@@ -63,7 +63,7 @@ export const OrderSummary = ({
                 return (
                   <div key={accessory} className="flex justify-between text-sm">
                     <span className="text-gray-600">{accessory}</span>
-                    <span className="font-medium text-gray-900">+{item?.price} BDT</span>
+                    <span className="font-medium text-gray-900">+{item?.price.toLocaleString()} BDT</span>
                   </div>
                 );
               })}
@@ -81,7 +81,7 @@ export const OrderSummary = ({
             <>
               <div className="flex justify-between text-base">
                 <span className="text-gray-600">Subtotal</span>
-                <span className="font-semibold text-gray-900">{subtotal} BDT</span>
+                <span className="font-semibold text-gray-900">{subtotal.toLocaleString()} BDT</span>
               </div>
 
               <div className="flex justify-between text-base">
@@ -89,7 +89,7 @@ export const OrderSummary = ({
                   Delivery {paymentMethod === 'online' ? '(FREE)' : '(COD)'}
                 </span>
                 <span className={`font-semibold ${deliveryFee > 0 ? "text-orange-600" : "text-green-600"}`}>
-                  {deliveryFee > 0 ? `+${deliveryFee} BDT` : 'FREE'}
+                  {deliveryFee > 0 ? `+${deliveryFee.toLocaleString()} BDT` : 'FREE'}
                 </span>
               </div>
             </>
@@ -106,7 +106,7 @@ export const OrderSummary = ({
           <div className="border-t border-gray-100 pt-4 mb-6">
             <div className="flex justify-between text-xl font-bold">
               <span className="text-gray-900">Total</span>
-              <span className="text-blue-600">{totalPrice} BDT</span>
+              <span className="text-gray-900">{totalPrice.toLocaleString()} BDT</span>
             </div>
           </div>
         )}

@@ -11,7 +11,7 @@ interface EngravingModalProps {
   onSave: (text: string) => void;
 }
 
-const emojis = ['★', '♡', '♪', '☾', '☀', '⚡', '☕', '✨', '✌', '❤', '⭐', '✓', '✕', '☺', '☹', '✏', '✈', '⚛', '⚜', '⚠', '☯', '⌘', '☘', '☠'];
+const emojis = ['*', '♡', '♪', '☾', '☀', '!', '+', '*', 'V', '♥', '*', '✓', '✕', '☺', '☹', '-', '>', '○', '◊', '!', '○', '#', '♣', '×'];
 
 export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: EngravingModalProps) => {
   const [engravingText, setEngravingText] = useState(initialText);
@@ -37,7 +37,7 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center">Personalize your Ximpul</DialogTitle>
           <DialogDescription className="text-center">
-            Add a personal touch with free engraving. Type names, initials, numbers, or even add an emoji.
+            Add a personal touch with engraving. Type names, initials, numbers, or even add an emoji.
           </DialogDescription>
         </DialogHeader>
         <div className="py-4 flex flex-col items-center space-y-4">
@@ -54,7 +54,7 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
             value={engravingText}
             onChange={(e) => setEngravingText(e.target.value)}
             className="text-center h-12 text-lg tracking-widest"
-            maxLength={30}
+            maxLength={10}
           />
           <div className="grid grid-cols-8 gap-2 w-full pt-4">
             {emojis.map((emoji) => (

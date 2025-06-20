@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Lock } from 'lucide-react';
+import { useState } from 'react';
 
 interface CustomerDetailsFormProps {
   customerName: string;
@@ -24,6 +25,25 @@ export const CustomerDetailsForm = ({
   onAddressChange 
 }: CustomerDetailsFormProps) => {
   const isDisabled = !selectedColor;
+  const [phoneError, setPhoneError] = useState('');
+  
+  const validateBangladeshiPhone = (phone: string) => {
+    // Remove spaces and dashes
+    const cleanPhone = phone.replace(/[\s-]/g, '');
+    
+    // Check for valid Bangladeshi formats: +8801xxxxxxxxx or 01xxxxxxxxx
+    const isValid = /^(?:\+?880|0)1[3-9]\d{8}$/.test(cleanPhone);
+    
+    if (!cleanPhone) {
+      setPhoneError('Phone number is required');
+    } else if (!isValid) {
+      setPhoneError('Please enter a valid Bangladeshi phone number');
+    } else {
+      setPhoneError('');
+    }
+    
+    return isValid;
+  };
 
   return (
     <div className={`bg-white rounded-xl border border-gray-200 overflow-hidden ${isDisabled ? 'opacity-50' : ''}`}>
@@ -60,13 +80,21 @@ export const CustomerDetailsForm = ({
             <Input 
               id="phone" 
               type="tel" 
-              placeholder="Enter your phone number" 
+              placeholder="Enter your phone number (e.g., 01712345678)" 
               value={customerPhone} 
-              onChange={e => selectedColor && onPhoneChange(e.target.value)} 
-              className="text-base h-12 rounded-lg border-gray-300" 
+              onChange={e => {
+                if (selectedColor) {
+                  onPhoneChange(e.target.value);
+                  validateBangladeshiPhone(e.target.value);
+                }
+              }} 
+              className={`text-base h-12 rounded-lg ${phoneError ? 'border-red-500' : 'border-gray-300'}`} 
               required 
               disabled={isDisabled}
             />
+            {phoneError && (
+              <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+            )}
           </div>
           <div>
             <Label htmlFor="address" className="text-sm font-medium text-gray-700 mb-2 block">

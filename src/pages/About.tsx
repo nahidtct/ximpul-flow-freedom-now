@@ -16,7 +16,7 @@ const About = () => {
             />
           </div>
           
-          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent text-xl md:text-2xl font-light leading-relaxed">
+          <div className="apple-gradient-text text-xl md:text-2xl font-light leading-relaxed">
             "Ximpul brings global-quality products to Bangladesh — at #TruePrice — with full transparency, no compromise, and deep respect for your right to quality."
           </div>
         </div>

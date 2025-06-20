@@ -156,7 +156,7 @@ export const LifestyleGallery = () => {
         {/* Image count indicator */}
         <div className="text-center mt-8">
           <p className="text-sm text-muted-foreground">
-            {productImages.length} premium detail shots • Tap any image to zoom
+            Premium real detail shots • Tap any image to zoom
           </p>
         </div>
       </div>

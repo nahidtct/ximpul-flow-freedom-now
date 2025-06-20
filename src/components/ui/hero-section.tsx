@@ -87,7 +87,9 @@ export function HeroSection({
           <div className="relative pt-4">
             <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
               <Mockup type="responsive">
-                <img src={imageSrc} alt={image.alt} width={1248} height={765} className="w-full h-auto object-cover" />
+                <div className="overflow-hidden">
+                  <img src={imageSrc} alt={image.alt} width={1248} height={765} className="w-full h-auto object-cover" style={{ marginTop: '-25%' }} />
+                </div>
               </Mockup>
             </MockupFrame>
             <Glow variant="top" className="animate-appear-zoom opacity-0 delay-1000" />

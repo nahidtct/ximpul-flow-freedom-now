@@ -1,7 +1,21 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AnimatedText } from '@/components/ui/animated-underline-text-one';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 const Specs = () => {
+  const navigate = useNavigate();
+  
+  const scrollToBuy = () => {
+    navigate('/');
+    setTimeout(() => {
+      document.getElementById('buy')?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
+
   const images = [
     '/lovable-uploads/73fd0ada-d12f-4f44-ac5b-5990b5070319.png',
     '/lovable-uploads/efa98636-f74a-42fd-b489-d2501fdd005b.png',
@@ -17,17 +31,31 @@ const Specs = () => {
   return (
     <div className="min-h-screen bg-background">
       <main className="pt-16">
-        <div className="bg-white py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl text-center">
-              Ximpul Flow Specs
-            </h1>
+        <div className="bg-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Animated Underline Text for title */}
+            <div className="lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 font-semibold text-3xl py-[10px]">
+              <AnimatedText text="Introducing Ximpul Flow" textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" underlineClassName="w-full text-primary" />
+            </div>
+
+            <h2 className="lg:text-[2.43rem] xl:text-[2.916rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[2.916rem]" style={{ lineHeight: 1.09 }}>
+              Every feature designed with your lifestyle in mind
+            </h2>
           </div>
         </div>
         <div className="flex flex-col items-center bg-white">
           {images.map((src, index) => (
             <img key={index} src={src} alt={`Spec image ${index + 1}`} className="w-full max-w-5xl" />
           ))}
+        </div>
+        
+        {/* CTA Section */}
+        <div className="bg-white py-16 text-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <RainbowButton onClick={scrollToBuy}>
+              Buy Now
+            </RainbowButton>
+          </div>
         </div>
       </main>
     </div>

@@ -13,8 +13,7 @@ export const EngravingSection = ({ engravingText, selectedColor, onOpenModal }: 
   return (
     <div className={`bg-white rounded-xl border border-gray-200 overflow-hidden ${isDisabled ? 'opacity-50' : ''}`}>
       <div className="px-6 py-4 border-b border-gray-100">
-        <div className="flex items-center space-x-3">
-          <img src="/lovable-uploads/6d7045cd-df5f-4044-81b4-5e7493e56c76.png" alt="Engraving icon" className="w-6 h-6 object-contain" />
+        <div className="flex items-center space-x-2">
           <h3 className="text-lg font-semibold text-gray-900">4. Personalize with Engraving <span className="text-base font-normal text-gray-500">(Optional)</span></h3>
           {isDisabled && <Lock className="w-4 h-4 text-gray-400" />}
         </div>
