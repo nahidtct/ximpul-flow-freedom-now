@@ -16,6 +16,16 @@ export const PaymentSuccess = () => {
     }
   }, [tranId]);
 
+  // Generate numeric order ID from UUID
+  const getNumericOrderId = (uuid: string | null) => {
+    if (!uuid) return '000000';
+    // Extract numbers from UUID and take first 6 digits
+    const numbers = uuid.replace(/[^0-9]/g, '');
+    return numbers.slice(0, 6) || '000000';
+  };
+
+  const numericOrderId = getNumericOrderId(tranId);
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
@@ -33,8 +43,8 @@ export const PaymentSuccess = () => {
 
         {tranId && (
           <div className="bg-gray-50 rounded-lg p-4 mb-6">
-            <p className="text-sm text-gray-500">Transaction ID</p>
-            <p className="font-mono text-sm font-medium text-gray-900">{tranId}</p>
+            <p className="text-sm text-gray-500">Order ID</p>
+            <p className="font-mono text-sm font-medium text-gray-900">#{numericOrderId}</p>
           </div>
         )}
 
@@ -57,13 +67,13 @@ export const PaymentSuccess = () => {
         </div>
 
         <div className="space-y-3">
-          <Button asChild className="w-full">
+          <Button asChild className="w-full bg-gray-900 hover:bg-black text-white">
             <Link to="/" onClick={() => window.scrollTo(0, 0)}>
               Continue Shopping
             </Link>
           </Button>
           
-          <Button variant="outline" asChild className="w-full">
+          <Button variant="outline" asChild className="w-full hover:bg-black hover:text-white">
             <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
               Contact Support
             </Link>

@@ -33,7 +33,9 @@ serve(async (req) => {
     const validationResponse = await fetch(validationUrl);
     const validationResult = await validationResponse.json();
 
-    if (validationResult.status === 'VALID') {
+    console.log('SSLCommerz validation result:', validationResult);
+
+    if (validationResult.status === 'VALID' || validationResult.status === 'VALIDATED') {
       // Update order status in database
       const supabase = createClient(
         Deno.env.get("SUPABASE_URL") ?? "",
@@ -41,15 +43,23 @@ serve(async (req) => {
         { auth: { persistSession: false } }
       );
 
-      await supabase
+      const { data, error } = await supabase
         .from('orders')
         .update({ 
           order_status: 'paid',
           payment_transaction_id: val_id
         })
-        .eq('id', tran_id);
+        .eq('id', tran_id)
+        .select();
 
-      console.log('Order updated successfully for transaction:', tran_id);
+      if (error) {
+        console.error('Database update error:', error);
+        throw error;
+      }
+
+      console.log('Order updated successfully for transaction:', tran_id, 'Data:', data);
+    } else {
+      console.log('Transaction validation failed:', validationResult);
     }
 
     return new Response('IPN received', {

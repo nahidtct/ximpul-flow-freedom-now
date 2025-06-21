@@ -31,21 +31,21 @@ export const PaymentFailed = () => {
         )}
 
         <div className="space-y-3">
-          <Button asChild className="w-full">
+          <Button asChild className="w-full bg-gray-900 hover:bg-black text-white">
             <Link to="/#buy" onClick={() => window.scrollTo(0, 0)}>
               <RefreshCw className="w-4 h-4 mr-2" />
               Try Again
             </Link>
           </Button>
           
-          <Button variant="outline" asChild className="w-full">
+          <Button variant="outline" asChild className="w-full hover:bg-black hover:text-white">
             <Link to="/" onClick={() => window.scrollTo(0, 0)}>
               <Home className="w-4 h-4 mr-2" />
               Go Home
             </Link>
           </Button>
           
-          <Button variant="outline" asChild className="w-full">
+          <Button variant="outline" asChild className="w-full hover:bg-black hover:text-white">
             <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
               Contact Support
             </Link>
