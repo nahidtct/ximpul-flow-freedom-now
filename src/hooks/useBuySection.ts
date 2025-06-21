@@ -10,6 +10,7 @@ export const useBuySection = () => {
   const [engravingText, setEngravingText] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [isEngravingModalOpen, setIsEngravingModalOpen] = useState(false);
@@ -33,7 +34,7 @@ export const useBuySection = () => {
       const item = accessories.find(a => a.name === accessory);
       return total + (item?.price || 0);
     }, 0);
-    const engravingPrice = engravingText ? 300 : 0;
+    const engravingPrice = engravingText ? 150 : 0;
     const deliveryFee = paymentMethod === 'cod' ? 100 : 0;
     const subtotal = basePrice + accessoriesPrice + engravingPrice;
     const totalPrice = subtotal + deliveryFee;
@@ -41,6 +42,7 @@ export const useBuySection = () => {
     orderMutation.mutate({
       customerName,
       customerPhone,
+      customerEmail,
       customerAddress,
       selectedEdition,
       selectedColor,
@@ -61,6 +63,7 @@ export const useBuySection = () => {
     engravingText,
     customerName,
     customerPhone,
+    customerEmail,
     customerAddress,
     paymentMethod,
     isEngravingModalOpen,
@@ -78,6 +81,7 @@ export const useBuySection = () => {
     setEngravingText,
     setCustomerName,
     setCustomerPhone,
+    setCustomerEmail,
     setCustomerAddress,
     setPaymentMethod,
     setIsEngravingModalOpen,

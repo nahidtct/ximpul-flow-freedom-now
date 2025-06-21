@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 interface OrderData {
   customerName: string;
   customerPhone: string;
+  customerEmail: string;
   customerAddress: string;
   selectedEdition: string;
   selectedColor: string;
@@ -30,6 +31,7 @@ export const useOrderSubmission = () => {
         .insert([{
           customer_name: orderData.customerName,
           customer_phone: orderData.customerPhone,
+          customer_email: orderData.customerEmail || null,
           customer_address: orderData.customerAddress,
           selected_edition: orderData.selectedEdition,
           selected_color: orderData.selectedColor,

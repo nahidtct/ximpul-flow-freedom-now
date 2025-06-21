@@ -19,6 +19,7 @@ interface BuySectionContentProps {
   engravingText: string;
   customerName: string;
   customerPhone: string;
+  customerEmail: string;
   customerAddress: string;
   paymentMethod: string;
   isEngravingModalOpen: boolean;
@@ -31,6 +32,7 @@ interface BuySectionContentProps {
   setEngravingText: (value: string) => void;
   setCustomerName: (value: string) => void;
   setCustomerPhone: (value: string) => void;
+  setCustomerEmail: (value: string) => void;
   setCustomerAddress: (value: string) => void;
   setPaymentMethod: (value: string) => void;
   setIsEngravingModalOpen: (value: boolean) => void;
@@ -124,10 +126,12 @@ export const BuySectionContent = (props: BuySectionContentProps) => {
         <CustomerDetailsForm 
           customerName={props.customerName}
           customerPhone={props.customerPhone}
+          customerEmail={props.customerEmail}
           customerAddress={props.customerAddress}
           selectedColor={props.selectedColor}
           onNameChange={props.setCustomerName}
           onPhoneChange={props.setCustomerPhone}
+          onEmailChange={props.setCustomerEmail}
           onAddressChange={props.setCustomerAddress}
         />
 

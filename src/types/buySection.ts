@@ -25,6 +25,7 @@ export interface BuyState {
   engravingText: string;
   customerName: string;
   customerPhone: string;
+  customerEmail: string;
   customerAddress: string;
   paymentMethod: string;
 }

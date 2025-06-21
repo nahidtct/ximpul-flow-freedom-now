@@ -8,20 +8,24 @@ import { useState } from 'react';
 interface CustomerDetailsFormProps {
   customerName: string;
   customerPhone: string;
+  customerEmail: string;
   customerAddress: string;
   selectedColor: string;
   onNameChange: (value: string) => void;
   onPhoneChange: (value: string) => void;
+  onEmailChange: (value: string) => void;
   onAddressChange: (value: string) => void;
 }
 
 export const CustomerDetailsForm = ({ 
   customerName, 
   customerPhone, 
+  customerEmail,
   customerAddress,
   selectedColor, 
   onNameChange, 
   onPhoneChange,
+  onEmailChange,
   onAddressChange 
 }: CustomerDetailsFormProps) => {
   const isDisabled = !selectedColor;
@@ -95,6 +99,20 @@ export const CustomerDetailsForm = ({
             {phoneError && (
               <p className="text-red-500 text-xs mt-1">{phoneError}</p>
             )}
+          </div>
+          <div>
+            <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">
+              Email (Optional)
+            </Label>
+            <Input 
+              id="email" 
+              type="email" 
+              placeholder="Enter your email address" 
+              value={customerEmail} 
+              onChange={e => selectedColor && onEmailChange(e.target.value)} 
+              className="text-base h-12 rounded-lg border-gray-300" 
+              disabled={isDisabled}
+            />
           </div>
           <div>
             <Label htmlFor="address" className="text-sm font-medium text-gray-700 mb-2 block">

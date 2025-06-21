@@ -35,7 +35,7 @@ export const OrderSummary = ({
     const item = accessories.find(a => a.name === accessory);
     return total + (item?.price || 0);
   }, 0);
-  const engravingPrice = engravingText ? 300 : 0;
+  const engravingPrice = engravingText ? 150 : 0;
   const deliveryFee = paymentMethod === 'cod' ? 100 : 0;
   const subtotal = basePrice + accessoriesPrice + engravingPrice;
   const totalPrice = subtotal + deliveryFee;
@@ -73,7 +73,7 @@ export const OrderSummary = ({
           {engravingText && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Engraving Service</span>
-              <span className="font-medium text-gray-900">+300 BDT</span>
+              <span className="font-medium text-gray-900">+150 BDT</span>
             </div>
           )}
 

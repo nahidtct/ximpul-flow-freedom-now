@@ -56,6 +56,7 @@ export const BuySection = () => {
             engravingText={buySection.engravingText}
             customerName={buySection.customerName}
             customerPhone={buySection.customerPhone}
+            customerEmail={buySection.customerEmail}
             customerAddress={buySection.customerAddress}
             paymentMethod={buySection.paymentMethod}
             isEngravingModalOpen={buySection.isEngravingModalOpen}
@@ -66,6 +67,7 @@ export const BuySection = () => {
             setEngravingText={buySection.setEngravingText}
             setCustomerName={buySection.setCustomerName}
             setCustomerPhone={buySection.setCustomerPhone}
+            setCustomerEmail={buySection.setCustomerEmail}
             setCustomerAddress={buySection.setCustomerAddress}
             setPaymentMethod={buySection.setPaymentMethod}
             setIsEngravingModalOpen={buySection.setIsEngravingModalOpen}
