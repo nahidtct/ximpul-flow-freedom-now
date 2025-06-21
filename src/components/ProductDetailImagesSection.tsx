@@ -1,3 +1,4 @@
+
 import React from 'react';
 export const ProductDetailImagesSection = () => {
   return <section className="py-16 bg-background fade-on-scroll">
@@ -13,9 +14,9 @@ export const ProductDetailImagesSection = () => {
         </div>
 
         <div className="space-y-0">
-          {/* First Image - Portable Thermos Cup */}
+          {/* First Image - Premium Water Bottle */}
           <div className="w-full">
-            <img src="/lovable-uploads/d40394b0-42e9-46a0-87ae-0a105a42f578.png" alt="Portable Thermos Cup - Double wall 304 stainless steel, BPA free" className="w-full h-auto object-contain" />
+            <img src="/lovable-uploads/ab202bf1-2031-4a76-80cc-37114ab516f6.png" alt="Premium Water Bottle - Double wall 304 stainless steel, BPA free" className="w-full h-auto object-contain" />
           </div>
           
           {/* Second Image - Portable Handle Rope */}
