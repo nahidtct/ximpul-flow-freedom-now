@@ -26,7 +26,8 @@ export const useOrderSubmission = () => {
     mutationFn: async (orderData: OrderData) => {
       console.log('Submitting order:', orderData);
       
-      const { data, error } = await supabase
+      // First, create the order in database
+      const { data: order, error: orderError } = await supabase
         .from('orders')
         .insert([{
           customer_name: orderData.customerName,
@@ -41,31 +42,58 @@ export const useOrderSubmission = () => {
           subtotal: orderData.subtotal,
           delivery_fee: orderData.deliveryFee,
           total_amount: orderData.totalAmount,
-          order_status: 'pending'
+          order_status: orderData.paymentMethod === 'online' ? 'pending_payment' : 'pending'
         }])
         .select()
         .single();
 
-      if (error) {
-        console.error('Order submission error:', error);
-        throw error;
+      if (orderError) {
+        console.error('Order creation error:', orderError);
+        throw orderError;
       }
 
-      console.log('Order submitted successfully:', data);
-      return data;
+      console.log('Order created successfully:', order);
+
+      // If payment method is online, initialize SSLCommerz payment
+      if (orderData.paymentMethod === 'online') {
+        const { data: paymentData, error: paymentError } = await supabase.functions.invoke('create-sslcommerz-payment', {
+          body: {
+            customerName: orderData.customerName,
+            customerPhone: orderData.customerPhone,
+            customerEmail: orderData.customerEmail,
+            customerAddress: orderData.customerAddress,
+            totalAmount: orderData.totalAmount,
+            orderId: order.id
+          }
+        });
+
+        if (paymentError || !paymentData.success) {
+          console.error('Payment initialization error:', paymentError || paymentData.error);
+          throw new Error('Payment initialization failed');
+        }
+
+        // Redirect to SSLCommerz payment gateway
+        window.location.href = paymentData.gatewayPageURL;
+        return order;
+      }
+
+      return order;
     },
     onSuccess: (data, orderData) => {
-      toast.success(`Order placed successfully! Order ID: ${data.id.slice(0, 8)}`);
-      console.log('Order success toast shown');
-      
-      // Navigate to thank you page with order details
-      const searchParams = new URLSearchParams({
-        orderId: data.id,
-        paymentMethod: orderData.paymentMethod,
-        totalAmount: orderData.totalAmount.toString()
-      });
-      
-      navigate(`/thank-you?${searchParams.toString()}`);
+      // Only show success message for COD orders
+      // Online payment success will be handled by the payment gateway redirect
+      if (orderData.paymentMethod === 'cod') {
+        toast.success(`Order placed successfully! Order ID: ${data.id.slice(0, 8)}`);
+        console.log('Order success toast shown');
+        
+        const searchParams = new URLSearchParams({
+          orderId: data.id,
+          paymentMethod: orderData.paymentMethod,
+          totalAmount: orderData.totalAmount.toString()
+        });
+        
+        navigate(`/thank-you?${searchParams.toString()}`);
+      }
     },
     onError: (error) => {
       console.error('Order submission failed:', error);
