@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Edition {
   name: string;
@@ -21,6 +22,8 @@ export const EditionSelector: React.FC<EditionSelectorProps> = ({
   selectedEdition,
   onEditionChange
 }) => {
+  const isMobile = useIsMobile();
+
   // Map the generic descriptions to specific product details
   const getProductDescription = (edition: Edition) => {
     if (edition.value === 'base') {
@@ -34,10 +37,10 @@ export const EditionSelector: React.FC<EditionSelectorProps> = ({
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
       <div className="px-6 py-4 border-b border-gray-100">
-        <h3 className="text-lg font-semibold text-gray-900">1. Choose Your Edition</h3>
+        <h3 className="text-lg font-semibold text-gray-900">1. Choose Edition</h3>
       </div>
       <div className="p-6">
-        <div className="space-y-4">
+        <div className={`${isMobile ? 'space-y-4' : 'grid grid-cols-2 gap-4'}`}>
           {editions.map((edition) => (
             <Card 
               key={edition.value}
@@ -49,20 +52,18 @@ export const EditionSelector: React.FC<EditionSelectorProps> = ({
               onClick={() => onEditionChange(edition.value)}
             >
               <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{edition.name}</h4>
+                <div className={`${isMobile ? 'flex items-start justify-between mb-4' : 'mb-4'}`}>
+                  <div className={`${isMobile ? 'flex-1' : ''}`}>
+                    <h4 className="font-semibold text-gray-900 mb-2">{edition.name}</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {getProductDescription(edition)}
+                    </p>
                   </div>
-                  <div className="text-right">
+                  <div className={`${isMobile ? 'ml-4 text-right' : 'mt-4 text-right'}`}>
                     <div className="text-lg font-bold text-gray-900">
                       {edition.price.toLocaleString()} BDT
                     </div>
                   </div>
-                </div>
-
-                <div className="flex items-start space-x-2">
-                  <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">{getProductDescription(edition)}</span>
                 </div>
               </CardContent>
             </Card>
