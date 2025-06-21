@@ -72,7 +72,7 @@ export const CustomerDetailsForm = ({
               placeholder="Enter your name" 
               value={customerName} 
               onChange={e => selectedColor && onNameChange(e.target.value)} 
-              className="text-base h-12 rounded-lg border-gray-300" 
+              className="text-base h-12 rounded-lg border-gray-300 focus:border-gray-900 focus:ring-gray-900" 
               required 
               disabled={isDisabled}
             />
@@ -92,7 +92,7 @@ export const CustomerDetailsForm = ({
                   validateBangladeshiPhone(e.target.value);
                 }
               }} 
-              className={`text-base h-12 rounded-lg ${phoneError ? 'border-red-500' : 'border-gray-300'}`} 
+              className={`text-base h-12 rounded-lg ${phoneError ? 'border-red-500' : 'border-gray-300'} focus:border-gray-900 focus:ring-gray-900`} 
               required 
               disabled={isDisabled}
             />
@@ -110,7 +110,7 @@ export const CustomerDetailsForm = ({
               placeholder="Enter your email address" 
               value={customerEmail} 
               onChange={e => selectedColor && onEmailChange(e.target.value)} 
-              className="text-base h-12 rounded-lg border-gray-300" 
+              className="text-base h-12 rounded-lg border-gray-300 focus:border-gray-900 focus:ring-gray-900" 
               disabled={isDisabled}
             />
           </div>
@@ -123,7 +123,7 @@ export const CustomerDetailsForm = ({
               placeholder="Enter your complete address" 
               value={customerAddress} 
               onChange={e => selectedColor && onAddressChange(e.target.value)} 
-              className="text-base rounded-lg border-gray-300 min-h-[100px]" 
+              className="text-base rounded-lg border-gray-300 min-h-[100px] focus:border-gray-900 focus:ring-gray-900" 
               required 
               disabled={isDisabled}
             />

@@ -33,31 +33,31 @@ export const PaymentMethodSelector = ({ paymentMethod, selectedColor, onPaymentM
             isDisabled 
               ? 'border-gray-200 cursor-not-allowed' 
               : paymentMethod === 'online' 
-                ? 'border-green-500 bg-green-50 cursor-pointer' 
+                ? 'border-gray-900 bg-gray-100 cursor-pointer' 
                 : 'border-gray-200 cursor-pointer hover:border-gray-300'
           }`}>
             <RadioGroupItem value="online" id="online" disabled={isDisabled} />
-            <CreditCard className="w-6 h-6 text-green-600" />
+            <CreditCard className="w-6 h-6 text-gray-900" />
             <label htmlFor="online" className={`text-base font-medium flex-1 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
               Online Payment
             </label>
-            <span className="text-sm text-green-600 font-semibold">FREE Delivery</span>
-            {paymentMethod === 'online' && <Check className="w-5 h-5 text-green-600" />}
+            <span className="text-sm text-gray-900 font-semibold">FREE Delivery</span>
+            {paymentMethod === 'online' && <Check className="w-5 h-5 text-gray-900" />}
           </div>
           <div className={`flex items-center space-x-4 p-4 rounded-lg border transition-all ${
             isDisabled 
               ? 'border-gray-200 cursor-not-allowed' 
               : paymentMethod === 'cod' 
-                ? 'border-orange-500 bg-orange-50 cursor-pointer' 
+                ? 'border-gray-900 bg-gray-100 cursor-pointer' 
                 : 'border-gray-200 cursor-pointer hover:border-gray-300'
           }`}>
             <RadioGroupItem value="cod" id="cod" disabled={isDisabled} />
-            <Banknote className="w-6 h-6 text-orange-600" />
+            <Banknote className="w-6 h-6 text-gray-900" />
             <label htmlFor="cod" className={`text-base font-medium flex-1 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
               Cash on Delivery
             </label>
-            <span className="text-sm text-orange-600 font-semibold">+100 BDT</span>
-            {paymentMethod === 'cod' && <Check className="w-5 h-5 text-orange-600" />}
+            <span className="text-sm text-gray-900 font-semibold">+100 BDT</span>
+            {paymentMethod === 'cod' && <Check className="w-5 h-5 text-gray-900" />}
           </div>
         </RadioGroup>
       </div>

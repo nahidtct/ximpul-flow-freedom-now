@@ -18,7 +18,7 @@ export const ProductGallery = ({ mainImage, galleryImages, onThumbnailClick }: P
         {galleryImages.map((image, index) => (
           <div 
             key={index} 
-            className={`aspect-square bg-white rounded-lg border overflow-hidden cursor-pointer hover:border-blue-500 transition-colors ${mainImage === image ? 'border-blue-500 border-2' : 'border-gray-200'}`}
+            className={`aspect-square bg-white rounded-lg border overflow-hidden cursor-pointer hover:border-gray-900 transition-colors ${mainImage === image ? 'border-gray-900 border-2' : 'border-gray-200'}`}
             onClick={() => onThumbnailClick(image)}
           >
             <img src={image} alt={`Product view ${index + 1}`} className="w-full h-full object-contain p-2" />

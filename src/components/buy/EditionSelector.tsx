@@ -43,7 +43,7 @@ export const EditionSelector: React.FC<EditionSelectorProps> = ({
               key={edition.value}
               className={`cursor-pointer transition-all hover:shadow-md ${
                 selectedEdition === edition.value 
-                  ? 'ring-2 ring-primary border-primary' 
+                  ? 'ring-2 ring-gray-900 border-gray-900' 
                   : 'border-gray-200'
               }`}
               onClick={() => onEditionChange(edition.value)}
