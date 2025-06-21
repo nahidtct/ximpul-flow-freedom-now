@@ -43,9 +43,9 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
         <div className="py-4 flex flex-col items-center space-y-4">
           <div className="relative w-full flex justify-center">
             <img src="/lovable-uploads/ebdaf61f-0e37-42f8-ad1e-a0cf1932b824.png" alt="Product" className="h-48 object-contain" />
-            {/* Black rectangle at bottom for engraving text */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-sm flex items-center justify-center">
-              <p className="text-white font-mono text-xs break-words text-center px-2">
+            {/* Engraving text at bottom */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-6 rounded-sm flex items-center justify-center">
+              <p className="text-gray-800 font-mono text-xs break-words text-center px-2">
                 {engravingText}
               </p>
             </div>
