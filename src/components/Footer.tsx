@@ -134,7 +134,7 @@ export const Footer = () => {
                   alt="Solution Hub Technologies Logo" 
                   className="w-6 h-6"
                 />
-                <span>Solution Hub Technologies</span>
+                <span>Solution Hub Technologies (SOHUB) Owned & Operated</span>
               </a>
             </div>
           </div>
