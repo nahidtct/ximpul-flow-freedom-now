@@ -33,7 +33,7 @@ export const EngravingSection = ({ engravingText, selectedColor, onOpenModal }: 
           <Edit className="w-4 h-4 text-gray-500" />
         </button>
         <p className="text-sm text-gray-500 mt-2">
-          {engravingText ? 'Engraving: +300 BDT' : 'Engraving available for +300 BDT'}
+          {engravingText ? 'Engraving: +150 BDT' : 'Engraving available for +150 BDT'}
         </p>
       </div>
     </div>
