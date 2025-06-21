@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useBuySection } from '@/hooks/useBuySection';
 import { BuySectionStates } from './buy/BuySectionStates';
 import { BuySectionContent } from './buy/BuySectionContent';
@@ -33,6 +34,9 @@ export const BuySection = () => {
           </h2>
           <p className="text-lg text-gray-600">
             Complete your order in simple steps
+          </p>
+          <p className="text-base text-gray-500 mt-2">
+            Free Shipping. Global factory quality. <Link to="/trueprice" onClick={() => window.scrollTo(0, 0)} className="text-primary font-medium hover:underline">#TruePrice</Link>.
           </p>
         </div>
 

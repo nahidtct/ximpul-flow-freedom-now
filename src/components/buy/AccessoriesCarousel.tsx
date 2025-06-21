@@ -12,25 +12,26 @@ interface AccessoriesCarouselProps {
 export const AccessoriesCarousel = ({ accessories, selectedAccessories, selectedColor, onAccessoryToggle }: AccessoriesCarouselProps) => {
   const isDisabled = !selectedColor;
 
-  // Custom order for accessories
+  // Filter out Silicone Sleeve and Standard Cap, then sort remaining accessories
+  const filteredAccessories = accessories.filter(accessory => 
+    !['Silicone Sleeve', 'Grip Sleeve', 'Standard Cap', 'Premium Cap'].includes(accessory.name)
+  );
+
+  // Custom order for remaining accessories
   const getAccessoryOrder = (accessoryName: string) => {
     const orderMap: { [key: string]: number } = {
-      'Silicone Sleeve': 1,
-      'Grip Sleeve': 1,
-      'Straw Cap': 2,
-      'Standard Cap': 3,
-      'Premium Cap': 3,
-      'Steel Straw Set': 4,
-      'Cleaning Brush': 5,
-      'Bottle Brush': 5,
-      'Straw Cleaning Brush': 6,
-      'Hydration Lid': 6
+      'Straw Cap': 1,
+      'Steel Straw Set': 2,
+      'Cleaning Brush': 3,
+      'Bottle Brush': 3,
+      'Straw Cleaning Brush': 4,
+      'Hydration Lid': 4
     };
     return orderMap[accessoryName] || 999;
   };
 
-  // Sort accessories by custom order
-  const sortedAccessories = [...accessories].sort((a, b) => 
+  // Sort filtered accessories by custom order
+  const sortedAccessories = [...filteredAccessories].sort((a, b) => 
     getAccessoryOrder(a.name) - getAccessoryOrder(b.name)
   );
 
@@ -71,7 +72,7 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
         )}
       </div>
       <div className="p-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {sortedAccessories.map((accessory, index) => (
             <div 
               key={index}

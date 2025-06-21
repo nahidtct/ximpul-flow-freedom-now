@@ -27,7 +27,7 @@ export const EditionSelector = ({ editions, selectedEdition, onEditionChange }: 
                     <div className="text-sm text-gray-500">{edition.description}</div>
                     <div className="text-xs text-gray-400 mt-1">
                       {edition.name.includes('Base') 
-                        ? '500ml Ximpul Flow Bottle with Standard Cap'
+                        ? '500ml Ximpul Flow Bottle, Standard Cap and Silicone Sleeve'
                         : '500ml Ximpul Flow Bottle, Standard & Straw Caps, Silicone Sleeve, Cleaning Brushes and Aluminium Hook'
                       }
                     </div>

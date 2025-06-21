@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export const FAQSection = () => {
@@ -42,7 +43,12 @@ export const FAQSection = () => {
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground font-light leading-relaxed">
-                {item.answer}
+                <div dangerouslySetInnerHTML={{ 
+                  __html: item.answer.replace(
+                    /#TruePrice/g, 
+                    '<a href="/trueprice" onclick="window.scrollTo(0, 0)" class="text-primary hover:underline">#TruePrice</a>'
+                  )
+                }} />
               </AccordionContent>
             </AccordionItem>
           ))}

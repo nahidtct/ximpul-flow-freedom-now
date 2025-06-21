@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 export const PremiumAffordableSection = () => {
   return <section className="bg-background fade-on-scroll py-[10px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[31px]">
@@ -9,7 +10,8 @@ export const PremiumAffordableSection = () => {
             lineHeight: 1.09
           }}>Premium But Affordable</h2>
             <p className="text-lg text-muted-foreground font-light leading-relaxed">
-              World-class quality that doesn't break the bank. Experience premium materials and innovative design at a price that makes sense.
+              World-class quality without breaking the bank.<br />
+              Premium materials and thoughtful design — delivered at a price that finally makes sense at <Link to="/trueprice" onClick={() => window.scrollTo(0, 0)} className="text-primary hover:underline font-medium">#TruePrice</Link>.
             </p>
           </div>
           

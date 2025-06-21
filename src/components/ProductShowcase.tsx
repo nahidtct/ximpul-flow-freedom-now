@@ -58,6 +58,10 @@ export const ProductShowcase = () => {
       icon: <Zap className="w-5 h-5" />,
       title: 'Easy Clean',
       description: 'Wide mouth design for effortless cleaning'
+    }, {
+      icon: <Thermometer className="w-5 h-5" />,
+      title: 'Double Walled Insulation',
+      description: 'Superior thermal performance for temperature retention'
     }]
   }, {
     name: 'Ximpul Flow',
@@ -91,6 +95,10 @@ export const ProductShowcase = () => {
       icon: <Zap className="w-5 h-5" />,
       title: 'Easy Clean',
       description: 'Wide mouth design for effortless cleaning'
+    }, {
+      icon: <Thermometer className="w-5 h-5" />,
+      title: 'Double Walled Insulation',
+      description: 'Superior thermal performance for temperature retention'
     }, {
       icon: <Recycle className="w-5 h-5" />,
       title: 'Lifestyle Accessories',
@@ -156,12 +164,7 @@ export const ProductShowcase = () => {
                   </p>
                 </div>
 
-                {/* Price */}
-                <div>
-                  <p className="text-lg sm:text-2xl font-light text-foreground">
-                    {product.price}
-                  </p>
-                </div>
+
 
                 {/* Features - Apple-style with icons */}
                 <div className="text-left space-y-4 pt-6 border-t border-border">

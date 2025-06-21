@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { BackgroundPathsOnly } from '@/components/ui/background-paths';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
@@ -50,23 +50,24 @@ export const HeroSectionNew = () => {
               </div>
             </div>
             
-            <p className="hero-tagline mb-5 gradient-text text-2xl font-bold">
+            <p className="hero-tagline mb-3 gradient-text text-2xl font-bold">
               Water is free. Why are we paying for it?
             </p>
             
-            <div className="hero-cta space-y-4 mb-8">
-              <div className="flex items-center justify-center gap-4">
-                <RainbowButton onClick={scrollToBuy}>
+            <div className="hero-cta space-y-3 mb-8">
+              <div className="flex items-center justify-center gap-3">
+                <RainbowButton onClick={scrollToBuy} className="text-sm px-6 py-1">
                   Buy
                 </RainbowButton>
-                <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
+                <Button size="default" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background text-sm px-6 py-1">
                   Specs
                 </Button>
               </div>
               
-              <p className="text-base text-[#1d1f1f] font-semibold">
-                From 1,090 BDT
-              </p>
+              <div className="text-sm text-[#1d1f1f] font-semibold space-y-1">
+                <p>From 1,190 BDT</p>
+                <p>Free Shipping. Global factory quality. <Link to="/trueprice" className="text-primary hover:underline">#TruePrice</Link>.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -94,21 +95,22 @@ export const HeroSectionNew = () => {
           </div>
         </div>
         
-        <p className="hero-tagline mb-6 gradient-text">Water is Free. Why are we paying for it?</p>
+        <p className="hero-tagline mb-4 gradient-text">Water is Free. Why are we paying for it?</p>
         
         <div className="hero-cta mb-8">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <RainbowButton onClick={scrollToBuy}>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <RainbowButton onClick={scrollToBuy} className="text-sm px-5 py-1">
               Buy
             </RainbowButton>
-            <Button size="lg" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background">
+            <Button size="default" variant="outline" onClick={goToSpecs} className="hover:bg-foreground hover:text-background text-sm px-5 py-1">
               Specs
             </Button>
           </div>
           
-          <p className="text-gray-600 text-base font-semibold">
-            From 1,090 BDT
-          </p>
+          <div className="text-gray-600 text-sm font-semibold space-y-1">
+            <p>From 1,190 BDT</p>
+            <p>Free Shipping. Global factory quality. <Link to="/trueprice" className="text-primary hover:underline">#TruePrice</Link>.</p>
+          </div>
         </div>
       </div>
     </section>
