@@ -36,7 +36,7 @@ export const BuySection = () => {
             Complete your order in simple steps
           </p>
           <p className="text-base text-gray-500 mt-2">
-            Free Shipping. Global factory quality. <Link to="/trueprice" onClick={() => window.scrollTo(0, 0)} className="text-primary font-medium hover:underline">#TruePrice</Link>.
+            FREE Delivery. World-class quality. <Link to="/trueprice" onClick={() => window.scrollTo(0, 0)} className="text-primary font-medium hover:underline">#TruePrice</Link>.
           </p>
         </div>
 
