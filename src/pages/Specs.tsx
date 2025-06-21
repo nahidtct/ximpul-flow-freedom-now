@@ -50,7 +50,7 @@ const Specs = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Animated Underline Text for title */}
             <div className="lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 font-semibold text-3xl py-[10px]">
-              <AnimatedText text="Introducing Ximpul Flow" textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" underlineClassName="w-full text-primary" />
+              <AnimatedText text="Ximpul Flow" textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" underlineClassName="w-full text-primary" />
             </div>
 
             <h2 className="lg:text-[2.43rem] xl:text-[2.916rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[2.916rem]" style={{ lineHeight: 1.09 }}>
