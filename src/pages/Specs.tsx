@@ -32,15 +32,15 @@ const Specs = () => {
   };
 
   const images = [
-    '/lovable-uploads/73fd0ada-d12f-4f44-ac5b-5990b5070319.png',
+    '/lovable-uploads/e0ab40cf-71f1-4c62-90fa-70a2b67902b7.png',
     '/lovable-uploads/efa98636-f74a-42fd-b489-d2501fdd005b.png',
     '/lovable-uploads/04a3a3a0-c455-422a-807a-040cb6e862d2.png',
     '/lovable-uploads/03f9efc2-1901-49e0-b6f6-d2795d82216e.png',
     '/lovable-uploads/2a8e6eb2-aaa6-4681-9569-4bf261f95aad.png',
     '/lovable-uploads/4ac40de0-0374-40e9-8509-15236472e797.png',
     '/lovable-uploads/d222f1b4-53aa-41fe-9628-140ff95de85a.png',
-    '/lovable-uploads/abf2a049-ea96-4c40-9c26-21bf0450498f.png',
-    '/lovable-uploads/0363e2ae-5b1d-47ee-a019-33cc9ebad94d.png'
+    '/lovable-uploads/6b68e68c-2b79-433e-a04d-537a15ac7235.png',
+    '/lovable-uploads/023885cb-a561-49a1-b3de-c948156f896f.png'
   ];
 
   return (
