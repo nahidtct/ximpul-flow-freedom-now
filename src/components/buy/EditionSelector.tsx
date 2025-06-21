@@ -7,11 +7,7 @@ interface Edition {
   name: string;
   value: string;
   price: number;
-  originalPrice?: number;
-  savings?: number;
-  features: string[];
-  image?: string;
-  colors?: { name: string; value: string; hex: string }[];
+  description: string;
 }
 
 interface EditionSelectorProps {
@@ -48,27 +44,15 @@ export const EditionSelector: React.FC<EditionSelectorProps> = ({
                   <div className="text-lg font-bold text-gray-900">
                     {edition.price.toLocaleString()} BDT
                   </div>
-                  {edition.originalPrice && (
-                    <div className="text-sm text-gray-500 line-through">
-                      {edition.originalPrice.toLocaleString()} BDT
-                    </div>
-                  )}
-                  {edition.savings && (
-                    <div className="text-sm text-green-600 font-medium">
-                      Save {edition.savings} BDT
-                    </div>
-                  )}
                 </div>
               </div>
 
-              <div className="space-y-2">
-                {edition.features.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-2">
-                    <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">{feature}</span>
-                  </div>
-                ))}
-              </div>
+              {edition.description && (
+                <div className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-600">{edition.description}</span>
+                </div>
+              )}
             </CardContent>
           </Card>
         ))}
