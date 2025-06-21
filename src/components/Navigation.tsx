@@ -99,11 +99,13 @@ export const Navigation = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm border-b shadow-sm' : 'bg-white border-b border-white/10'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-12">
-          {/* Logo - Now clickable */}
+          {/* Logo - Now using the uploaded image */}
           <button onClick={goToHome} className="flex items-center space-x-2">
-            <div className="text-2xl font-bold">
-              <span className="text-black">Ximpul</span>
-            </div>
+            <img 
+              src="/lovable-uploads/84aae5ae-dcca-4942-a63a-ee14ebc01c94.png" 
+              alt="Ximpul" 
+              className="h-8 w-auto"
+            />
           </button>
 
           {/* Desktop Navigation */}
