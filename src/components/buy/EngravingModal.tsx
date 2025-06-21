@@ -28,7 +28,16 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
   };
 
   const handleEmojiClick = (emoji: string) => {
-    setEngravingText(prev => prev + emoji);
+    if (engravingText.length < 10) {
+      setEngravingText(prev => prev + emoji);
+    }
+  };
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newText = e.target.value;
+    if (newText.length <= 10) {
+      setEngravingText(newText);
+    }
   };
 
   return (
@@ -45,7 +54,7 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
             <img src="/lovable-uploads/ebdaf61f-0e37-42f8-ad1e-a0cf1932b824.png" alt="Product" className="h-48 object-contain" />
             {/* Engraving text at bottom */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-6 rounded-sm flex items-center justify-center">
-              <p className="text-gray-800 font-mono text-xs break-words text-center px-2">
+              <p className="font-mono text-xs break-words text-center px-2" style={{ color: '#ceced8' }}>
                 {engravingText}
               </p>
             </div>
@@ -53,13 +62,18 @@ export const EngravingModal = ({ isOpen, onClose, initialText, onSave }: Engravi
           <Input 
             placeholder="YOUR ENGRAVING"
             value={engravingText}
-            onChange={(e) => setEngravingText(e.target.value)}
+            onChange={handleTextChange}
             className="text-center h-12 text-lg tracking-widest"
             maxLength={10}
           />
           <div className="grid grid-cols-8 gap-2 w-full pt-4">
             {emojis.map((emoji) => (
-              <button key={emoji} onClick={() => handleEmojiClick(emoji)} className="text-2xl rounded-md hover:bg-gray-100 p-1 transition-colors">
+              <button 
+                key={emoji} 
+                onClick={() => handleEmojiClick(emoji)} 
+                className="text-2xl rounded-md hover:bg-gray-100 p-1 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={engravingText.length >= 10}
+              >
                 {emoji}
               </button>
             ))}
