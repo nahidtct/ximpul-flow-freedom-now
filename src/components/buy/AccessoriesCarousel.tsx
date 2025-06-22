@@ -6,11 +6,12 @@ interface AccessoriesCarouselProps {
   accessories: Accessory[];
   selectedAccessories: string[];
   selectedColor: string;
+  selectedEdition: string;
   onAccessoryToggle: (accessory: string) => void;
 }
 
-export const AccessoriesCarousel = ({ accessories, selectedAccessories, selectedColor, onAccessoryToggle }: AccessoriesCarouselProps) => {
-  const isDisabled = !selectedColor;
+export const AccessoriesCarousel = ({ accessories, selectedAccessories, selectedColor, selectedEdition, onAccessoryToggle }: AccessoriesCarouselProps) => {
+  const isDisabled = !selectedColor || selectedEdition !== 'base';
 
   // Filter out Silicone Sleeve and Standard Cap, then sort remaining accessories
   const filteredAccessories = accessories.filter(accessory => 
@@ -68,7 +69,9 @@ export const AccessoriesCarousel = ({ accessories, selectedAccessories, selected
           {isDisabled && <Lock className="w-4 h-4 text-gray-400" />}
         </div>
         {isDisabled && (
-          <p className="text-sm text-gray-500 mt-1">Please select a color first</p>
+          <p className="text-sm text-gray-500 mt-1">
+            {!selectedColor ? 'Please select a color first' : 'Accessories are only available for Base Edition'}
+          </p>
         )}
       </div>
       <div className="p-6">

@@ -95,6 +95,7 @@ export const BuySectionContent = (props: BuySectionContentProps) => {
             accessories={props.accessories}
             selectedAccessories={props.selectedAccessories}
             selectedColor={props.selectedColor}
+            selectedEdition={props.selectedEdition}
             onAccessoryToggle={props.handleAccessoryToggle}
           />
         ) : (
