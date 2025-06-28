@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PremiumAffordableSection } from '@/components/PremiumAffordableSection';
 import { MovementSection } from '@/components/MovementSection';
@@ -19,6 +21,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Hero Section */}
       <HeroSectionNew />
       
@@ -48,6 +53,9 @@ const Index = () => {
 
       {/* Hashtag Movement Section - moved after FAQ */}
       <HashtagSection />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
