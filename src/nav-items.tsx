@@ -8,8 +8,8 @@ import About from "./pages/About.tsx";
 import TruePrice from "./pages/TruePrice.tsx";
 import ThankYou from "./pages/ThankYou.tsx";
 import TermsPrivacy from "./pages/TermsPrivacy.tsx";
-import PaymentSuccess from "./pages/PaymentSuccess.tsx";
-import PaymentFailed from "./pages/PaymentFailed.tsx";
+import { PaymentSuccess } from "./pages/PaymentSuccess.tsx";
+import { PaymentFailed } from "./pages/PaymentFailed.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 export const navItems = [
