@@ -1,13 +1,12 @@
+
 import React, { useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { CheckCircle, Package, Clock, Phone, Home, FileText, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 const ThankYou = () => {
   const [searchParams] = useSearchParams();
-  const { getSetting } = useSiteSettings();
   const orderId = searchParams.get('orderId');
   const paymentMethod = searchParams.get('paymentMethod');
   const totalAmount = searchParams.get('totalAmount');
@@ -16,6 +15,7 @@ const ThankYou = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     
+    // Update page title and meta description
     document.title = "Order Confirmed - Thank You for Choosing Ximpul Flow";
     
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -119,11 +119,11 @@ const ThankYou = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center text-xs">
               <div className="flex items-center gap-2">
                 <Phone className="h-3 w-3" />
-                <span>{getSetting('contact_phone') || '+880 1XXX-XXXXXX'}</span>
+                <span>+880 1XXX-XXXXXX</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-3 w-3" />
-                <span>{getSetting('contact_email') || 'support@ximpul.com'}</span>
+                <span>support@ximpulflow.com</span>
               </div>
             </div>
           </CardContent>
