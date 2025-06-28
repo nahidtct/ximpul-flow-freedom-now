@@ -11,6 +11,7 @@ interface OrderSummaryProps {
   customerName: string;
   customerPhone: string;
   selectedColor: string;
+  customerAddress: string;
   editions: Edition[];
   accessories: Accessory[];
   onOrderSubmit: () => void;
@@ -25,6 +26,7 @@ export const OrderSummary = ({
   customerName, 
   customerPhone, 
   selectedColor,
+  customerAddress,
   editions,
   accessories,
   onOrderSubmit,
@@ -40,7 +42,8 @@ export const OrderSummary = ({
   const subtotal = basePrice + accessoriesPrice + engravingPrice;
   const totalPrice = subtotal + deliveryFee;
 
-  const isFormValid = customerName && customerPhone && selectedEdition && selectedColor;
+  // Email is optional, so don't require it for form validation
+  const isFormValid = customerName && customerPhone && selectedEdition && selectedColor && customerAddress;
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">

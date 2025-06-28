@@ -32,7 +32,7 @@ export const useOrderSubmission = () => {
         .insert([{
           customer_name: orderData.customerName,
           customer_phone: orderData.customerPhone,
-          customer_email: orderData.customerEmail || null,
+          customer_email: orderData.customerEmail || null, // Allow null for optional email
           customer_address: orderData.customerAddress,
           selected_edition: orderData.selectedEdition,
           selected_color: orderData.selectedColor,
@@ -54,24 +54,28 @@ export const useOrderSubmission = () => {
 
       console.log('Order created successfully:', order);
 
-      // Send email notification
-      try {
-        await supabase.functions.invoke('send-order-email', {
-          body: {
-            orderId: order.id,
-            customerName: orderData.customerName,
-            customerEmail: orderData.customerEmail,
-            customerPhone: orderData.customerPhone,
-            selectedEdition: orderData.selectedEdition,
-            selectedColor: orderData.selectedColor,
-            totalAmount: orderData.totalAmount,
-            paymentMethod: orderData.paymentMethod
-          }
-        });
-        console.log('Email notification sent');
-      } catch (emailError) {
-        console.error('Email notification failed:', emailError);
-        // Don't fail the order if email fails
+      // Send email notification only if email is provided
+      if (orderData.customerEmail && orderData.customerEmail.trim()) {
+        try {
+          await supabase.functions.invoke('send-order-email', {
+            body: {
+              orderId: order.id,
+              customerName: orderData.customerName,
+              customerEmail: orderData.customerEmail,
+              customerPhone: orderData.customerPhone,
+              selectedEdition: orderData.selectedEdition,
+              selectedColor: orderData.selectedColor,
+              totalAmount: orderData.totalAmount,
+              paymentMethod: orderData.paymentMethod
+            }
+          });
+          console.log('Email notification sent');
+        } catch (emailError) {
+          console.error('Email notification failed:', emailError);
+          // Don't fail the order if email fails
+        }
+      } else {
+        console.log('No email provided, skipping email notification');
       }
 
       // If payment method is online, initialize SSLCommerz payment
@@ -80,7 +84,7 @@ export const useOrderSubmission = () => {
           body: {
             customerName: orderData.customerName,
             customerPhone: orderData.customerPhone,
-            customerEmail: orderData.customerEmail,
+            customerEmail: orderData.customerEmail || `noemail+${order.id}@ximpul.com`, // Use fallback email for payment gateway
             customerAddress: orderData.customerAddress,
             totalAmount: orderData.totalAmount,
             orderId: order.id
