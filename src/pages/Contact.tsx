@@ -1,10 +1,14 @@
 
 import React from 'react';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 import { ContactForm } from '@/components/ContactForm';
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -30,6 +34,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

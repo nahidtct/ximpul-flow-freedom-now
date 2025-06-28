@@ -1,6 +1,8 @@
 
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 import { AnimatedText } from '@/components/ui/animated-underline-text-one';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 
@@ -45,6 +47,8 @@ const Specs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
+      
       <main className="pt-16">
         <div className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -73,6 +77,8 @@ const Specs = () => {
           </div>
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 };

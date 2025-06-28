@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ProductShowcase } from '@/components/ProductShowcase';
@@ -16,6 +16,14 @@ import { useHeroAnimations } from '@/hooks/useHeroAnimations';
 
 const Index = () => {
   useHeroAnimations();
+
+  useEffect(() => {
+    // Update meta description to remove pricing
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Join Bangladesh\'s water freedom movement. Ximpul Flow premium stainless steel water bottle - 304 grade steel, 24hr insulation, leak-proof design. World-class quality at #TruePrice.');
+    }
+  }, []);
 
   console.log('Index component rendering - BuySection should be included');
 

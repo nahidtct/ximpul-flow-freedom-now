@@ -115,6 +115,16 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Payment Methods Section */}
+        <div className="mb-8 text-center">
+          <h4 className="font-semibold text-foreground mb-4">We Accept</h4>
+          <img 
+            src="/lovable-uploads/04b1c673-f156-4957-b472-15c13e643e3e.png" 
+            alt="Payment Methods - Visa, Mastercard, American Express, and more" 
+            className="mx-auto max-w-full h-auto"
+          />
+        </div>
+
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-300">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

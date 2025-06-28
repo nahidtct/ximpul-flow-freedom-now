@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { useOrders, Order } from '@/hooks/useOrders';
 import { useAdminAuth } from '@/hooks/useAdminAuth';
@@ -187,6 +188,7 @@ export const AdminOrders = () => {
                       <DialogContent className="max-w-3xl">
                         <DialogHeader>
                           <DialogTitle>Order Details - {order.id.slice(0, 8)}</DialogTitle>
+                          <DialogDescription>View complete order information and update status</DialogDescription>
                         </DialogHeader>
                         {selectedOrder && (
                           <div className="space-y-6">
@@ -218,45 +220,6 @@ export const AdminOrders = () => {
                                 </div>
                               </div>
                             </div>
-                            
-                            <div>
-                              <h4 className="font-medium mb-3">Update Status</h4>
-                              <Dialog open={isStatusDialogOpen} onOpenChange={setIsStatusDialogOpen}>
-                                <DialogTrigger asChild>
-                                  <Button>Change Status</Button>
-                                </DialogTrigger>
-                                <DialogContent>
-                                  <DialogHeader>
-                                    <DialogTitle>Update Order Status</DialogTitle>
-                                  </DialogHeader>
-                                  <div className="space-y-4">
-                                    <div>
-                                      <Label htmlFor="status">New Status</Label>
-                                      <Select onValueChange={(value) => handleStatusChange(selectedOrder.id, value)}>
-                                        <SelectTrigger>
-                                          <SelectValue placeholder="Select new status" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                          <SelectItem value="processing">Processing</SelectItem>
-                                          <SelectItem value="shipped">Shipped</SelectItem>
-                                          <SelectItem value="delivered">Delivered</SelectItem>
-                                          <SelectItem value="cancelled">Cancelled</SelectItem>
-                                        </SelectContent>
-                                      </Select>
-                                    </div>
-                                    <div>
-                                      <Label htmlFor="notes">Notes (Optional)</Label>
-                                      <Textarea
-                                        id="notes"
-                                        placeholder="Add any notes about this status change..."
-                                        value={statusUpdateNotes}
-                                        onChange={(e) => setStatusUpdateNotes(e.target.value)}
-                                      />
-                                    </div>
-                                  </div>
-                                </DialogContent>
-                              </Dialog>
-                            </div>
 
                             {selectedOrder.admin_notes && (
                               <div>
@@ -281,6 +244,7 @@ export const AdminOrders = () => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Update Order Status</DialogTitle>
+            <DialogDescription>Change the status of this order and add optional notes</DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
             <div>

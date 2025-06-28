@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Check, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -40,6 +42,8 @@ const TruePrice = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
@@ -268,6 +272,8 @@ const TruePrice = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };
