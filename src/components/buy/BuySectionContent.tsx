@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ProductGallery } from './ProductGallery';
 import { EditionSelector } from './EditionSelector';
@@ -144,6 +143,7 @@ export const BuySectionContent = (props: BuySectionContentProps) => {
           customerName={props.customerName}
           customerPhone={props.customerPhone}
           selectedColor={props.selectedColor}
+          customerAddress={props.customerAddress}
           editions={props.editions}
           accessories={props.accessories}
           onOrderSubmit={props.handleOrderSubmit}
