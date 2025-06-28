@@ -41,8 +41,17 @@ export const useOrders = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setOrders(data || []);
-    } catch (err) {
+      
+      // Transform the data to match our Order interface
+      const transformedOrders: Order[] = (data || []).map(order => ({
+        ...order,
+        selected_accessories: Array.isArray(order.selected_accessories) 
+          ? order.selected_accessories as string[]
+          : []
+      }));
+      
+      setOrders(transformedOrders);
+    } catch (err: any) {
       console.error('Error fetching orders:', err);
       setError(err.message);
     } finally {
@@ -76,7 +85,7 @@ export const useOrders = () => {
 
       toast.success('Order status updated successfully');
       fetchOrders(); // Refresh orders
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error updating order:', err);
       toast.error('Failed to update order status');
     }
@@ -96,7 +105,7 @@ export const useOrders = () => {
       
       toast.success('Tracking information updated');
       fetchOrders();
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error updating tracking:', err);
       toast.error('Failed to update tracking information');
     }
