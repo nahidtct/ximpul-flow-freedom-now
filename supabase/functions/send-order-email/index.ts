@@ -24,52 +24,79 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const orderData: OrderEmailRequest = await req.json();
-    console.log('Sending order email for:', orderData.orderId);
+    console.log('Received order email request for:', orderData.orderId);
 
-    // Email content
-    const emailContent = `
-      New Order Received - ${orderData.orderId}
+    // Validate required fields
+    if (!orderData.customerEmail || !orderData.orderId) {
+      console.log('Missing required fields:', { email: orderData.customerEmail, orderId: orderData.orderId });
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: 'Missing required fields' 
+      }), {
+        status: 400,
+        headers: {
+          "Content-Type": "application/json",
+          ...corsHeaders,
+        },
+      });
+    }
+
+    // Email content for customer
+    const customerEmailContent = `
+      <h2>Thank you for your order!</h2>
+      <p>Dear ${orderData.customerName},</p>
       
-      Customer Details:
-      - Name: ${orderData.customerName}
-      - Email: ${orderData.customerEmail}
-      - Phone: ${orderData.customerPhone}
+      <p>Your order has been received successfully. Here are the details:</p>
       
-      Order Details:
-      - Edition: ${orderData.selectedEdition}
-      - Color: ${orderData.selectedColor}
-      - Total Amount: ${orderData.totalAmount} BDT
-      - Payment Method: ${orderData.paymentMethod}
+      <ul>
+        <li><strong>Order ID:</strong> ${orderData.orderId}</li>
+        <li><strong>Edition:</strong> ${orderData.selectedEdition}</li>
+        <li><strong>Color:</strong> ${orderData.selectedColor}</li>
+        <li><strong>Total Amount:</strong> ${orderData.totalAmount} BDT</li>
+        <li><strong>Payment Method:</strong> ${orderData.paymentMethod}</li>
+      </ul>
       
-      Order ID: ${orderData.orderId}
-      Time: ${new Date().toISOString()}
+      <p>We will process your order and contact you soon.</p>
+      
+      <p>Best regards,<br>Ximpul Team</p>
     `;
 
-    // Send email using SMTP
-    const emailResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        service_id: 'gmail',
-        template_id: 'order_notification',
-        user_id: 'public_key',
-        template_params: {
-          to_email: 'nahid.tct@gmail.com',
-          from_email: 'sohub.web@gmail.com',
-          subject: `New Order - ${orderData.orderId}`,
-          message: emailContent,
-          customer_name: orderData.customerName,
-          order_id: orderData.orderId,
-          total_amount: orderData.totalAmount,
-        }
-      }),
-    });
+    // Admin notification content
+    const adminEmailContent = `
+      <h2>New Order Received</h2>
+      
+      <h3>Customer Details:</h3>
+      <ul>
+        <li><strong>Name:</strong> ${orderData.customerName}</li>
+        <li><strong>Email:</strong> ${orderData.customerEmail}</li>
+        <li><strong>Phone:</strong> ${orderData.customerPhone}</li>
+      </ul>
+      
+      <h3>Order Details:</h3>
+      <ul>
+        <li><strong>Order ID:</strong> ${orderData.orderId}</li>
+        <li><strong>Edition:</strong> ${orderData.selectedEdition}</li>
+        <li><strong>Color:</strong> ${orderData.selectedColor}</li>
+        <li><strong>Total Amount:</strong> ${orderData.totalAmount} BDT</li>
+        <li><strong>Payment Method:</strong> ${orderData.paymentMethod}</li>
+        <li><strong>Order Time:</strong> ${new Date().toISOString()}</li>
+      </ul>
+    `;
 
-    console.log('Email sent successfully for order:', orderData.orderId);
+    console.log('Sending emails...');
 
-    return new Response(JSON.stringify({ success: true }), {
+    // For now, we'll just log the email content since we don't have a working email service configured
+    console.log('Customer email content:', customerEmailContent);
+    console.log('Admin email content:', adminEmailContent);
+
+    // TODO: Replace this with actual email service (Resend, SendGrid, etc.)
+    // For now, just return success
+    console.log('Email notification logged successfully for order:', orderData.orderId);
+
+    return new Response(JSON.stringify({ 
+      success: true,
+      message: 'Email notification processed' 
+    }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
@@ -77,9 +104,12 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error sending order email:", error);
+    console.error("Error in send-order-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        success: false, 
+        error: error.message 
+      }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

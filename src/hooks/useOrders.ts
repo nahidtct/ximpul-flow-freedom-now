@@ -7,7 +7,7 @@ export interface Order {
   id: string;
   customer_name: string;
   customer_phone: string;
-  customer_email: string;
+  customer_email: string | null;
   customer_address: string;
   selected_edition: string;
   selected_color: string;
@@ -37,25 +37,34 @@ export const useOrders = () => {
   const fetchOrders = async () => {
     try {
       setIsLoading(true);
+      console.log('Fetching orders from database...');
+      
       const { data, error } = await supabase
         .from('orders')
         .select('*')
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error fetching orders:', error);
+        throw error;
+      }
+      
+      console.log('Orders fetched successfully:', data?.length || 0, 'orders');
       
       const transformedOrders: Order[] = (data || []).map(order => ({
         ...order,
         selected_accessories: Array.isArray(order.selected_accessories) 
           ? order.selected_accessories as string[]
           : [],
-        payment_status: order.payment_status || 'pending'
+        payment_status: order.payment_status || 'pending',
+        customer_email: order.customer_email || null
       }));
       
       setOrders(transformedOrders);
     } catch (err: any) {
       console.error('Error fetching orders:', err);
       setError(err.message);
+      toast.error('Failed to fetch orders');
     } finally {
       setIsLoading(false);
     }
@@ -65,7 +74,8 @@ export const useOrders = () => {
     try {
       console.log('Updating order status:', { orderId, newStatus, adminId, notes });
       
-      const { error } = await supabase
+      // First, update the order
+      const { error: updateError } = await supabase
         .from('orders')
         .update({
           order_status: newStatus,
@@ -75,10 +85,15 @@ export const useOrders = () => {
         })
         .eq('id', orderId);
 
-      if (error) throw error;
+      if (updateError) {
+        console.error('Error updating order:', updateError);
+        throw updateError;
+      }
+
+      console.log('Order updated successfully');
 
       // Add to order history
-      await supabase
+      const { error: historyError } = await supabase
         .from('order_status_history')
         .insert({
           order_id: orderId,
@@ -86,6 +101,11 @@ export const useOrders = () => {
           changed_by: adminId,
           notes: notes || null
         });
+
+      if (historyError) {
+        console.error('Error creating order history:', historyError);
+        // Don't throw here, as the main update succeeded
+      }
 
       // Update the local state immediately for better UX
       setOrders(prevOrders => 
@@ -111,12 +131,14 @@ export const useOrders = () => {
       
     } catch (err: any) {
       console.error('Error updating order:', err);
-      toast.error('Failed to update order status');
+      toast.error(`Failed to update order status: ${err.message}`);
     }
   };
 
   const updateTrackingInfo = async (orderId: string, trackingNumber: string, estimatedDelivery: string) => {
     try {
+      console.log('Updating tracking info:', { orderId, trackingNumber, estimatedDelivery });
+      
       const { error } = await supabase
         .from('orders')
         .update({
@@ -125,7 +147,10 @@ export const useOrders = () => {
         })
         .eq('id', orderId);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error updating tracking:', error);
+        throw error;
+      }
       
       // Update local state immediately
       setOrders(prevOrders => 
@@ -145,7 +170,7 @@ export const useOrders = () => {
       
     } catch (err: any) {
       console.error('Error updating tracking:', err);
-      toast.error('Failed to update tracking information');
+      toast.error(`Failed to update tracking information: ${err.message}`);
     }
   };
 
