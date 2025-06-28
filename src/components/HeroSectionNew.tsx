@@ -65,7 +65,7 @@ export const HeroSectionNew = () => {
               </div>
               
               <div className="text-sm text-[#1d1f1f] font-semibold space-y-1">
-                <p>From 1,190 BDT</p>
+                <p>Available Now</p>
                 <p>FREE Delivery. World-class quality. <Link to="/trueprice" onClick={() => window.scrollTo(0, 0)} className="text-primary hover:underline">#TruePrice</Link>.</p>
               </div>
             </div>
@@ -108,7 +108,7 @@ export const HeroSectionNew = () => {
           </div>
           
           <div className="text-gray-600 text-sm font-semibold space-y-1">
-            <p>From 1,190 BDT</p>
+            <p>Available Now</p>
             <p>FREE Delivery. World-class quality. <Link to="/trueprice" onClick={() => window.scrollTo(0, 0)} className="text-primary hover:underline">#TruePrice</Link>.</p>
           </div>
         </div>

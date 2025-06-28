@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -20,6 +19,7 @@ export const AdminOrders = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusUpdateNotes, setStatusUpdateNotes] = useState('');
   const [isStatusDialogOpen, setIsStatusDialogOpen] = useState(false);
+  const [pendingStatusUpdate, setPendingStatusUpdate] = useState<{orderId: string, newStatus: string} | null>(null);
 
   // Filter orders based on status and search term
   const filteredOrders = orders.filter(order => {
@@ -30,11 +30,17 @@ export const AdminOrders = () => {
     return matchesStatus && matchesSearch;
   });
 
-  const handleStatusUpdate = async (orderId: string, newStatus: string) => {
-    if (adminUser) {
-      await updateOrderStatus(orderId, newStatus, adminUser.id, statusUpdateNotes);
+  const handleStatusChange = (orderId: string, newStatus: string) => {
+    setPendingStatusUpdate({ orderId, newStatus });
+    setIsStatusDialogOpen(true);
+  };
+
+  const confirmStatusUpdate = async () => {
+    if (adminUser && pendingStatusUpdate) {
+      await updateOrderStatus(pendingStatusUpdate.orderId, pendingStatusUpdate.newStatus, adminUser.id, statusUpdateNotes);
       setStatusUpdateNotes('');
       setIsStatusDialogOpen(false);
+      setPendingStatusUpdate(null);
     }
   };
 
@@ -157,6 +163,19 @@ export const AdminOrders = () => {
                         <p><span className="font-medium">Date:</span> {new Date(order.created_at).toLocaleDateString()}</p>
                       </div>
                     </div>
+                    <div className="mt-3">
+                      <Select onValueChange={(value) => handleStatusChange(order.id, value)}>
+                        <SelectTrigger className="w-48">
+                          <SelectValue placeholder="Change Status" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="processing">Processing</SelectItem>
+                          <SelectItem value="shipped">Shipped</SelectItem>
+                          <SelectItem value="delivered">Delivered</SelectItem>
+                          <SelectItem value="cancelled">Cancelled</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
                   <div className="flex gap-2">
                     <Dialog>
@@ -213,7 +232,7 @@ export const AdminOrders = () => {
                                   <div className="space-y-4">
                                     <div>
                                       <Label htmlFor="status">New Status</Label>
-                                      <Select onValueChange={(value) => handleStatusUpdate(selectedOrder.id, value)}>
+                                      <Select onValueChange={(value) => handleStatusChange(selectedOrder.id, value)}>
                                         <SelectTrigger>
                                           <SelectValue placeholder="Select new status" />
                                         </SelectTrigger>
@@ -256,6 +275,33 @@ export const AdminOrders = () => {
           </div>
         </CardContent>
       </Card>
+
+      {/* Status Update Dialog */}
+      <Dialog open={isStatusDialogOpen} onOpenChange={setIsStatusDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Update Order Status</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <Label>New Status: {pendingStatusUpdate?.newStatus}</Label>
+            </div>
+            <div>
+              <Label htmlFor="notes">Notes (Optional)</Label>
+              <Textarea
+                id="notes"
+                placeholder="Add any notes about this status change..."
+                value={statusUpdateNotes}
+                onChange={(e) => setStatusUpdateNotes(e.target.value)}
+              />
+            </div>
+            <div className="flex gap-2">
+              <Button onClick={confirmStatusUpdate}>Confirm Update</Button>
+              <Button variant="outline" onClick={() => setIsStatusDialogOpen(false)}>Cancel</Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
