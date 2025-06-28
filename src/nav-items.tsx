@@ -1,10 +1,16 @@
 
-import { HomeIcon, InfoIcon, ShoppingCartIcon, PhoneIcon, HelpCircleIcon } from "lucide-react";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Shop from "./pages/Shop";
-import Contact from "./pages/Contact";
-import FAQ from "./pages/FAQ";
+import { HomeIcon, Package, HelpCircle, Phone, Info, FileText, DollarSign } from "lucide-react";
+import Index from "./pages/Index.tsx";
+import Specs from "./pages/Specs.tsx";
+import FAQ from "./pages/FAQ.tsx";
+import Contact from "./pages/Contact.tsx";
+import About from "./pages/About.tsx";
+import TruePrice from "./pages/TruePrice.tsx";
+import ThankYou from "./pages/ThankYou.tsx";
+import TermsPrivacy from "./pages/TermsPrivacy.tsx";
+import PaymentSuccess from "./pages/PaymentSuccess.tsx";
+import PaymentFailed from "./pages/PaymentFailed.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
 export const navItems = [
   {
@@ -14,27 +20,63 @@ export const navItems = [
     page: <Index />,
   },
   {
-    title: "About",
-    to: "/about",
-    icon: <InfoIcon className="h-4 w-4" />,
-    page: <About />,
+    title: "Specs",
+    to: "/specs",
+    icon: <Package className="h-4 w-4" />,
+    page: <Specs />,
   },
   {
-    title: "Shop",
-    to: "/shop", 
-    icon: <ShoppingCartIcon className="h-4 w-4" />,
-    page: <Shop />,
-  },
-  {
-    title: "Contact",
-    to: "/contact",
-    icon: <PhoneIcon className="h-4 w-4" />,
-    page: <Contact />,
+    title: "TruePrice",
+    to: "/trueprice",
+    icon: <DollarSign className="h-4 w-4" />,
+    page: <TruePrice />,
   },
   {
     title: "FAQ",
     to: "/faq",
-    icon: <HelpCircleIcon className="h-4 w-4" />,
+    icon: <HelpCircle className="h-4 w-4" />,
     page: <FAQ />,
+  },
+  {
+    title: "Contact",
+    to: "/contact",
+    icon: <Phone className="h-4 w-4" />,
+    page: <Contact />,
+  },
+  {
+    title: "About",
+    to: "/about",
+    icon: <Info className="h-4 w-4" />,
+    page: <About />,
+  },
+  {
+    title: "Thank You",
+    to: "/thank-you",
+    icon: <FileText className="h-4 w-4" />,
+    page: <ThankYou />,
+  },
+  {
+    title: "Terms & Privacy",
+    to: "/terms-privacy",
+    icon: <FileText className="h-4 w-4" />,
+    page: <TermsPrivacy />,
+  },
+  {
+    title: "Payment Success",
+    to: "/payment-success",
+    icon: <FileText className="h-4 w-4" />,
+    page: <PaymentSuccess />,
+  },
+  {
+    title: "Payment Failed",
+    to: "/payment-failed",
+    icon: <FileText className="h-4 w-4" />,
+    page: <PaymentFailed />,
+  },
+  {
+    title: "Not Found",
+    to: "*",
+    icon: <FileText className="h-4 w-4" />,
+    page: <NotFound />,
   },
 ];
