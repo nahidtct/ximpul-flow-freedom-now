@@ -52,9 +52,12 @@ const Specs = () => {
       <main className="pt-16">
         <div className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            {/* Animated Underline Text for title */}
             <div className="lg:text-3xl xl:text-4xl text-[#1d1d1f] mb-3 font-semibold text-3xl py-[10px]">
-              <AnimatedText text="Ximpul Flow" textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" underlineClassName="w-full text-primary" />
+              <AnimatedText 
+                text="Ximpul Flow" 
+                textClassName="lg:text-3xl xl:text-4xl text-[#1d1d1f] font-semibold text-3xl" 
+                underlineClassName="w-full text-primary" 
+              />
             </div>
 
             <h2 className="lg:text-[2.43rem] xl:text-[2.916rem] font-semibold leading-tight tracking-tight apple-gradient-text mb-6 text-[2.916rem]" style={{ lineHeight: 1.09 }}>
@@ -62,13 +65,22 @@ const Specs = () => {
             </h2>
           </div>
         </div>
+        
         <div className="flex flex-col items-center bg-white">
           {images.map((src, index) => (
-            <img key={index} src={src} alt={`Spec image ${index + 1}`} className="w-full max-w-5xl" />
+            <img 
+              key={index} 
+              src={src} 
+              alt={`Spec image ${index + 1}`} 
+              className="w-full max-w-5xl"
+              onError={(e) => {
+                console.log(`Failed to load image: ${src}`);
+                e.currentTarget.style.display = 'none';
+              }}
+            />
           ))}
         </div>
         
-        {/* CTA Section */}
         <div className="bg-white py-16 text-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <RainbowButton onClick={scrollToBuy}>

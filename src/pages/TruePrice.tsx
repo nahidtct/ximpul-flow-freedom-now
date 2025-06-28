@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,21 @@ const TruePrice = () => {
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
+
+  useEffect(() => {
+    // Update page title and meta description
+    document.title = "#TruePrice - Ximpul's Transparent Pricing Philosophy";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Discover #TruePrice - Ximpul\'s transparent pricing philosophy. World-class quality without brand tax. Premium products at honest prices for Bangladesh.');
+    }
+    
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', 'https://ximpul.com/trueprice');
+    }
+  }, []);
 
   const faqs = [
     {
