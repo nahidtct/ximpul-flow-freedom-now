@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Thermometer, Shield, Droplets, Zap, Recycle } from 'lucide-react';
@@ -31,7 +30,7 @@ export const ProductShowcase = () => {
     edition: 'Base Edition',
     emotionalTitle: 'Minimal. Everyday essential.',
     images: {
-      'graphite-gray': '/lovable-uploads/eaa1a148-5371-4701-8c74-ebc7f19de062.png',
+      'graphite-gray': '/lovable-uploads/76e638c0-1db2-4fca-96f9-1e2e3b30e36b.png',
       'obsidian-black': '/lovable-uploads/579120fc-bea9-4c7d-9c48-bae9573f46f2.png'
     },
     description: 'The next evolution of hydration and freedom.',
