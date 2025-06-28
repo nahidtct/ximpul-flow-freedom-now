@@ -63,6 +63,8 @@ export const useOrders = () => {
 
   const updateOrderStatus = async (orderId: string, newStatus: string, adminId: string, notes?: string) => {
     try {
+      console.log('Updating order status:', { orderId, newStatus, adminId, notes });
+      
       const { error } = await supabase
         .from('orders')
         .update({
@@ -85,8 +87,28 @@ export const useOrders = () => {
           notes: notes || null
         });
 
+      // Update the local state immediately for better UX
+      setOrders(prevOrders => 
+        prevOrders.map(order => 
+          order.id === orderId 
+            ? { 
+                ...order, 
+                order_status: newStatus, 
+                processed_by: adminId,
+                processed_at: new Date().toISOString(),
+                admin_notes: notes || null
+              }
+            : order
+        )
+      );
+
       toast.success('Order status updated successfully');
-      fetchOrders(); // Refresh orders
+      
+      // Also refresh from server to ensure data consistency
+      setTimeout(() => {
+        fetchOrders();
+      }, 100);
+      
     } catch (err: any) {
       console.error('Error updating order:', err);
       toast.error('Failed to update order status');
@@ -105,8 +127,22 @@ export const useOrders = () => {
 
       if (error) throw error;
       
+      // Update local state immediately
+      setOrders(prevOrders => 
+        prevOrders.map(order => 
+          order.id === orderId 
+            ? { ...order, tracking_number: trackingNumber, estimated_delivery: estimatedDelivery }
+            : order
+        )
+      );
+      
       toast.success('Tracking information updated');
-      fetchOrders();
+      
+      // Refresh from server
+      setTimeout(() => {
+        fetchOrders();
+      }, 100);
+      
     } catch (err: any) {
       console.error('Error updating tracking:', err);
       toast.error('Failed to update tracking information');
