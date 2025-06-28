@@ -69,6 +69,39 @@ export type Database = {
         }
         Relationships: []
       }
+      contacts: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          message: string
+          name: string
+          status: string | null
+          subject: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          message: string
+          name: string
+          status?: string | null
+          subject: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          status?: string | null
+          subject?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       order_status_history: {
         Row: {
           changed_by: string | null
@@ -128,6 +161,8 @@ export type Database = {
           id: string
           order_status: string | null
           payment_method: string
+          payment_status: string | null
+          payment_transaction_id: string | null
           processed_at: string | null
           processed_by: string | null
           selected_accessories: Json | null
@@ -151,6 +186,8 @@ export type Database = {
           id?: string
           order_status?: string | null
           payment_method: string
+          payment_status?: string | null
+          payment_transaction_id?: string | null
           processed_at?: string | null
           processed_by?: string | null
           selected_accessories?: Json | null
@@ -174,6 +211,8 @@ export type Database = {
           id?: string
           order_status?: string | null
           payment_method?: string
+          payment_status?: string | null
+          payment_transaction_id?: string | null
           processed_at?: string | null
           processed_by?: string | null
           selected_accessories?: Json | null

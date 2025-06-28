@@ -14,6 +14,8 @@ export interface Order {
   selected_accessories: string[];
   engraving_text: string | null;
   payment_method: string;
+  payment_status: string;
+  payment_transaction_id: string | null;
   subtotal: number;
   delivery_fee: number;
   total_amount: number;
@@ -42,12 +44,12 @@ export const useOrders = () => {
 
       if (error) throw error;
       
-      // Transform the data to match our Order interface
       const transformedOrders: Order[] = (data || []).map(order => ({
         ...order,
         selected_accessories: Array.isArray(order.selected_accessories) 
           ? order.selected_accessories as string[]
-          : []
+          : [],
+        payment_status: order.payment_status || 'pending'
       }));
       
       setOrders(transformedOrders);
