@@ -1,10 +1,10 @@
 
 import { HomeIcon, InfoIcon, ShoppingCartIcon, PhoneIcon, HelpCircleIcon } from "lucide-react";
-import { Index } from "./pages/Index";
-import { About } from "./pages/About";
-import { Shop } from "./pages/Shop";
-import { Contact } from "./pages/Contact";
-import { FAQ } from "./pages/FAQ";
+import Index from "./pages/Index";
+import About from "./pages/About";
+import Shop from "./pages/Shop";
+import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 
 export const navItems = [
   {
