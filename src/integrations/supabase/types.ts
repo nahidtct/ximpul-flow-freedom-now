@@ -152,7 +152,7 @@ export type Database = {
           admin_notes: string | null
           created_at: string | null
           customer_address: string
-          customer_email: string
+          customer_email: string | null
           customer_name: string
           customer_phone: string
           delivery_fee: number | null
@@ -177,7 +177,7 @@ export type Database = {
           admin_notes?: string | null
           created_at?: string | null
           customer_address: string
-          customer_email: string
+          customer_email?: string | null
           customer_name: string
           customer_phone: string
           delivery_fee?: number | null
@@ -202,7 +202,7 @@ export type Database = {
           admin_notes?: string | null
           created_at?: string | null
           customer_address?: string
-          customer_email?: string
+          customer_email?: string | null
           customer_name?: string
           customer_phone?: string
           delivery_fee?: number | null
