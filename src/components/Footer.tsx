@@ -1,12 +1,13 @@
-
 import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { RainbowButton } from '@/components/ui/rainbow-button';
+import { useSiteSettings } from '@/hooks/useSiteSettings';
+import { TikTokIcon } from './ui/TikTokIcon';
 
 export const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { getSetting } = useSiteSettings();
   
   const scrollToSection = (sectionId: string) => {
     // If we're already on the home page, just scroll
@@ -101,14 +102,37 @@ export const Footer = () => {
           <div className="text-center md:text-right">
             <h4 className="font-semibold text-foreground mb-4">Connect</h4>
             <div className="flex justify-center md:justify-end space-x-4 mb-4">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a 
+                href={getSetting('social_instagram_url') || '#'} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a 
+                href={getSetting('social_facebook_url') || '#'} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a 
+                href={getSetting('social_youtube_url') || '#'} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <Youtube className="w-5 h-5" />
+              </a>
+              <a 
+                href={getSetting('social_tiktok_url') || '#'} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <TikTokIcon className="w-5 h-5" />
               </a>
             </div>
             <p className="text-sm text-muted-foreground">Follow us for updates</p>
