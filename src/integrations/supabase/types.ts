@@ -36,62 +36,163 @@ export type Database = {
         }
         Relationships: []
       }
-      orders: {
+      admin_users: {
         Row: {
           created_at: string | null
+          email: string
+          id: string
+          is_active: boolean | null
+          name: string
+          password_hash: string
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          is_active?: boolean | null
+          name: string
+          password_hash: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          password_hash?: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      order_status_history: {
+        Row: {
+          changed_by: string | null
+          created_at: string | null
+          id: string
+          new_status: string
+          notes: string | null
+          old_status: string | null
+          order_id: string
+        }
+        Insert: {
+          changed_by?: string | null
+          created_at?: string | null
+          id?: string
+          new_status: string
+          notes?: string | null
+          old_status?: string | null
+          order_id: string
+        }
+        Update: {
+          changed_by?: string | null
+          created_at?: string | null
+          id?: string
+          new_status?: string
+          notes?: string | null
+          old_status?: string | null
+          order_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_status_history_changed_by_fkey"
+            columns: ["changed_by"]
+            isOneToOne: false
+            referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_status_history_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          admin_notes: string | null
+          created_at: string | null
           customer_address: string
-          customer_email: string | null
+          customer_email: string
           customer_name: string
           customer_phone: string
           delivery_fee: number | null
           engraving_text: string | null
+          estimated_delivery: string | null
           id: string
           order_status: string | null
           payment_method: string
+          processed_at: string | null
+          processed_by: string | null
           selected_accessories: Json | null
           selected_color: string
           selected_edition: string
           subtotal: number
           total_amount: number
+          tracking_number: string | null
           updated_at: string | null
         }
         Insert: {
+          admin_notes?: string | null
           created_at?: string | null
           customer_address: string
-          customer_email?: string | null
+          customer_email: string
           customer_name: string
           customer_phone: string
           delivery_fee?: number | null
           engraving_text?: string | null
+          estimated_delivery?: string | null
           id?: string
           order_status?: string | null
           payment_method: string
+          processed_at?: string | null
+          processed_by?: string | null
           selected_accessories?: Json | null
           selected_color: string
           selected_edition: string
           subtotal: number
           total_amount: number
+          tracking_number?: string | null
           updated_at?: string | null
         }
         Update: {
+          admin_notes?: string | null
           created_at?: string | null
           customer_address?: string
-          customer_email?: string | null
+          customer_email?: string
           customer_name?: string
           customer_phone?: string
           delivery_fee?: number | null
           engraving_text?: string | null
+          estimated_delivery?: string | null
           id?: string
           order_status?: string | null
           payment_method?: string
+          processed_at?: string | null
+          processed_by?: string | null
           selected_accessories?: Json | null
           selected_color?: string
           selected_edition?: string
           subtotal?: number
           total_amount?: number
+          tracking_number?: string | null
           updated_at?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "fk_orders_processed_by"
+            columns: ["processed_by"]
+            isOneToOne: false
+            referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       products: {
         Row: {
